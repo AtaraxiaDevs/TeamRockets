@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Serializable]
 public class Coche : MonoBehaviour
 {
     // Start is called before the first frame update
     Vector3 []posiciones;
-    public LineRenderer linea;
+    private LineRenderer linea;
     private bool iniciado = false;
     private int currentpoint = 0;
     private float epsilon = 0.05f;
@@ -22,7 +23,8 @@ public class Coche : MonoBehaviour
     private float aceleracion = 0.0001f;
     void Start()
     {
-       
+        linea = GetComponentInParent<LineRenderer>();
+        //init();
     }
     public void init()
     {
@@ -33,7 +35,30 @@ public class Coche : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            if (speed < maxSpeed)
+            {
+                timePulsado += aceleracion;
+                speed += Mathf.Abs(timePulsado);
+                ;
+            }
+
+
+        }
+        else
+        {
+            if (speed > minSpeed)
+            {
+                timePulsado -= aceleracion;
+                speed -= Mathf.Abs(timePulsado);
+
+            }
+        }
+    }
+    void FixedUpdate()
     {
         if (iniciado)
         {
@@ -50,30 +75,11 @@ public class Coche : MonoBehaviour
                 }
                 else
                 {
-                    transform.rotation = Quaternion.LookRotation(transform.position, posiciones[currentpoint]);
+                    transform.rotation = Quaternion.LookRotation(transform.position, posiciones[currentpoint-1]);
                 }
             }
         }
-        if (Input.GetMouseButton(1))
-        {
-            if (speed < maxSpeed)
-            {
-                timePulsado += aceleracion;
-                speed += Mathf.Abs(timePulsado);
-              ;
-            }
-            
-
-        }
-        else
-        {
-            if (speed > minSpeed)
-            {
-                timePulsado -= aceleracion;
-                speed -=Mathf.Abs( timePulsado);
-                Debug.Log(maxSpeed);
-            }
-        }
+        
         //if (Input.GetMouseButtonDown(1))
         //{
         //    timePulsado = 0;

@@ -1,71 +1,145 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class ObjectCircuito
+{
+    public GameObject circuito;
+}
+[Serializable]
 public class Circuito : MonoBehaviour
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
     // Start is called before the first frame update
-    public Modulo[] modulos;
-    public LineRenderer circuito;
-    private int vertexcont = 0;
-    public Coche prueba;
+    private List<Modulo> modulos;
+    //private List<GameObject> gameObjectModulo;
+    private LineRenderer[] circuito;
+    private static int maxPilotos = 4;
+    private int[] vertexcont= new int[maxPilotos];
+    public Coche[] pilotos;
     public Transform prefabCircuito;
     public GameObject gameObjectCircuito;
+    public bool modoEditor;
     void Start()
     {
-        circuito = new LineRenderer();
-   
-      
-        Transform mytmp = Instantiate(prefabCircuito, transform);
-        prueba = mytmp.GetComponentInChildren<Coche>();
+        if (modoEditor)
+        {
+            modulos = new List<Modulo>();
+            circuito = new LineRenderer[maxPilotos];
+            pilotos = new Coche[maxPilotos];
+            for (int i = 0; i < maxPilotos; i++)
+            {
+                Transform mytmp = Instantiate(prefabCircuito, transform);
+                pilotos[i] = mytmp.GetComponentInChildren<Coche>();
 
-        circuito = mytmp.GetComponent<LineRenderer>();
-        vertexcont = 0;
-     construir();
+                circuito[i] = mytmp.GetComponent<LineRenderer>();
+            }
+            for (int i = 0; i < maxPilotos; i++)
+            {
+                vertexcont[i] = 0;
+            }
+        }
+        
+       
+     //construir();
     }
+    public void IniciarCarrera()
+    {
+        for (int i = 0; i < maxPilotos; i++)
+        {
+            pilotos[i].init();
+        }
+    }
+    public void SetInteractuable(bool value)
+    {
+        foreach (Modulo m in modulos)
+        {
+            m.interactuable = value;
+        }
+    }
+    public void AddModulo(Modulo m)
+    {
+        modulos.Add(m);
+    }
+    public void RemoveModulo(Modulo m)
+    {
+        modulos.Remove(m);
+    }
+    public bool CircuitoListo()
+    {
+        foreach(Modulo m in modulos)
+        {
+            if (m.QuedaHueco())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool buenaDireccion(Vector3 posModulo, LineRenderer lineProxModulo,Transform t)
+    {
+        float distance1 = Mathf.Abs(Vector3.Distance( posModulo , t.TransformPoint(lineProxModulo.GetPosition(0))));
+        float distance2 = Mathf.Abs(Vector3.Distance(posModulo, t.TransformPoint(lineProxModulo.GetPosition(lineProxModulo.positionCount-1))));
+        Debug.Log("Distancia1 " + distance1);
+        Debug.Log("Distancia2 " + distance2);
+        return distance2 > distance1;
+
+    }
+  
     public void construir()
     {
-
-        foreach (Modulo m in modulos)
+        
+        modulos.Sort(new ComparadorModulo());
+        for (int h = 0; h < modulos.Count; h++)
         {
-            Vector3[] pos = new Vector3[m.path.positionCount];
-            m.path.GetPositions(pos);
-            Transform t = m.path.transform;
-            for(int i=m.path.positionCount-1; i >= 0; i--)
-            {
-                Vector3 point = t.TransformPoint(pos[i]);
-                circuito.SetVertexCount(++vertexcont);
-                circuito.SetPosition(vertexcont - 1, point);
-            }
-            //    foreach (Vector3 p in pos)
-            //    {
-            //        Vector3 point = t.TransformPoint(p);
-            //        circuito.SetVertexCount(++vertexcont);
-            //        circuito.SetPosition(vertexcont - 1, point);
-            //    }
-        }
-        // StartCoroutine(pruebaI());
+            modulos[h].transform.parent = this.transform;
 
-        prueba.init();
-    }
-    IEnumerator pruebaI()
-    {
-        foreach (Modulo m in modulos)
-        {
-            Vector3[] pos = new Vector3[m.path.positionCount];
-            m.path.GetPositions(pos);
-            Transform t = m.transform;
-            foreach (Vector3 p in pos)
+            for (int j = 0; j < maxPilotos; j++)
             {
-                Vector3 point = t.TransformPoint(p);
-                circuito.SetVertexCount(++vertexcont);
-                circuito.SetPosition(vertexcont - 1, point);
-                yield return new WaitForSeconds(1);
+                
+                Transform t = modulos[h].path[j].transform;
+                if (h != 0 && buenaDireccion(modulos[h - 1].transform.position, modulos[h].path[j],modulos[h].transform))
+                {
+                    Vector3[] pos = new Vector3[modulos[h].path[j].positionCount];
+                    modulos[h].path[j].GetPositions(pos);
+                    Debug.Log("Buena direccion");
+                    for (int i = 0; i < modulos[h].path[j].positionCount - 1; i++)
+                    {
+                         Vector3 point = t.TransformPoint(pos[i]);
+                        circuito[j].SetVertexCount(++vertexcont[j]);
+                        circuito[j].SetPosition(vertexcont[j] - 1, point);
+                    }
+                }
+                else
+                {
+                    Vector3[] pos = new Vector3[modulos[h].path[maxPilotos-1-j].positionCount];
+                    modulos[h].path[maxPilotos - 1 - j].GetPositions(pos);
+                    Debug.Log("Mala direccion");
+                    for (int i = modulos[h].path[maxPilotos - 1 - j].positionCount - 1; i >= 0; i--)
+                    {
+                        Vector3 point = t.TransformPoint(pos[i]);
+                        circuito[j].SetVertexCount(++vertexcont[j]);
+                        circuito[j].SetPosition(vertexcont[j] - 1, point);
+}
+                }
+              
             }
+          
         }
+
+        for (int i = 0; i < maxPilotos; i++)
+        {
+            circuito[i].SetVertexCount(circuito[i].positionCount + 1);
+            circuito[i].SetPosition(circuito[i].positionCount - 1, circuito[i].GetPosition(0));
+        }
+       
+
+
     }
-    // Update is called once per frame
+  
     void Update()
     {
         
