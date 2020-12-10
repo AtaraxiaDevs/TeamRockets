@@ -48,7 +48,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b490fde0045289942bce8843fa95c4b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,7 +179,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 315a749dbad5a4342a9bad667302f4d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,7 +310,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1ef5aa1f1e0b29344a8b9630db2542a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -441,7 +441,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 360314b4b9df1c642af7ae4f7419e173, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -636,6 +636,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabSocket: {fileID: 4076134652084793688, guid: 84ba897aef638f84ea154151bc5c5cef,
     type: 3}
+  vecino1:
+    tipo: 0
+    attach: {fileID: 0}
+  vecino2:
+    tipo: 0
+    attach: {fileID: 0}
   socket1: 2
   socket2: 3
   interactuable: 1
@@ -650,6 +656,7 @@ MonoBehaviour:
   socketNegX: {x: 0, y: 0, z: 0}
   socketNegZ: {x: 0, y: 0, z: 0}
   sizeModulo: 0
+  reverse: 0
 --- !u!54 &9026503651901435878
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class Coche : MonoBehaviour
 
     private float timePulsado = 0;
     private float aceleracion = 0.0001f;
+    public int ID;
     void Start()
     {
         linea = GetComponentInParent<LineRenderer>();

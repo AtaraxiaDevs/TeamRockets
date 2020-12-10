@@ -93,11 +93,6 @@ public class SocketPos : MonoBehaviour
   
    
  
-    //private void OnCollisionExit(Collider other)
-    //{
-
-    //}
-    // Update is called once per frame
     void Update()
     {
         

@@ -49,8 +49,7 @@ public class Modulo : MonoBehaviour
     public float sizeModulo;
      private int ID=-1;
 
-    
-
+    public bool reverse = false;
    private bool soltado = false;
     void Awake()
     {
@@ -210,6 +209,7 @@ public class Modulo : MonoBehaviour
             liberar();
         }
      
+        //modo seleccionar primero boolean
         uiManager.current = this;
     }
     //public void OnDrag(PointerEventData eventData)
@@ -329,7 +329,7 @@ public class Modulo : MonoBehaviour
     public void soyPrimero()
     {
         ID = 0;
-        vecino1.attach.NumerarSiguiente(this,1);
+        vecino2.attach.NumerarSiguiente(this,1);
     }
     public void NumerarSiguiente(Modulo s, int id)
     {
@@ -344,6 +344,7 @@ public class Modulo : MonoBehaviour
             }
             else
             {
+                reverse = true;// es decir, está al revés de como debería
                 vecino1.attach.NumerarSiguiente(this, id + 1);
             }
         }

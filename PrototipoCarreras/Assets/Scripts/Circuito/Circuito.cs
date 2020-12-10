@@ -33,7 +33,7 @@ public class Circuito : MonoBehaviour
             {
                 Transform mytmp = Instantiate(prefabCircuito, transform);
                 pilotos[i] = mytmp.GetComponentInChildren<Coche>();
-
+                pilotos[i].ID = i;
                 circuito[i] = mytmp.GetComponent<LineRenderer>();
             }
             for (int i = 0; i < maxPilotos; i++)
@@ -100,13 +100,26 @@ public class Circuito : MonoBehaviour
             for (int j = 0; j < maxPilotos; j++)
             {
                 
-                Transform t = modulos[h].path[j].transform;
-                if (h != 0 && buenaDireccion(modulos[h - 1].transform.position, modulos[h].path[j],modulos[h].transform))
+              
+                int posicionPath;
+                if (modulos[h].reverse){
+                    posicionPath = maxPilotos - 1 - j;
+                   
+                }
+                else
                 {
-                    Vector3[] pos = new Vector3[modulos[h].path[j].positionCount];
-                    modulos[h].path[j].GetPositions(pos);
+                    posicionPath = j;
+                }
+                LineRenderer path = modulos[h].path[posicionPath];
+                Transform t = path.transform;
+                if (h != 0 && buenaDireccion(modulos[h - 1].transform.position, path,modulos[h].transform))
+                {
+                   
+                    
+                    Vector3[] pos = new Vector3[path.positionCount];
+                    path.GetPositions(pos);
                     Debug.Log("Buena direccion");
-                    for (int i = 0; i < modulos[h].path[j].positionCount - 1; i++)
+                    for (int i = 0; i < path.positionCount - 1; i++)
                     {
                          Vector3 point = t.TransformPoint(pos[i]);
                         circuito[j].SetVertexCount(++vertexcont[j]);
@@ -115,16 +128,20 @@ public class Circuito : MonoBehaviour
                 }
                 else
                 {
-                    Vector3[] pos = new Vector3[modulos[h].path[maxPilotos-1-j].positionCount];
-                    modulos[h].path[maxPilotos - 1 - j].GetPositions(pos);
+               
+              
+                     
+                  
+                    Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
+                    modulos[h].path[posicionPath].GetPositions(pos);
                     Debug.Log("Mala direccion");
-                    for (int i = modulos[h].path[maxPilotos - 1 - j].positionCount - 1; i >= 0; i--)
+                    for (int i = modulos[h].path[posicionPath].positionCount - 1; i >= 0; i--)
                     {
                         Vector3 point = t.TransformPoint(pos[i]);
                         circuito[j].SetVertexCount(++vertexcont[j]);
                         circuito[j].SetPosition(vertexcont[j] - 1, point);
 }
-                }
+                    }
               
             }
           

@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163938896}
   m_LocalRotation: {x: 0.24470472, y: -0, z: -0, w: 0.9695977}
-  m_LocalPosition: {x: 15, y: 15.5, z: 26.4}
+  m_LocalPosition: {x: 0.43, y: 15.5, z: 26.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCarrera: {fileID: 724047701}
   stopCarrera: {fileID: 1623022306}
-  circuito: {fileID: 1054478740}
+  circuito: {fileID: 1869173507}
 --- !u!4 &889946223
 Transform:
   m_ObjectHideFlags: 0
@@ -366,6 +366,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &947665980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8765101220867466148, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_Name
+      value: CircuitoController 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -67.4892
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -60.655296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.2746315
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466150, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765101220867466151, guid: cd86d25739c23c2469ce624f70c56129,
+        type: 3}
+      propertyPath: modoEditor
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd86d25739c23c2469ce624f70c56129, type: 3}
 --- !u!1 &1009938800
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,18 +531,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1054478740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3787034744938023702, guid: 9a8856e403e745640809555c04ca4ef3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1739847204}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b64476ba9173624f9763d253fd0090a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1548691635
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +825,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircuitoController
       objectReference: {fileID: 0}
+    - target: {fileID: 3787034744938023701, guid: 9a8856e403e745640809555c04ca4ef3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3787034744938023703, guid: 9a8856e403e745640809555c04ca4ef3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,3 +967,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839387751}
   m_CullTransparentMesh: 0
+--- !u!114 &1869173507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8765101220867466151, guid: cd86d25739c23c2469ce624f70c56129,
+    type: 3}
+  m_PrefabInstance: {fileID: 947665980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b64476ba9173624f9763d253fd0090a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
