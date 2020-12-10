@@ -57,19 +57,19 @@ public class Modulo : MonoBehaviour
         {
 
        
-        ancla1 = null;
-        ancla2 = null;
-        uiManager = FindObjectOfType<UIManagerEditor>();
-        vecino1 = new Vecino();
-        vecino2 = new Vecino();
-        vecino1.tipo = socket1;
-        vecino2.tipo = socket2;
-        sizeModulo = GetComponent<MeshRenderer>().bounds.size.x;
-        socketPosX=new Vector3(transform.position.x+sizeModulo/2,transform.position.y,transform.position.z);
+            ancla1 = null;
+            ancla2 = null;
+            uiManager = FindObjectOfType<UIManagerEditor>();
+            vecino1 = new Vecino();
+            vecino2 = new Vecino();
+            vecino1.tipo = socket1;
+            vecino2.tipo = socket2;
+            sizeModulo = GetComponent<MeshRenderer>().bounds.size.x;
+            socketPosX=new Vector3(transform.position.x+sizeModulo/2,transform.position.y,transform.position.z);
      
-        socketNegX = new Vector3(transform.position.x - sizeModulo / 2, transform.position.y, transform.position.z);
-        socketPosZ = new Vector3(transform.position.x , transform.position.y, transform.position.z + sizeModulo / 2);
-        socketNegZ = new Vector3(transform.position.x , transform.position.y, transform.position.z - sizeModulo / 2);
+            socketNegX = new Vector3(transform.position.x - sizeModulo / 2, transform.position.y, transform.position.z);
+            socketPosZ = new Vector3(transform.position.x , transform.position.y, transform.position.z + sizeModulo / 2);
+            socketNegZ = new Vector3(transform.position.x , transform.position.y, transform.position.z - sizeModulo / 2);
      
       
         switch (socket1)
@@ -150,6 +150,7 @@ public class Modulo : MonoBehaviour
     }
     public void Rotar()
     {
+        liberar();
         transform.Rotate(0, 90, 0);
         switch (socket1)
         {
@@ -207,23 +208,13 @@ public class Modulo : MonoBehaviour
         if (interactuable)
         {
             liberar();
+            uiManager.current = this;
         }
      
         //modo seleccionar primero boolean
-        uiManager.current = this;
+      
     }
-    //public void OnDrag(PointerEventData eventData)
-    //{
-    //    Plane plane = new Plane(Vector3.up, -0.5f);
-    //    Ray ray = Camera.main.ScreenPointToRay(eventData.position);
-    //    float enter;
-    //    if (plane.Raycast(ray, out enter))
-    //    {
-    //        Vector3 rayPoint = ray.GetPoint(enter);
-    //        transform.position = rayPoint;
-    //    }
-    //}
-
+  
     private void OnMouseDrag()
     {
        
@@ -231,20 +222,19 @@ public class Modulo : MonoBehaviour
         if (interactuable)
         {
             soltado = false;
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+            Vector3 inputMouse = Input.mousePosition;
+            Debug.Log(Camera.main.pixelWidth);
+            if (inputMouse.x > 0 && inputMouse.y > 0 && inputMouse.x<Camera.main.pixelWidth && inputMouse.y< Camera.main.pixelHeight)
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(inputMouse);
+                transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+            }
+           
         }
            
         
     }
-    //private void OnMouseUp()
-    //{
-    //    if (interactuable)
-    //    {
-    //        soltado = true;
-    //    }
-        
-    //}
+    
   
     private void OnTriggerStay(Collider other)
     {

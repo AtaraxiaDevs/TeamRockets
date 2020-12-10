@@ -31,6 +31,17 @@ public class Coche : MonoBehaviour
     void Start()
     {
         linea = GetComponentInParent<LineRenderer>();
+
+        //PARA TESTEAR BORRAR LUEGO
+        stats = new InfoCoche();
+        stats.ElectricForceCurva = 0;
+        stats.ElectricForceCurva = 0;
+        stats.FinalBrake = statsBase.BaseBrake;
+        stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
+        stats.FinalMinSpeed = 2;
+        stats.FinalThrottle = statsBase.BaseThrottle;
+        
+           
     }
 
     public void Init()
@@ -45,7 +56,7 @@ public class Coche : MonoBehaviour
     {
         //Min Max
         /////////////////////////////////
-        currentAccel = GetCurrentAccel();
+        //currentAccel = GetCurrentAccel();
         /////////////////////////////////
         
         /*if (Input.GetMouseButton(1))
@@ -78,6 +89,18 @@ public class Coche : MonoBehaviour
 
         return aux;
     }
+    public void SetCurrentAccel(float value)
+    {
+
+        currentAccel = stats.FinalThrottle * value;
+        
+    }
+    public void SetCurrentBrake(float value)
+    {
+        currentAccel = stats.FinalBrake * value;
+
+       
+    }
 
     void FixedUpdate()
     {
@@ -97,6 +120,7 @@ public class Coche : MonoBehaviour
             if (HaLlegado())
             {
                 currentpoint++;
+               
                 if (currentpoint == posiciones.Length)
                 {
                     currentpoint = 0;
@@ -126,7 +150,16 @@ public class Coche : MonoBehaviour
         float fuerza = ForcesBack();
 
         currentSpeed += currentAccel + fuerza;
-        
+        Debug.Log(currentAccel);
+        if (currentSpeed < stats.FinalMinSpeed)
+        {
+            currentSpeed = stats.FinalMinSpeed;
+        }
+        else if (currentSpeed > stats.FinalMaxSpeed)
+        {
+            currentSpeed = stats.FinalMaxSpeed;
+        }
+     
         return Vector3.MoveTowards(transform.position, posiciones[currentpoint], currentSpeed * Time.deltaTime);
     }
 

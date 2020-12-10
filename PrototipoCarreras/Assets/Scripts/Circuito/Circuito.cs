@@ -17,7 +17,7 @@ public class Circuito : MonoBehaviour
     //private List<GameObject> gameObjectModulo;
     private LineRenderer[] circuito;
     private static int maxPilotos = 4;
-    private int[] vertexcont= new int[maxPilotos];
+    private int[] vertexcont = new int[maxPilotos];
     public Coche[] pilotos;
     public Transform prefabCircuito;
     public GameObject gameObjectCircuito;
@@ -41,9 +41,9 @@ public class Circuito : MonoBehaviour
                 vertexcont[i] = 0;
             }
         }
-        
-       
-     //construir();
+
+
+        //construir();
     }
     public void IniciarCarrera()
     {
@@ -69,7 +69,7 @@ public class Circuito : MonoBehaviour
     }
     public bool CircuitoListo()
     {
-        foreach(Modulo m in modulos)
+        foreach (Modulo m in modulos)
         {
             if (m.QuedaHueco())
             {
@@ -79,19 +79,19 @@ public class Circuito : MonoBehaviour
         return true;
     }
 
-    public bool buenaDireccion(Vector3 posModulo, LineRenderer lineProxModulo,Transform t)
-    {
-        float distance1 = Mathf.Abs(Vector3.Distance( posModulo , t.TransformPoint(lineProxModulo.GetPosition(0))));
-        float distance2 = Mathf.Abs(Vector3.Distance(posModulo, t.TransformPoint(lineProxModulo.GetPosition(lineProxModulo.positionCount-1))));
-        Debug.Log("Distancia1 " + distance1);
-        Debug.Log("Distancia2 " + distance2);
-        return distance2 > distance1;
+    //public bool buenaDireccion(Vector3 posModulo, LineRenderer lineProxModulo,Transform t)
+    //{
+    //    float distance1 = Mathf.Abs(Vector3.Distance( posModulo , t.TransformPoint(lineProxModulo.GetPosition(0))));
+    //    float distance2 = Mathf.Abs(Vector3.Distance(posModulo, t.TransformPoint(lineProxModulo.GetPosition(lineProxModulo.positionCount-1))));
+    //    Debug.Log("Distancia1 " + distance1);
+    //    Debug.Log("Distancia2 " + distance2);
+    //    return distance2 > distance1;
 
-    }
-  
+    //}
+
     public void construir()
     {
-        
+
         modulos.Sort(new ComparadorModulo());
         for (int h = 0; h < modulos.Count; h++)
         {
@@ -99,12 +99,13 @@ public class Circuito : MonoBehaviour
 
             for (int j = 0; j < maxPilotos; j++)
             {
-                
-              
+
+
                 int posicionPath;
-                if (modulos[h].reverse){
+                if (modulos[h].reverse)
+                {
                     posicionPath = maxPilotos - 1 - j;
-                   
+
                 }
                 else
                 {
@@ -112,26 +113,26 @@ public class Circuito : MonoBehaviour
                 }
                 LineRenderer path = modulos[h].path[posicionPath];
                 Transform t = path.transform;
-                if (h != 0 && buenaDireccion(modulos[h - 1].transform.position, path,modulos[h].transform))
+                if (modulos[h].reverse)
                 {
-                   
-                    
+
+
                     Vector3[] pos = new Vector3[path.positionCount];
                     path.GetPositions(pos);
                     Debug.Log("Buena direccion");
                     for (int i = 0; i < path.positionCount - 1; i++)
                     {
-                         Vector3 point = t.TransformPoint(pos[i]);
+                        Vector3 point = t.TransformPoint(pos[i]);
                         circuito[j].SetVertexCount(++vertexcont[j]);
                         circuito[j].SetPosition(vertexcont[j] - 1, point);
                     }
                 }
                 else
                 {
-               
-              
-                     
-                  
+
+
+
+
                     Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
                     modulos[h].path[posicionPath].GetPositions(pos);
                     Debug.Log("Mala direccion");
@@ -140,11 +141,11 @@ public class Circuito : MonoBehaviour
                         Vector3 point = t.TransformPoint(pos[i]);
                         circuito[j].SetVertexCount(++vertexcont[j]);
                         circuito[j].SetPosition(vertexcont[j] - 1, point);
-}
                     }
-              
+                }
+
             }
-          
+
         }
 
         for (int i = 0; i < maxPilotos; i++)
@@ -152,13 +153,13 @@ public class Circuito : MonoBehaviour
             circuito[i].SetVertexCount(circuito[i].positionCount + 1);
             circuito[i].SetPosition(circuito[i].positionCount - 1, circuito[i].GetPosition(0));
         }
-       
+
 
 
     }
-  
+
     void Update()
     {
-        
+
     }
 }

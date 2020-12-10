@@ -40,10 +40,10 @@ public class UIManagerEditor : MonoBehaviour
     }
     private void CrearModulo(GameObject prefab)
     {
+       //Debemos poner un punto de spawn
         Vector3 posicion = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z);
 
-
-         GameObject nuevoModulo = Instantiate(prefab,posicion,Quaternion.identity);
+        GameObject nuevoModulo = Instantiate(prefab,posicion,Quaternion.identity);
        // nuevoModulo.transform.Rotate
         circuito.AddModulo(nuevoModulo.GetComponent<Modulo>()); 
     }
