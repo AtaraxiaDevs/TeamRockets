@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class InfoCoche 
 {
- 
+    public float FinalMaxSpeed, FinalMinSpeed, FinalThrottle, FinalBrake;
+    public float ElectricForceRecta, ElectricForceCurva;
 }

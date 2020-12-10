@@ -5,49 +5,56 @@ using UnityEngine;
 [Serializable]
 public class Coche : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //References
+    public InfoCoche stats;
+    public ModeloCoche statsBase;
+    
     Vector3 []posiciones;
     private LineRenderer linea;
-    private bool iniciado = false;
+    private bool iniciado = false, esRecta, esCurva;
     private int currentpoint = 0;
     private float epsilon = 0.05f;
 
-
-
-
     public float speed = 2;
     public float minSpeed = 2;
-    private float maxSpeed = 14;
+    //private float maxSpeed = 14;
 
-    private float timePulsado = 0;
-    private float aceleracion = 0.0001f;
+    //private float timePulsado = 0;
+    //private float aceleracion = 0.0001f;
+    public float rozamiento = -0.05f;
     public int ID;
+
+    //Carrera
+    private float currentSpeed, currentAccel, currentUmbral;
+
+
     void Start()
     {
         linea = GetComponentInParent<LineRenderer>();
-        //init();
     }
-    public void init()
-    {
-            posiciones = new Vector3[linea.positionCount];
-            linea.GetPositions(posiciones);
-            iniciado = true;
-            transform.position = posiciones[0];
 
+    public void Init()
+    {
+        posiciones = new Vector3[linea.positionCount];
+        linea.GetPositions(posiciones);
+        iniciado = true;
+        transform.position = posiciones[0];
     }
-    // Update is called once per frame
+    
     private void Update()
     {
-        if (Input.GetMouseButton(1))
+        //Min Max
+        /////////////////////////////////
+        currentAccel = GetCurrentAccel();
+        /////////////////////////////////
+        
+        /*if (Input.GetMouseButton(1))
         {
             if (speed < maxSpeed)
             {
                 timePulsado += aceleracion;
                 speed += Mathf.Abs(timePulsado);
-                ;
             }
-
-
         }
         else
         {
@@ -55,15 +62,37 @@ public class Coche : MonoBehaviour
             {
                 timePulsado -= aceleracion;
                 speed -= Mathf.Abs(timePulsado);
-
             }
-        }
+        }*/
     }
+
+    public float GetCurrentAccel()
+    {
+        float aux = 0f;
+        
+        if(aux >= stats.FinalThrottle)
+            aux = stats.FinalThrottle;
+
+        if (aux <= stats.FinalBrake)
+            aux = stats.FinalBrake;
+
+        return aux;
+    }
+
     void FixedUpdate()
     {
         if (iniciado)
         {
-            transform.position = Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
+            //Logica de Movimiento
+            
+            if(currentSpeed > currentUmbral)
+            {
+                SalirCircuito();
+            }
+
+            transform.position = CalculoNuevaPosicion();
+
+            //Llegar a los Puntos
             
             if (HaLlegado())
             {
@@ -80,22 +109,49 @@ public class Coche : MonoBehaviour
                 }
             }
         }
-        
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    timePulsado = 0;
-        //}
-        
-
-
     }
+
     private bool HaLlegado()
     {
         bool x, y, z;
         
-        //x =Mathf.Approximately( transform.position.x , posiciones[currentpoint].x);
+        //x = Mathf.Approximately( transform.position.x , posiciones[currentpoint].x);
         //y = Mathf.Approximately(transform.position.y, posiciones[currentpoint].y);
         //z = Mathf.Approximately(transform.position.z , posiciones[currentpoint].z);
         return (((transform.position.x >= posiciones[currentpoint].x - epsilon) && (transform.position.x <= posiciones[currentpoint].x + epsilon)) && ((transform.position.y >= posiciones[currentpoint].y - epsilon) && (transform.position.y <= posiciones[currentpoint].y + epsilon)) && ((transform.position.z >= posiciones[currentpoint].z - epsilon) && (transform.position.z <= posiciones[currentpoint].z + epsilon)));
+    }
+
+    public Vector3 CalculoNuevaPosicion()
+    {
+        float fuerza = ForcesBack();
+
+        currentSpeed += currentAccel + fuerza;
+        
+        return Vector3.MoveTowards(transform.position, posiciones[currentpoint], currentSpeed * Time.deltaTime);
+    }
+
+    public float ForcesBack()
+    {
+        float f = 0f, ef = 0f;
+
+        if (esRecta)
+        {
+            ef = stats.ElectricForceRecta;
+        }
+        else if (esCurva)
+        {
+            ef = stats.ElectricForceCurva;
+        }
+
+        f = rozamiento + ef;
+        
+        return f;
+    }
+
+    public void SalirCircuito()
+    {
+        // Seguir Recto
+        // Girar coche como si fuera un accidente
+        // Respawnear en el punto donde se choco con Accel 0 y Velocidad 0
     }
 }

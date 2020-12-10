@@ -49,7 +49,7 @@ public class Circuito : MonoBehaviour
     {
         for (int i = 0; i < maxPilotos; i++)
         {
-            pilotos[i].init();
+            pilotos[i].Init();
         }
     }
     public void SetInteractuable(bool value)

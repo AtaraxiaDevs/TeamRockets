@@ -113,7 +113,7 @@ public class CreatorLine : MonoBehaviour
             {
                 current.SetVertexCount(++vertexcont);
                 current.SetPosition(vertexcont - 1,current.GetPosition(0));
-                currentLine.GetComponentInChildren<Coche>().init();
+                currentLine.GetComponentInChildren<Coche>().Init();
                 //current.SetVertexCount(0);
                 vertexcont = 0;
                 
