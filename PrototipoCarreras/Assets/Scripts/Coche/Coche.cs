@@ -17,11 +17,8 @@ public class Coche : MonoBehaviour
 
     public float speed = 2;
     public float minSpeed = 2;
-    //private float maxSpeed = 14;
-
-    //private float timePulsado = 0;
-    //private float aceleracion = 0.0001f;
     public float rozamiento = -0.05f;
+
     public int ID;
 
     //Carrera
@@ -34,14 +31,13 @@ public class Coche : MonoBehaviour
 
         //PARA TESTEAR BORRAR LUEGO
         stats = new InfoCoche();
+
         stats.ElectricForceCurva = 0;
         stats.ElectricForceCurva = 0;
         stats.FinalBrake = statsBase.BaseBrake;
         stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
         stats.FinalMinSpeed = 2;
-        stats.FinalThrottle = statsBase.BaseThrottle;
-        
-           
+        stats.FinalThrottle = statsBase.BaseThrottle;   
     }
 
     public void Init()
@@ -91,15 +87,11 @@ public class Coche : MonoBehaviour
     }
     public void SetCurrentAccel(float value)
     {
-
         currentAccel = stats.FinalThrottle * value;
-        
     }
     public void SetCurrentBrake(float value)
     {
         currentAccel = stats.FinalBrake * value;
-
-       
     }
 
     void FixedUpdate()
@@ -150,7 +142,7 @@ public class Coche : MonoBehaviour
         float fuerza = ForcesBack();
 
         currentSpeed += currentAccel + fuerza;
-        Debug.Log(currentAccel);
+
         if (currentSpeed < stats.FinalMinSpeed)
         {
             currentSpeed = stats.FinalMinSpeed;
