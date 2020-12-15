@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c30bb0bf069aca4b9decd6aa94877ee, type: 3}
   m_Name: Modelo 1
   m_EditorClassIdentifier: 
-  BaseMaxSpeed: 10
-  BaseThrottle: 0.5
-  BaseBrake: -0.8
+  BaseMaxSpeed: 150
+  BaseThrottle: 20
+  BaseBrake: -24
   BaseWeight: 100
