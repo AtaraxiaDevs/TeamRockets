@@ -3,13 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-[Serializable]
-public enum TipoSocket{
-    POSX,
-    NEGX,
-    POSZ,
-    NEGZ
-}
+
+
+
 [Serializable]
 public class ComparadorModulo : Comparer<Modulo>
 {
@@ -23,11 +19,14 @@ public class Vecino{
     public TipoSocket tipo;
     public Modulo attach;
 }
+
 [Serializable]
 public class Modulo : MonoBehaviour
 {
     //Los modulos tendran un prefab asociado, y unos sockets donde se uniran a los demás módulos
     // Start is called before the first frame update
+    public ModuloInfo myInfo;
+ 
     private SocketPos ancla1,ancla2;
 
     private UIManagerEditor uiManager;
@@ -51,6 +50,7 @@ public class Modulo : MonoBehaviour
 
     public bool reverse = false;
    private bool soltado = false;
+    public bool selecPrimero = false;
     void Awake()
     {
         if (interactuable)
@@ -210,7 +210,10 @@ public class Modulo : MonoBehaviour
             liberar();
             uiManager.current = this;
         }
-     
+        if (selecPrimero)
+        {
+            uiManager.current = this;
+        }
         //modo seleccionar primero boolean
       
     }
@@ -221,6 +224,10 @@ public class Modulo : MonoBehaviour
       
         if (interactuable)
         {
+            if (QuedaHueco())
+            {
+                liberar();
+            }
             soltado = false;
             Vector3 inputMouse = Input.mousePosition;
             Debug.Log(Camera.main.pixelWidth);
@@ -262,6 +269,13 @@ public class Modulo : MonoBehaviour
         }
       
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag.Equals("Coche"))
+        {
+            other.GetComponent<Coche>().currentModulo = myInfo;
+        }
     }
     public void AddVecinoAndSocket(TipoSocket tipo, Modulo m)
     {

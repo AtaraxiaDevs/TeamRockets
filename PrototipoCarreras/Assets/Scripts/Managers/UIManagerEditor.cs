@@ -52,7 +52,12 @@ public class UIManagerEditor : MonoBehaviour
         if (current != null)
         {
             current.soyPrimero();
+            circuito.moduloPrimero = current;
             circuito.construir();
+            foreach (Modulo m in circuito.modulos)
+            {
+                m.selecPrimero = false;
+            }
         }
         else
         {
@@ -71,6 +76,10 @@ public class UIManagerEditor : MonoBehaviour
             remove.gameObject.SetActive(false);
             listoConstruir.gameObject.SetActive(false);
             listoPrimero.gameObject.SetActive(true);
+            foreach (Modulo m in circuito.modulos)
+            {
+                m.selecPrimero = true;
+            }
         }
         else
         {

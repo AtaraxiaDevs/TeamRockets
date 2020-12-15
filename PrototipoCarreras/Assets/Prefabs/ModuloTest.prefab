@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 9026503651901435898}
   - component: {fileID: 9026503651901435901}
   - component: {fileID: 9026503651901435878}
+  - component: {fileID: 5181541039941038049}
   m_Layer: 0
   m_Name: ModuloTest
   m_TagString: Untagged
@@ -634,6 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c76a8999f7d8184bbe132ae890194e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myInfo: {fileID: 11400000, guid: c004148287822fb45ad87116cab78de7, type: 2}
   prefabSocket: {fileID: 4076134652084793688, guid: 84ba897aef638f84ea154151bc5c5cef,
     type: 3}
   vecino1:
@@ -673,3 +675,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &5181541039941038049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026503651901435900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.9671137, z: 1}
+  m_Center: {x: 0, y: 0.48355687, z: 0}

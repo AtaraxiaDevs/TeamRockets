@@ -6,28 +6,29 @@ using UnityEngine;
 public class Coche : MonoBehaviour
 {
     //References
+    public bool soyPlayer;
     public InfoCoche stats;
     public ModeloCoche statsBase;
-    
+    public ModuloInfo currentModulo;
     Vector3 []posiciones;
-    private LineRenderer linea;
-    private bool iniciado = false, esRecta, esCurva;
+    public LineRenderer linea;
+    public bool iniciado = false, salidoCircuito = false;
     private int currentpoint = 0;
     private float epsilon = 0.05f;
-
+    private float speedAnimSaliendo = 100;
     public float speed = 2;
     public float minSpeed = 2;
-    public float rozamiento = -0.05f;
+    public Transform socketCamara;
 
     public int ID;
 
     //Carrera
-    private float currentSpeed, currentAccel, currentUmbral;
+    public float currentSpeed, currentAccel, currentUmbral;
 
 
     void Start()
     {
-        linea = GetComponentInParent<LineRenderer>();
+       //linea = GetComponentInParent<LineRenderer>();
 
         //PARA TESTEAR BORRAR LUEGO
         stats = new InfoCoche();
@@ -40,12 +41,17 @@ public class Coche : MonoBehaviour
         stats.FinalThrottle = statsBase.BaseThrottle;   
     }
 
-    public void Init()
+    public void Init(ModuloInfo primerModulo)
     {
         posiciones = new Vector3[linea.positionCount];
         linea.GetPositions(posiciones);
+        currentModulo = primerModulo;
         iniciado = true;
         transform.position = posiciones[0];
+        if (soyPlayer)
+        {
+            GetComponent<IAMoves>().enabled = false;
+        }
     }
     
     private void Update()
@@ -72,6 +78,7 @@ public class Coche : MonoBehaviour
             }
         }*/
     }
+    
 
     public float GetCurrentAccel()
     {
@@ -100,30 +107,37 @@ public class Coche : MonoBehaviour
         {
             //Logica de Movimiento
             
-            if(currentSpeed > currentUmbral)
+            if (!salidoCircuito)
             {
-                SalirCircuito();
-            }
 
-            transform.position = CalculoNuevaPosicion();
-
-            //Llegar a los Puntos
+                if (currentSpeed > currentModulo.umbral)
+                {
+                    SalirCircuito();
+                }
+              
+                transform.position = CalculoNuevaPosicion();
             
-            if (HaLlegado())
-            {
-                currentpoint++;
                
-                if (currentpoint == posiciones.Length)
+                if (HaLlegado())
                 {
-                    currentpoint = 0;
-                    transform.position = posiciones[currentpoint];
+                    currentpoint++;
+               
+                    if (currentpoint == posiciones.Length)
+                    {
+                        currentpoint = 0;
+                        transform.position = posiciones[currentpoint];
 
-                }
-                else
-                {
-                    transform.rotation = Quaternion.LookRotation(transform.position, posiciones[currentpoint-1]);
+                    }
+                    else
+                    {
+                        transform.rotation = Quaternion.LookRotation(transform.position- posiciones[currentpoint], posiciones[currentpoint]);
+                        
+                    }
                 }
             }
+          
+            //Llegar a los Puntos
+
         }
     }
 
@@ -159,24 +173,37 @@ public class Coche : MonoBehaviour
     {
         float f = 0f, ef = 0f;
 
-        if (esRecta)
-        {
-            ef = stats.ElectricForceRecta;
-        }
-        else if (esCurva)
-        {
-            ef = stats.ElectricForceCurva;
-        }
+        //if (esRecta)
+        //{
+        //    ef = stats.ElectricForceRecta;
+        //}
+        //else if (esCurva)
+        //{
+        //    ef = stats.ElectricForceCurva;
+        //}
 
-        f = rozamiento + ef;
+        f = currentModulo.rozamiento + ef;
         
         return f;
     }
-
+    IEnumerator SaliendoCircuito(Vector3 posini)
+    {
+        for(int i=0; i < speedAnimSaliendo;i++) 
+        {
+            transform.position += -transform.forward;
+            yield return new WaitForSeconds(2/speedAnimSaliendo);
+        }
+        transform.position = posini;
+        salidoCircuito = false;
+        currentSpeed = minSpeed;
+      
+    }
     public void SalirCircuito()
     {
         // Seguir Recto
         // Girar coche como si fuera un accidente
         // Respawnear en el punto donde se choco con Accel 0 y Velocidad 0
+        salidoCircuito = true;
+        StartCoroutine(SaliendoCircuito(transform.position));
     }
 }

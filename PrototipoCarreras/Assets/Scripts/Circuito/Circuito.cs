@@ -13,7 +13,7 @@ public class Circuito : MonoBehaviour
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
     // Start is called before the first frame update
-    private List<Modulo> modulos;
+    public List<Modulo> modulos;
     //private List<GameObject> gameObjectModulo;
     private LineRenderer[] circuito;
     private static int maxPilotos = 4;
@@ -21,6 +21,7 @@ public class Circuito : MonoBehaviour
     public Coche[] pilotos;
     public Transform prefabCircuito;
     public GameObject gameObjectCircuito;
+    public Modulo moduloPrimero;
     public bool modoEditor;
     void Start()
     {
@@ -49,7 +50,7 @@ public class Circuito : MonoBehaviour
     {
         for (int i = 0; i < maxPilotos; i++)
         {
-            pilotos[i].Init();
+            pilotos[i].Init(moduloPrimero.myInfo);
         }
     }
     public void SetInteractuable(bool value)

@@ -13,14 +13,19 @@ public class UIManagerCarrera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myCar.soyPlayer = true;
         startCarrera.onClick.AddListener(() => {
             circuito.IniciarCarrera();
+            Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
+           // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
+            
             Time.timeScale = 1;
         });
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
         minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
         
     }
+    
     private void onMinMaxChange(float value)
     {
         //value va a estar entre 1 y 0 
@@ -47,6 +52,7 @@ public class UIManagerCarrera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
         
     }
 }
