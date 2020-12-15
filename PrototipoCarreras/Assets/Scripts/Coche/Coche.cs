@@ -9,13 +9,14 @@ public class Coche : MonoBehaviour
     public InfoCoche stats;
     public ModeloCoche statsBase;
     public ModuloInfo currentModulo;
+    public IAMoves IA;
 
-    Vector3 []posiciones;
+    public Vector3 [] posiciones;
     public LineRenderer linea;
     public Transform socketCamara;
 
-    public bool iniciado = false, salidoCircuito = false, soyPlayer;
-    private int currentpoint = 0;
+    public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false;
+    public int currentpoint = 0;
     public int ID;
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
     private float factorSpeed = 10, factorUnidades = 20;
@@ -23,10 +24,11 @@ public class Coche : MonoBehaviour
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral;
 
-
     void Start()
     {
-       //linea = GetComponentInParent<LineRenderer>();
+        //linea = GetComponentInParent<LineRenderer>();
+
+        IA = GetComponent<IAMoves>();
 
         //PARA TESTEAR BORRAR LUEGO
         stats = new InfoCoche();
@@ -51,11 +53,6 @@ public class Coche : MonoBehaviour
         {
             GetComponent<IAMoves>().enabled = false;
         }
-    }
-    
-    private void Update()
-    {
-       
     }
 
     public float GetCurrentAccel()
@@ -84,41 +81,48 @@ public class Coche : MonoBehaviour
         if (iniciado)
         {
             //Logica de Movimiento
-            
+
             if (!salidoCircuito)
             {
+                if (!soyPlayer)
+                {
+                    float r = 0;
+                    //r = Random(0, 100);
 
-                if (currentSpeed > currentModulo.umbral)
+                    if(r < IA.porcentajeFallo)
+                    {
+                        accidente = true;
+                    }
+                }
+
+                if (currentSpeed > currentModulo.umbral || accidente)
                 {
                     SalirCircuito();
                 }
-              
-                transform.position = CalculoNuevaPosicion();
 
+                transform.position = CalculoNuevaPosicion(soyPlayer);
 
                 //Llegar a los Puntos
 
                 if (HaLlegado())
                 {
                     currentpoint++;
-               
+
                     if (currentpoint == posiciones.Length)
                     {
                         currentpoint = 0;
                         transform.position = posiciones[currentpoint];
-
                     }
                     else
                     {
-                        transform.rotation = Quaternion.LookRotation(transform.position- posiciones[currentpoint], posiciones[currentpoint]);
-                        
+                        transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
                     }
                 }
             }
-        }
+        }   
     }
 
-    private bool HaLlegado()
+    public bool HaLlegado()
     {
         bool x, y, z;
         
@@ -128,12 +132,45 @@ public class Coche : MonoBehaviour
         return (((transform.position.x >= posiciones[currentpoint].x - epsilon) && (transform.position.x <= posiciones[currentpoint].x + epsilon)) && ((transform.position.y >= posiciones[currentpoint].y - epsilon) && (transform.position.y <= posiciones[currentpoint].y + epsilon)) && ((transform.position.z >= posiciones[currentpoint].z - epsilon) && (transform.position.z <= posiciones[currentpoint].z + epsilon)));
     }
 
-    public Vector3 CalculoNuevaPosicion()
+    public Vector3 CalculoNuevaPosicion(bool s)
     {
         float fuerza = ForcesBack();
         float speed;
 
-        currentSpeed += (currentAccel / factorUnidades) + fuerza;
+        if (s)
+        {
+            currentSpeed += (currentAccel / factorUnidades) + fuerza;
+        }
+        else
+        {
+            float algo = 0;
+
+            if (IA.moduloSiguiente.myInfo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
+            {
+                algo = stats.FinalBrake;
+            }
+            else
+            {
+                algo = stats.FinalThrottle;
+            }
+            
+            currentSpeed += (algo / factorUnidades) + fuerza;
+
+            if (IA.nivelRitmo == 1)
+            {
+                if(currentSpeed > currentUmbral - 2)
+                {
+                    currentSpeed = currentUmbral - 2;
+                }
+            }
+            else if (IA.nivelRitmo == 2)
+            {
+                if (currentSpeed > currentUmbral - 5)
+                {
+                    currentSpeed = currentUmbral - 5;
+                }
+            }
+        }
 
         if (currentSpeed < stats.FinalMinSpeed)
         {
@@ -147,6 +184,7 @@ public class Coche : MonoBehaviour
         speed = currentSpeed / factorSpeed;
 
         return Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
+
     }
 
     public float ForcesBack()
