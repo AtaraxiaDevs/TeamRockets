@@ -6,21 +6,19 @@ using UnityEngine;
 public class Coche : MonoBehaviour
 {
     //References
-    public bool soyPlayer;
     public InfoCoche stats;
     public ModeloCoche statsBase;
     public ModuloInfo currentModulo;
+
     Vector3 []posiciones;
     public LineRenderer linea;
-    public bool iniciado = false, salidoCircuito = false;
-    private int currentpoint = 0;
-    private float epsilon = 0.05f;
-    private float speedAnimSaliendo = 100;
-    public float speed = 2;
-    public float minSpeed = 2;
     public Transform socketCamara;
 
+    public bool iniciado = false, salidoCircuito = false, soyPlayer;
+    private int currentpoint = 0;
     public int ID;
+    private float epsilon = 0.05f, speedAnimSaliendo = 100;
+    private float factorSpeed = 10, factorUnidades = 20;
 
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral;
@@ -37,7 +35,7 @@ public class Coche : MonoBehaviour
         stats.ElectricForceCurva = 0;
         stats.FinalBrake = statsBase.BaseBrake;
         stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
-        stats.FinalMinSpeed = 2;
+        stats.FinalMinSpeed = 20;
         stats.FinalThrottle = statsBase.BaseThrottle;   
     }
 
@@ -48,6 +46,7 @@ public class Coche : MonoBehaviour
         currentModulo = primerModulo;
         iniciado = true;
         transform.position = posiciones[0];
+
         if (soyPlayer)
         {
             GetComponent<IAMoves>().enabled = false;
@@ -56,29 +55,8 @@ public class Coche : MonoBehaviour
     
     private void Update()
     {
-        //Min Max
-        /////////////////////////////////
-        //currentAccel = GetCurrentAccel();
-        /////////////////////////////////
-        
-        /*if (Input.GetMouseButton(1))
-        {
-            if (speed < maxSpeed)
-            {
-                timePulsado += aceleracion;
-                speed += Mathf.Abs(timePulsado);
-            }
-        }
-        else
-        {
-            if (speed > minSpeed)
-            {
-                timePulsado -= aceleracion;
-                speed -= Mathf.Abs(timePulsado);
-            }
-        }*/
+       
     }
-    
 
     public float GetCurrentAccel()
     {
@@ -116,8 +94,10 @@ public class Coche : MonoBehaviour
                 }
               
                 transform.position = CalculoNuevaPosicion();
-            
-               
+
+
+                //Llegar a los Puntos
+
                 if (HaLlegado())
                 {
                     currentpoint++;
@@ -135,9 +115,6 @@ public class Coche : MonoBehaviour
                     }
                 }
             }
-          
-            //Llegar a los Puntos
-
         }
     }
 
@@ -154,8 +131,9 @@ public class Coche : MonoBehaviour
     public Vector3 CalculoNuevaPosicion()
     {
         float fuerza = ForcesBack();
+        float speed;
 
-        currentSpeed += currentAccel + fuerza;
+        currentSpeed += (currentAccel / factorUnidades) + fuerza;
 
         if (currentSpeed < stats.FinalMinSpeed)
         {
@@ -165,8 +143,10 @@ public class Coche : MonoBehaviour
         {
             currentSpeed = stats.FinalMaxSpeed;
         }
-     
-        return Vector3.MoveTowards(transform.position, posiciones[currentpoint], currentSpeed * Time.deltaTime);
+
+        speed = currentSpeed / factorSpeed;
+
+        return Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
     }
 
     public float ForcesBack()
@@ -186,18 +166,19 @@ public class Coche : MonoBehaviour
         
         return f;
     }
-    IEnumerator SaliendoCircuito(Vector3 posini)
+    IEnumerator SaliendoCircuito(Vector3 posIni)
     {
-        for(int i=0; i < speedAnimSaliendo;i++) 
+        for(int i = 0; i < speedAnimSaliendo;i++) 
         {
             transform.position += -transform.forward;
             yield return new WaitForSeconds(2/speedAnimSaliendo);
         }
-        transform.position = posini;
+
+        transform.position = posIni;
         salidoCircuito = false;
-        currentSpeed = minSpeed;
-      
+        currentSpeed = stats.FinalMinSpeed;
     }
+
     public void SalirCircuito()
     {
         // Seguir Recto

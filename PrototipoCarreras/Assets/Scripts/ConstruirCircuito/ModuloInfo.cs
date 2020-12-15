@@ -22,7 +22,7 @@ public enum TipoModulo
 }
 [Serializable]
 [CreateAssetMenu(fileName = "NewModeloModulo", menuName = "InfoJuego/Modulo", order = 2)]
-public class ModuloInfo :ScriptableObject
+public class ModuloInfo : ScriptableObject
 {
     public TipoModulo tipoCircuito;
     public Elemento elemento;

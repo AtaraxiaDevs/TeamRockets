@@ -9,6 +9,8 @@ public class UIManagerCarrera : MonoBehaviour
     public Circuito circuito;
     public Slider minMaxController;
     public Coche myCar;
+    public Text velocidad;
+
     private float limitSlide = 0.5f;
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,7 @@ public class UIManagerCarrera : MonoBehaviour
     void Update()
     {
         Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
-        
+
+        velocidad.text = myCar.currentSpeed.ToString();
     }
 }

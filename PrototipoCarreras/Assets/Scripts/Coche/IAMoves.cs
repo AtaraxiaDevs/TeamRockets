@@ -8,10 +8,10 @@ public class IAMoves : MonoBehaviour
     private Coche coche;
     public float porcentajeFallo =5;
     public float Ritmo = 4f;
+
     void Start()
     {
         coche = GetComponent<Coche>();
-
     }
 
     // Update is called once per frame
@@ -19,10 +19,10 @@ public class IAMoves : MonoBehaviour
     {
         if (coche.iniciado)
         {
-
-            coche.currentSpeed=CalcularVelocidad();
+            coche.currentSpeed = CalcularVelocidad();
         }
     }
+
     private float CalcularVelocidad()
     {
         float umbral = coche.currentModulo.umbral;
@@ -33,7 +33,7 @@ public class IAMoves : MonoBehaviour
 
         if (fallo > porcentajeFallo)
         {
-            return umbral - Ritmo*(porcentaje/100);
+            return umbral - Ritmo * (porcentaje / 100);
         }
         else
         {

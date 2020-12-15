@@ -15,4 +15,4 @@ MonoBehaviour:
   tipoCircuito: 0
   elemento: 4
   rozamiento: -0.1
-  umbral: 115
+  umbral: 900
