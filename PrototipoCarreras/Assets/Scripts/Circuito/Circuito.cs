@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,21 +7,27 @@ public class ObjectCircuito
 {
     public GameObject circuito;
 }
+
 [Serializable]
 public class Circuito : MonoBehaviour
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
-    // Start is called before the first frame update
+
     public List<Modulo> modulos;
-    //private List<GameObject> gameObjectModulo;
+    public Modulo moduloPrimero;
     private LineRenderer[] circuito;
-    private static int maxPilotos = 4;
-    private int[] vertexcont = new int[maxPilotos];
-    public Coche[] pilotos;
+    //private List<GameObject> gameObjectModulo;
+
     public Transform prefabCircuito;
     public GameObject gameObjectCircuito;
-    public Modulo moduloPrimero;
+
+    //Coches
+    public Coche[] pilotos;
+    private static int maxPilotos = 4;
+    private int[] vertexcont = new int[maxPilotos];
+
     public bool modoEditor;
+
     void Start()
     {
         if (modoEditor)
@@ -30,6 +35,7 @@ public class Circuito : MonoBehaviour
             modulos = new List<Modulo>();
             circuito = new LineRenderer[maxPilotos];
             pilotos = new Coche[maxPilotos];
+
             for (int i = 0; i < maxPilotos; i++)
             {
                 Transform mytmp = Instantiate(prefabCircuito, transform);
@@ -37,13 +43,12 @@ public class Circuito : MonoBehaviour
                 pilotos[i].ID = i;
                 circuito[i] = mytmp.GetComponent<LineRenderer>();
             }
+
             for (int i = 0; i < maxPilotos; i++)
             {
                 vertexcont[i] = 0;
             }
         }
-
-
         //construir();
     }
     public void IniciarCarrera()
@@ -53,6 +58,7 @@ public class Circuito : MonoBehaviour
             pilotos[i].Init(moduloPrimero.myInfo);
         }
     }
+
     public void SetInteractuable(bool value)
     {
         foreach (Modulo m in modulos)
@@ -60,14 +66,17 @@ public class Circuito : MonoBehaviour
             m.interactuable = value;
         }
     }
+
     public void AddModulo(Modulo m)
     {
         modulos.Add(m);
     }
+
     public void RemoveModulo(Modulo m)
     {
         modulos.Remove(m);
     }
+
     public bool CircuitoListo()
     {
         foreach (Modulo m in modulos)
@@ -92,35 +101,34 @@ public class Circuito : MonoBehaviour
 
     public void construir()
     {
-
         modulos.Sort(new ComparadorModulo());
+
         for (int h = 0; h < modulos.Count; h++)
         {
             modulos[h].transform.parent = this.transform;
 
             for (int j = 0; j < maxPilotos; j++)
             {
-
-
                 int posicionPath;
+
                 if (modulos[h].reverse)
                 {
                     posicionPath = maxPilotos - 1 - j;
-
                 }
                 else
                 {
                     posicionPath = j;
                 }
+
                 LineRenderer path = modulos[h].path[posicionPath];
                 Transform t = path.transform;
+
                 if (modulos[h].reverse)
                 {
-
-
                     Vector3[] pos = new Vector3[path.positionCount];
                     path.GetPositions(pos);
                     Debug.Log("Buena direccion");
+
                     for (int i = 0; i < path.positionCount - 1; i++)
                     {
                         Vector3 point = t.TransformPoint(pos[i]);
@@ -130,13 +138,10 @@ public class Circuito : MonoBehaviour
                 }
                 else
                 {
-
-
-
-
                     Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
                     modulos[h].path[posicionPath].GetPositions(pos);
                     Debug.Log("Mala direccion");
+
                     for (int i = modulos[h].path[posicionPath].positionCount - 1; i >= 0; i--)
                     {
                         Vector3 point = t.TransformPoint(pos[i]);
@@ -144,9 +149,7 @@ public class Circuito : MonoBehaviour
                         circuito[j].SetPosition(vertexcont[j] - 1, point);
                     }
                 }
-
             }
-
         }
 
         for (int i = 0; i < maxPilotos; i++)
@@ -154,9 +157,6 @@ public class Circuito : MonoBehaviour
             circuito[i].SetVertexCount(circuito[i].positionCount + 1);
             circuito[i].SetPosition(circuito[i].positionCount - 1, circuito[i].GetPosition(0));
         }
-
-
-
     }
 
     void Update()

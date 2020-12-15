@@ -11,7 +11,7 @@ public class QRMANAGER : MonoBehaviour
     string _FileLocation, _FileName;
     ObjectCircuito objetoEscribir, objetoLeer;
     string _data;
-    // Start is called before the first frame update
+
     public void Guardar(Circuito c)
     {
         //c.Guardar();
@@ -19,8 +19,8 @@ public class QRMANAGER : MonoBehaviour
         objetoEscribir.circuito = c.gameObject;
         _data = SerializeObject(objetoEscribir);
         CreateXML();
-
     }
+
     void CreateXML()
     {
         StreamWriter writer;
@@ -59,13 +59,5 @@ public class QRMANAGER : MonoBehaviour
     {
         _FileLocation = Application.dataPath;
         _FileName = "Prueba.xml";
-     
-    }
-
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

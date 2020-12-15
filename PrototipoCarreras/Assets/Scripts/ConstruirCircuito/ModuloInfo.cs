@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 [Serializable]
 public enum TipoSocket
 {
@@ -10,6 +9,7 @@ public enum TipoSocket
     POSZ,
     NEGZ
 }
+
 [Serializable]
 public enum TipoModulo
 {
@@ -18,8 +18,8 @@ public enum TipoModulo
     CURVABIERTA,
     CHICANE,
     CAMBIOCARRIL
-
 }
+
 [Serializable]
 [CreateAssetMenu(fileName = "NewModeloModulo", menuName = "InfoJuego/Modulo", order = 2)]
 public class ModuloInfo : ScriptableObject
@@ -28,6 +28,4 @@ public class ModuloInfo : ScriptableObject
     public Elemento elemento;
     public float rozamiento;
     public float umbral;
-
-  
 }

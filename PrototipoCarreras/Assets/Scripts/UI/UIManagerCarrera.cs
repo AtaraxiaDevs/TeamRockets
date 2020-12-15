@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class UIManagerCarrera : MonoBehaviour
 {
-    public Button startCarrera,stopCarrera;
+    //References
     public Circuito circuito;
-    public Slider minMaxController;
     public Coche myCar;
+
+    //UI
+    public Button startCarrera,stopCarrera;
+    public Slider minMaxController;
     public Text velocidad;
 
     private float limitSlide = 0.5f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         myCar.soyPlayer = true;
+
         startCarrera.onClick.AddListener(() => {
             circuito.IniciarCarrera();
             Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
@@ -23,9 +27,9 @@ public class UIManagerCarrera : MonoBehaviour
             
             Time.timeScale = 1;
         });
+
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
-        minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
-        
+        minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value)); 
     }
     
     private void onMinMaxChange(float value)
@@ -37,17 +41,13 @@ public class UIManagerCarrera : MonoBehaviour
             float finalValue = value - limitSlide;
             float porcentaje = finalValue / limitSlide;
             myCar.SetCurrentAccel(porcentaje);
-
         }
         else
         {
-
             //0.5 es 0, 0 es finalbrake
-           
             float finalValue = limitSlide - value;
             float porcentaje = finalValue / limitSlide;
             myCar.SetCurrentBrake(porcentaje);
-
         }
     }
   

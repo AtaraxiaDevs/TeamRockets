@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class UIManagerEditor : MonoBehaviour
 {
+    //References
     public Modulo current;
-    public Button rotar, listoPrimero, modulo1, modulo2,remove,listoConstruir, save;
     public GameObject prefabm1, prefabm2;
     public Circuito circuito;
     public QRMANAGER qrmanager;
+
+    //UI
+    public Button rotar, listoPrimero, modulo1, modulo2,remove,listoConstruir, save;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,7 @@ public class UIManagerEditor : MonoBehaviour
                 current.Rotar();
             }
         });
+
         remove.onClick.AddListener(() =>
         {
             if (current != null)
@@ -30,14 +35,15 @@ public class UIManagerEditor : MonoBehaviour
                
             }
         });
+
         listoPrimero.onClick.AddListener(() => ComenzarCarrera());
         listoConstruir.onClick.AddListener(() => PantallaElegirPrimero());
         modulo1.onClick.AddListener(() => CrearModulo(prefabm1));
         modulo2.onClick.AddListener(() => CrearModulo(prefabm2));
         //save.onClick.AddListener(() => qrmanager.Guardar(circuito));
         save.onClick.AddListener(() => circuito.IniciarCarrera()) ;
-
     }
+
     private void CrearModulo(GameObject prefab)
     {
        //Debemos poner un punto de spawn
@@ -54,6 +60,7 @@ public class UIManagerEditor : MonoBehaviour
             current.soyPrimero();
             circuito.moduloPrimero = current;
             circuito.construir();
+
             foreach (Modulo m in circuito.modulos)
             {
                 m.selecPrimero = false;
@@ -65,6 +72,7 @@ public class UIManagerEditor : MonoBehaviour
         }
        
     }
+
     private void PantallaElegirPrimero()
     {
         if (circuito.CircuitoListo())
@@ -76,6 +84,7 @@ public class UIManagerEditor : MonoBehaviour
             remove.gameObject.SetActive(false);
             listoConstruir.gameObject.SetActive(false);
             listoPrimero.gameObject.SetActive(true);
+
             foreach (Modulo m in circuito.modulos)
             {
                 m.selecPrimero = true;
@@ -85,12 +94,5 @@ public class UIManagerEditor : MonoBehaviour
         {
             Debug.Log("Circuito no cerrado");
         }
-    
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
