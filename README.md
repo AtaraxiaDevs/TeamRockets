@@ -93,10 +93,14 @@
 ## 4.- CARACTERÍSTICAS PRINCIPALES <a name="caracteristicasPrincipales"/>
 
 **- Diferentes tipos de carreras:** Al iniciar el juego, los jugadores podrán escoger entre una serie de modos de juego:
- *+ Rápido:* En este modo de juego se elegirá un circuito, tanto básicos como creados por los jugadores. Una vez elegido, los jugadores podrán empezar a competir, siendo el objetivo acabar la carrera antes que el resto de competidores, pudiendo ser estos jugadores reales o controlados por la IA. Las naves se moverán mediante un camino predeterminado y los jugadores solo podrán controlar la velocidad de su cohete mediante un elemento de la interfaz.
- *+ Temporada:* Este modo de juego es exclusivo para multijugador. Se elegirán una serie de circuitos los cuales se jugarán de forma continuada. En el último circuito se elegirá el ganador de la temporada, siendo el jugador que más puntos haya acumulado.
- *+ Simulador:* Este modo de juego es exclusivo para un jugador. El competidor se enfrentará a tres cohetes controlados por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para evitar cualquier imprevisto antes de empezar la partida.
- *+ Práctica:* En este modo de juego el jugador podrá probar sus combinaciones de nave + signos del Zodiaco de forma individual, sin competidores.
+
+  *+ Rápido:* En este modo de juego se elegirá un circuito, tanto básicos como creados por los jugadores. Una vez elegido, los jugadores podrán empezar a competir, siendo el objetivo acabar la carrera antes que el resto de competidores, pudiendo ser estos jugadores reales o controlados por la IA. Las naves se moverán mediante un camino predeterminado y los jugadores solo podrán controlar la velocidad de su cohete mediante un elemento de la interfaz.
+ 
+  *+ Temporada:* Este modo de juego es exclusivo para multijugador. Se elegirán una serie de circuitos los cuales se jugarán de forma continuada. En el último circuito se elegirá el ganador de la temporada, siendo el jugador que más puntos haya acumulado.
+ 
+  *+ Simulador:* Este modo de juego es exclusivo para un jugador. El competidor se enfrentará a tres cohetes controlados por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para evitar cualquier imprevisto antes de empezar la partida.
+ 
+  *+ Práctica:* En este modo de juego el jugador podrá probar sus combinaciones de nave + signos del Zodiaco de forma individual, sin competidores.
  
 **- Naves:** Antes de empezar una partida, los jugadores podrán elegir una nave entre los cuatro tipos disponibles: aire, agua, fuego y tierra. Cada una de estas naves dispondrá de unas caarcterísticas iniciales distintas y podrá circular mejor en módulos afines a su elemento. Además, cada nave podrá equiparse dos signos del Zodiaco, los cuales aumentarán o disminuirán las características de las naves.
 
