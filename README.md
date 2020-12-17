@@ -64,9 +64,9 @@
 | **TEMÁTICA**    | Espacio                  |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
 | **JUEGOS RELACIONADOS**  | Slot Racing, Motorsport Manager |
-| **PUBLICO OBJETIVO**     | ???      |
+| **PUBLICO OBJETIVO**     | Cualquier edad. Casual o experto      |
 | **ESTILO VISUAL**        | 3D           |
-| **CALIFICACIÓN**         | ???                 |
+| **CALIFICACIÓN**         | PEGI 3+                 |
 | **IDIOMA**      | Español, Inglés          |
 | **VISTA**       | ???              |
 | **TECNOLOGÍAS** | Unity                   |
@@ -84,13 +84,23 @@
  
 ## 3.- SINOPSIS DEL JUEGO <a name="sinopsisDelJuego"/>
 
-> SINOPSIS
+> ¡Bienvenidos a una nueva edición del Gran Premio Intergaláctico, la carrera más espectacular de todo el universo! ¿Qué nave te llevará al éxito interplanetario? Escoge con cabeza los mejores signos del Zodiaco y arrasa con todos los que se encuentren en tu camino.
+
+> ??? es un juego de carreras en el que tendrás que ser el más rápido para poder triunfar, tanto en solitario con enemigos controlados por IA como en partidas multijuador de hasta cuatro participantes. Escoge una nave entre cuatro posibilidades: aire, agua, fuego y tierra y equípate dos de los doce signos del Zodiaco para alterar las características de tu vehículo. Puedes competir en los circuitos básicos o crear tus propios recorridos mediante el editor de circuitos. Además, podrás compartir estos niveles mediante ID o, si jugáis en dispositivos móviles, mediante código QR.
 
 ---
 
 ## 4.- CARACTERÍSTICAS PRINCIPALES <a name="caracteristicasPrincipales"/>
 
-**- Carreras:** Carreras
+**- Diferentes tipos de carreras:** Al iniciar el juego, los jugadores podrán escoger entre una serie de modos de juego:
+ *+ Rápido:* En este modo de juego se elegirá un circuito, tanto básicos como creados por los jugadores. Una vez elegido, los jugadores podrán empezar a competir, siendo el objetivo acabar la carrera antes que el resto de competidores, pudiendo ser estos jugadores reales o controlados por la IA. Las naves se moverán mediante un camino predeterminado y los jugadores solo podrán controlar la velocidad de su cohete mediante un elemento de la interfaz.
+ *+ Temporada:* Este modo de juego es exclusivo para multijugador. Se elegirán una serie de circuitos los cuales se jugarán de forma continuada. En el último circuito se elegirá el ganador de la temporada, siendo el jugador que más puntos haya acumulado.
+ *+ Simulador:* Este modo de juego es exclusivo para un jugador. El competidor se enfrentará a tres cohetes controlados por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para evitar cualquier imprevisto antes de empezar la partida.
+ *+ Práctica:* En este modo de juego el jugador podrá probar sus combinaciones de nave + signos del Zodiaco de forma individual, sin competidores.
+ 
+**- Naves:** Antes de empezar una partida, los jugadores podrán elegir una nave entre los cuatro tipos disponibles: aire, agua, fuego y tierra. Cada una de estas naves dispondrá de unas caarcterísticas iniciales distintas y podrá circular mejor en módulos afines a su elemento. Además, cada nave podrá equiparse dos signos del Zodiaco, los cuales aumentarán o disminuirán las características de las naves.
+
+**- Editor de circuitos:** Los jugadores tendrán a su disposición un editor de circuitos por módulos. Existen distintos tipos de módulos: recta, curva, ... pudiendo girarlos y conectarlos entre sí para crear circuitos únicos. Estos circuitos se podrán compartir con cualquier persona que tenga el juego mediante códigos QR o IDs.
 
 ---
 
@@ -98,7 +108,13 @@
 ### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
 #### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
 
+Antes de iniciar una partida, cada jugador deberá elegir una nave espacial. Estas naves se dividen en los cuatro elementos: aire, agua, fuego y tierra. Cada uno de estos cohetes tiene unas estadísticas diferentes y una habilidad especial.
 
+Una vez elegida una nave, los jugadores tendrán que elegir qué signos del Zodiaco podrán equipar a sus vehículos. Cada nave podrá equiparse dos signos, que alterarán las características de cada nave, pudiendo tanto aumentar algunas como disminuir otras.
+
+Al terminar la personalización de las naves, los jugadores pasarán a elegir circuitos. En esta pantalla se mostrarán tanto los circuitos básicos, los creados por el jugador y los descargados mediante código QR. Si la partida es en solitario, el circuito escogido por el jugador será el elegido. En caso de multijugador, cada jugador podrá elegir un circuito en un máximo de 30 segundos. Una vez elegidos los circuitos se jugará al más votado o, en caso de empate, se elegirá de forma aleatoria entre los circuitos empatados.
+
+Al empezar una carrera los jugadores serán colocados en sus respectivas líneas. El jugador 1 siempre será colocado en la línea más externa del circuito y el resto de cohetes, sean jugadores o controlador por IA, serán colocados en las líneas contiguas. Si se juega de forma individual, el resto de líneas serán cubiertas por naves controladas por IA. Estas naves se generarán de forma aleatoria, tanto su elemento como los signos del Zodiaco asignados. En cambio, en el modo multijugador, las líneas serán cubiertas por el resto de jugadores.
 
 #### 5.1.2.- VEHÍCULOS  <a name="mecanicas2"/>
 
