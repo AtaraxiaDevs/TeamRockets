@@ -59,7 +59,7 @@ public class UIManagerEditor : MonoBehaviour
         {
             current.soyPrimero();
             circuito.moduloPrimero = current;
-            circuito.construir();
+            circuito.TransformModulos();
 
             foreach (Modulo m in circuito.modulos)
             {

@@ -15,14 +15,16 @@ public class Coche : MonoBehaviour
     public LineRenderer linea;
     public Transform socketCamara;
 
-    public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false;
+    public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false, multiPlayer=false;
     public int currentpoint = 0;
+    public int currentPointMod, sizeMod;
     public int ID;
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
     private float factorSpeed = 10, factorUnidades = 20;
+    
 
     //Carrera
-    public float currentSpeed, currentAccel, currentUmbral;
+    public float currentSpeed, currentAccel, currentUmbral, porcentajeIAccel,accelIA;
 
     void Start()
     {
@@ -38,7 +40,10 @@ public class Coche : MonoBehaviour
         stats.FinalBrake = statsBase.BaseBrake;
         stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
         stats.FinalMinSpeed = 20;
-        stats.FinalThrottle = statsBase.BaseThrottle;   
+        stats.FinalThrottle = statsBase.BaseThrottle;
+        currentPointMod = 0;
+        accelIA = 0;
+        porcentajeIAccel = 0;
     }
 
     public void Init(ModuloInfo primerModulo)
@@ -80,27 +85,45 @@ public class Coche : MonoBehaviour
     {
         if (iniciado)
         {
+            
             //Logica de Movimiento
 
             if (!salidoCircuito)
             {
                 if (!soyPlayer)
                 {
-                    float r = 0;
-                    //r = Random(0, 100);
+                   
+                    //if (currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
+                    //{
+                    //    float r = 0;
 
-                    if(r < IA.porcentajeFallo)
-                    {
-                        accidente = true;
-                    }
+                    //    r = UnityEngine.Random.Range(0, 100000);
+
+                    //    if (r < IA.porcentajeFallo)
+                    //    {
+                    //        accidente = true;
+                           
+
+                    //    }
+                    //}
+                  
                 }
 
-                if (currentSpeed > currentModulo.umbral || accidente)
+                if ((currentSpeed > currentModulo.umbral&& currentPointMod >= sizeMod / 2) || accidente)
                 {
                     SalirCircuito();
                 }
-
-                transform.position = CalculoNuevaPosicion(soyPlayer);
+                if (!multiPlayer)
+                {
+                    transform.position = CalculoNuevaPosicion();
+                 
+                    
+                }
+                else if(soyPlayer)
+                {
+                    transform.position = CalculoNuevaPosicion();
+                }
+                
 
                 //Llegar a los Puntos
 
@@ -117,6 +140,9 @@ public class Coche : MonoBehaviour
                     {
                         transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
                     }
+                   
+                        currentPointMod++;
+                    
                 }
             }
         }   
@@ -132,56 +158,94 @@ public class Coche : MonoBehaviour
         return (((transform.position.x >= posiciones[currentpoint].x - epsilon) && (transform.position.x <= posiciones[currentpoint].x + epsilon)) && ((transform.position.y >= posiciones[currentpoint].y - epsilon) && (transform.position.y <= posiciones[currentpoint].y + epsilon)) && ((transform.position.z >= posiciones[currentpoint].z - epsilon) && (transform.position.z <= posiciones[currentpoint].z + epsilon)));
     }
 
-    public Vector3 CalculoNuevaPosicion(bool s)
+    public Vector3 CalculoNuevaPosicion()
     {
         float fuerza = ForcesBack();
         float speed;
 
-        if (s)
+        if (soyPlayer)
         {
             currentSpeed += (currentAccel / factorUnidades) + fuerza;
+            //Debug.Log("currentJugador= (" +currentAccel + "/" + factorUnidades + ")" + fuerza);
         }
         else
         {
-            float algo = 0;
+            //comprobacion siguiente es curva
+            if (IA.moduloSiguiente != null)
+            {
 
-            if (IA.moduloSiguiente.myInfo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
-            {
-                algo = stats.FinalBrake;
-            }
-            else
-            {
-                algo = stats.FinalThrottle;
-            }
-            
-            currentSpeed += (algo / factorUnidades) + fuerza;
 
-            if (IA.nivelRitmo == 1)
-            {
-                if(currentSpeed > currentUmbral - 2)
+                if ((IA.SiguienteCurva() || (currentPointMod >= sizeMod / 2)))
                 {
-                    currentSpeed = currentUmbral - 2;
+                    if (currentSpeed > IA.moduloSiguiente.myInfo.umbral - IA.nivelRitmo)
+                    {
+                        if (accelIA > stats.FinalBrake)
+                        {
+                            accelIA = porcentajeIAccel * stats.FinalBrake;
+                            porcentajeIAccel += IA.frenacion;
+                            Debug.Log("Frenando");
+                        }
+                        else
+                        {
+                            porcentajeIAccel = 0;
+                        }
+                    }
+                    else
+                    {
+                        porcentajeIAccel = 0;
+                    }
+
+
+
                 }
-            }
-            else if (IA.nivelRitmo == 2)
-            {
-                if (currentSpeed > currentUmbral - 5)
+                else
                 {
-                    currentSpeed = currentUmbral - 5;
+
+                    if (currentSpeed < currentModulo.umbral - IA.nivelRitmo)
+                    {
+                        if (accelIA < stats.FinalThrottle)
+                        {
+                            accelIA = porcentajeIAccel * stats.FinalThrottle;
+                            porcentajeIAccel += IA.accel;
+                            Debug.Log("Acelerando");
+                        }
+                        else
+                        {
+                            porcentajeIAccel = 0;
+                        }
+                    }
+                    else
+                    {
+                        porcentajeIAccel = 0;
+                    }
+
                 }
+
+                currentSpeed += (accelIA / factorUnidades) + fuerza;
+                //comprobacion Umbral current
+
             }
+
+            if(currentSpeed>(currentModulo.umbral - IA.nivelRitmo))
+            {
+                currentSpeed = currentModulo.umbral - IA.nivelRitmo;
+            }
+
         }
 
         if (currentSpeed < stats.FinalMinSpeed)
         {
             currentSpeed = stats.FinalMinSpeed;
+         
         }
         else if (currentSpeed > stats.FinalMaxSpeed)
         {
             currentSpeed = stats.FinalMaxSpeed;
+          
         }
 
         speed = currentSpeed / factorSpeed;
+    
 
         return Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
 
@@ -214,6 +278,7 @@ public class Coche : MonoBehaviour
 
         transform.position = posIni;
         salidoCircuito = false;
+        accidente = false;
         currentSpeed = stats.FinalMinSpeed;
     }
 

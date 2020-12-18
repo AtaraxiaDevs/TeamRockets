@@ -269,6 +269,10 @@ public class Modulo : MonoBehaviour
         if(other.tag.Equals("Coche"))
         {
             other.GetComponent<Coche>().currentModulo = myInfo;
+            other.GetComponent<Coche>().currentPointMod = 0;
+            other.GetComponent<Coche>().sizeMod= path[0].positionCount;
+            other.GetComponent<IAMoves>().ModuloSiguiente(ID);
+            
         }
     }
 

@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public Button connect, joinRandom;
+    public Button connect, joinRandom,comenzar;
     public Text Log, PlayerCounter;
     private byte maxPlayersInRoom=4;
     private int playerCounter;
+    public UIManagerCarrera uIManagerCarrera;
+    public CarreraManagerMulti CM;
     private void Start()
     {
         connect.onClick.AddListener(() => Connect());
         joinRandom.onClick.AddListener(() => JoinRandom());
+        comenzar.onClick.AddListener(() => Comenzar());
     }
     public void Connect()
     {
@@ -29,6 +32,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             }
         }
     }
+    public void Comenzar()
+    {
+        CM.CreateLevel();
+        uIManagerCarrera.Comenzar();
+        this.gameObject.SetActive(false);
+    }
     public override void OnConnectedToMaster()
     {
         //connect.interactable = false;
@@ -41,6 +50,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             Log.text += "\nError al conectar";
         }
+      
+    }
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+
+        CM.PlayerID = PhotonNetwork.CurrentRoom.PlayerCount;
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
@@ -63,6 +79,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             playerCounter = PhotonNetwork.CurrentRoom.PlayerCount;
             PlayerCounter.text = playerCounter + "/" + maxPlayersInRoom;
+            
         }
     }
 }

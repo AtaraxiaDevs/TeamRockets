@@ -18,11 +18,16 @@ public class UIManagerCarrera : MonoBehaviour
     
     void Start()
     {
-        myCar.soyPlayer = true;
+        if (myCar != null)
+        {
+            myCar.soyPlayer = true;
+        }
+      
 
         startCarrera.onClick.AddListener(() => {
+            circuito.Construir();
             circuito.IniciarCarrera();
-            Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
+           // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
            // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
             
             Time.timeScale = 1;
@@ -31,7 +36,25 @@ public class UIManagerCarrera : MonoBehaviour
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
         minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value)); 
     }
-    
+    public Coche getPlayer()
+    {
+        foreach(Coche c in circuito.pilotos)
+        {
+            //c.multiPlayer = true;
+            if (c.soyPlayer)
+            {
+                return c;
+            }
+        }
+        return null;
+    }
+    public void Comenzar()
+    {
+          if(myCar==null)
+        {
+            myCar = getPlayer();
+        }
+    }
     private void onMinMaxChange(float value)
     {
         //value va a estar entre 1 y 0 
@@ -54,8 +77,8 @@ public class UIManagerCarrera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
+        //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
-        velocidad.text = myCar.currentSpeed.ToString();
+        //velocidad.text = myCar.currentSpeed.ToString();
     }
 }

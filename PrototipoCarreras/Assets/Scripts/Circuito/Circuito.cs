@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class ObjectCircuito
 }
 
 [Serializable]
-public class Circuito : MonoBehaviour
+public class Circuito : MonoBehaviourPunCallbacks
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
 
@@ -28,8 +29,14 @@ public class Circuito : MonoBehaviour
 
     public bool modoEditor;
 
+    public void setMyPlayer(int i)
+    {
+        pilotos[i].soyPlayer = true;
+        pilotos[i].gameObject.GetComponent<PhotonView>().SetOwnerInternal( PhotonNetwork.LocalPlayer,i);
+    }
     void Start()
     {
+        circuito = new LineRenderer[maxPilotos];
         if (modoEditor)
         {
             modulos = new List<Modulo>();
@@ -41,6 +48,7 @@ public class Circuito : MonoBehaviour
                 Transform mytmp = Instantiate(prefabCircuito, transform);
                 pilotos[i] = mytmp.GetComponentInChildren<Coche>();
                 pilotos[i].ID = i;
+                pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
                 circuito[i] = mytmp.GetComponent<LineRenderer>();
             }
 
@@ -48,6 +56,19 @@ public class Circuito : MonoBehaviour
             {
                 vertexcont[i] = 0;
             }
+        }
+        else
+        {
+            moduloPrimero.soyPrimero();
+            for (int i = 0; i < maxPilotos; i++)
+            {
+              
+               
+                pilotos[i].ID = i;
+                pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
+                circuito[i] =pilotos[i].GetComponentInParent<LineRenderer>();
+            }
+
         }
         //construir();
     }
@@ -71,7 +92,17 @@ public class Circuito : MonoBehaviour
     {
         modulos.Add(m);
     }
-
+    public Modulo GetModulo(int id)
+    {
+        if (id == modulos.Count)
+        {
+            return (modulos[0]);
+        }
+        else
+        {
+            return modulos[id];
+        }
+    }
     public void RemoveModulo(Modulo m)
     {
         modulos.Remove(m);
@@ -98,14 +129,21 @@ public class Circuito : MonoBehaviour
     //    return distance2 > distance1;
 
     //}
-
-    public void construir()
+    public void TransformModulos()
     {
         modulos.Sort(new ComparadorModulo());
-
         for (int h = 0; h < modulos.Count; h++)
         {
             modulos[h].transform.parent = this.transform;
+        }
+    }
+    public void Construir()
+    {
+      
+
+        for (int h = 0; h < modulos.Count; h++)
+        {
+          
 
             for (int j = 0; j < maxPilotos; j++)
             {
