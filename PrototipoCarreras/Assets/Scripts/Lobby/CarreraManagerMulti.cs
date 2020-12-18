@@ -27,6 +27,7 @@ public class CarreraManagerMulti : MonoBehaviour
         else
         {
             circuito.setMyPlayer(PlayerID-1);
+            circuito.setMulti();
             soyJugador.text = "Soy el jugador " + PlayerID;
         }
       

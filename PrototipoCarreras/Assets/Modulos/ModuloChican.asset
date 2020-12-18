@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae79685fce4b1324a9dce9ac76d9ad6a, type: 3}
-  m_Name: ModuloRecta
+  m_Name: ModuloChican
   m_EditorClassIdentifier: 
-  tipoCircuito: 0
-  elemento: 4
-  rozamiento: 0
-  umbral: 900
+  tipoCircuito: 3
+  elemento: 3
+  rozamiento: -0.1
+  umbral: 80

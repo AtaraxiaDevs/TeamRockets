@@ -83,11 +83,14 @@ public class Coche : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if ((soyPlayer) && (multiPlayer)) { 
+
         if (iniciado)
         {
             
             //Logica de Movimiento
 
+             
             if (!salidoCircuito)
             {
                 if (!soyPlayer)
@@ -146,6 +149,7 @@ public class Coche : MonoBehaviour
                 }
             }
         }   
+       // }
     }
 
     public bool HaLlegado()

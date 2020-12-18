@@ -34,6 +34,13 @@ public class Circuito : MonoBehaviourPunCallbacks
         pilotos[i].soyPlayer = true;
         pilotos[i].gameObject.GetComponent<PhotonView>().SetOwnerInternal( PhotonNetwork.LocalPlayer,i);
     }
+    public void setMulti()
+    {
+        foreach(Coche p in pilotos)
+        {
+            p.multiPlayer = true;
+        }
+    }
     void Start()
     {
         circuito = new LineRenderer[maxPilotos];

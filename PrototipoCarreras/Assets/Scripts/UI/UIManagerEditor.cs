@@ -7,12 +7,12 @@ public class UIManagerEditor : MonoBehaviour
 {
     //References
     public Modulo current;
-    public GameObject prefabm1, prefabm2;
+    public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne;
     public Circuito circuito;
     public QRMANAGER qrmanager;
 
     //UI
-    public Button rotar, listoPrimero, modulo1, modulo2,remove,listoConstruir, save;
+    public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne, remove,listoConstruir, save;
     
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,12 @@ public class UIManagerEditor : MonoBehaviour
 
         listoPrimero.onClick.AddListener(() => ComenzarCarrera());
         listoConstruir.onClick.AddListener(() => PantallaElegirPrimero());
-        modulo1.onClick.AddListener(() => CrearModulo(prefabm1));
-        modulo2.onClick.AddListener(() => CrearModulo(prefabm2));
+        Recta.onClick.AddListener(() => CrearModulo(prefabRecta));
+        ZigZag.onClick.AddListener(() => CrearModulo(prefabZigZag));
+        Abierta.onClick.AddListener(() => CrearModulo(prefabAbierta));
+        Vuelta.onClick.AddListener(() => CrearModulo(prefabVuelta));
+        Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
+        Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
         //save.onClick.AddListener(() => qrmanager.Guardar(circuito));
         save.onClick.AddListener(() => circuito.IniciarCarrera()) ;
     }
@@ -79,8 +83,12 @@ public class UIManagerEditor : MonoBehaviour
         {
             circuito.SetInteractuable(false);
             rotar.gameObject.SetActive(false);
-            modulo1.gameObject.SetActive(false);
-            modulo2.gameObject.SetActive(false);
+            Recta.gameObject.SetActive(false);
+            Chicanne.gameObject.SetActive(false);
+            Vuelta.gameObject.SetActive(false);
+            ZigZag.gameObject.SetActive(false);
+            Abierta.gameObject.SetActive(false);
+            Cerrada.gameObject.SetActive(false);
             remove.gameObject.SetActive(false);
             listoConstruir.gameObject.SetActive(false);
             listoPrimero.gameObject.SetActive(true);
