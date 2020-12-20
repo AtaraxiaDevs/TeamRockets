@@ -7,6 +7,48 @@ public enum ESPACIODINAMICA { RECTAS, CURVAS, EQUILIBRADOA }
 
 public class Reglajes : MonoBehaviour
 {
+    public void ElegirReglajes(int a, int b)
+    {
+        RELACIONMARCHAS auxRM;
+        ESPACIODINAMICA auxED;
+
+        switch (a)
+        {
+            case 0:
+                auxRM = RELACIONMARCHAS.ACELERACION;
+                break;
+            case 1:
+                auxRM = RELACIONMARCHAS.VELOCIDAD;
+                break;
+            case 2:
+                auxRM = RELACIONMARCHAS.EQUILIBRADORM;
+                break;
+            default:
+                auxRM = RELACIONMARCHAS.EQUILIBRADORM;
+                break;
+        }
+
+        switch (b)
+        {
+            case 0:
+                auxED = ESPACIODINAMICA.RECTAS;
+                break;
+            case 1:
+                auxED = ESPACIODINAMICA.CURVAS;
+                break;
+            case 2:
+                auxED = ESPACIODINAMICA.EQUILIBRADOA;
+                break;
+            default:
+                auxED = ESPACIODINAMICA.EQUILIBRADOA;
+                break;
+        }
+        
+        
+        //inmortal.elinmortal.reglajeRM = a;
+        //inmortal.elinmortal.reglajeRM = a;
+    }
+
     public void CalcularReglajes(Coche c, RELACIONMARCHAS a, ESPACIODINAMICA b)
     {
         switch (a)

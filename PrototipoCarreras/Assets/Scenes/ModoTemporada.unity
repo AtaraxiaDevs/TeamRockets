@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &29386720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +425,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 226303740}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552711700}
+        m_MethodName: EditarCoche
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -763,13 +774,14 @@ GameObject:
   - component: {fileID: 226303743}
   - component: {fileID: 226303742}
   - component: {fileID: 226303741}
+  - component: {fileID: 226303745}
   m_Layer: 5
   m_Name: ModificarCoche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &226303741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +863,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &226303745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226303740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2f2e09264765747a646a9720e6b015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &229422371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1821,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 2029891081}
   ModoTemporada: {fileID: 29386719}
+  reg: {fileID: 226303745}
+  RM: {fileID: 1266015361}
+  ED: {fileID: 1089663037}
 --- !u!1 &614878446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,7 +2874,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 983445803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 552711700}
+        m_MethodName: IrA
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TestingCarrera
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &983445803
 MonoBehaviour:
   m_ObjectHideFlags: 0
