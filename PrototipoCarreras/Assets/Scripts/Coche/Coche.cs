@@ -95,21 +95,21 @@ public class Coche : MonoBehaviour
             {
                 if (!soyPlayer)
                 {
-                   
-                    //if (currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
-                    //{
-                    //    float r = 0;
 
-                    //    r = UnityEngine.Random.Range(0, 100000);
+                    if (currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
+                    {
+                        float r = 0;
 
-                    //    if (r < IA.porcentajeFallo)
-                    //    {
-                    //        accidente = true;
-                           
+                        r = UnityEngine.Random.Range(0, 10000);
 
-                    //    }
-                    //}
-                  
+                        if (r < IA.porcentajeFallo)
+                        {
+                            accidente = true;
+
+
+                        }
+                    }
+
                 }
 
                 if ((currentSpeed > currentModulo.umbral&& currentPointMod >= sizeMod / 2) || accidente)
@@ -155,10 +155,7 @@ public class Coche : MonoBehaviour
     public bool HaLlegado()
     {
         bool x, y, z;
-        
-        //x = Mathf.Approximately( transform.position.x , posiciones[currentpoint].x);
-        //y = Mathf.Approximately(transform.position.y, posiciones[currentpoint].y);
-        //z = Mathf.Approximately(transform.position.z , posiciones[currentpoint].z);
+     
         return (((transform.position.x >= posiciones[currentpoint].x - epsilon) && (transform.position.x <= posiciones[currentpoint].x + epsilon)) && ((transform.position.y >= posiciones[currentpoint].y - epsilon) && (transform.position.y <= posiciones[currentpoint].y + epsilon)) && ((transform.position.z >= posiciones[currentpoint].z - epsilon) && (transform.position.z <= posiciones[currentpoint].z + epsilon)));
     }
 
@@ -177,26 +174,50 @@ public class Coche : MonoBehaviour
             //comprobacion siguiente es curva
             if (IA.moduloSiguiente != null)
             {
-
+                //Debug.Log("Info: puntoCurva: " + currentPointMod + " puntosModulo " + sizeMod);
 
                 if ((IA.SiguienteCurva() || (currentPointMod >= sizeMod / 2)))
                 {
+                    //Debug.Log("Segunda Mitad Curva ");
                     if (currentSpeed > IA.moduloSiguiente.myInfo.umbral - IA.nivelRitmo)
                     {
+                        //Debug.Log("speed es mayor al umbral ");
                         if (accelIA > stats.FinalBrake)
                         {
+                            //Debug.Log("Accel Mayor Freno");
                             accelIA = porcentajeIAccel * stats.FinalBrake;
                             porcentajeIAccel += IA.frenacion;
-                            Debug.Log("Frenando");
+                            if (ID == 3)
+                            {
+                                Debug.Log("Frenando");
+                            }
+                         
                         }
                         else
                         {
+                            //Debug.Log("Accel 0");
                             porcentajeIAccel = 0;
                         }
                     }
                     else
                     {
-                        porcentajeIAccel = 0;
+                        if (currentSpeed < currentModulo.umbral - IA.nivelRitmo)
+                        {
+                            if (accelIA < stats.FinalThrottle)
+                            {
+                                accelIA = porcentajeIAccel * stats.FinalThrottle;
+                                porcentajeIAccel += IA.accel;
+                                if (ID == 3)
+                                {
+                                    Debug.Log("Acelerando");
+                                }
+                            }
+                            else
+                            {
+                                //Debug.Log("Accel 0");
+                                porcentajeIAccel = 0;
+                            }
+                        }
                     }
 
 
@@ -204,22 +225,28 @@ public class Coche : MonoBehaviour
                 }
                 else
                 {
-
+                    //Debug.Log("No curva");
                     if (currentSpeed < currentModulo.umbral - IA.nivelRitmo)
                     {
+                        //Debug.Log("speed menor umbral");
                         if (accelIA < stats.FinalThrottle)
                         {
                             accelIA = porcentajeIAccel * stats.FinalThrottle;
                             porcentajeIAccel += IA.accel;
-                            Debug.Log("Acelerando");
+                            if (ID == 3)
+                            {
+                                Debug.Log("Acelerando");
+                            }
                         }
                         else
                         {
+                            //Debug.Log("Accel 0");
                             porcentajeIAccel = 0;
                         }
                     }
                     else
                     {
+                        //Debug.Log("Accel 0");
                         porcentajeIAccel = 0;
                     }
 

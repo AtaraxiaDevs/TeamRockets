@@ -79,6 +79,6 @@ public class UIManagerCarrera : MonoBehaviour
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
-        //velocidad.text = myCar.currentSpeed.ToString();
+        velocidad.text = ((int)myCar.currentSpeed).ToString();
     }
 }
