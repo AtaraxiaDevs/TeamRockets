@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3467637081155738853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3467637081155738859}
+  - component: {fileID: 3467637081155738858}
+  m_Layer: 0
+  m_Name: InformacionPersistente
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3467637081155738859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467637081155738853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 304.02277, y: 304.7493, z: -141.96095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3467637081155738858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467637081155738853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1562f6374f87b6544aa17c769dedf66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelosCoches:
+  - {fileID: 11400000, guid: 2ccd1c095bda55b4cba8377b396faee3, type: 2}
+  - {fileID: 11400000, guid: 8214d4ece20515447aacbbf4a5e270f3, type: 2}
+  - {fileID: 11400000, guid: c09dbcf69e75cd7429de787fb37fa88c, type: 2}
+  - {fileID: 11400000, guid: e53d897e621c11441882ed99ce4885f1, type: 2}
+  signosZodiaco:
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  - zodiaco: 0
+    elemento: 0
+  numCoches: 0

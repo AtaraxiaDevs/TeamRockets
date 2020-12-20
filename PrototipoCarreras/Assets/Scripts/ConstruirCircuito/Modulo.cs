@@ -44,8 +44,10 @@ public class Modulo : MonoBehaviour
     //Modulos vecinos, referencias
     [SerializeField]private Vecino vecino1, vecino2;
 
- 
+
     //Información del modulo
+    public Rotacion rotacion = Rotacion.NINGUNA;
+    public bool modoConstructor = false;
     public float sizeModulo;
     private int ID = -1;
     public bool esSalida, interactuable = true, reverse = false, selecPrimero = false;
@@ -192,21 +194,43 @@ public class Modulo : MonoBehaviour
 
     public void NumerarSiguiente(Modulo s, int id)
     {
-        //viene del anterior
-        if (ID < 0)
+        if (!modoConstructor)
         {
-            ID = id;
-            if (s.Equals(vecino1.attach))
+            if (ID < 0)
             {
+                ID = id;
+                if (s.Equals(vecino1.attach))
+                {
 
-                vecino2.attach.NumerarSiguiente(this, id + 1);
+                    vecino2.attach.NumerarSiguiente(this, id + 1);
+                }
+                else
+                {
+                    reverse = true;// es decir, está al revés de como debería
+                    vecino1.attach.NumerarSiguiente(this, id + 1);
+                }
+            }
+        }
+        else
+        {
+            if (reverse)
+            {
+                if (vecino1.attach != null)
+                {
+                    vecino1.attach.NumerarSiguiente(this, id + 1);
+                }
+             
             }
             else
             {
-                reverse = true;// es decir, está al revés de como debería
-                vecino1.attach.NumerarSiguiente(this, id + 1);
+                if (vecino2.attach != null)
+                {
+                    vecino2.attach.NumerarSiguiente(this, id + 1);
+                }
             }
         }
+        //viene del anterior
+      
     }
     public void SetAncla(SocketPos sp)
     {
@@ -244,7 +268,23 @@ public class Modulo : MonoBehaviour
     {
         Liberar();
         transform.Rotate(0, 90, 0);
+      
 
+        switch (rotacion)
+        {
+            case Rotacion.NINGUNA:
+                rotacion =Rotacion.NOVENTAGRADOS;
+                break;
+            case Rotacion.NOVENTAGRADOS:
+                rotacion = Rotacion.CIENTOCHENTAGRADOS;
+                break;
+            case Rotacion.CIENTOCHENTAGRADOS:
+                rotacion = Rotacion.DOSCIENTOSSETENTAGRADOS;
+                break;
+            case Rotacion.DOSCIENTOSSETENTAGRADOS:
+                rotacion = Rotacion.NINGUNA;
+                break;
+        }
         switch (socket1)
         {
             case TipoSocket.NEGX:

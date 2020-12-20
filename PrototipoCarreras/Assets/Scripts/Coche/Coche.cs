@@ -35,14 +35,7 @@ public class Coche : MonoBehaviour
         IA = GetComponent<IAMoves>();
 
         //PARA TESTEAR BORRAR LUEGO
-        stats = new InfoCoche();
-
-        stats.ElectricForceCurva = 0;
-        stats.ElectricForceCurva = 0;
-        stats.FinalBrake = statsBase.BaseBrake;
-        stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
-        stats.FinalMinSpeed = 20;
-        stats.FinalThrottle = statsBase.BaseThrottle;
+        
         currentPointMod = 0;
         accelIA = 0;
         porcentajeIAccel = 0;
@@ -232,7 +225,26 @@ public class Coche : MonoBehaviour
         StartCoroutine(SaliendoCircuito(transform.position));
     }
     #endregion
+    #region Asignar Tipo de Coche
+    public void AsignarCoche(DatosCoche datos)
+    {
+        //Debemos asignarle tambien el modelo 3d correspondiente
+        statsBase = datos.infoBase;
+        CalcularStats();
 
+    }
+    public void CalcularStats()
+    {
+        stats = new InfoCoche();
+
+        stats.ElectricForceCurva = 0;
+        stats.ElectricForceCurva = 0;
+        stats.FinalBrake = statsBase.BaseBrake;
+        stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
+        stats.FinalMinSpeed = 20;
+        stats.FinalThrottle = statsBase.BaseThrottle;
+    }
+    #endregion
 
 
 

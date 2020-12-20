@@ -46,7 +46,7 @@ public class UIManagerEditor : MonoBehaviour
         Vuelta.onClick.AddListener(() => CrearModulo(prefabVuelta));
         Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
         Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
-        save.onClick.AddListener(() => circuito.IniciarCarrera());
+       
     }
     #endregion
     #region Creacion Y Modificacion del circuito
@@ -74,7 +74,9 @@ public class UIManagerEditor : MonoBehaviour
             {
                 m.selecPrimero = false;
             }
+            save.gameObject.SetActive(true);
         }
+       
         else
         {
             Debug.Log("No ha elegido un primero");
@@ -96,6 +98,7 @@ public class UIManagerEditor : MonoBehaviour
             remove.gameObject.SetActive(false);
             listoConstruir.gameObject.SetActive(false);
             listoPrimero.gameObject.SetActive(true);
+           
 
             foreach (Modulo m in circuito.modulos)
             {

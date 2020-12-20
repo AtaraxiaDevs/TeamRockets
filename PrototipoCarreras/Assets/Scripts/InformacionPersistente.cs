@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Clase con un Singleton estatico que contine informacion inmutable entre escenas
+public class DatosCoche
+{
+    public Reglajes reg;
+    public ModeloCoche infoBase;
+    public Signo[] signos;
+    public InfoCoche stats;
+    public int ID;
+    public DatosCoche()
+    {
+        reg = new Reglajes();
+    }
+}
 public class InformacionPersistente : MonoBehaviour
 {
     //Singleton
@@ -12,6 +24,7 @@ public class InformacionPersistente : MonoBehaviour
     //Informacion
 
     public DatosCoche[] cochesCarrera;
+    
     public ModeloCoche[] modelosCoches;
     public Signo[] signosZodiaco;
     public int numCoches;
@@ -33,6 +46,8 @@ public class InformacionPersistente : MonoBehaviour
     void Start()
     {
         numCoches = modelosCoches.Length;
+        cochesCarrera = new DatosCoche[numCoches];
+        LimpiarInfoCoches();
     }
     #endregion
     #region Gestion de la informacion
@@ -41,7 +56,7 @@ public class InformacionPersistente : MonoBehaviour
     {
         DatosCoche res = new DatosCoche();
         res.ID = pos;
-        res.info = modelosCoches[Random.Range(0, numCoches)];
+        res.infoBase = modelosCoches[Random.Range(0, numCoches)];
         res.reg = new Reglajes();
         res.reg.ElegirReglajes(Random.Range(0, res.reg.numReglajes), Random.Range(0, res.reg.numReglajes));
         res.signos = new Signo[3];
@@ -52,6 +67,16 @@ public class InformacionPersistente : MonoBehaviour
         return res;
 
 
+    }
+    public void LimpiarInfoCoches()
+    {
+        for (int i = 0; i < numCoches; i++)
+        {
+            cochesCarrera[i] = null;
+
+        }
+           
+        
     }
     #endregion
 

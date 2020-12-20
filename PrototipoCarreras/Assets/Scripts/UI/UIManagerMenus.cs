@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManagerMenus : MonoBehaviour
 {
@@ -19,5 +20,15 @@ public class UIManagerMenus : MonoBehaviour
     {
         scene.SetActive(!scene.activeSelf);
         ModoTemporada.SetActive(!ModoTemporada.activeSelf);
+    }
+    public void CambiarScene( Scene scene)
+    {
+        SceneManager.LoadScene(scene.name);
+
+    }
+    public void CambiarScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+
     }
 }

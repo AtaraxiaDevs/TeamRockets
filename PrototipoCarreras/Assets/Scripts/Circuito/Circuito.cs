@@ -25,6 +25,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     private static int maxPilotos = 4;
     private int[] vertexcont = new int[maxPilotos];
     public bool modoEditor;
+    public int numVueltas= 3;
 
     #region Unity
     void Start()
@@ -33,41 +34,56 @@ public class Circuito : MonoBehaviourPunCallbacks
         if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
             modulos = new List<Modulo>();
-            circuito = new LineRenderer[maxPilotos];
-            pilotos = new Coche[maxPilotos];
-
-            for (int i = 0; i < maxPilotos; i++)
-            {
-                Transform mytmp = Instantiate(prefabCircuito, transform);
-                pilotos[i] = mytmp.GetComponentInChildren<Coche>();
-                pilotos[i].ID = i;
-                pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
-                circuito[i] = mytmp.GetComponent<LineRenderer>();
-            }
-
-            for (int i = 0; i < maxPilotos; i++)
-            {
-                vertexcont[i] = 0;
-            }
+            CrearPilotos();
         }
         else
         {
-            moduloPrimero.soyPrimero();
-            for (int i = 0; i < maxPilotos; i++)
+            if (pilotos[0] != null)
             {
-
-
-                pilotos[i].ID = i;
-                pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
-                circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
+                InicializarPilotos();
             }
 
         }
         
     }
+  
     #endregion
     #region Construir Circuito
+    public void CrearPilotos()
+    {
+        circuito = new LineRenderer[maxPilotos];
+        pilotos = new Coche[maxPilotos];
 
+        for (int i = 0; i < maxPilotos; i++)
+        {
+            Transform mytmp = Instantiate(prefabCircuito, transform);
+            pilotos[i] = mytmp.GetComponentInChildren<Coche>();
+            pilotos[i].ID = i;
+            pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
+            circuito[i] = mytmp.GetComponent<LineRenderer>();
+        }
+
+        for (int i = 0; i < maxPilotos; i++)
+        {
+            vertexcont[i] = 0;
+        }
+        AsignarPiloto();
+
+    }
+    public void InicializarPilotos()
+    { //moduloPrimero.soyPrimero();
+        for (int i = 0; i < maxPilotos; i++)
+        {
+
+
+            pilotos[i].ID = i;
+            pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
+            circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
+
+        }
+        AsignarPiloto();
+
+    }
     public void Construir()
     {
 
@@ -183,6 +199,18 @@ public class Circuito : MonoBehaviourPunCallbacks
     }
     #endregion
     #region Modo Carrera
+    private void AsignarPiloto()
+    {
+        InformacionPersistente ip = InformacionPersistente.singleton;
+        for (int i = 0; i < ip.numCoches; i++)
+        {
+            if (ip.cochesCarrera[i] == null)
+            {
+                ip.GetRandomCoche(i);
+            }
+            pilotos[i].AsignarCoche(ip.cochesCarrera[i]);
+        }
+    }
     public void IniciarCarrera()
     {
         for (int i = 0; i < maxPilotos; i++)

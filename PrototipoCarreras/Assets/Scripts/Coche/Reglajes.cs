@@ -7,7 +7,7 @@ using UnityEngine;
 public enum RELACIONMARCHAS { ACELERACION, VELOCIDAD, EQUILIBRADORM }
 public enum ESPACIODINAMICA { RECTAS, CURVAS, EQUILIBRADOA }
 
-public class Reglajes : MonoBehaviour
+public class Reglajes 
 {
     public int numReglajes=3;
     public void ElegirReglajes(int a, int b)

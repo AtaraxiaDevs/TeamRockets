@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7083792541405992584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2583047626002192943}
+  - component: {fileID: 5647811009800185314}
+  m_Layer: 0
+  m_Name: Constructor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2583047626002192943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083792541405992584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.082, y: 180.90668, z: -81.904755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5647811009800185314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083792541405992584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85a2facfcee6b04db0d741fca4fd481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabModuloRecta: {fileID: 9026503651901435900, guid: e728de0134681854ca72939df1174106,
+    type: 3}
+  prefabModuloCerrada: {fileID: 9026503651901435900, guid: 4dd68523babf2b84a93bd29d9d2a8f6c,
+    type: 3}
+  prefabModuloAbierta: {fileID: 9026503651901435900, guid: c2cf43ab1b69b7c40bd536ac31eb4f08,
+    type: 3}
+  prefabModuloZigZag: {fileID: 9026503651901435900, guid: 71ce872016a9cc244a69751c605286b0,
+    type: 3}
+  prefabModuloVuelta: {fileID: 9026503651901435900, guid: 48abad956a33e57458e2290d9158774a,
+    type: 3}
+  prefabModuloChicane: {fileID: 9026503651901435900, guid: 03f172240e38fa443b0efad30e3fd1b9,
+    type: 3}
+  prefabCircuito: {fileID: 7080469772363994084, guid: 03d256d68184a0e49b2a7742d8e113cc,
+    type: 3}

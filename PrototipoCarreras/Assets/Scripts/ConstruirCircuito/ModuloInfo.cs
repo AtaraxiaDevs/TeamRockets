@@ -14,12 +14,15 @@ public enum TipoSocket
 
 [Serializable]
 public enum TipoModulo
+    // uno por cada modulo diferente que hay ( no solo la forma) para que el constructor funcione
 {
     RECTA,
     CURVACERRADA,
     CURVABIERTA,
     CHICANE,
-    CAMBIOCARRIL
+    VUELTA,
+    CAMBIOCARRIL,
+    ZIGZAG
 }
 
 [Serializable]
