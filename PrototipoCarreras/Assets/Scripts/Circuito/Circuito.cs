@@ -3,48 +3,34 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class ObjectCircuito
-{
-    public GameObject circuito;
-}
 
-[Serializable]
+// Esta clase crea los linerenderer de los pilotos a partir de los linerenderer de los modulos que lo conforman. Cuenta con metodos
+// que añaden y eliminan modulos, para gestionar los pilotos de la carrera, para construir el circuito etc.
+//Un metodo importante es "Construir()" que es donde coge los linerenderer que seguiran los pilotos, y los modifica para que sigan el circuito
 public class Circuito : MonoBehaviourPunCallbacks
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
 
+    //Referencias
     public List<Modulo> modulos;
     public Modulo moduloPrimero;
-    private LineRenderer[] circuito;
-    //private List<GameObject> gameObjectModulo;
-
+    public Coche[] pilotos;
     public Transform prefabCircuito;
     public GameObject gameObjectCircuito;
 
-    //Coches
-    public Coche[] pilotos;
+    //Referencia a los circuitos de los pilotos
+    private LineRenderer[] circuito;
+ 
+    //información
     private static int maxPilotos = 4;
     private int[] vertexcont = new int[maxPilotos];
-
     public bool modoEditor;
 
-    public void setMyPlayer(int i)
-    {
-        pilotos[i].soyPlayer = true;
-        pilotos[i].gameObject.GetComponent<PhotonView>().SetOwnerInternal( PhotonNetwork.LocalPlayer,i);
-    }
-    public void setMulti()
-    {
-        foreach(Coche p in pilotos)
-        {
-            p.multiPlayer = true;
-        }
-    }
+    #region Unity
     void Start()
     {
         circuito = new LineRenderer[maxPilotos];
-        if (modoEditor)
+        if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
             modulos = new List<Modulo>();
             circuito = new LineRenderer[maxPilotos];
@@ -69,88 +55,26 @@ public class Circuito : MonoBehaviourPunCallbacks
             moduloPrimero.soyPrimero();
             for (int i = 0; i < maxPilotos; i++)
             {
-              
-               
+
+
                 pilotos[i].ID = i;
                 pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
-                circuito[i] =pilotos[i].GetComponentInParent<LineRenderer>();
+                circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
             }
 
         }
-        //construir();
+        
     }
-    public void IniciarCarrera()
-    {
-        for (int i = 0; i < maxPilotos; i++)
-        {
-            pilotos[i].Init(moduloPrimero.myInfo);
-        }
-    }
+    #endregion
+    #region Construir Circuito
 
-    public void SetInteractuable(bool value)
-    {
-        foreach (Modulo m in modulos)
-        {
-            m.interactuable = value;
-        }
-    }
-
-    public void AddModulo(Modulo m)
-    {
-        modulos.Add(m);
-    }
-    public Modulo GetModulo(int id)
-    {
-        if (id == modulos.Count)
-        {
-            return (modulos[0]);
-        }
-        else
-        {
-            return modulos[id];
-        }
-    }
-    public void RemoveModulo(Modulo m)
-    {
-        modulos.Remove(m);
-    }
-
-    public bool CircuitoListo()
-    {
-        foreach (Modulo m in modulos)
-        {
-            if (m.QuedaHueco())
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //public bool buenaDireccion(Vector3 posModulo, LineRenderer lineProxModulo,Transform t)
-    //{
-    //    float distance1 = Mathf.Abs(Vector3.Distance( posModulo , t.TransformPoint(lineProxModulo.GetPosition(0))));
-    //    float distance2 = Mathf.Abs(Vector3.Distance(posModulo, t.TransformPoint(lineProxModulo.GetPosition(lineProxModulo.positionCount-1))));
-    //    Debug.Log("Distancia1 " + distance1);
-    //    Debug.Log("Distancia2 " + distance2);
-    //    return distance2 > distance1;
-
-    //}
-    public void TransformModulos()
-    {
-        modulos.Sort(new ComparadorModulo());
-        for (int h = 0; h < modulos.Count; h++)
-        {
-            modulos[h].transform.parent = this.transform;
-        }
-    }
     public void Construir()
     {
-      
+
 
         for (int h = 0; h < modulos.Count; h++)
         {
-          
+
 
             for (int j = 0; j < maxPilotos; j++)
             {
@@ -203,9 +127,89 @@ public class Circuito : MonoBehaviourPunCallbacks
             circuito[i].SetPosition(circuito[i].positionCount - 1, circuito[i].GetPosition(0));
         }
     }
-
-    void Update()
+    #endregion
+    #region Modo Editor
+    public void SetInteractuable(bool value)
     {
-
+        foreach (Modulo m in modulos)
+        {
+            m.interactuable = value;
+        }
     }
+
+    public void AddModulo(Modulo m)
+    {
+        modulos.Add(m);
+    }
+    public void RemoveModulo(Modulo m)
+    {
+        modulos.Remove(m);
+    }
+    public bool CircuitoListo()
+    {
+        foreach (Modulo m in modulos)
+        {
+            if (m.QuedaHueco())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void TransformModulos()
+    {
+        modulos.Sort(new ComparadorModulo());
+        for (int h = 0; h < modulos.Count; h++)
+        {
+            modulos[h].transform.parent = this.transform;
+        }
+    }
+    #endregion
+    #region Información Pilotos
+    //Elegir cual es el coche jugador
+    public void setMyPlayer(int i)
+    {
+        pilotos[i].soyPlayer = true;
+        pilotos[i].gameObject.GetComponent<PhotonView>().SetOwnerInternal(PhotonNetwork.LocalPlayer, i);
+    }
+    //Variable multiplayer de todos los pilotos de la carrera a true ( en multijugador). Puede que no nos haga falta más adelante
+    public void setMulti()
+    {
+        foreach (Coche p in pilotos)
+        {
+            p.multiPlayer = true;
+        }
+    }
+    #endregion
+    #region Modo Carrera
+    public void IniciarCarrera()
+    {
+        for (int i = 0; i < maxPilotos; i++)
+        {
+            pilotos[i].Init(moduloPrimero.myInfo);
+        }
+    }
+    public Modulo GetModulo(int id)
+    {
+        if (id == modulos.Count)
+        {
+            return (modulos[0]);
+        }
+        else
+        {
+            return modulos[id];
+        }
+    }
+
+    #endregion
+
+
+
+
+
+ 
+
+
+
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Informacion final del coche
 public class InfoCoche 
 {
     public float FinalMaxSpeed, FinalMinSpeed, FinalThrottle, FinalBrake;

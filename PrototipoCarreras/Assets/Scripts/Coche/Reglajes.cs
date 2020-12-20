@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Informacion sobre los reglajes ( no deberia ser MonoBehavour)
 public enum RELACIONMARCHAS { ACELERACION, VELOCIDAD, EQUILIBRADORM }
 public enum ESPACIODINAMICA { RECTAS, CURVAS, EQUILIBRADOA }
 
 public class Reglajes : MonoBehaviour
 {
+    public int numReglajes=3;
     public void ElegirReglajes(int a, int b)
     {
         RELACIONMARCHAS auxRM;

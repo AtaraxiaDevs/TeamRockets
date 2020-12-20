@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+//Esta clase gestiona los modulos. En el modo editor es muy util porque cuenta con eventos de colisiones y referencias a sus modulos vecinos.
+
 [Serializable]
+// Comparador de los módulos: así se sabrá en que orden estan
 public class ComparadorModulo : Comparer<Modulo>
 {
     public override int Compare(Modulo x, Modulo y)
@@ -12,7 +16,7 @@ public class ComparadorModulo : Comparer<Modulo>
         return x.GetID()-y.GetID() ;
     }
 }
-
+// Información de los modulos unidos
 [Serializable]
 public class Vecino{
     public TipoSocket tipo;
@@ -24,12 +28,12 @@ public class Modulo : MonoBehaviour
 {
     //Los modulos tendran un prefab asociado, y unos sockets donde se uniran a los demás módulos
 
-    //References
+    //Referencias
 
     public ModuloInfo myInfo;
     private UIManagerEditor uiManager;
- 
-    //Sockets
+    public LineRenderer[] path;
+    //Información de los sockets
 
     private SocketPos ancla1,ancla2;
     private GameObject refS1, refS2;
@@ -37,15 +41,17 @@ public class Modulo : MonoBehaviour
     public TipoSocket socket1, socket2;
     public Vector3 socketPosX, socketPosZ, socketNegX, socketNegZ;
 
-    [SerializeField] private Vecino vecino1, vecino2;
+    //Modulos vecinos, referencias
+    [SerializeField]private Vecino vecino1, vecino2;
 
-    public LineRenderer[] path;
+ 
+    //Información del modulo
     public float sizeModulo;
     private int ID = -1;
-
     public bool esSalida, interactuable = true, reverse = false, selecPrimero = false;
     private bool soltado = false;
 
+    #region Unity
     void Awake()
     {
         if (interactuable)
@@ -59,12 +65,12 @@ public class Modulo : MonoBehaviour
             vecino2.tipo = socket2;
             sizeModulo = GetComponent<MeshRenderer>().bounds.size.x;
 
-            socketPosX = new Vector3(transform.position.x+sizeModulo/2,transform.position.y,transform.position.z);
+            socketPosX = new Vector3(transform.position.x + sizeModulo / 2, transform.position.y, transform.position.z);
             socketNegX = new Vector3(transform.position.x - sizeModulo / 2, transform.position.y, transform.position.z);
-            socketPosZ = new Vector3(transform.position.x , transform.position.y, transform.position.z + sizeModulo / 2);
-            socketNegZ = new Vector3(transform.position.x , transform.position.y, transform.position.z - sizeModulo / 2);
-     
-      
+            socketPosZ = new Vector3(transform.position.x, transform.position.y, transform.position.z + sizeModulo / 2);
+            socketNegZ = new Vector3(transform.position.x, transform.position.y, transform.position.z - sizeModulo / 2);
+
+
             switch (socket1)
             {
                 case TipoSocket.NEGX:
@@ -112,89 +118,6 @@ public class Modulo : MonoBehaviour
         }
     }
 
-    public int GetID()
-    {
-        return ID;
-    }
-
-    public void SetAncla(SocketPos sp)
-    {
-        if (ancla1 == null)
-        {
-            ancla1 = sp;
-        }
-        else
-        {
-            ancla2 = sp;
-        }
-    }
-
-    public void Liberar()
-    {
-        Debug.Log("Liberar");
-        if (ancla1 != null)
-        {
-            ancla1.LiberarSocket();
-            ancla1 = null;
-        }
-
-        if (ancla2 != null){
-            ancla2.LiberarSocket();
-            ancla2 = null;
-        }
-
-        vecino1.attach = null;
-        vecino2.attach = null;
-        refS1.GetComponent<SocketPos>().LiberarSocket();
-        refS2.GetComponent<SocketPos>().LiberarSocket();
-    }
-
-    public void Rotar()
-    {
-        Liberar();
-        transform.Rotate(0, 90, 0);
-
-        switch (socket1)
-        {
-            case TipoSocket.NEGX:
-                socket1 = TipoSocket.POSZ;
-                break;
-
-            case TipoSocket.NEGZ:
-                socket1 = TipoSocket.NEGX;
-                break;
-
-            case TipoSocket.POSX:
-                socket1 = TipoSocket.NEGZ;
-                break;
-
-            case TipoSocket.POSZ:
-                socket1 = TipoSocket.POSX;
-                break;
-        }
-  
-        switch (socket2)
-        {
-            case TipoSocket.NEGX:
-                socket2 = TipoSocket.POSZ;
-                break;
-
-            case TipoSocket.NEGZ:
-                socket2 = TipoSocket.NEGX;
-                break;
-
-            case TipoSocket.POSX:
-                socket2 = TipoSocket.NEGZ;
-                break;
-
-            case TipoSocket.POSZ:
-                socket2 = TipoSocket.POSX;
-                break;
-        }
-        refS1.GetComponent<SocketPos>().setTipo(socket1);
-        refS2.GetComponent<SocketPos>().setTipo(socket2);
-    }
-    
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -205,76 +128,9 @@ public class Modulo : MonoBehaviour
             }
         }
     }
-    private void OnMouseDown()
-    {
-        if (interactuable)
-        {
-            Liberar();
-            uiManager.current = this;
-        }
+    #endregion
+    #region Modo Editor
 
-        if (selecPrimero)
-        {
-            uiManager.current = this;
-        }
-        //modo seleccionar primero boolean
-    }
-  
-    private void OnMouseDrag()
-    {
-        if (interactuable)
-        {
-            if (QuedaHueco())
-            {
-                Liberar();
-            }
-
-            soltado = false;
-            Vector3 inputMouse = Input.mousePosition;
-            Debug.Log(Camera.main.pixelWidth);
-
-            if (inputMouse.x > 0 && inputMouse.y > 0 && inputMouse.x<Camera.main.pixelWidth && inputMouse.y< Camera.main.pixelHeight)
-            {
-                Vector3 pos = Camera.main.ScreenToWorldPoint(inputMouse);
-                transform.position = new Vector3(pos.x, transform.position.y, pos.z);
-            }
-        } 
-    }
-  
-    private void OnTriggerStay(Collider other)
-    {
-        //solo en la construccion
-        if (interactuable)
-        {
-            if ((uiManager.current != null))
-            {
-                if ((soltado) && (uiManager.current.Equals(this)))
-                {
-                    if (other.tag.Equals("SocketEditor"))
-                    {
-                        SocketPos otro = other.GetComponent<SocketPos>();
-
-                        if (!(otro.Equals(ancla1) || otro.Equals(ancla2)))
-                        {
-                            other.GetComponent<SocketPos>().esSocketValido(this);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag.Equals("Coche"))
-        {
-            other.GetComponent<Coche>().currentModulo = myInfo;
-            other.GetComponent<Coche>().currentPointMod = 0;
-            other.GetComponent<Coche>().sizeMod= path[0].positionCount;
-            other.GetComponent<IAMoves>().ModuloSiguiente(ID);
-            
-        }
-    }
 
     public void AddVecinoAndSocket(TipoSocket tipo, Modulo m)
     {
@@ -297,7 +153,7 @@ public class Modulo : MonoBehaviour
         if (tipo.Equals(socket1))
         {
             vecino1.attach = m;
-          
+
             Debug.Log("Añadido");
         }
         else if (tipo.Equals(socket2))
@@ -325,13 +181,13 @@ public class Modulo : MonoBehaviour
 
     public bool QuedaHueco()
     {
-        return vecino1.attach == null || vecino2.attach== null;
+        return vecino1.attach == null || vecino2.attach == null;
     }
 
     public void soyPrimero()
     {
         ID = 0;
-        vecino2.attach.NumerarSiguiente(this,1);
+        vecino2.attach.NumerarSiguiente(this, 1);
     }
 
     public void NumerarSiguiente(Modulo s, int id)
@@ -352,4 +208,169 @@ public class Modulo : MonoBehaviour
             }
         }
     }
+    public void SetAncla(SocketPos sp)
+    {
+        if (ancla1 == null)
+        {
+            ancla1 = sp;
+        }
+        else
+        {
+            ancla2 = sp;
+        }
+    }
+
+    public void Liberar()
+    {
+        Debug.Log("Liberar");
+        if (ancla1 != null)
+        {
+            ancla1.LiberarSocket();
+            ancla1 = null;
+        }
+
+        if (ancla2 != null)
+        {
+            ancla2.LiberarSocket();
+            ancla2 = null;
+        }
+
+        vecino1.attach = null;
+        vecino2.attach = null;
+        refS1.GetComponent<SocketPos>().LiberarSocket();
+        refS2.GetComponent<SocketPos>().LiberarSocket();
+    }
+    public void Rotar()
+    {
+        Liberar();
+        transform.Rotate(0, 90, 0);
+
+        switch (socket1)
+        {
+            case TipoSocket.NEGX:
+                socket1 = TipoSocket.POSZ;
+                break;
+
+            case TipoSocket.NEGZ:
+                socket1 = TipoSocket.NEGX;
+                break;
+
+            case TipoSocket.POSX:
+                socket1 = TipoSocket.NEGZ;
+                break;
+
+            case TipoSocket.POSZ:
+                socket1 = TipoSocket.POSX;
+                break;
+        }
+
+        switch (socket2)
+        {
+            case TipoSocket.NEGX:
+                socket2 = TipoSocket.POSZ;
+                break;
+
+            case TipoSocket.NEGZ:
+                socket2 = TipoSocket.NEGX;
+                break;
+
+            case TipoSocket.POSX:
+                socket2 = TipoSocket.NEGZ;
+                break;
+
+            case TipoSocket.POSZ:
+                socket2 = TipoSocket.POSX;
+                break;
+        }
+        refS1.GetComponent<SocketPos>().setTipo(socket1);
+        refS2.GetComponent<SocketPos>().setTipo(socket2);
+    }
+
+    #endregion
+    #region Modo Carrera
+    #endregion
+    #region Coger informacion
+    public int GetID()
+    {
+        return ID;
+    }
+    #endregion
+    #region Eventos Input
+
+    private void OnMouseDown()
+    {
+        if (interactuable)
+        {
+            Liberar();
+            uiManager.current = this;
+        }
+
+        if (selecPrimero)
+        {
+            uiManager.current = this;
+        }
+        //modo seleccionar primero boolean
+    }
+
+    private void OnMouseDrag()
+    {
+        if (interactuable)
+        {
+            if (QuedaHueco())
+            {
+                Liberar();
+            }
+
+            soltado = false;
+            Vector3 inputMouse = Input.mousePosition;
+            Debug.Log(Camera.main.pixelWidth);
+
+            if (inputMouse.x > 0 && inputMouse.y > 0 && inputMouse.x < Camera.main.pixelWidth && inputMouse.y < Camera.main.pixelHeight)
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(inputMouse);
+                transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+            }
+        }
+    }
+
+    #endregion
+    #region Eventos Collider
+    private void OnTriggerStay(Collider other)
+    {
+        //solo en la construccion
+        if (interactuable)
+        {
+            if ((uiManager.current != null))
+            {
+                if ((soltado) && (uiManager.current.Equals(this)))
+                {
+                    if (other.tag.Equals("SocketEditor"))
+                    {
+                        SocketPos otro = other.GetComponent<SocketPos>();
+
+                        if (!(otro.Equals(ancla1) || otro.Equals(ancla2)))
+                        {
+                            other.GetComponent<SocketPos>().esSocketValido(this);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Coche"))
+        {
+            other.GetComponent<Coche>().currentModulo = myInfo;
+            other.GetComponent<Coche>().currentPointMod = 0;
+            other.GetComponent<Coche>().sizeMod = path[0].positionCount;
+            other.GetComponent<IAMoves>().ModuloSiguiente(ID);
+
+        }
+    }
+
+    #endregion
+
+
 }

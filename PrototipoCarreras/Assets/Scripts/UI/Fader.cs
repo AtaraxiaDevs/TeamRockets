@@ -8,10 +8,13 @@ public class Fader : MonoBehaviour
     public Image img;
     public AnimationCurve fadeCurve;
 
+    #region Unity
     public void Start()
     {
         StartCoroutine(FadeIn());
     }
+    #endregion
+    #region Metodos
 
     public void FadeTo(string scene)
     {
@@ -47,4 +50,7 @@ public class Fader : MonoBehaviour
 
         SceneManager.LoadScene(scene);
     }
+    #endregion
+
+
 }

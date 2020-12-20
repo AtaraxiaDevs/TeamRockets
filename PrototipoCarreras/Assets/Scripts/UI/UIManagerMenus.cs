@@ -7,20 +7,14 @@ public class UIManagerMenus : MonoBehaviour
 
     [Header("ModoTemporada")]
     public GameObject ModoTemporada;
-    public Reglajes reg;
-    public Dropdown RM;
-    public Dropdown ED;
+
 
     public void IrA(string s)
     {
         sceneFader.FadeTo(s);
     }
 
-    public void EditarCoche()
-    {
-        reg.ElegirReglajes(RM.value, ED.value);
-    }
-
+    
     public void CambiarEscena(GameObject scene)
     {
         scene.SetActive(!scene.activeSelf);

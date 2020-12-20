@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class CarreraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+//Aquí se controlarán las posiciones y el progreso de la carrera 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

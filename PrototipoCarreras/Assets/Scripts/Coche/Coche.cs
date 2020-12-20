@@ -2,19 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[Serializable]
+
+// Gestiona el movimiento del coche, sobre todo. También tiene referencia a un objeto IAMoves que gestiona el movimiento de la IA. 
+// El movimiento viene dado por las estadísticas del coche y la aceleración que le estemos mandando ( en caso de ser el jugador)
 public class Coche : MonoBehaviour
 {
-    //References
+    //Referencias
     public InfoCoche stats;
     public ModeloCoche statsBase;
     public ModuloInfo currentModulo;
     public IAMoves IA;
-
-    public Vector3 [] posiciones;
     public LineRenderer linea;
     public Transform socketCamara;
 
+    //Informacion Coche
+    public Vector3 [] posiciones;
     public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false, multiPlayer=false;
     public int currentpoint = 0;
     public int currentPointMod, sizeMod;
@@ -25,7 +27,7 @@ public class Coche : MonoBehaviour
 
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral, porcentajeIAccel,accelIA;
-
+    #region Unity
     void Start()
     {
         //linea = GetComponentInParent<LineRenderer>();
@@ -45,55 +47,19 @@ public class Coche : MonoBehaviour
         accelIA = 0;
         porcentajeIAccel = 0;
     }
-
-    public void Init(ModuloInfo primerModulo)
-    {
-        posiciones = new Vector3[linea.positionCount];
-        linea.GetPositions(posiciones);
-        currentModulo = primerModulo;
-        iniciado = true;
-        transform.position = posiciones[0];
-
-        if (soyPlayer)
-        {
-            GetComponent<IAMoves>().enabled = false;
-        }
-    }
-
-    public float GetCurrentAccel()
-    {
-        float aux = 0f;
-        
-        if(aux >= stats.FinalThrottle)
-            aux = stats.FinalThrottle;
-
-        if (aux <= stats.FinalBrake)
-            aux = stats.FinalBrake;
-
-        return aux;
-    }
-    public void SetCurrentAccel(float value)
-    {
-        currentAccel = stats.FinalThrottle * value;
-    }
-    public void SetCurrentBrake(float value)
-    {
-        currentAccel = stats.FinalBrake * value;
-    }
-
     void FixedUpdate()
     {
-        //if ((soyPlayer) && (multiPlayer)) { 
+
 
         if (iniciado)
         {
-            
-            //Logica de Movimiento
 
-             
+            //Lógica de Movimiento
+
+
             if (!salidoCircuito)
             {
-                if (!soyPlayer)
+                if (!soyPlayer) // Porcentaje de salida del circuito de la IA
                 {
 
                     if (currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
@@ -112,21 +78,21 @@ public class Coche : MonoBehaviour
 
                 }
 
-                if ((currentSpeed > currentModulo.umbral&& currentPointMod >= sizeMod / 2) || accidente)
+                if ((currentSpeed > currentModulo.umbral && currentPointMod >= sizeMod / 2) || accidente)
                 {
                     SalirCircuito();
                 }
                 if (!multiPlayer)
                 {
                     transform.position = CalculoNuevaPosicion();
-                 
-                    
+
+
                 }
-                else if(soyPlayer)
+                else if (soyPlayer)
                 {
                     transform.position = CalculoNuevaPosicion();
                 }
-                
+
 
                 //Llegar a los Puntos
 
@@ -143,22 +109,58 @@ public class Coche : MonoBehaviour
                     {
                         transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
                     }
-                   
-                        currentPointMod++;
-                    
+
+                    currentPointMod++;
+
                 }
             }
-        }   
-       // }
+        }
+        
+    }
+    #endregion
+    #region Carrera
+    public void Init(ModuloInfo primerModulo)
+    {
+        posiciones = new Vector3[linea.positionCount];
+        linea.GetPositions(posiciones);
+        currentModulo = primerModulo;
+        iniciado = true;
+        transform.position = posiciones[0];
+
+        if (soyPlayer)
+        {
+            GetComponent<IAMoves>().enabled = false;
+        }
+    }
+    #endregion
+    #region Carrera Fisicas
+    public float GetCurrentAccel()
+    {
+        float aux = 0f;
+
+        if (aux >= stats.FinalThrottle)
+            aux = stats.FinalThrottle;
+
+        if (aux <= stats.FinalBrake)
+            aux = stats.FinalBrake;
+
+        return aux;
+    }
+    public void SetCurrentAccel(float value)
+    {
+        currentAccel = stats.FinalThrottle * value;
+    }
+    public void SetCurrentBrake(float value)
+    {
+        currentAccel = stats.FinalBrake * value;
     }
 
     public bool HaLlegado()
     {
         bool x, y, z;
-     
+
         return (((transform.position.x >= posiciones[currentpoint].x - epsilon) && (transform.position.x <= posiciones[currentpoint].x + epsilon)) && ((transform.position.y >= posiciones[currentpoint].y - epsilon) && (transform.position.y <= posiciones[currentpoint].y + epsilon)) && ((transform.position.z >= posiciones[currentpoint].z - epsilon) && (transform.position.z <= posiciones[currentpoint].z + epsilon)));
     }
-
     public Vector3 CalculoNuevaPosicion()
     {
         float fuerza = ForcesBack();
@@ -167,121 +169,29 @@ public class Coche : MonoBehaviour
         if (soyPlayer)
         {
             currentSpeed += (currentAccel / factorUnidades) + fuerza;
-            //Debug.Log("currentJugador= (" +currentAccel + "/" + factorUnidades + ")" + fuerza);
+
         }
-        else
+        else //Comportamiento de la IA
         {
-            //comprobacion siguiente es curva
-            if (IA.moduloSiguiente != null)
-            {
-                //Debug.Log("Info: puntoCurva: " + currentPointMod + " puntosModulo " + sizeMod);
-
-                if ((IA.SiguienteCurva() || (currentPointMod >= sizeMod / 2)))
-                {
-                    //Debug.Log("Segunda Mitad Curva ");
-                    if (currentSpeed > IA.moduloSiguiente.myInfo.umbral - IA.nivelRitmo)
-                    {
-                        //Debug.Log("speed es mayor al umbral ");
-                        if (accelIA > stats.FinalBrake)
-                        {
-                            //Debug.Log("Accel Mayor Freno");
-                            accelIA = porcentajeIAccel * stats.FinalBrake;
-                            porcentajeIAccel += IA.frenacion;
-                            if (ID == 3)
-                            {
-                                Debug.Log("Frenando");
-                            }
-                         
-                        }
-                        else
-                        {
-                            //Debug.Log("Accel 0");
-                            porcentajeIAccel = 0;
-                        }
-                    }
-                    else
-                    {
-                        if (currentSpeed < currentModulo.umbral - IA.nivelRitmo)
-                        {
-                            if (accelIA < stats.FinalThrottle)
-                            {
-                                accelIA = porcentajeIAccel * stats.FinalThrottle;
-                                porcentajeIAccel += IA.accel;
-                                if (ID == 3)
-                                {
-                                    Debug.Log("Acelerando");
-                                }
-                            }
-                            else
-                            {
-                                //Debug.Log("Accel 0");
-                                porcentajeIAccel = 0;
-                            }
-                        }
-                    }
-
-
-
-                }
-                else
-                {
-                    //Debug.Log("No curva");
-                    if (currentSpeed < currentModulo.umbral - IA.nivelRitmo)
-                    {
-                        //Debug.Log("speed menor umbral");
-                        if (accelIA < stats.FinalThrottle)
-                        {
-                            accelIA = porcentajeIAccel * stats.FinalThrottle;
-                            porcentajeIAccel += IA.accel;
-                            if (ID == 3)
-                            {
-                                Debug.Log("Acelerando");
-                            }
-                        }
-                        else
-                        {
-                            //Debug.Log("Accel 0");
-                            porcentajeIAccel = 0;
-                        }
-                    }
-                    else
-                    {
-                        //Debug.Log("Accel 0");
-                        porcentajeIAccel = 0;
-                    }
-
-                }
-
-                currentSpeed += (accelIA / factorUnidades) + fuerza;
-                //comprobacion Umbral current
-
-            }
-
-            if(currentSpeed>(currentModulo.umbral - IA.nivelRitmo))
-            {
-                currentSpeed = currentModulo.umbral - IA.nivelRitmo;
-            }
-
+            currentSpeed = IA.CalculoNuevaPosicionIA(stats, currentSpeed, currentPointMod, sizeMod, factorUnidades, currentModulo, fuerza);
         }
-
         if (currentSpeed < stats.FinalMinSpeed)
         {
             currentSpeed = stats.FinalMinSpeed;
-         
+
         }
         else if (currentSpeed > stats.FinalMaxSpeed)
         {
             currentSpeed = stats.FinalMaxSpeed;
-          
+
         }
 
         speed = currentSpeed / factorSpeed;
-    
+
 
         return Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
 
     }
-
     public float ForcesBack()
     {
         float f = 0f, ef = 0f;
@@ -296,15 +206,15 @@ public class Coche : MonoBehaviour
         //}
 
         f = currentModulo.rozamiento + ef;
-        
+
         return f;
     }
     IEnumerator SaliendoCircuito(Vector3 posIni)
     {
-        for(int i = 0; i < speedAnimSaliendo;i++) 
+        for (int i = 0; i < speedAnimSaliendo; i++)
         {
             transform.position += -transform.forward;
-            yield return new WaitForSeconds(2/speedAnimSaliendo);
+            yield return new WaitForSeconds(2 / speedAnimSaliendo);
         }
 
         transform.position = posIni;
@@ -321,4 +231,15 @@ public class Coche : MonoBehaviour
         salidoCircuito = true;
         StartCoroutine(SaliendoCircuito(transform.position));
     }
+    #endregion
+
+
+
+
+
+
+
+
+
+
 }

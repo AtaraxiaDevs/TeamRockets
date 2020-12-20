@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Gestiona la UI del editor, con botones para cada modulo, para rotarlos, para eliminarlos...
 public class UIManagerEditor : MonoBehaviour
 {
-    //References
+    //Referencias
     public Modulo current;
     public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne;
     public Circuito circuito;
-    public QRMANAGER qrmanager;
+ 
 
-    //UI
+    //Referencias UI
     public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne, remove,listoConstruir, save;
-    
-    // Start is called before the first frame update
+
+    #region Unity
     void Start()
     {
         current = null;
@@ -32,7 +34,7 @@ public class UIManagerEditor : MonoBehaviour
             {
                 circuito.RemoveModulo(current);
                 Destroy(current.gameObject);
-               
+
             }
         });
 
@@ -44,19 +46,22 @@ public class UIManagerEditor : MonoBehaviour
         Vuelta.onClick.AddListener(() => CrearModulo(prefabVuelta));
         Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
         Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
-        //save.onClick.AddListener(() => qrmanager.Guardar(circuito));
-        save.onClick.AddListener(() => circuito.IniciarCarrera()) ;
+        save.onClick.AddListener(() => circuito.IniciarCarrera());
     }
-
+    #endregion
+    #region Creacion Y Modificacion del circuito
     private void CrearModulo(GameObject prefab)
     {
-       //Debemos poner un punto de spawn
+        //Debemos poner un punto de spawn
         Vector3 posicion = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z);
 
-        GameObject nuevoModulo = Instantiate(prefab,posicion,Quaternion.identity);
-       // nuevoModulo.transform.Rotate
-        circuito.AddModulo(nuevoModulo.GetComponent<Modulo>()); 
+        GameObject nuevoModulo = Instantiate(prefab, posicion, Quaternion.identity);
+        // nuevoModulo.transform.Rotate
+        circuito.AddModulo(nuevoModulo.GetComponent<Modulo>());
     }
+    #endregion
+    #region Metodos Auxiliares
+
     private void ComenzarCarrera()
     {
         if (current != null)
@@ -74,9 +79,8 @@ public class UIManagerEditor : MonoBehaviour
         {
             Debug.Log("No ha elegido un primero");
         }
-       
-    }
 
+    }
     private void PantallaElegirPrimero()
     {
         if (circuito.CircuitoListo())
@@ -103,4 +107,10 @@ public class UIManagerEditor : MonoBehaviour
             Debug.Log("Circuito no cerrado");
         }
     }
+    #endregion
+
+
+
+
+
 }

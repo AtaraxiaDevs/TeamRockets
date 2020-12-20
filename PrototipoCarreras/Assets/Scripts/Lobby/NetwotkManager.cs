@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//No estoy segura de si esto se usa
 public class NetwotkManager : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -15,10 +15,5 @@ public class NetwotkManager : MonoBehaviourPunCallbacks
         base.OnConnectedToMaster();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-        
-    }
+   
 }

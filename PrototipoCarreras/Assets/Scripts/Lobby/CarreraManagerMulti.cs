@@ -6,16 +6,14 @@ using UnityEngine.UI;
 
 public class CarreraManagerMulti : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Referencias
     public GameObject prefabCircuito;
     public Circuito circuito;
     public Text soyJugador;
-
+    //Informacion
     public int PlayerID= -1;
-    void Start()
-    {
-        
-    }
+ 
+    // Metodo que se deberá tocar cuando hagamos el online. Por ahora decide cual es el jugador del usuario local.
      public void CreateLevel()
     {
         Debug.Log("Comenzando");
@@ -32,9 +30,5 @@ public class CarreraManagerMulti : MonoBehaviour
         }
       
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

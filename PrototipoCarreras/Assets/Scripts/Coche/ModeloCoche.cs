@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Modelo base del coche, se pueden crear objetos de esta clase en el editor
 [System.Serializable]
 [CreateAssetMenu(fileName = "NewModeloCoche", menuName = "InfoJuego/Coches", order = 1)]
 public class ModeloCoche : ScriptableObject

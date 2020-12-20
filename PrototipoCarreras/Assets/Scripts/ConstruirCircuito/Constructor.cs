@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class Constructor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  //Recibirá la información de un circuito gracias a Mongo y con ello creará un circuito desde 0
 }

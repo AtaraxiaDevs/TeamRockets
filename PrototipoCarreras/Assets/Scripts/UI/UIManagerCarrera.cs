@@ -3,58 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Gestiona la UI de la carrera, con botones para empezarla, pararla, e incluso la gestion del minmax ( gestion de la aceleracion del coche del jugador)
 public class UIManagerCarrera : MonoBehaviour
 {
-    //References
+    //Referencias
     public Circuito circuito;
     public Coche myCar;
 
-    //UI
+    //Referencias UI
     public Button startCarrera,stopCarrera;
     public Slider minMaxController;
     public Text velocidad;
 
+    //Variables
     private float limitSlide = 0.5f;
-    
+
+    #region Unity
     void Start()
     {
         if (myCar != null)
         {
             myCar.soyPlayer = true;
         }
-      
+
 
         startCarrera.onClick.AddListener(() => {
             circuito.Construir();
             circuito.IniciarCarrera();
-           // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
-           // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
-            
+            // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
+            // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
+
             Time.timeScale = 1;
         });
 
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
-        minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value)); 
+        minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
     }
-    public Coche getPlayer()
+    void Update()
     {
-        foreach(Coche c in circuito.pilotos)
-        {
-            //c.multiPlayer = true;
-            if (c.soyPlayer)
-            {
-                return c;
-            }
-        }
-        return null;
+        //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
+
+        velocidad.text = ((int)myCar.currentSpeed).ToString();
     }
-    public void Comenzar()
-    {
-          if(myCar==null)
-        {
-            myCar = getPlayer();
-        }
-    }
+    #endregion
+    #region Gestion de eventos
+
     private void onMinMaxChange(float value)
     {
         //value va a estar entre 1 y 0 
@@ -73,12 +66,30 @@ public class UIManagerCarrera : MonoBehaviour
             myCar.SetCurrentBrake(porcentaje);
         }
     }
-  
-    // Update is called once per frame
-    void Update()
-    {
-        //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
-        velocidad.text = ((int)myCar.currentSpeed).ToString();
+    #endregion
+    #region Metodos auxiliares
+    public Coche getPlayer()
+    {
+        foreach (Coche c in circuito.pilotos)
+        {
+            //c.multiPlayer = true;
+            if (c.soyPlayer)
+            {
+                return c;
+            }
+        }
+        return null;
     }
+    public void Comenzar()
+    {
+        if (myCar == null)
+        {
+            myCar = getPlayer();
+        }
+    }
+    #endregion
+
+
+    
 }

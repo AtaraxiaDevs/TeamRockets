@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
+
+//Información sobre un módulo específico. Se puede crear en el editor
 [Serializable]
 public enum TipoSocket
 {
