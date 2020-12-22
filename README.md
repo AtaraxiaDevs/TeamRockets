@@ -57,7 +57,7 @@
 
 ## 1.- FICHA RESUMEN <a name="fichaResumen"/>
 
-| **NOMBRE**      | ???   |
+| **NOMBRE**      | Constela-Trix   |
 | :-------------: | :---------------------:  |
 | **VERSION**     | 1.0                      |
 | **GENERO**      | Carreras                 |
@@ -86,7 +86,7 @@
 
 > ¡Bienvenidos a una nueva edición del Gran Premio Intergaláctico, la carrera más espectacular de todo el universo! ¿Qué nave te llevará al éxito interplanetario? Escoge con cabeza los mejores signos del Zodiaco y arrasa con todos los que se encuentren en tu camino.
 
-> ??? es un juego de carreras en el que tendrás que ser el más rápido para poder triunfar, tanto en solitario con enemigos controlados por IA como en partidas multijuador de hasta cuatro participantes. Escoge una nave entre cuatro posibilidades: aire, agua, fuego y tierra y equípate dos de los doce signos del Zodiaco para alterar las características de tu vehículo. Puedes competir en los circuitos básicos o crear tus propios recorridos mediante el editor de circuitos. Además, podrás compartir estos niveles mediante ID o, si jugáis en dispositivos móviles, mediante código QR.
+> Constela-Trix es un juego de carreras en el que tendrás que ser el más rápido para poder triunfar, tanto en solitario con enemigos controlados por IA como en partidas multijuador de hasta cuatro participantes. Escoge una nave entre cuatro posibilidades: aire, agua, fuego y tierra y equípate dos de los doce signos del Zodiaco para alterar las características de tu vehículo. Puedes competir en los circuitos básicos o crear tus propios recorridos mediante el editor de circuitos. Además, podrás compartir estos niveles mediante ID o, si jugáis en dispositivos móviles, mediante código QR.
 
 ---
 
@@ -133,7 +133,26 @@ Al empezar una carrera los jugadores serán colocados en sus respectivas líneas
 
 #### 5.1.3.- SIGNOS DEL ZODIACO     <a name="mecanicas3"/>
 
+Los signos del zodiaco forman una parte fundamental del juego, pudiendo aumentar o disminuir las características de cada coche dependiendo de la elección. En total existen doce signos del zodiaco y se dividen en los cuatro elementos: aire, agua, tierra y fuego, al igual que las naves.
 
+Cada jugador podrá equipar a su nave dos signos a su elección, independientemente del elemento tanto del coche como el del signo elegido. Aun así, elegir elementos compatibles aportará ventajas extra, las cuales serán explicadas a continuación.
+
+En la siguiente tabla se pueden ver todos los signos del zodiaco disponibles, las características que varían y la ventaja extra:
+
+| **SIGNO**    | **ELEMENTO**  | **VEL** | **ACEL** | **P** | **F** | **MARCHAS** | **ED** |
+| :----------: | :-----------: | :-----: | :------: | :---: | :---: | :---------: | :----: |
+| Aries        | Fuego         |    -    |          |   +   |       |             |        |
+| Tauro        | Tierra        |         |          |   +   |       |      -      |        |
+| Géminis      | Aire          |         |     -    |       |       |      +      |        |
+| Cáncer       | Agua          |         |          |       |   -   |             |    +   |
+| Leo          | Fuego         |         |     +    |       |       |             |    -   |
+| Virgo        | Tierra        |    -    |          |       |   +   |             |        |
+| Libra        | Aire          |    +    |          |   -   |       |             |        |
+| Escorpio     | Agua          |         |          |   -   |       |      +      |        |
+| Sagitario    | Fuego         |         |     +    |       |       |      -      |        |
+| Capricornio  | Tierra        |         |          |       |   +   |             |    -   |
+| Acuario      | Aire          |         |     -    |       |       |             |    +   |
+| Piscis       | Agua          |    +    |          |       |   -   |             |        |
 
 #### 5.1.4.- REGLAJES <a name="mecanicas4"/>
 
