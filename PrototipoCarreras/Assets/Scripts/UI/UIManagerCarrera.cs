@@ -89,7 +89,4 @@ public class UIManagerCarrera : MonoBehaviour
         }
     }
     #endregion
-
-
-    
 }
