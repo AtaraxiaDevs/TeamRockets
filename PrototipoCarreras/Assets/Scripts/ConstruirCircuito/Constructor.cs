@@ -11,7 +11,7 @@ public class Constructor : MonoBehaviour
 {
 
     //Referencias a prefabs modulos
-    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane;
+    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio;
     //Referencias a prefab Circuito
     public GameObject prefabCircuito;
 
@@ -37,21 +37,24 @@ public class Constructor : MonoBehaviour
             {
                 case TipoModulo.CHICANE:
                     nuevoModulo = Instantiate(prefabModuloChicane, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
-                    return;
+                    break;
                 case TipoModulo.CURVABIERTA:
                     nuevoModulo = Instantiate(prefabModuloAbierta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
-                    return;
+                    break;
                 case TipoModulo.RECTA:
                     nuevoModulo = Instantiate(prefabModuloRecta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
-                    return;
+                    break;
                 case TipoModulo.VUELTA:
                     nuevoModulo = Instantiate(prefabModuloVuelta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
-                    return;
+                    break;
                 case TipoModulo.ZIGZAG:
                     nuevoModulo = Instantiate(prefabModuloZigZag, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
                     break;
                 case TipoModulo.CURVACERRADA:
                     nuevoModulo = Instantiate(prefabModuloCerrada, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
+                    break;
+                case TipoModulo.CAMBIOCARRIL:
+                    nuevoModulo = Instantiate(prefabModuloEspecialCambio, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
                     break;
                 default:
                     nuevoModulo = Instantiate(prefabModuloRecta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();

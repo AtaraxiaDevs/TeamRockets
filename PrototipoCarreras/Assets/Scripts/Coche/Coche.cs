@@ -20,7 +20,7 @@ public class Coche : MonoBehaviour
     public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false, multiPlayer=false;
     public int currentpoint = 0;
     public int currentPointMod, sizeMod;
-    public int ID;
+    public int ID, currentCarril;
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
     private float factorSpeed = 10, factorUnidades = 20;
     
@@ -114,8 +114,7 @@ public class Coche : MonoBehaviour
     #region Carrera
     public void Init(ModuloInfo primerModulo)
     {
-        posiciones = new Vector3[linea.positionCount];
-        linea.GetPositions(posiciones);
+        nuevasPosiciones();
         currentModulo = primerModulo;
         iniciado = true;
         transform.position = posiciones[0];
@@ -124,6 +123,30 @@ public class Coche : MonoBehaviour
         {
             GetComponent<IAMoves>().enabled = false;
         }
+    }
+    public void nuevasPosiciones()
+    {
+        posiciones = new Vector3[linea.positionCount];
+        linea.GetPositions(posiciones);
+    }
+    public void CambiarCarril()
+    {
+        currentCarril++;
+        if (currentCarril >= 4)
+        {
+            currentCarril = 0;
+        }
+        linea = IA.currentCircuito.GetCircuito(currentCarril);
+        nuevasPosiciones();
+        iniciado = false;
+        StartCoroutine(CambiandoaCarril());
+
+    }
+    IEnumerator CambiandoaCarril()
+    {
+        yield return new WaitForSeconds(0.5f);
+        iniciado = true;
+      
     }
     #endregion
     #region Carrera Fisicas

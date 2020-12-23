@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 9026503651901435878}
   - component: {fileID: 7889125050688923833}
   m_Layer: 0
-  m_Name: ModuloTest2
+  m_Name: CurvaCerrada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,29 +636,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInfo: {fileID: 11400000, guid: 38e63af7e6c13c643bc82cbc2fa5b97e, type: 2}
+  path:
+  - {fileID: 9026503651782598472}
+  - {fileID: 7459962953279966931}
+  - {fileID: 5443499058714872245}
+  - {fileID: 6465638465937446301}
   prefabSocket: {fileID: 4076134652084793688, guid: 84ba897aef638f84ea154151bc5c5cef,
     type: 3}
+  socket1: 2
+  socket2: 1
+  socketPosX: {x: 0, y: 0, z: 0}
+  socketPosZ: {x: 0, y: 0, z: 0}
+  socketNegX: {x: 0, y: 0, z: 0}
+  socketNegZ: {x: 0, y: 0, z: 0}
   vecino1:
     tipo: 0
     attach: {fileID: 0}
   vecino2:
     tipo: 0
     attach: {fileID: 0}
-  socket1: 2
-  socket2: 1
-  interactuable: 1
-  path:
-  - {fileID: 9026503651782598472}
-  - {fileID: 7459962953279966931}
-  - {fileID: 5443499058714872245}
-  - {fileID: 6465638465937446301}
-  esSalida: 0
-  socketPosX: {x: 0, y: 0, z: 0}
-  socketPosZ: {x: 0, y: 0, z: 0}
-  socketNegX: {x: 0, y: 0, z: 0}
-  socketNegZ: {x: 0, y: 0, z: 0}
+  rotacion: 0
+  modoConstructor: 0
   sizeModulo: 0
+  esSalida: 0
+  interactuable: 1
   reverse: 0
+  selecPrimero: 0
 --- !u!54 &9026503651901435878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -686,5 +689,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.746356, z: 1}
+  m_Size: {x: 0.8, y: 1.746356, z: 0.8}
   m_Center: {x: 0, y: 0.373178, z: 0}

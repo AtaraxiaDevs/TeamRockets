@@ -636,6 +636,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInfo: {fileID: 11400000, guid: d80df9eecf379f74a9a204cb0e635758, type: 2}
+  path:
+  - {fileID: 943963709502287420}
+  - {fileID: 7074949730858349650}
+  - {fileID: 1378358782970289732}
+  - {fileID: 8904550709940066875}
   prefabSocket: {fileID: 4076134652084793688, guid: 84ba897aef638f84ea154151bc5c5cef,
     type: 3}
   socket1: 2
@@ -650,11 +655,8 @@ MonoBehaviour:
   vecino2:
     tipo: 0
     attach: {fileID: 0}
-  path:
-  - {fileID: 943963709502287420}
-  - {fileID: 7074949730858349650}
-  - {fileID: 1378358782970289732}
-  - {fileID: 8904550709940066875}
+  rotacion: 0
+  modoConstructor: 0
   sizeModulo: 0
   esSalida: 0
   interactuable: 1
@@ -687,5 +689,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.9671137, z: 1}
+  m_Size: {x: 0.8, y: 1.9671137, z: 0.8}
   m_Center: {x: 0, y: 0.48355687, z: 0}

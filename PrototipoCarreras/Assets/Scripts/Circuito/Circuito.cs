@@ -34,17 +34,14 @@ public class Circuito : MonoBehaviourPunCallbacks
         if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
             modulos = new List<Modulo>();
-            CrearPilotos();
+             CrearPilotos();
         }
         else
         {
-            if (pilotos[0] != null)
-            {
-                InicializarPilotos();
-            }
-
+            InicializarPilotos();
         }
-        
+       
+
     }
   
     #endregion
@@ -77,6 +74,7 @@ public class Circuito : MonoBehaviourPunCallbacks
 
 
             pilotos[i].ID = i;
+            pilotos[i].currentCarril = i;
             pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
             circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
 
@@ -90,48 +88,51 @@ public class Circuito : MonoBehaviourPunCallbacks
 
         for (int h = 0; h < modulos.Count; h++)
         {
+            if (!modulos[h].myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL)){
 
-
-            for (int j = 0; j < maxPilotos; j++)
-            {
-                int posicionPath;
-
-                if (modulos[h].reverse)
+               
+          
+                for (int j = 0; j < maxPilotos; j++)
                 {
-                    posicionPath = maxPilotos - 1 - j;
-                }
-                else
-                {
-                    posicionPath = j;
-                }
+                    int posicionPath;
 
-                LineRenderer path = modulos[h].path[posicionPath];
-                Transform t = path.transform;
-
-                if (modulos[h].reverse)
-                {
-                    Vector3[] pos = new Vector3[path.positionCount];
-                    path.GetPositions(pos);
-                    Debug.Log("Buena direccion");
-
-                    for (int i = 0; i < path.positionCount - 1; i++)
+                    if (modulos[h].reverse)
                     {
-                        Vector3 point = t.TransformPoint(pos[i]);
-                        circuito[j].SetVertexCount(++vertexcont[j]);
-                        circuito[j].SetPosition(vertexcont[j] - 1, point);
+                        posicionPath = maxPilotos - 1 - j;
                     }
-                }
-                else
-                {
-                    Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
-                    modulos[h].path[posicionPath].GetPositions(pos);
-                    Debug.Log("Mala direccion");
-
-                    for (int i = modulos[h].path[posicionPath].positionCount - 1; i >= 0; i--)
+                    else
                     {
-                        Vector3 point = t.TransformPoint(pos[i]);
-                        circuito[j].SetVertexCount(++vertexcont[j]);
-                        circuito[j].SetPosition(vertexcont[j] - 1, point);
+                        posicionPath = j;
+                    }
+
+                    LineRenderer path = modulos[h].path[posicionPath];
+                    Transform t = path.transform;
+
+                    if (modulos[h].reverse)
+                    {
+                        Vector3[] pos = new Vector3[path.positionCount];
+                        path.GetPositions(pos);
+                        Debug.Log("Buena direccion");
+
+                        for (int i = 0; i < path.positionCount - 1; i++)
+                        {
+                            Vector3 point = t.TransformPoint(pos[i]);
+                            circuito[j].SetVertexCount(++vertexcont[j]);
+                            circuito[j].SetPosition(vertexcont[j] - 1, point);
+                        }
+                    }
+                    else
+                    {
+                        Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
+                        modulos[h].path[posicionPath].GetPositions(pos);
+                        Debug.Log("Mala direccion");
+
+                        for (int i = modulos[h].path[posicionPath].positionCount - 1; i >= 0; i--)
+                        {
+                            Vector3 point = t.TransformPoint(pos[i]);
+                            circuito[j].SetVertexCount(++vertexcont[j]);
+                            circuito[j].SetPosition(vertexcont[j] - 1, point);
+                        }
                     }
                 }
             }
@@ -199,6 +200,10 @@ public class Circuito : MonoBehaviourPunCallbacks
     }
     #endregion
     #region Modo Carrera
+    public LineRenderer GetCircuito(int index)
+    {
+        return circuito[index];
+    }
     private void AsignarPiloto()
     {
         InformacionPersistente ip = InformacionPersistente.singleton;

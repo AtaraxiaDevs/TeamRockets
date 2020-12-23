@@ -9,12 +9,12 @@ public class UIManagerEditor : MonoBehaviour
 {
     //Referencias
     public Modulo current;
-    public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne;
+    public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
     public Circuito circuito;
  
 
     //Referencias UI
-    public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne, remove,listoConstruir, save;
+    public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne,Especial, remove,listoConstruir, save;
 
     #region Unity
     void Start()
@@ -46,6 +46,7 @@ public class UIManagerEditor : MonoBehaviour
         Vuelta.onClick.AddListener(() => CrearModulo(prefabVuelta));
         Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
         Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
+        Especial.onClick.AddListener(() => CrearModulo(prefabEspecial));
        
     }
     #endregion

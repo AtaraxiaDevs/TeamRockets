@@ -402,10 +402,31 @@ public class Modulo : MonoBehaviour
     {
         if (other.tag.Equals("Coche"))
         {
-            other.GetComponent<Coche>().currentModulo = myInfo;
-            other.GetComponent<Coche>().currentPointMod = 0;
-            other.GetComponent<Coche>().sizeMod = path[0].positionCount;
-            other.GetComponent<IAMoves>().ModuloSiguiente(ID);
+            if (other.GetComponent<Coche>().iniciado)
+            {
+                if (!other.GetComponent<Coche>().currentModulo.Equals(myInfo))
+                {
+                    other.GetComponent<Coche>().currentModulo = myInfo;
+                    other.GetComponent<Coche>().currentPointMod = 0;
+                    if (!myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL))
+                    {
+                        other.GetComponent<Coche>().sizeMod = path[0].positionCount;
+
+
+                    }
+                    else
+                    {
+                        other.GetComponent<Coche>().CambiarCarril();
+                        Debug.Log("cambio");
+                    }
+
+                    other.GetComponent<IAMoves>().ModuloSiguiente(ID);
+                }
+
+                //Si el tipo es el especial, le dice al coche que haga una voltereta o algo
+
+            }
+
 
         }
     }

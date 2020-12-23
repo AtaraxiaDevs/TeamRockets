@@ -55,5 +55,7 @@ MonoBehaviour:
     type: 3}
   prefabModuloChicane: {fileID: 9026503651901435900, guid: 03f172240e38fa443b0efad30e3fd1b9,
     type: 3}
+  prefabModuloEspecialCambio: {fileID: 9026503651901435900, guid: 35037d0a222566a4c981672b48032579,
+    type: 3}
   prefabCircuito: {fileID: 7080469772363994084, guid: 03d256d68184a0e49b2a7742d8e113cc,
     type: 3}
