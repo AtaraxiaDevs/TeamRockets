@@ -16,3 +16,4 @@ MonoBehaviour:
   BaseThrottle: 40
   BaseBrake: -30
   BaseWeight: 95
+  elemento: 2

@@ -5,6 +5,24 @@ using UnityEngine;
 
 // Gestiona el movimiento del coche, sobre todo. También tiene referencia a un objeto IAMoves que gestiona el movimiento de la IA. 
 // El movimiento viene dado por las estadísticas del coche y la aceleración que le estemos mandando ( en caso de ser el jugador)
+public class PosicionesCarreraComparator : Comparer<Coche>
+{
+    public override int Compare(Coche x, Coche y)
+    {
+
+
+        return (y.posiciones.Length * y.vuelta + y.currentpoint) - (x.posiciones.Length * x.vuelta + x.currentpoint);
+    }
+}
+public enum Marcha
+{
+    PRIMERA ,
+    SEGUNDA,
+    TERCERA,
+    CUARTA,
+    QUINTA
+}
+
 public class Coche : MonoBehaviour
 {
     //Referencias
@@ -14,15 +32,19 @@ public class Coche : MonoBehaviour
     public IAMoves IA;
     public LineRenderer linea;
     public Transform socketCamara;
+    private CarreraController carreraController;
 
     //Informacion Coche
+    public Signo[] signosAnadidos = new Signo[2];
     public Vector3 [] posiciones;
     public bool iniciado = false, salidoCircuito = false, soyPlayer, accidente = false, multiPlayer=false;
     public int currentpoint = 0;
     public int currentPointMod, sizeMod;
-    public int ID, currentCarril;
+    public int ID, currentCarril, vuelta = 0;
+    private Marcha currentMarcha= Marcha.PRIMERA;
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
     private float factorSpeed = 10, factorUnidades = 20;
+
     
 
     //Carrera
@@ -33,7 +55,7 @@ public class Coche : MonoBehaviour
         //linea = GetComponentInParent<LineRenderer>();
 
         IA = GetComponent<IAMoves>();
-
+        carreraController = FindObjectOfType<CarreraController>();
         //PARA TESTEAR BORRAR LUEGO
         
         currentPointMod = 0;
@@ -93,8 +115,11 @@ public class Coche : MonoBehaviour
                 {
                     currentpoint++;
 
-                    if (currentpoint == posiciones.Length)
+                    if (currentpoint == posiciones.Length)// Vuelta
                     {
+                       
+                        carreraController.UpdateCarrera(ID,vuelta);
+                        vuelta++;
                         currentpoint = 0;
                         transform.position = posiciones[currentpoint];
                     }
@@ -150,6 +175,10 @@ public class Coche : MonoBehaviour
     }
     #endregion
     #region Carrera Fisicas
+    public void SetCurrentMarcha( int marcha)
+    {
+        currentMarcha = (Marcha)marcha;
+    }
     public float GetCurrentAccel()
     {
         float aux = 0f;
@@ -184,6 +213,24 @@ public class Coche : MonoBehaviour
 
         if (soyPlayer)
         {
+
+            //dependiendo de la marcha currentAccel aumenta( cuanto? depende de qué marcha) hasta 
+            switch(currentMarcha)
+            {
+                case Marcha.PRIMERA:
+                    //Si current es mayor, accel-> frenar, cada vez mas
+                    //Si current es menor, accel-> acelerar, cada vez mas
+                    break;
+                case Marcha.SEGUNDA:
+                    break;
+                case Marcha.TERCERA:
+                    break;
+                case Marcha.CUARTA:
+                    break;
+                case Marcha.QUINTA:
+                    break;
+
+            }
             currentSpeed += (currentAccel / factorUnidades) + fuerza;
 
         }
@@ -208,18 +255,22 @@ public class Coche : MonoBehaviour
         return Vector3.MoveTowards(transform.position, posiciones[currentpoint], speed * Time.deltaTime);
 
     }
+    private bool EsCurva()
+    {
+        return currentModulo.tipoCircuito.Equals(TipoModulo.CURVABIERTA) && currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA);
+    }
     public float ForcesBack()
     {
         float f = 0f, ef = 0f;
 
-        //if (esRecta)
-        //{
-        //    ef = stats.ElectricForceRecta;
-        //}
-        //else if (esCurva)
-        //{
-        //    ef = stats.ElectricForceCurva;
-        //}
+        if (!EsCurva())
+        {
+            ef = stats.ElectricForceRecta;
+        }
+        else
+        {
+            ef = stats.ElectricForceCurva;
+        }
 
         f = currentModulo.rozamiento + ef;
 
@@ -253,6 +304,8 @@ public class Coche : MonoBehaviour
     {
         //Debemos asignarle tambien el modelo 3d correspondiente
         statsBase = datos.infoBase;
+        signosAnadidos[0] = datos.signos[0];
+        signosAnadidos[1] = datos.signos[1];
         CalcularStats();
 
     }
@@ -266,6 +319,8 @@ public class Coche : MonoBehaviour
         stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
         stats.FinalMinSpeed = 20;
         stats.FinalThrottle = statsBase.BaseThrottle;
+        signosAnadidos[0].ModificarStats(stats);
+        signosAnadidos[1].ModificarStats(stats);
     }
     #endregion
 

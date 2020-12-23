@@ -25,7 +25,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     private static int maxPilotos = 4;
     private int[] vertexcont = new int[maxPilotos];
     public bool modoEditor;
-    public int numVueltas= 3;
+    public int numVueltas= 4;
 
     #region Unity
     void Start()
@@ -222,6 +222,7 @@ public class Circuito : MonoBehaviourPunCallbacks
         {
             pilotos[i].Init(moduloPrimero.myInfo);
         }
+        
     }
     public Modulo GetModulo(int id)
     {

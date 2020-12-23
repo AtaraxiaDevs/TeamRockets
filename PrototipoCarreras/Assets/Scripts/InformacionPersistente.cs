@@ -7,7 +7,7 @@ public class DatosCoche
 {
     public Reglajes reg;
     public ModeloCoche infoBase;
-    public Signo[] signos;
+    public Signo[] signos = new Signo[2];
     public InfoCoche stats;
     public int ID;
     public DatosCoche()
@@ -59,10 +59,18 @@ public class InformacionPersistente : MonoBehaviour
         res.infoBase = modelosCoches[Random.Range(0, numCoches)];
         res.reg = new Reglajes();
         res.reg.ElegirReglajes(Random.Range(0, res.reg.numReglajes), Random.Range(0, res.reg.numReglajes));
-        res.signos = new Signo[3];
-        res.signos[0] = signosZodiaco[Random.Range(0, signosZodiaco.Length)];
-        res.signos[1] = signosZodiaco[Random.Range(0, signosZodiaco.Length)];
-        res.signos[2] = signosZodiaco[Random.Range(0, signosZodiaco.Length)];
+        res.signos = new Signo[2];
+        int randomSigno1 = Random.Range(0, signosZodiaco.Length);
+        int randomSigno2 = Random.Range(0, signosZodiaco.Length);
+        if (randomSigno1 == randomSigno2)
+        {
+            randomSigno2++;
+        }
+        res.signos[0] = signosZodiaco[randomSigno1];
+  
+        res.signos[1] = signosZodiaco[randomSigno2];
+        
+
         cochesCarrera[pos] = res;
         return res;
 

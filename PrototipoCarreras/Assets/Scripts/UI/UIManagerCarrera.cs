@@ -9,14 +9,15 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     public Circuito circuito;
     public Coche myCar;
-
+    private List<Coche> coches= new List<Coche>();
     //Referencias UI
     public Button startCarrera,stopCarrera;
     public Slider minMaxController;
-    public Text velocidad;
+    public Text velocidad,posiciones;
+    
 
     //Variables
-    private float limitSlide = 0.5f;
+   // private float limitSlide = 0.5f;
 
     #region Unity
     void Start()
@@ -35,36 +36,41 @@ public class UIManagerCarrera : MonoBehaviour
 
             Time.timeScale = 1;
         });
-
+        coches.AddRange( circuito.pilotos);
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
         minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
+       
     }
     void Update()
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
         velocidad.text = ((int)myCar.currentSpeed).ToString();
+        posiciones.text = PilotosToString();
     }
     #endregion
     #region Gestion de eventos
 
     private void onMinMaxChange(float value)
     {
-        //value va a estar entre 1 y 0 
-        if (value >= limitSlide)
-        {
-            //0.5 es 0, 1 es finaltrote
-            float finalValue = value - limitSlide;
-            float porcentaje = finalValue / limitSlide;
-            myCar.SetCurrentAccel(porcentaje);
-        }
-        else
-        {
-            //0.5 es 0, 0 es finalbrake
-            float finalValue = limitSlide - value;
-            float porcentaje = finalValue / limitSlide;
-            myCar.SetCurrentBrake(porcentaje);
-        }
+
+        ////value va a estar entre 1 y 0 
+        //if (value >= limitSlide)
+        //{
+        //    //0.5 es 0, 1 es finaltrote
+        //    float finalValue = value - limitSlide;
+        //    float porcentaje = finalValue / limitSlide;
+        //    myCar.SetCurrentAccel(porcentaje);
+        //}
+        //else
+        //{
+        //    //0.5 es 0, 0 es finalbrake
+        //    float finalValue = limitSlide - value;
+        //    float porcentaje = finalValue / limitSlide;
+        //    myCar.SetCurrentBrake(porcentaje);
+        //}
+        myCar.SetCurrentMarcha((int)value);
+  
     }
 
     #endregion
@@ -87,6 +93,18 @@ public class UIManagerCarrera : MonoBehaviour
         {
             myCar = getPlayer();
         }
+    }
+    private string PilotosToString()
+    {
+        int cont = 1;
+        coches.Sort(new PosicionesCarreraComparator());
+        string res = "";
+        foreach(Coche c in coches)
+        {
+            res += cont + "º: " + c.ID + " " + c.statsBase.elemento.ToString() + "\n";
+            cont++;
+        }
+        return res;
     }
     #endregion
 }

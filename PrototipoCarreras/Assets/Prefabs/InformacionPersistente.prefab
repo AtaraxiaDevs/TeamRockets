@@ -50,27 +50,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e53d897e621c11441882ed99ce4885f1, type: 2}
   signosZodiaco:
   - zodiaco: 0
+    elemento: 2
+  - zodiaco: 1
+    elemento: 2
+  - zodiaco: 2
+    elemento: 2
+  - zodiaco: 3
+    elemento: 1
+  - zodiaco: 5
+    elemento: 1
+  - zodiaco: 4
+    elemento: 1
+  - zodiaco: 6
     elemento: 0
-  - zodiaco: 0
+  - zodiaco: 11
     elemento: 0
-  - zodiaco: 0
+  - zodiaco: 7
     elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
-  - zodiaco: 0
-    elemento: 0
+  - zodiaco: 10
+    elemento: 3
+  - zodiaco: 8
+    elemento: 3
+  - zodiaco: 9
+    elemento: 3
   numCoches: 0

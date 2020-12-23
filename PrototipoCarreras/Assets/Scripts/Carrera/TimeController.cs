@@ -36,7 +36,7 @@ public class TimeController : MonoBehaviour
         tiempoMejor = new List<float>();
         tiempoUltimaVuelta = new List<float>();
 
-        _auxTiempo = Time.deltaTime;
+        _auxTiempo = Time.time;
         totalTime = _auxTiempo;
         
         for (int i = 0; i < N_PLAYERS; i++)
@@ -44,17 +44,18 @@ public class TimeController : MonoBehaviour
             tiempoGeneral.Add(0);
             tiempoMejor.Add(0);
             tiempoUltimaVuelta.Add(0);
+            _jugadores.Add( new PlayerTime(Time.time, i));
         }
     }
 
-    public void UpdateVuelta(int ID, int vuelta)// Cuando un jugador acaba una vuelta, se busca su posición en los arrays de timecontroller segun su ID y se actualizan los tiempos
+    public string UpdateVuelta(int ID, int vuelta)// Cuando un jugador acaba una vuelta, se busca su posición en los arrays de timecontroller segun su ID y se actualizan los tiempos
     {
         int idJugador = _jugadores.FindIndex((p) => p.ID == ID);
 
-        if (vuelta == _jugadores[idJugador].siguienteVuelta)
-        {
+        //if (vuelta == _jugadores[idJugador].siguienteVuelta)
+        //{
             _jugadores[idJugador].siguienteVuelta++;
-            _jugadores[idJugador].actualTime = Time.deltaTime;
+            _jugadores[idJugador].actualTime = Time.time;
 
             _auxTiempo = _jugadores[idJugador].actualTime - _jugadores[idJugador].anteriorTime;
 
@@ -79,13 +80,14 @@ public class TimeController : MonoBehaviour
             }
 
             string vueltaTexto = "Fastest Lap: " + Mathf.Round(_vueltaRapida * 1000) / 1000 + "\nBest Lap: " + Mathf.Round(vueltaRapidaPropia * 1000) / 1000 + "\nLast Lap: " + Mathf.Round(ultimaVuelta * 1000) / 1000;
-        }
+       // }
+        return vueltaTexto;
     }
 
     //Cuando finaliza la carrera se pasan los ids de los jugadores con sus respectivos mejores tiempos
     public void FinalTiempos(out float total, out List<int> ids, out float[] mejoresTiempos)
     {
-        totalTime = Time.deltaTime - totalTime;
+        totalTime = Time.time - totalTime;
         total = totalTime;
         mejoresTiempos = tiempoMejor.ToArray();
         ids = new List<int>();

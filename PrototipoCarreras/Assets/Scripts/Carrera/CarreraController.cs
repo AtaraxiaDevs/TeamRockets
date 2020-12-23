@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarreraController : MonoBehaviour
 {
@@ -13,27 +14,61 @@ public class CarreraController : MonoBehaviour
     //References
 
     public TimeController times;
-
+    public Circuito circuito;
+    public GameObject tiempoSalida;
+    public Text tiemposJugador;
     //Variables
 
-    private int vueltaMásActual;
+    private int vueltaMasActual;
+
 
     public void Start()
     {
         //Necesito referencias a los coches, que preferiblemente sean los nombres, asi evitamos basarnos en ID's. 
+        circuito = FindObjectOfType<Circuito>();
+        StartCoroutine(Empezar());
     }
 
     public void InicioCarrera()
     {
+        circuito.Construir();
+        circuito.IniciarCarrera();
         times.InicioTiempos();
-        vueltaMásActual = 0;
+        vueltaMasActual = 0;
+      
     }
-
-    public void UpdateCarrera()
+    IEnumerator Empezar()
     {
-        //times.UpdateVuelta();
+        tiempoSalida.SetActive(true);
+        
+        for(int i=3;i>=0; i--)
+        {
+            tiempoSalida.GetComponent<Text>().text = i.ToString();
+            yield return new WaitForSeconds(1);
+           
+        }
+        tiempoSalida.SetActive(false);
+        
+        InicioCarrera();
     }
-
+    public void UpdateCarrera(int ID,int vuelta)
+    {
+        if (vueltaMasActual < vuelta)
+        {
+            vueltaMasActual = vuelta;
+        }
+       string tiempos= times.UpdateVuelta(ID,vuelta);
+        if(ID== 0)
+        {
+            tiemposJugador.text = tiempos;
+        }
+        
+        if(vuelta>= circuito.numVueltas)
+        {
+            Time.timeScale = 0;
+        }
+    }
+   
     public void FinCarrera()
     {
         //times.FinalTiempos();
