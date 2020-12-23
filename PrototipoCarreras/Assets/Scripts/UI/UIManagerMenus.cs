@@ -14,20 +14,17 @@ public class UIManagerMenus : MonoBehaviour
     {
         sceneFader.FadeTo(s);
     }
+
     
     public void CambiarEscena(GameObject scene)
     {
         scene.SetActive(!scene.activeSelf);
         ModoTemporada.SetActive(!ModoTemporada.activeSelf);
     }
-
-    public void CambiarScene(Scene scene)
-    {
-        SceneManager.LoadScene(scene.name);
-    }
-
-    public void CambiarScene(string scene)
+  
+    public void CambiarSceneEditor(string scene)
     {
         SceneManager.LoadScene(scene);
+
     }
 }
