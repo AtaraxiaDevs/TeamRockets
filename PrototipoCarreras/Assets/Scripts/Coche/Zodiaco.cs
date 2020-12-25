@@ -49,7 +49,7 @@ public class Signo
             case Zodiaco.SAGITARIO:
                 break;
             case Zodiaco.LEO:
-                stats.FinalThrottle += stats.FinalThrottle * valuePlus;
+                stats.FinalThrottle += stats.FinalThrottle*valuePlus;
 
                 break;
             case Zodiaco.LIBRA:

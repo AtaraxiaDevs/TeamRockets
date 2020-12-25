@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ModuloZigZag
   m_EditorClassIdentifier: 
   tipoCircuito: 1
-  elemento: 2
+  elemento: 4
   rozamiento: -0.1
-  umbral: 80
+  umbral: 60

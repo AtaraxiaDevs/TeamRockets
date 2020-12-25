@@ -410,8 +410,14 @@ public class Modulo : MonoBehaviour
                     }
                     else
                     {
-                        other.GetComponent<Coche>().CambiarCarril();
-                        Debug.Log("cambio");
+                        if (other.GetComponent<Coche>().ultimaVueltaCambio != other.GetComponent<Coche>().vuelta)
+                        {
+                            other.GetComponent<Coche>().CambiarCarril();
+                            other.GetComponent<Coche>().ultimaVueltaCambio = other.GetComponent<Coche>().vuelta;
+
+
+                        }
+                       
                     }
 
                     other.GetComponent<IAMoves>().ModuloSiguiente(ID);

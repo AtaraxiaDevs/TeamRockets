@@ -21,7 +21,7 @@ public class CarreraController : MonoBehaviour
 
     private int vueltaMasActual;
 
-    public void Start()
+    public void EmpezarCarrera()
     {
         circuito = FindObjectOfType<Circuito>();
         StartCoroutine(Empezar());

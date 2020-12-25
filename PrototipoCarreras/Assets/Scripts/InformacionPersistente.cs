@@ -67,8 +67,12 @@ public class InformacionPersistente : MonoBehaviour
         if (randomSigno1 == randomSigno2)
         {
             randomSigno2++;
+            if (randomSigno2 > signosZodiaco.Length - 1)
+            {
+                randomSigno2 = 0;
+            }
         }
-
+        
         res.signos[0] = signosZodiaco[randomSigno1];
         res.signos[1] = signosZodiaco[randomSigno2];
 

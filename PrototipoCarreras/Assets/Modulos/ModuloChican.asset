@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ModuloChican
   m_EditorClassIdentifier: 
   tipoCircuito: 3
-  elemento: 3
+  elemento: 4
   rozamiento: -0.1
-  umbral: 80
+  umbral: 70

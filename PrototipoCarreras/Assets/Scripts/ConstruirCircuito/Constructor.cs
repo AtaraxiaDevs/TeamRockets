@@ -9,12 +9,15 @@ using UnityEngine.UI;
 //primero con almacenamiento interno, mas adelante en mongo
 public class Constructor : MonoBehaviour
 {
+    //UI
+    public Text posiciones;
     //Referencias a prefabs modulos
     public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio;
     //Referencias a prefab Circuito
     public GameObject prefabCircuito;
 
     private Circuito creado;
+
 
     #region Metodos Construccion
     public void ConstruirCircuito(string nombre)
@@ -213,8 +216,15 @@ public class Constructor : MonoBehaviour
         btn.gameObject.SetActive(true);
         btn.onClick.AddListener(() =>
         {
-            creado.Construir(); 
-            creado.IniciarCarrera();
+          
+            UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
+            ui.circuito = creado;
+            ui.posiciones = posiciones;
+            CarreraController CC = FindObjectOfType<CarreraController>();
+            CC.circuito = creado;
+            ui.coches.AddRange(creado.pilotos);
+            CC.EmpezarCarrera();
+            // creado.IniciarCarrera();
         });
     }
     #endregion

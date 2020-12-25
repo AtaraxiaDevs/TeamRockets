@@ -9,7 +9,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     public Circuito circuito;
     public Coche myCar;
-    private List<Coche> coches= new List<Coche>();
+   public List<Coche> coches= new List<Coche>();
     //Referencias UI
     public Button startCarrera,stopCarrera;
     public Slider minMaxController;
@@ -27,26 +27,40 @@ public class UIManagerCarrera : MonoBehaviour
             myCar.soyPlayer = true;
         }
 
-        startCarrera.onClick.AddListener(() => {
-            circuito.Construir();
-            circuito.IniciarCarrera();
-            // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
-            // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
+        //startCarrera.onClick.AddListener(() => {
+        //    circuito.Construir();
+        //    circuito.IniciarCarrera();
+        //    // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
+        //    // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
 
-            Time.timeScale = 1;
-        });
-
-        coches.AddRange( circuito.pilotos);
-        stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
-        minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
+        //    Time.timeScale = 1;
+        //});
+        if (circuito!=null)
+        {
+            coches.AddRange(circuito.pilotos);
+        }
+       
+        //stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
+        if (minMaxController != null)
+        {
+            minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
+        }
        
     }
     void Update()
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
-        velocidad.text = ((int)myCar.currentSpeed).ToString();
-        posiciones.text = PilotosToString();
+        if (velocidad != null)
+        {
+            velocidad.text = ((int)myCar.currentSpeed).ToString();
+
+        }
+        if (posiciones != null)
+        {
+            posiciones.text = PilotosToString();
+
+        }
     }
     #endregion
     #region Gestion de eventos

@@ -144,6 +144,16 @@ PrefabInstance:
       propertyPath: linea
       value: 
       objectReference: {fileID: 1027289333522552664}
+    - target: {fileID: 722609494601720278, guid: 7ccc38a2942f1f945919095ab034dcc6,
+        type: 3}
+      propertyPath: accel
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 722609494601720278, guid: 7ccc38a2942f1f945919095ab034dcc6,
+        type: 3}
+      propertyPath: frenacion
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3477210661566493107, guid: 7ccc38a2942f1f945919095ab034dcc6,
         type: 3}
       propertyPath: m_LocalPosition.x

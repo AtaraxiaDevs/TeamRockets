@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ModuloCurva
   m_EditorClassIdentifier: 
   tipoCircuito: 1
-  elemento: 3
+  elemento: 4
   rozamiento: 0
-  umbral: 80
+  umbral: 90

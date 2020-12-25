@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ModuloVuelta
   m_EditorClassIdentifier: 
   tipoCircuito: 1
-  elemento: 1
+  elemento: 4
   rozamiento: 0
   umbral: 900
