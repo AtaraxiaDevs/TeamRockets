@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jupiter
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 100
-  BaseThrottle: 25
+  BaseThrottle: 10
   BaseBrake: -30
   BaseWeight: 130
   elemento: 1

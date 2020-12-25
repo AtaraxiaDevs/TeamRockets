@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Saturno
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 200
-  BaseThrottle: 30
+  BaseThrottle: 15
   BaseBrake: -30
   BaseWeight: 115
+  elemento: 0

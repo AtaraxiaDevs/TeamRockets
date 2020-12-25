@@ -15,7 +15,7 @@ public class IAMoves : MonoBehaviour
 
     public float porcentajeFallo = 1;
     public float nivelRitmo = 2;
-    public float accel = 0.005f, frenacion= 0.1f;
+    public float accel = 0.0000001f, frenacion= 0.000001f;
     public float accelIA, porcentajeIAccel;
 
     #region Unity

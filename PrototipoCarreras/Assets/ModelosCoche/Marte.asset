@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Marte
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 120
-  BaseThrottle: 40
+  BaseThrottle: 20
   BaseBrake: -30
   BaseWeight: 95
   elemento: 2
