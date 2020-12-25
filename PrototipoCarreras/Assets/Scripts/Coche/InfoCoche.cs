@@ -7,4 +7,6 @@ public class InfoCoche
 {
     public float FinalMaxSpeed, FinalMinSpeed, FinalThrottle, FinalBrake;
     public float ElectricForceRecta, ElectricForceCurva;
+
+    public float [] Marchas;
 }

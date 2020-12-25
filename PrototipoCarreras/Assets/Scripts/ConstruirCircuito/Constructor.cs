@@ -9,7 +9,6 @@ using UnityEngine.UI;
 //primero con almacenamiento interno, mas adelante en mongo
 public class Constructor : MonoBehaviour
 {
-
     //Referencias a prefabs modulos
     public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio;
     //Referencias a prefab Circuito
@@ -22,17 +21,19 @@ public class Constructor : MonoBehaviour
     {
         DataCircuito datos = CargarCircuito("prueba");
         DataToCircuito(datos);
-
     }
+
     private void DataToCircuito( DataCircuito datos)
     {
         Circuito nuevo = Instantiate(prefabCircuito, Vector3.zero, Quaternion.identity).GetComponent<Circuito>();
         nuevo.numVueltas = datos.numVueltas;
         Vector3 posSiguiente = nuevo.transform.position;
+
         foreach (DataModulo dm in datos.modulos)
         {
             TipoModulo tm = dm.modulo;
             Modulo nuevoModulo;
+
             switch(tm)
             {
                 case TipoModulo.CHICANE:
@@ -74,19 +75,21 @@ public class Constructor : MonoBehaviour
                     for(int i=0; i < 2; i++)
                     {
                         nuevoModulo.Rotar();
-                    }      
+                    }
+                    
                     break;
                 case Rotacion.DOSCIENTOSSETENTAGRADOS:
                     for (int i = 0; i < 3; i++)
                     {
                         nuevoModulo.Rotar();
                     }
+
                     break;
-           
             }
             
             TipoSocket ts = dm.socketVecino;
             Vector3 offset = nuevoModulo.transform.position;
+
             switch (ts)
             {
                 case TipoSocket.POSX:
@@ -101,19 +104,19 @@ public class Constructor : MonoBehaviour
                 case TipoSocket.NEGX:
                     offset +=new Vector3(-dm.sizeModulo, 0, 0);
                     break;
-
             }
+
             posSiguiente = offset;
             nuevoModulo.reverse = dm.reverse;
             nuevoModulo.modoConstructor = true;
             nuevoModulo.interactuable = false;
             nuevo.AddModulo(nuevoModulo);
-
         }
+
         for (int i = 0; i < nuevo.modulos.Count-1; i++)
         {
             //Poner el siguiente
-           if(nuevo.modulos[i].reverse)
+            if(nuevo.modulos[i].reverse)
             {
                 nuevo.modulos[i].AddVecino(nuevo.modulos[i].socket1, nuevo.modulos[i + 1]);
             }
@@ -123,6 +126,7 @@ public class Constructor : MonoBehaviour
             }
 
         }
+
         nuevo.modulos[0].soyPrimero();
         nuevo.moduloPrimero = nuevo.modulos[0];
         nuevo.CrearPilotos();
@@ -134,8 +138,6 @@ public class Constructor : MonoBehaviour
     {
         DataCircuito datos = CircuitoToData(circuito);
         SaveCircuito("prueba", datos);
-
-
     }
     private DataCircuito CircuitoToData(Circuito circuito)
     {
@@ -148,6 +150,7 @@ public class Constructor : MonoBehaviour
             data.modulo = m.myInfo.tipoCircuito;
             data.reverse = m.reverse;
             data.sizeModulo = m.sizeModulo;
+
             if (m.reverse)
             {
                 data.socketVecino = m.socket1;
@@ -156,6 +159,7 @@ public class Constructor : MonoBehaviour
             {
                 data.socketVecino = m.socket2;
             }
+
             resultado.modulos.Add(data);
         }
         for (int i = 0; i < resultado.modulos.Count; i++)
@@ -177,8 +181,8 @@ public class Constructor : MonoBehaviour
     private DataCircuito CargarCircuito(string nombre)
     {
         DataCircuito resultado;
-
         string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
+
         if (File.Exists(path))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -191,8 +195,6 @@ public class Constructor : MonoBehaviour
         {
             return null;
         }
-
-
     }
 
     private void SaveCircuito(string nombre, DataCircuito circuito)
@@ -204,8 +206,6 @@ public class Constructor : MonoBehaviour
         file.Close();
 
     }
-    #endregion
-    #region Metodos Guardado
     #endregion
     #region UI
     public void EmpezarCarreraListener( Button btn)
@@ -220,25 +220,21 @@ public class Constructor : MonoBehaviour
     #endregion
 
 
-
-
-
-
-
 }
+
 [System.Serializable]
 public class DataCircuito
 {
     public List<DataModulo> modulos;
     public int numVueltas;
+
     public DataCircuito(int vueltas)
     {
         modulos = new List<DataModulo>();
         numVueltas = vueltas;
     }
-
-   
 }
+
 [System.Serializable]
 public class DataModulo
 {
@@ -249,6 +245,7 @@ public class DataModulo
     public float sizeModulo;
     public bool reverse;
 }
+
 public enum Rotacion
 {
     NINGUNA,

@@ -31,6 +31,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     void Start()
     {
         circuito = new LineRenderer[maxPilotos];
+
         if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
             modulos = new List<Modulo>();
@@ -40,8 +41,6 @@ public class Circuito : MonoBehaviourPunCallbacks
         {
             InicializarPilotos();
         }
-       
-
     }
   
     #endregion
@@ -65,33 +64,27 @@ public class Circuito : MonoBehaviourPunCallbacks
             vertexcont[i] = 0;
         }
         AsignarPiloto();
-
     }
+
     public void InicializarPilotos()
     { //moduloPrimero.soyPrimero();
         for (int i = 0; i < maxPilotos; i++)
         {
-
-
             pilotos[i].ID = i;
             pilotos[i].currentCarril = i;
             pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
             circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
-
         }
-        AsignarPiloto();
 
+        AsignarPiloto();
     }
+
     public void Construir()
     {
-
-
         for (int h = 0; h < modulos.Count; h++)
         {
             if (!modulos[h].myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL)){
-
-               
-          
+                
                 for (int j = 0; j < maxPilotos; j++)
                 {
                     int posicionPath;
@@ -158,10 +151,12 @@ public class Circuito : MonoBehaviourPunCallbacks
     {
         modulos.Add(m);
     }
+
     public void RemoveModulo(Modulo m)
     {
         modulos.Remove(m);
     }
+
     public bool CircuitoListo()
     {
         foreach (Modulo m in modulos)
@@ -204,6 +199,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     {
         return circuito[index];
     }
+
     private void AsignarPiloto()
     {
         InformacionPersistente ip = InformacionPersistente.singleton;
@@ -213,16 +209,17 @@ public class Circuito : MonoBehaviourPunCallbacks
             {
                 ip.GetRandomCoche(i);
             }
+
             pilotos[i].AsignarCoche(ip.cochesCarrera[i]);
         }
     }
+
     public void IniciarCarrera()
     {
         for (int i = 0; i < maxPilotos; i++)
         {
             pilotos[i].Init(moduloPrimero.myInfo);
-        }
-        
+        }    
     }
     public Modulo GetModulo(int id)
     {

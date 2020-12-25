@@ -12,6 +12,7 @@ public enum Elemento
     AGUA,
     ESPIRITU
 }
+
 [SerializeField]
 public enum Zodiaco
 {
@@ -27,8 +28,8 @@ public enum Zodiaco
     PISCIS,
     CANCER,
     VIRGO
- 
 }
+
 [System.Serializable]
 [CreateAssetMenu(fileName = "NewModeloCoche", menuName = "InfoJuego/Signos", order = 3)]
 public class Signo

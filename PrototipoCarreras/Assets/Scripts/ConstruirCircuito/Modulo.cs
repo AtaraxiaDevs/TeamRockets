@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
 //Esta clase gestiona los modulos. En el modo editor es muy util porque cuenta con eventos de colisiones y referencias a sus modulos vecinos.
 
 [Serializable]
@@ -16,6 +15,7 @@ public class ComparadorModulo : Comparer<Modulo>
         return x.GetID()-y.GetID() ;
     }
 }
+
 // Información de los modulos unidos
 [Serializable]
 public class Vecino{
@@ -72,7 +72,6 @@ public class Modulo : MonoBehaviour
             socketPosZ = new Vector3(transform.position.x, transform.position.y, transform.position.z + sizeModulo / 2);
             socketNegZ = new Vector3(transform.position.x, transform.position.y, transform.position.z - sizeModulo / 2);
 
-
             switch (socket1)
             {
                 case TipoSocket.NEGX:
@@ -90,7 +89,6 @@ public class Modulo : MonoBehaviour
                 case TipoSocket.POSZ:
                     refS1 = Instantiate(prefabSocket, socketPosZ, transform.rotation);
                     break;
-
             }
 
             switch (socket2)
@@ -110,7 +108,6 @@ public class Modulo : MonoBehaviour
                 case TipoSocket.POSZ:
                     refS2 = Instantiate(prefabSocket, socketPosZ, transform.rotation);
                     break;
-
             }
 
             refS1.GetComponent<SocketPos>().setParent(this);
@@ -132,7 +129,6 @@ public class Modulo : MonoBehaviour
     }
     #endregion
     #region Modo Editor
-
 
     public void AddVecinoAndSocket(TipoSocket tipo, Modulo m)
     {
@@ -230,8 +226,8 @@ public class Modulo : MonoBehaviour
             }
         }
         //viene del anterior
-      
     }
+
     public void SetAncla(SocketPos sp)
     {
         if (ancla1 == null)
@@ -264,16 +260,16 @@ public class Modulo : MonoBehaviour
         refS1.GetComponent<SocketPos>().LiberarSocket();
         refS2.GetComponent<SocketPos>().LiberarSocket();
     }
+
     public void Rotar()
     {
         Liberar();
         transform.Rotate(0, 90, 0);
-      
 
         switch (rotacion)
         {
             case Rotacion.NINGUNA:
-                rotacion =Rotacion.NOVENTAGRADOS;
+                rotacion = Rotacion.NOVENTAGRADOS;
                 break;
             case Rotacion.NOVENTAGRADOS:
                 rotacion = Rotacion.CIENTOCHENTAGRADOS;
@@ -411,8 +407,6 @@ public class Modulo : MonoBehaviour
                     if (!myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL))
                     {
                         other.GetComponent<Coche>().sizeMod = path[0].positionCount;
-
-
                     }
                     else
                     {
@@ -424,10 +418,7 @@ public class Modulo : MonoBehaviour
                 }
 
                 //Si el tipo es el especial, le dice al coche que haga una voltereta o algo
-
             }
-
-
         }
     }
 

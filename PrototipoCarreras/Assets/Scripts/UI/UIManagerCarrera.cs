@@ -27,7 +27,6 @@ public class UIManagerCarrera : MonoBehaviour
             myCar.soyPlayer = true;
         }
 
-
         startCarrera.onClick.AddListener(() => {
             circuito.Construir();
             circuito.IniciarCarrera();
@@ -36,6 +35,7 @@ public class UIManagerCarrera : MonoBehaviour
 
             Time.timeScale = 1;
         });
+
         coches.AddRange( circuito.pilotos);
         stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
         minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));

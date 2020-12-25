@@ -29,27 +29,19 @@ public class IAMoves : MonoBehaviour
     {
         if (moduloSiguiente != null)
         {
-
-
             if ((SiguienteCurva() || (currentPointMod >= sizeMod / 2)))
             {
-
                 if (currentSpeed > moduloSiguiente.myInfo.umbral - nivelRitmo)
                 {
-
                     if (accelIA > stats.FinalBrake)
                     {
-
                         accelIA = porcentajeIAccel * stats.FinalBrake;
                         porcentajeIAccel += frenacion;
 
                         Debug.Log("Frenando");
-
-
                     }
                     else
                     {
-
                         porcentajeIAccel = 0;
                     }
                 }
@@ -63,50 +55,38 @@ public class IAMoves : MonoBehaviour
                             porcentajeIAccel += accel;
 
                             Debug.Log("Acelerando");
-
                         }
                         else
                         {
-
                             porcentajeIAccel = 0;
                         }
                     }
                 }
-
-
-
             }
             else
             {
-
                 if (currentSpeed < currentMod.umbral - nivelRitmo)
                 {
-
                     if (accelIA < stats.FinalThrottle)
                     {
                         accelIA = porcentajeIAccel * stats.FinalThrottle;
                         porcentajeIAccel += accel;
 
                         Debug.Log("Acelerando");
-
                     }
                     else
                     {
-
                         porcentajeIAccel = 0;
                     }
                 }
                 else
                 {
-
                     porcentajeIAccel = 0;
                 }
-
             }
 
             currentSpeed += (accelIA / factorUnidades) + fuerza;
             //comprobacion Umbral current
-
         }
 
         if (currentSpeed > (currentMod.umbral - nivelRitmo))
@@ -121,17 +101,15 @@ public class IAMoves : MonoBehaviour
 
     public bool SiguienteCurva()
     {
-
         return moduloSiguiente.myInfo.tipoCircuito.Equals(TipoModulo.CURVACERRADA) || moduloSiguiente.myInfo.tipoCircuito.Equals(TipoModulo.CURVABIERTA);
     }
+
     public void ModuloSiguiente(int idCurrent)
     {
-
         if (idCurrent < 0)
         {
             moduloActual = currentCircuito.GetModulo(0);
             moduloSiguiente = currentCircuito.GetModulo(1);
-
         }
         else
         {
@@ -143,13 +121,10 @@ public class IAMoves : MonoBehaviour
             {
                 moduloActual = currentCircuito.GetModulo(idCurrent);
             }
+
             moduloSiguiente = currentCircuito.GetModulo(idCurrent + 1);
-
         }
-
     }
     #endregion
-
-
 
 }

@@ -52,35 +52,32 @@ public class TimeController : MonoBehaviour
     {
         int idJugador = _jugadores.FindIndex((p) => p.ID == ID);
 
-        //if (vuelta == _jugadores[idJugador].siguienteVuelta)
-        //{
-            _jugadores[idJugador].siguienteVuelta++;
-            _jugadores[idJugador].actualTime = Time.time;
+        _jugadores[idJugador].siguienteVuelta++;
+        _jugadores[idJugador].actualTime = Time.time;
 
-            _auxTiempo = _jugadores[idJugador].actualTime - _jugadores[idJugador].anteriorTime;
+        _auxTiempo = _jugadores[idJugador].actualTime - _jugadores[idJugador].anteriorTime;
 
-            tiempoUltimaVuelta[idJugador] = _auxTiempo;
+        tiempoUltimaVuelta[idJugador] = _auxTiempo;
 
-            _jugadores[idJugador].anteriorTime = _jugadores[idJugador].actualTime;
-            _jugadores[idJugador].actualTime = 0;
+        _jugadores[idJugador].anteriorTime = _jugadores[idJugador].actualTime;
+        _jugadores[idJugador].actualTime = 0;
 
-            float vueltaRapidaPropia = tiempoMejor[idJugador], ultimaVuelta = 0;
+        float vueltaRapidaPropia = tiempoMejor[idJugador], ultimaVuelta = 0;
 
-            ultimaVuelta = tiempoUltimaVuelta[idJugador];
+        ultimaVuelta = tiempoUltimaVuelta[idJugador];
 
-            if ((ultimaVuelta < vueltaRapidaPropia) || (vueltaRapidaPropia == 0))
+        if ((ultimaVuelta < vueltaRapidaPropia) || (vueltaRapidaPropia == 0))
+        {
+            vueltaRapidaPropia = ultimaVuelta;
+            tiempoMejor[idJugador] = vueltaRapidaPropia;
+
+            if ((ultimaVuelta < _vueltaRapida) || (_vueltaRapida == 0))
             {
-                vueltaRapidaPropia = ultimaVuelta;
-                tiempoMejor[idJugador] = vueltaRapidaPropia;
-
-                if ((ultimaVuelta < _vueltaRapida) || (_vueltaRapida == 0))
-                {
-                    _vueltaRapida = ultimaVuelta;
-                }
+                _vueltaRapida = ultimaVuelta;
             }
+        }
 
-            string vueltaTexto = "Fastest Lap: " + Mathf.Round(_vueltaRapida * 1000) / 1000 + "\nBest Lap: " + Mathf.Round(vueltaRapidaPropia * 1000) / 1000 + "\nLast Lap: " + Mathf.Round(ultimaVuelta * 1000) / 1000;
-       // }
+        string vueltaTexto = "Fastest Lap: " + Mathf.Round(_vueltaRapida * 1000) / 1000 + "\nBest Lap: " + Mathf.Round(vueltaRapidaPropia * 1000) / 1000 + "\nLast Lap: " + Mathf.Round(ultimaVuelta * 1000) / 1000;
         return vueltaTexto;
     }
 

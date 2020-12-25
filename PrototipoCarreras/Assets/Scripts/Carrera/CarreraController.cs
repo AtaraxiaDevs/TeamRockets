@@ -21,10 +21,8 @@ public class CarreraController : MonoBehaviour
 
     private int vueltaMasActual;
 
-
     public void Start()
     {
-        //Necesito referencias a los coches, que preferiblemente sean los nombres, asi evitamos basarnos en ID's. 
         circuito = FindObjectOfType<Circuito>();
         StartCoroutine(Empezar());
     }
@@ -34,8 +32,8 @@ public class CarreraController : MonoBehaviour
         circuito.Construir();
         circuito.IniciarCarrera();
         times.InicioTiempos();
+
         vueltaMasActual = 0;
-      
     }
     IEnumerator Empezar()
     {
@@ -51,19 +49,22 @@ public class CarreraController : MonoBehaviour
         
         InicioCarrera();
     }
+
     public void UpdateCarrera(int ID,int vuelta)
     {
         if (vueltaMasActual < vuelta)
         {
             vueltaMasActual = vuelta;
         }
-       string tiempos= times.UpdateVuelta(ID,vuelta);
-        if(ID== 0)
+
+        string tiempos= times.UpdateVuelta(ID,vuelta);
+
+        if(ID == 0)
         {
             tiemposJugador.text = tiempos;
         }
         
-        if(vuelta>= circuito.numVueltas)
+        if(vuelta >= circuito.numVueltas)
         {
             Time.timeScale = 0;
         }
