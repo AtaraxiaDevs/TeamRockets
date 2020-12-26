@@ -8,7 +8,7 @@ public class DatosCoche
     public Reglajes reg;
     public ModeloCoche infoBase;
     public Signo[] signos = new Signo[2];
-    public InfoCoche stats;
+    //public InfoCoche stats;
     public int ID;
     public DatosCoche()
     {
@@ -48,6 +48,17 @@ public class InformacionPersistente : MonoBehaviour
         numCoches = modelosCoches.Length;
         cochesCarrera = new DatosCoche[numCoches];
         LimpiarInfoCoches();
+
+        for (int i = 0; i < cochesCarrera.Length; i++)
+        {
+            cochesCarrera[i] = new DatosCoche();
+            cochesCarrera[i].infoBase = modelosCoches[0];
+            cochesCarrera[i].signos[0] = signosZodiaco[0];
+            cochesCarrera[i].signos[1] = signosZodiaco[3];
+            cochesCarrera[i].ID = i;
+            cochesCarrera[i].reg = new Reglajes();
+            cochesCarrera[i].reg.ElegirReglajes(1, 0);
+        }
     }
     #endregion
     #region Gestion de la informacion
