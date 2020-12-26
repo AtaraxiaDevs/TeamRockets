@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 200
   BaseThrottle: 15
-  BaseBrake: -30
+  BaseBrake: -35
   BaseWeight: 115
   elemento: 0

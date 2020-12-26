@@ -83,24 +83,24 @@ public class Reglajes
         switch (espacioDinamica)
         {
             case ESPACIODINAMICA.RECTAS:
-                c.stats.ElectricForceCurva = -0.5f * c.statsBase.BaseWeight / 100;
-                c.stats.ElectricForceRecta = -0.2f * c.statsBase.BaseWeight / 100;
+                c.stats.ElectricForceCurva += -0.5f * c.stats.FinalWeight/ 100;
+                c.stats.ElectricForceRecta += -0.2f * c.stats.FinalWeight / 100;
                 break;
             case ESPACIODINAMICA.CURVAS:
-                c.stats.ElectricForceCurva = -0.2f * c.statsBase.BaseWeight / 100;
-                c.stats.ElectricForceRecta = -0.5f * c.statsBase.BaseWeight / 100;
+                c.stats.ElectricForceCurva += -0.2f * c.stats.FinalWeight / 100;
+                c.stats.ElectricForceRecta += -0.5f * c.stats.FinalWeight / 100;
                 break;
             case ESPACIODINAMICA.EQUILIBRADOA:
-                c.stats.ElectricForceCurva = -0.35f * c.statsBase.BaseWeight / 100;
-                c.stats.ElectricForceRecta = -0.35f * c.statsBase.BaseWeight / 100;
+                c.stats.ElectricForceCurva += -0.35f * c.stats.FinalWeight / 100;
+                c.stats.ElectricForceRecta += -0.35f * c.stats.FinalWeight / 100;
                 break;
             default:
-                c.stats.ElectricForceCurva = -0.35f * c.statsBase.BaseWeight / 100;
-                c.stats.ElectricForceRecta = -0.35f * c.statsBase.BaseWeight / 100;
+                c.stats.ElectricForceCurva += -0.35f * c.stats.FinalWeight / 100;
+                c.stats.ElectricForceRecta += -0.35f * c.stats.FinalWeight / 100;
                 break;
         }
 
-        c.stats.FinalMinSpeed = 20 * c.statsBase.BaseWeight / 100;
+        c.stats.FinalMinSpeed = 20 * c.stats.FinalWeight / 100;
         c.stats.FinalBrake = c.statsBase.BaseBrake;
     }
 }

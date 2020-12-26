@@ -23,6 +23,10 @@ public enum Marcha
 
 public class Coche : MonoBehaviour
 {
+
+    //TESTING QUITAR
+    public RELACIONMARCHAS RM;
+    public ESPACIODINAMICA ED;
     //Referencias
     public InfoCoche stats;
     public ModeloCoche statsBase;
@@ -531,15 +535,17 @@ public class Coche : MonoBehaviour
 
         stats.Marchas = new float[5];
         Calado = new bool[stats.Marchas.Length];
-       
-       
+        stats.ElectricForceCurva = 0;
+        stats.ElectricForceRecta = 0;
+        stats.FinalWeight = statsBase.BaseWeight;
         stats.FinalBrake = statsBase.BaseBrake;
         stats.FinalMaxSpeed = statsBase.BaseMaxSpeed;
         stats.FinalMinSpeed = 20;
         stats.FinalThrottle = statsBase.BaseThrottle;
-        signosAnadidos[0].ModificarStats(stats);
-        signosAnadidos[1].ModificarStats(stats);
+        signosAnadidos[0].ModificarStats(stats,statsBase,reg.relacionMarchas,reg.espacioDinamica);
+        signosAnadidos[1].ModificarStats(stats,statsBase, reg.relacionMarchas, reg.espacioDinamica);
         reg.CalcularReglajes(this);
+        CalcularBonus();
         for (int i = 0; i < Calado.Length; i++)
         {
             Calado[i] = false;
@@ -556,7 +562,57 @@ public class Coche : MonoBehaviour
         }
 
         stats.Marchas[4] = stats.FinalMaxSpeed;
+        RM = reg.relacionMarchas;
+        ED = reg.espacioDinamica;
   
+    }
+    private void CalcularBonus()
+    {
+        //comprobamos los elementos del coche y de los signos!
+        float porcentaje = 0.25f;
+        List<Elemento> ele = new List<Elemento>();
+        ele.Add(statsBase.elemento);
+        ele.Add(signosAnadidos[0].elemento);
+        ele.Add(signosAnadidos[1].elemento);
+        List<Elemento> fuego = ele.FindAll((E)=>E.Equals(Elemento.FUEGO));
+        List<Elemento> tierra = ele.FindAll((E) => E.Equals(Elemento.TIERRA)); 
+        List<Elemento> aire = ele.FindAll((E) => E.Equals(Elemento.AIRE)); 
+        List<Elemento> agua = ele.FindAll((E) => E.Equals(Elemento.AGUA));
+        if (fuego.Count >= 2)
+        {
+            
+            if (fuego.Count == 3)
+            {
+                porcentaje = 0.5f;
+            }
+
+            stats.FinalThrottle += stats.FinalThrottle* porcentaje;
+        }else if (tierra.Count >= 2)
+        {
+            if (tierra.Count == 3)
+            {
+                porcentaje = 0.5f;
+            }
+            stats.FinalMaxSpeed += stats.FinalMaxSpeed* porcentaje;
+        }
+        else if (aire.Count >= 2)
+        {
+            if (aire.Count == 3)
+            {
+                porcentaje = 0.5f;
+            }
+            stats.ElectricForceCurva -= stats.ElectricForceCurva * porcentaje;
+            stats.ElectricForceRecta -= stats.ElectricForceRecta * porcentaje;
+
+        }
+        else if (agua.Count >= 2)
+        {
+            if (agua.Count == 3)
+            {
+                porcentaje = 0.5f;
+            }
+            //penalizacion y rozamiento poco! cosas del rozamiento
+        }
     }
     #endregion
 

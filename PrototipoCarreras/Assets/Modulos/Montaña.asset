@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c30bb0bf069aca4b9decd6aa94877ee, type: 3}
-  m_Name: Neptuno
+  m_Script: {fileID: 11500000, guid: ae79685fce4b1324a9dce9ac76d9ad6a, type: 3}
+  m_Name: "Monta\xF1a"
   m_EditorClassIdentifier: 
-  BaseMaxSpeed: 110
-  BaseThrottle: 19
-  BaseBrake: -40
-  BaseWeight: 150
-  elemento: 3
+  tipoCircuito: 0
+  elemento: 0
+  rozamiento: -10
+  umbral: 900

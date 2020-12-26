@@ -5,7 +5,7 @@ using UnityEngine;
 //Informacion final del coche
 public class InfoCoche 
 {
-    public float FinalMaxSpeed, FinalMinSpeed, FinalThrottle, FinalBrake;
+    public float FinalMaxSpeed, FinalMinSpeed, FinalThrottle, FinalBrake,FinalWeight;
     public float ElectricForceRecta, ElectricForceCurva;
 
     public float [] Marchas;
