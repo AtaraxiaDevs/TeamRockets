@@ -220,7 +220,7 @@ public class Coche : MonoBehaviour
         currentSpeed += (currentAccel / factorUnidades) + f;
         if (soyPlayer)
         {
-            Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
+           // Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
         }
     }
 
@@ -271,7 +271,7 @@ public class Coche : MonoBehaviour
         {
           
             //dependiendo de la marcha currentAccel aumenta( cuanto? depende de qué marcha) hasta
-            Debug.Log("Marcha: " + currentMarcha.ToString() + " accel: "+accelIA+" acelerando "+ acelerando+" porcentaje "+ porcentajeIAccel);
+            //Debug.Log("Marcha: " + currentMarcha.ToString() + " accel: "+accelIA+" acelerando "+ acelerando+" porcentaje "+ porcentajeIAccel);
             switch(currentMarcha)
             {
                 //Si current es mayor, accel-> frenar, cada vez mas

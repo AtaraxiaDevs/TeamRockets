@@ -195,6 +195,7 @@ public class Modulo : MonoBehaviour
             if (ID < 0)
             {
                 ID = id;
+              
                 if (s.Equals(vecino1.attach))
                 {
 
@@ -209,6 +210,7 @@ public class Modulo : MonoBehaviour
         }
         else
         {
+            ID = id;
             if (reverse)
             {
                 if (vecino1.attach != null)
@@ -225,6 +227,7 @@ public class Modulo : MonoBehaviour
                 }
             }
         }
+
         //viene del anterior
     }
 
@@ -420,9 +423,9 @@ public class Modulo : MonoBehaviour
                        
                     }
 
-                    other.GetComponent<IAMoves>().ModuloSiguiente(ID);
+                  
                 }
-
+                other.GetComponent<IAMoves>().ModuloSiguiente(ID);
                 //Si el tipo es el especial, le dice al coche que haga una voltereta o algo
             }
         }

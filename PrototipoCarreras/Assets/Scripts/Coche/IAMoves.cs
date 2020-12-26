@@ -8,6 +8,7 @@ public class IAMoves : MonoBehaviour
 {
     // Referencias
     public Modulo moduloActual, moduloSiguiente;
+
     public Circuito currentCircuito;
     private Coche coche;
     private int currentModulo;
@@ -15,7 +16,7 @@ public class IAMoves : MonoBehaviour
 
     public float porcentajeFallo = 1;
     public float nivelRitmo = 2;
-    private float accel = 0.005f, frenacion= 0.01f;
+    private float accel = 0.01f, frenacion= 0.01f;
     public float accelIA, porcentajeIAccel;
 
     #region Unity
@@ -29,7 +30,7 @@ public class IAMoves : MonoBehaviour
     {
         if (moduloSiguiente != null)
         {
-            if ((SiguienteCurva() || (currentPointMod >= sizeMod / 2)))
+            if ((SiguienteCurva() && (currentPointMod >= sizeMod / 2)))
             {
                 if (currentSpeed > moduloSiguiente.myInfo.umbral - nivelRitmo)
                 {
@@ -38,31 +39,29 @@ public class IAMoves : MonoBehaviour
                         accelIA = porcentajeIAccel * stats.FinalBrake;
                         porcentajeIAccel += frenacion;
 
-                        Debug.Log("Frenando");
+                        //Debug.Log("Frenando");
+               
                     }
-                    else
-                    {
-                        porcentajeIAccel = 0;
-                    }
+                 
                 }
-                else
-                {
-                    if (currentSpeed < currentMod.umbral - nivelRitmo)
+                else if (currentSpeed < currentMod.umbral - nivelRitmo)
                     {
                         if (accelIA < stats.FinalThrottle)
                         {
                             accelIA = porcentajeIAccel * stats.FinalThrottle;
                             porcentajeIAccel += accel;
 
-                            Debug.Log("Acelerando");
+                            // Debug.Log("Acelerando");
+               
                         }
-                        else
-                        {
-                            porcentajeIAccel = 0;
-                        }
+                       
                     }
-                }
+                    else
+                    {
+                        porcentajeIAccel = 0;
+                    }
             }
+            
             else
             {
                 if (currentSpeed < currentMod.umbral - nivelRitmo)
@@ -72,19 +71,20 @@ public class IAMoves : MonoBehaviour
                         accelIA = porcentajeIAccel * stats.FinalThrottle;
                         porcentajeIAccel += accel;
 
-                        Debug.Log("Acelerando");
+                        // Debug.Log("Acelerando");
+          
                     }
-                    else
-                    {
-                        porcentajeIAccel = 0;
-                    }
+                    
                 }
                 else
                 {
                     porcentajeIAccel = 0;
                 }
             }
-
+            if (porcentajeIAccel == 1)
+            {
+                porcentajeIAccel = 1;
+            }
             currentSpeed += (accelIA / factorUnidades) + fuerza;
             //comprobacion Umbral current
         }
