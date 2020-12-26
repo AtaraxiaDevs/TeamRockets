@@ -18,6 +18,7 @@ public class IAMoves : MonoBehaviour
     public float nivelRitmo = 2;
     private float accel = 0.01f, frenacion= 0.01f;
     public float accelIA, porcentajeIAccel;
+    public bool acelerando = false;
 
     #region Unity
     void Start()
@@ -36,6 +37,11 @@ public class IAMoves : MonoBehaviour
                 {
                     if (accelIA > stats.FinalBrake)
                     {
+                        if (acelerando)
+                        {
+                            acelerando = false;
+                            porcentajeIAccel = 0;
+                        }
                         accelIA = porcentajeIAccel * stats.FinalBrake;
                         porcentajeIAccel += frenacion;
 
@@ -45,27 +51,33 @@ public class IAMoves : MonoBehaviour
                  
                 }
                 else if (currentSpeed < currentMod.umbral - nivelRitmo)
-                    {
+                {
+                        if (!acelerando)
+                        {
+                            acelerando = true;
+                            porcentajeIAccel = 0;
+                        }
                         if (accelIA < stats.FinalThrottle)
                         {
                             accelIA = porcentajeIAccel * stats.FinalThrottle;
                             porcentajeIAccel += accel;
 
-                            // Debug.Log("Acelerando");
-               
+                        // Debug.Log("Acelerando");
                         }
                        
-                    }
-                    else
-                    {
-                        porcentajeIAccel = 0;
-                    }
+                }
+             
             }
             
             else
             {
                 if (currentSpeed < currentMod.umbral - nivelRitmo)
                 {
+                    if (!acelerando)
+                    {
+                        acelerando = true;
+                        porcentajeIAccel = 0;
+                    }
                     if (accelIA < stats.FinalThrottle)
                     {
                         accelIA = porcentajeIAccel * stats.FinalThrottle;
@@ -74,12 +86,9 @@ public class IAMoves : MonoBehaviour
                         // Debug.Log("Acelerando");
           
                     }
-                    
+                 
                 }
-                else
-                {
-                    porcentajeIAccel = 0;
-                }
+              
             }
             if (porcentajeIAccel == 1)
             {
