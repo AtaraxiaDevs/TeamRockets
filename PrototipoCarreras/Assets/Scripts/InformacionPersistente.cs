@@ -49,16 +49,27 @@ public class InformacionPersistente : MonoBehaviour
         cochesCarrera = new DatosCoche[numCoches];
         LimpiarInfoCoches();
 
-        for (int i = 0; i < cochesCarrera.Length; i++)
-        {
-            cochesCarrera[i] = new DatosCoche();
-            cochesCarrera[i].infoBase = modelosCoches[0];
-            cochesCarrera[i].signos[0] = signosZodiaco[0];
-            cochesCarrera[i].signos[1] = signosZodiaco[3];
-            cochesCarrera[i].ID = i;
-            cochesCarrera[i].reg = new Reglajes();
-            cochesCarrera[i].reg.ElegirReglajes(1, 0);
-        }
+        //int a = 0, b = 0;
+        //for (int i = 0; i < cochesCarrera.Length; i++)
+        //{
+        //    cochesCarrera[i] = new DatosCoche();
+        //    cochesCarrera[i].infoBase = modelosCoches[2];
+        //    cochesCarrera[i].signos[0] = signosZodiaco[10];
+        //    cochesCarrera[i].signos[1] = signosZodiaco[11];
+        //    cochesCarrera[i].ID = i;
+        //    cochesCarrera[i].reg = new Reglajes();
+        //    cochesCarrera[i].reg.ElegirReglajes(a, b);
+
+        //    if (i % 2 != 0)
+        //    {
+        //        b++;
+        //        a--;
+        //    }
+        //    else
+        //    {
+        //        a++;
+        //    }
+        //}
     }
     #endregion
     #region Gestion de la informacion

@@ -17,16 +17,16 @@ public enum Elemento
 public enum Zodiaco
 {
     ARIES,
-    LEO,
     SAGITARIO,
+    LEO,
     LIBRA,
-    ACUARIO,
     GEMINIS,
-    TAURO,
-    CAPRICORNIO,
-    ESCORPIO,
+    ACUARIO,
     PISCIS,
+    ESCORPIO,
     CANCER,
+    CAPRICORNIO,
+    TAURO,
     VIRGO
 }
 

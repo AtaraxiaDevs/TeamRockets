@@ -57,20 +57,20 @@ MonoBehaviour:
     elemento: 2
   - zodiaco: 3
     elemento: 1
-  - zodiaco: 5
-    elemento: 1
   - zodiaco: 4
     elemento: 1
+  - zodiaco: 5
+    elemento: 1
   - zodiaco: 6
-    elemento: 0
-  - zodiaco: 11
-    elemento: 0
+    elemento: 3
   - zodiaco: 7
-    elemento: 0
-  - zodiaco: 10
     elemento: 3
   - zodiaco: 8
     elemento: 3
   - zodiaco: 9
-    elemento: 3
+    elemento: 0
+  - zodiaco: 10
+    elemento: 0
+  - zodiaco: 11
+    elemento: 0
   numCoches: 0
