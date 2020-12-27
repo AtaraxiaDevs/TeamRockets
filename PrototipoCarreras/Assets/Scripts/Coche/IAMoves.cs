@@ -34,7 +34,7 @@ public class IAMoves : MonoBehaviour
             if ((SiguienteCurva() && (currentPointMod >= sizeMod / 2)))
             {
                 
-                if (currentSpeed > moduloSiguiente.myInfo.umbral - nivelRitmo)
+                if (currentSpeed > CalcularMarchaUmbral( moduloSiguiente.myInfo.umbral - nivelRitmo,stats))
                 {
                     Frenar(currentSpeed, marcha, stats);
                     if (accelIA > stats.FinalBrake)
@@ -53,9 +53,10 @@ public class IAMoves : MonoBehaviour
                     }
                  
                 }
-                else if (currentSpeed < currentMod.umbral - nivelRitmo)
+                else if (currentSpeed < CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
                 {
                     Acelerar(currentSpeed, marcha, stats);
+                   
                     if (!acelerando)
                         {
                             acelerando = true;
@@ -68,14 +69,15 @@ public class IAMoves : MonoBehaviour
 
                         // Debug.Log("Acelerando");
                         }
-                       
+                      
                 }
+               
              
             }
             
             else
             {
-                if (currentSpeed < currentMod.umbral - nivelRitmo)
+                if (currentSpeed < CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
                 {
                     Acelerar(currentSpeed, marcha, stats);
                     if (!acelerando)
@@ -106,6 +108,10 @@ public class IAMoves : MonoBehaviour
         if (currentSpeed > (currentMod.umbral - nivelRitmo))
         {
             currentSpeed = currentMod.umbral - nivelRitmo;
+        }
+        if(currentSpeed> CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
+        {
+            currentSpeed = CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats);
         }
 
         return currentSpeed;
@@ -143,7 +149,7 @@ public class IAMoves : MonoBehaviour
     {
         if ((int)marcha < (int)Marcha.QUINTA)
         {
-            if (currentSpeed>= stats.Marchas[(int)marcha])
+            if (currentSpeed> stats.Marchas[(int)marcha])
             {
            
                 coche.SetCurrentMarcha((int)marcha + 1);
@@ -153,11 +159,23 @@ public class IAMoves : MonoBehaviour
 
 
     }
+    private float CalcularMarchaUmbral(float umbral, InfoCoche stats)
+    {
+        float res= stats.Marchas[0];
+        foreach( float v in stats.Marchas)
+        {
+            if( v<= umbral)
+            {
+                res = v;
+            }
+        }
+        return res;
+    }
     private void Frenar(float currentSpeed, Marcha marcha, InfoCoche stats)
     {
         if((int)marcha> (int) Marcha.PRIMERA)
         {
-            if (currentSpeed <= stats.Marchas[(int)marcha-1])
+            if (currentSpeed < stats.Marchas[(int)marcha-1])
             {
               
                     coche.SetCurrentMarcha((int)marcha - 1);
@@ -166,6 +184,19 @@ public class IAMoves : MonoBehaviour
             }
         }
      
+    }
+    private int MarchaPerfectaUmbral(float umbral, InfoCoche stats)
+    {
+        int res = -1;
+        
+        foreach (float v in stats.Marchas)
+        {
+            if (v <= umbral)
+            {
+                res++;
+            }
+        }
+        return res;
     }
     #endregion
 
