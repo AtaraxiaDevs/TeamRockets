@@ -450,7 +450,7 @@ public class Coche : MonoBehaviour
         }
         else //Comportamiento de la IA
         {
-            currentSpeed = IA.CalculoNuevaPosicionIA(stats, currentSpeed, currentPointMod, sizeMod, factorUnidades, currentModulo, fuerza);
+            currentSpeed = IA.CalculoNuevaPosicionIA(stats, currentSpeed, currentPointMod, sizeMod, factorUnidades, currentModulo, fuerza,currentMarcha);
         }
 
         if (!soyPlayer)

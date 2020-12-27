@@ -60,6 +60,10 @@ public class UIManagerEscogerCoche : MonoBehaviour
         if(signosEscogidos[0]== signosEscogidos[1])
         {
             signosEscogidos[0]++;
+            if (signosEscogidos[0] >= 12)
+            {
+                signosEscogidos[0] = 0;
+            }
         }
 
         if (signosEscogidos[1] >= 12)
@@ -81,7 +85,12 @@ public class UIManagerEscogerCoche : MonoBehaviour
         if (signosEscogidos[0] == signosEscogidos[1])
         {
             signosEscogidos[1]++;
+            if (signosEscogidos[1] >= 12)
+            {
+                signosEscogidos[1] = 0;
+            }
         }
+    
 
         if (signosEscogidos[1] >= 12)
         {

@@ -884,17 +884,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 393b84d707ae8794f9830bc4cc9e5fda, type: 3}
   fotoSigno:
   - {fileID: 21300000, guid: e32fdf30b767f2543a0f4075015e1277, type: 3}
-  - {fileID: 21300000, guid: 8da989e63b9bb134dba0c7949f065cdc, type: 3}
   - {fileID: 21300000, guid: 0ffd4a73cfe135d4e8a76d37cf9d522d, type: 3}
+  - {fileID: 21300000, guid: 8da989e63b9bb134dba0c7949f065cdc, type: 3}
   - {fileID: 21300000, guid: d4b2a1b49fcfc5647a25411245cd0bd8, type: 3}
   - {fileID: 21300000, guid: deec23fc0c113244ca79e9f7191f6ee1, type: 3}
   - {fileID: 21300000, guid: 548af7736ff60f4429e1df44dcfa67af, type: 3}
+  - {fileID: 21300000, guid: 6c804b63d37ee2e4ab0a48123bddf144, type: 3}
+  - {fileID: 21300000, guid: 8cbf23319c9d6fa4f8d8cfbdcdd04189, type: 3}
+  - {fileID: 21300000, guid: 4a0abee818119e8469f854bb2ec72e8f, type: 3}
+  - {fileID: 21300000, guid: 23301381daafb8f49973d6727b483964, type: 3}
   - {fileID: 21300000, guid: 103c0786938cad3478f0f843af15b718, type: 3}
   - {fileID: 21300000, guid: fa3b7b807b39bd4428a24e2b078d466f, type: 3}
-  - {fileID: 21300000, guid: 23301381daafb8f49973d6727b483964, type: 3}
-  - {fileID: 21300000, guid: 4a0abee818119e8469f854bb2ec72e8f, type: 3}
-  - {fileID: 21300000, guid: 8cbf23319c9d6fa4f8d8cfbdcdd04189, type: 3}
-  - {fileID: 21300000, guid: 6c804b63d37ee2e4ab0a48123bddf144, type: 3}
   flechaAtras: {fileID: 1011473901}
   flechaDelante: {fileID: 275324596}
   btnListo: {fileID: 1527353218}

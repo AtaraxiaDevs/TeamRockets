@@ -27,14 +27,16 @@ public class IAMoves : MonoBehaviour
     }
     #endregion
     #region Calculos
-    public float CalculoNuevaPosicionIA(InfoCoche stats, float currentSpeed, int currentPointMod, int sizeMod, float factorUnidades, ModuloInfo currentMod, float fuerza)
+    public float CalculoNuevaPosicionIA(InfoCoche stats, float currentSpeed, int currentPointMod, int sizeMod, float factorUnidades, ModuloInfo currentMod, float fuerza,Marcha marcha)
     {
         if (moduloSiguiente != null)
         {
             if ((SiguienteCurva() && (currentPointMod >= sizeMod / 2)))
             {
+                
                 if (currentSpeed > moduloSiguiente.myInfo.umbral - nivelRitmo)
                 {
+                    Frenar(currentSpeed, marcha, stats);
                     if (accelIA > stats.FinalBrake)
                     {
                         if (acelerando)
@@ -42,6 +44,7 @@ public class IAMoves : MonoBehaviour
                             acelerando = false;
                             porcentajeIAccel = 0;
                         }
+                      
                         accelIA = porcentajeIAccel * stats.FinalBrake;
                         porcentajeIAccel += frenacion;
 
@@ -52,7 +55,8 @@ public class IAMoves : MonoBehaviour
                 }
                 else if (currentSpeed < currentMod.umbral - nivelRitmo)
                 {
-                        if (!acelerando)
+                    Acelerar(currentSpeed, marcha, stats);
+                    if (!acelerando)
                         {
                             acelerando = true;
                             porcentajeIAccel = 0;
@@ -73,6 +77,7 @@ public class IAMoves : MonoBehaviour
             {
                 if (currentSpeed < currentMod.umbral - nivelRitmo)
                 {
+                    Acelerar(currentSpeed, marcha, stats);
                     if (!acelerando)
                     {
                         acelerando = true;
@@ -133,6 +138,34 @@ public class IAMoves : MonoBehaviour
 
             moduloSiguiente = currentCircuito.GetModulo(idCurrent + 1);
         }
+    }
+    private void Acelerar(float currentSpeed, Marcha marcha, InfoCoche stats)
+    {
+        if ((int)marcha < (int)Marcha.QUINTA)
+        {
+            if (currentSpeed>= stats.Marchas[(int)marcha])
+            {
+           
+                coche.SetCurrentMarcha((int)marcha + 1);
+                porcentajeIAccel = 0;
+            }
+        }
+
+
+    }
+    private void Frenar(float currentSpeed, Marcha marcha, InfoCoche stats)
+    {
+        if((int)marcha> (int) Marcha.PRIMERA)
+        {
+            if (currentSpeed <= stats.Marchas[(int)marcha-1])
+            {
+              
+                    coche.SetCurrentMarcha((int)marcha - 1);
+                    porcentajeIAccel = 0;
+                
+            }
+        }
+     
     }
     #endregion
 
