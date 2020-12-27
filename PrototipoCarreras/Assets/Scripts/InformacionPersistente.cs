@@ -14,6 +14,7 @@ public class DatosCoche
     {
         reg = new Reglajes();
     }
+    
 }
 public class InformacionPersistente : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class InformacionPersistente : MonoBehaviour
     public ModeloCoche[] modelosCoches;
     public Signo[] signosZodiaco;
     public int numCoches;
+    public int idiomaActual = 2;
+    public string escenaActual = "MainMenu";
 
     #region Unity
     private void Awake()

@@ -1,0 +1,118 @@
+{
+	"MainMenu":{
+		"Jugar":[
+			"Jugar",
+			"Play",
+			"Xogar"
+		],
+		"Editor":[
+		],
+		"Tienda":[
+		
+		],
+		"Créditos":[
+		
+		]
+		"Opciones":[
+			"Opciones",
+			"Options",
+			"Axustes"
+		]
+	},
+	
+	"ModosDeJuego":{
+		"PartidaRapida":[
+		],
+		"ModoCopa":[
+		],
+		"ModoManager":[
+		],
+		"Tutorial":[
+		],
+	},
+	
+	"NJugadores":{
+		"SinglePlayer":[
+		],
+		"MultiPlayer":[
+		]
+		
+	},
+	
+	"ElegirCoche":{
+		"Aceptar":[],
+		"Atras":[],
+		"Stats":[],
+		"NombreCoche":[],
+	},
+	
+	"Customizacion":{
+		"RelacionMarchas":[],
+		"EspacioDinámica":[],
+		"Stats":[],
+		"Zodiaco":[],
+		"Empezar":[],
+		"Atras":[],
+		
+	},
+	
+	"Resultado":{
+		"Nombre":[],
+		"Tiempo":[],
+	},
+	
+	"SalasMulti":{
+		"Tiempo":[],
+		"JugadoresConectados":[],
+		"Listo":[],
+	},
+	
+	"ConfigurarCopa":{
+		"CircuitoN":[],
+		"Comenzar":[],
+		"Atras":[],
+	},
+	
+	"ListaCircuitos":{
+		
+	},
+	
+	"SalaCopa":{
+		"Clasificacion":[],
+		
+	},
+	
+	"SalaCopaMulti":{
+		""
+	},
+	
+	"ModoManager":{
+		"Comenzar":[],
+		"Atras":[],
+		"MiCoche":[],
+		"Simular":[],
+		"Clasificacion":[],
+	},
+	
+	"ClasificacionManager":{
+		"ClasificacionCircuitoUlt":[],
+		"ClasificacionGeneral":[],
+	},
+	
+	"Tienda":{
+	
+	},
+	
+	"Ajustes":{
+		"Idioma":[],
+		"Volumen":[],
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}
