@@ -12,7 +12,7 @@ public class Constructor : MonoBehaviour
     //UI
     public Text posiciones;
     //Referencias a prefabs modulos
-    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio;
+    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio,prefabMontaña;
     //Referencias a prefab Circuito
     public GameObject prefabCircuito;
 
@@ -59,6 +59,9 @@ public class Constructor : MonoBehaviour
                     break;
                 case TipoModulo.CAMBIOCARRIL:
                     nuevoModulo = Instantiate(prefabModuloEspecialCambio, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
+                    break;
+                case TipoModulo.MONTANHA:
+                    nuevoModulo = Instantiate(prefabMontaña, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
                     break;
                 default:
                     nuevoModulo = Instantiate(prefabModuloRecta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();

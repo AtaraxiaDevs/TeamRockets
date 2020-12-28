@@ -22,7 +22,11 @@ public enum TipoModulo
     CHICANE,
     VUELTA,
     CAMBIOCARRIL,
-    ZIGZAG
+    ZIGZAG,
+    MONTANHA,
+    ASTEROIDES,
+    BURBUJAS,
+    ELECTRICO
 }
 
 [Serializable]

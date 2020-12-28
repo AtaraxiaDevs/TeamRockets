@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79685fce4b1324a9dce9ac76d9ad6a, type: 3}
   m_Name: "Monta\xF1a"
   m_EditorClassIdentifier: 
-  tipoCircuito: 0
+  tipoCircuito: 7
   elemento: 0
-  rozamiento: -10
+  rozamiento: -15
   umbral: 900

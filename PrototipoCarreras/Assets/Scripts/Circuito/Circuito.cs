@@ -166,7 +166,10 @@ public class Circuito : MonoBehaviourPunCallbacks
                 return false;
             }
         }
-        return true;
+
+       int cambiocarriles = modulos.FindAll((m) => m.myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL)).Count;
+      
+        return cambiocarriles==1;
     }
 
     public void TransformModulos()
@@ -216,10 +219,27 @@ public class Circuito : MonoBehaviourPunCallbacks
 
     public void IniciarCarrera()
     {
+        Coche aux = getPlayer();
+        if (aux != null)
+        {
+            FindObjectOfType<CameraController>().ComenzarCarrera(aux);
+        }
         for (int i = 0; i < maxPilotos; i++)
         {
             pilotos[i].Init(moduloPrimero.myInfo);
         }    
+    }
+    public Coche getPlayer()
+    {
+        foreach (Coche c in pilotos)
+        {
+            //c.multiPlayer = true;
+            if (c.soyPlayer)
+            {
+                return c;
+            }
+        }
+        return null;
     }
     public Modulo GetModulo(int id)
     {
