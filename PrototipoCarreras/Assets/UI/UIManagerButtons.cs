@@ -13,7 +13,7 @@ public class UIManagerButtons : MonoBehaviour
     private string buttText = "";
     void Start()
     {
-        jsonData = File.ReadAllText(Application.dataPath + "/EscenasUI/localization.json");
+        jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
         buttText = data[InformacionPersistente.singleton.escenaActual][buttKey][InformacionPersistente.singleton.idiomaActual].Value;
         Debug.Log(InformacionPersistente.singleton.idiomaActual);
