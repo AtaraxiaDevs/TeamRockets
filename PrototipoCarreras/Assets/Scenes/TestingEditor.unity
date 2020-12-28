@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: {fileID: 0}
-  prefabRecta: {fileID: 9026503651901435900, guid: e728de0134681854ca72939df1174106,
+  prefabRecta: {fileID: 9026503651901435900, guid: 591b26cb4bcdde44bace84e6eb7ef783,
     type: 3}
   prefabVuelta: {fileID: 9026503651901435900, guid: 48abad956a33e57458e2290d9158774a,
     type: 3}

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85a2facfcee6b04db0d741fca4fd481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posiciones: {fileID: 0}
   prefabModuloRecta: {fileID: 9026503651901435900, guid: e728de0134681854ca72939df1174106,
     type: 3}
   prefabModuloCerrada: {fileID: 9026503651901435900, guid: 4dd68523babf2b84a93bd29d9d2a8f6c,
@@ -56,6 +57,8 @@ MonoBehaviour:
   prefabModuloChicane: {fileID: 9026503651901435900, guid: 03f172240e38fa443b0efad30e3fd1b9,
     type: 3}
   prefabModuloEspecialCambio: {fileID: 9026503651901435900, guid: 35037d0a222566a4c981672b48032579,
+    type: 3}
+  "prefabMonta\xF1a": {fileID: 9026503651901435900, guid: 591b26cb4bcdde44bace84e6eb7ef783,
     type: 3}
   prefabCircuito: {fileID: 7080469772363994084, guid: 03d256d68184a0e49b2a7742d8e113cc,
     type: 3}

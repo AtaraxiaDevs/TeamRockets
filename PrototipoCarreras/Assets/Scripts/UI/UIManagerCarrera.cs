@@ -91,15 +91,7 @@ public class UIManagerCarrera : MonoBehaviour
     #region Metodos auxiliares
     public Coche getPlayer()
     {
-        foreach (Coche c in circuito.pilotos)
-        {
-            //c.multiPlayer = true;
-            if (c.soyPlayer)
-            {
-                return c;
-            }
-        }
-        return null;
+        return circuito.getPlayer();
     }
     public void Comenzar()
     {

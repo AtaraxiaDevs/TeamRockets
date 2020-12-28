@@ -56,6 +56,9 @@ public class Coche : MonoBehaviour
     private bool acelerando = true;
     public int ultimaVueltaCambio = -1;
 
+    private float bonusTierra=0, bonusFuego=0, bonusAgua = 0, bonusAire = 0;
+
+    private Vector3 up;
     #region Unity
     void Start()
     {
@@ -68,6 +71,7 @@ public class Coche : MonoBehaviour
         currentPointMod = 0;
         accelIA = 0;
         porcentajeIAccel = 0;
+        up = transform.up;
     }
     void FixedUpdate()
     {
@@ -122,7 +126,9 @@ public class Coche : MonoBehaviour
                     }
                     else
                     {
-                        transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
+                        
+                        //transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
+                        transform.LookAt(posiciones[currentpoint]);
                     }
 
                     currentPointMod++;
@@ -491,8 +497,31 @@ public class Coche : MonoBehaviour
         {
             ef = stats.ElectricForceCurva;
         }
+        float rozamiento = currentModulo.rozamiento;
+        switch (currentModulo.elemento)
+        {
+            case Elemento.AIRE:
+                rozamiento -= bonusAire * rozamiento;
+                break;
+            case Elemento.AGUA:
+                rozamiento -= bonusAgua * rozamiento;
+                break;
 
-        f = currentModulo.rozamiento + ef;
+            case Elemento.TIERRA:
+                rozamiento -= bonusTierra * rozamiento;
+                break;
+            case Elemento.FUEGO:
+                rozamiento -= bonusFuego * rozamiento;
+                break;
+            default:
+                break;
+        }
+      
+            Debug.Log(ID+" rozamiento final"+rozamiento);
+            Debug.Log(ID+" rozamiento en bruto "+currentModulo.rozamiento);
+        
+      
+        f = rozamiento + ef;
 
         return f;
     }
@@ -578,12 +607,18 @@ public class Coche : MonoBehaviour
         List<Elemento> tierra = ele.FindAll((E) => E.Equals(Elemento.TIERRA)); 
         List<Elemento> aire = ele.FindAll((E) => E.Equals(Elemento.AIRE)); 
         List<Elemento> agua = ele.FindAll((E) => E.Equals(Elemento.AGUA));
+
+        bonusAgua = agua.Count * 0.25f;
+        bonusTierra = tierra.Count * 0.25f;
+        bonusAire = aire.Count * 0.25f;
+        bonusFuego = fuego.Count * 0.25f;
         if (fuego.Count >= 2)
         {
             
             if (fuego.Count == 3)
             {
                 porcentaje = 0.5f;
+                bonusFuego = 0.9f;
             }
 
             stats.FinalThrottle += stats.FinalThrottle* porcentaje;
@@ -592,6 +627,7 @@ public class Coche : MonoBehaviour
             if (tierra.Count == 3)
             {
                 porcentaje = 0.5f;
+                bonusTierra = 0.8f;
             }
             stats.FinalMaxSpeed += stats.FinalMaxSpeed* porcentaje;
         }
@@ -600,6 +636,7 @@ public class Coche : MonoBehaviour
             if (aire.Count == 3)
             {
                 porcentaje = 0.5f;
+                bonusAire= 0.8f;
             }
             stats.ElectricForceCurva -= stats.ElectricForceCurva * porcentaje;
             stats.ElectricForceRecta -= stats.ElectricForceRecta * porcentaje;
@@ -610,6 +647,7 @@ public class Coche : MonoBehaviour
             if (agua.Count == 3)
             {
                 porcentaje = 0.5f;
+                bonusAgua = 0.85f;
             }
             //penalizacion y rozamiento poco! cosas del rozamiento
         }
