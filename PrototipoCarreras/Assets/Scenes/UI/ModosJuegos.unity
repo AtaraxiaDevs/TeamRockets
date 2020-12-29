@@ -2964,6 +2964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 1582403779}
   PPrincipal: {fileID: 1549398510}
+  pestanaActual: {fileID: 0}
 --- !u!4 &1518763398
 Transform:
   m_ObjectHideFlags: 0

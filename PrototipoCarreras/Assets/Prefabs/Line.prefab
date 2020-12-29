@@ -154,6 +154,11 @@ PrefabInstance:
       propertyPath: frenacion
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1917270975933587774, guid: 7ccc38a2942f1f945919095ab034dcc6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 3477210661566493107, guid: 7ccc38a2942f1f945919095ab034dcc6,
         type: 3}
       propertyPath: m_LocalPosition.x

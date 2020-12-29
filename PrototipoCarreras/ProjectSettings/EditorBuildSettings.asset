@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/ModoTemporada.unity
     guid: 7262320ca045ed949aefcc1268f215fb
   - enabled: 1
-    path: Assets/Scenes/TestingEditor.unity
+    path: Assets/Scenes/Editor.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/TestingCarrera.unity
