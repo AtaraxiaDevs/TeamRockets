@@ -48,6 +48,7 @@ public class Modulo : MonoBehaviour
     //Información del modulo
     public Rotacion rotacion = Rotacion.NINGUNA;
     public bool modoConstructor = false;
+    public bool cargadoFichero = true;
     public float sizeModulo;
     private int ID = -1;
     public bool esSalida, interactuable = true, reverse = false, selecPrimero = false;
@@ -56,6 +57,7 @@ public class Modulo : MonoBehaviour
     #region Unity
     void Awake()
     {
+        ForzarModulo();
         if (interactuable)
         {
             uiManager = FindObjectOfType<UIManagerEditor>();
@@ -130,6 +132,121 @@ public class Modulo : MonoBehaviour
     #endregion
     #region Modo Editor
 
+    private void ForzarModulo()
+    {
+        if ((path[0] == null)||(!cargadoFichero))
+        {
+            return;
+        }
+        
+        //float origen = (3 * sizeModulo) / 10;
+
+        //float decrement = (2 * sizeModulo) / 10;
+        float origen = (3f ) / 10f;
+
+        float decrement = (2f ) / 10f;
+
+        // primero mover su transform al centro
+        // segundo, forzar  todos los puntos a su respectivo sitio
+        //= en cuanto al principio y final, +, en cuanto a lo sdemas
+
+        for (int i = 0; i < path.Length; i++) // en la carrera su padre es el circuito, tener cuidado!!!
+        {
+            ////path[i].transform.position = transform.TransformPoint(Vector3.zero) + new Vector3(0, path[i].transform.position.y, 0);
+            //if (transform.parent != null)
+            //{
+            //  //  path[i].transform.localposition = transform.parent.TransformPoint(centro.transform.position);
+            //}
+            //else
+            //{
+            //    path[i].transform.position = centro.transform.position;
+
+
+            //    // + new Vector3(0, path[i].transform.position.y, 0);
+            //}
+            int posPrimero = path[i].positionCount - 1;
+            switch (socket1)
+            {
+                case TipoSocket.NEGX:
+                    Vector3 aux = new Vector3(path[i].GetPosition(posPrimero).x, path[i].GetPosition(posPrimero).y, origen - decrement * i);
+
+                    path[i].SetPosition(posPrimero, aux);
+                    aux = new Vector3(0, 0, origen - decrement * i);
+                    for (int j = 1; j < posPrimero; j++)
+                    {
+                        path[i].SetPosition(j, path[i].GetPosition(j) + aux);
+                    }
+                    break;
+                case TipoSocket.NEGZ:
+                    Vector3 aux2 = new Vector3(-origen + decrement * i, path[i].GetPosition(posPrimero).y, path[i].GetPosition(posPrimero).z);
+
+                    path[i].SetPosition(posPrimero, aux2);
+                    aux2 = new Vector3(-origen + decrement * i, 0, 0);
+                    for (int j = 1; j < posPrimero; j++)
+                    {
+                        path[i].SetPosition(j, path[i].GetPosition(j) + aux2);
+                    }
+                    break;
+                case TipoSocket.POSX:
+                    Vector3 aux3 = new Vector3(path[i].GetPosition(posPrimero).x, path[i].GetPosition(posPrimero).y, -origen + decrement * i);
+
+                    path[i].SetPosition(posPrimero, aux3);
+                    aux3 = new Vector3(0, 0, -origen + decrement * i);
+                    for (int j = 1; j < posPrimero; j++)
+                    {
+                        path[i].SetPosition(j, path[i].GetPosition(j) + aux3);
+                    }
+                    break;
+                case TipoSocket.POSZ:
+                    Vector3 aux4 = new Vector3(origen - decrement * i, path[i].GetPosition(posPrimero).y, path[i].GetPosition(posPrimero).z);
+
+                    path[i].SetPosition(posPrimero, aux4);
+                    aux4 = new Vector3(origen - decrement * i, 0, 0);
+                    for (int j = 1; j < posPrimero; j++)
+                    {
+                        path[i].SetPosition(j, path[i].GetPosition(j) + aux4);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            switch (socket2)
+            {
+                case TipoSocket.NEGX:
+                  
+                      
+                        Vector3 aux = new Vector3(path[i].GetPosition(0).x, path[i].GetPosition(0).y, -origen + decrement * i);
+                        path[i].SetPosition(0, aux);
+                    
+
+                    break;
+                case TipoSocket.NEGZ:
+                   
+                        Vector3 aux1 = new Vector3(origen - decrement * i, path[i].GetPosition(0).y, path[i].GetPosition(0).z);
+                        path[i].SetPosition(0, aux1);
+                    
+
+                    break;
+                case TipoSocket.POSX:
+                  
+                        Vector3 aux2 = new Vector3(path[i].GetPosition(0).x, path[i].GetPosition(0).y, origen - decrement * i);
+                        path[i].SetPosition(0, aux2);
+                    
+
+                    break;
+                case TipoSocket.POSZ:
+                   
+                        Vector3 aux3 = new Vector3(-origen + decrement * i, path[i].GetPosition(0).y, path[i].GetPosition(0).z);
+                        path[i].SetPosition(0, aux3);
+                    
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+    }
     public void AddVecinoAndSocket(TipoSocket tipo, Modulo m)
     {
         if (tipo.Equals(socket1))

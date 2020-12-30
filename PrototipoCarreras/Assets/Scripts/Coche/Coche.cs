@@ -529,7 +529,7 @@ public class Coche : MonoBehaviour
     {
         for (int i = 0; i < speedAnimSaliendo; i++)
         {
-            transform.position += -transform.forward;
+            transform.position += transform.forward;
             yield return new WaitForSeconds(2 / speedAnimSaliendo);
         }
 

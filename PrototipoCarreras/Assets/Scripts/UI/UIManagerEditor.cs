@@ -11,6 +11,7 @@ public class UIManagerEditor : MonoBehaviour
     public Modulo current;
     public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
     public Circuito circuito;
+    public Dropdown vueltas;
  
 
     //Referencias UI
@@ -47,6 +48,7 @@ public class UIManagerEditor : MonoBehaviour
         Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
         Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
         Especial.onClick.AddListener(() => CrearModulo(prefabEspecial));
+        vueltas.onValueChanged.AddListener((value) => circuito.numVueltas = (value + 1) * 4);
        
     }
     #endregion
@@ -88,6 +90,8 @@ public class UIManagerEditor : MonoBehaviour
     {
         if (circuito.CircuitoListo())
         {
+            vueltas.gameObject.SetActive(true);
+            circuito.numVueltas = 4;
             circuito.SetInteractuable(false);
             rotar.gameObject.SetActive(false);
             Recta.gameObject.SetActive(false);
