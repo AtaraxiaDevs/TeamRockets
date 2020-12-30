@@ -3,7 +3,7 @@
 		"Jugar":[
 			"Jugar",
 			"Play",
-			"Xogar"
+			"Xogar",
 		],
 		"Editor":[
 			"Editor",
@@ -18,23 +18,35 @@
 		"Creditos":[
 			"Creditos",
 			"Credits",
-			"Creditos"
+			"Creditos",
 		],
 		"Opciones":[
 			"Opciones",
 			"Options",
-			"Axustes"
-		]
+			"Axustes",
+		],
 	},
 	
 	"ModosDeJuego":{
 		"PartidaRapida":[
+			"PartidaRapida",
+			"QuickPlay",
+			"XogoRapido",
 		],
 		"ModoCopa":[
+			"ModoLiga",
+			"LeagueMode",
+			"ModoLiga",
 		],
 		"ModoManager":[
+			"MiEquipo",
+			"MyTeam",
+			"MeuEquipo",
 		],
 		"Tutorial":[
+			"Tutorial",
+			"Tutorial",
+			"Tutorial",
 		],
 	},
 	
