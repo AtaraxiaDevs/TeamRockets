@@ -6,13 +6,20 @@
 			"Xogar"
 		],
 		"Editor":[
+			"Editor",
+			"Editor",
+			"Editor",
 		],
 		"Tienda":[
-		
+			"Tienda",
+			"Shop",
+			"Tenda",
 		],
-		"Créditos":[
-		
-		]
+		"Creditos":[
+			"Creditos",
+			"Credits",
+			"Creditos"
+		],
 		"Opciones":[
 			"Opciones",
 			"Options",
