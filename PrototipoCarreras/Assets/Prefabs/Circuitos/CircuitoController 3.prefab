@@ -6874,6 +6874,7 @@ GameObject:
   - component: {fileID: 4289510908636102605}
   - component: {fileID: 7827630115787629999}
   - component: {fileID: 2600743729992414588}
+  - component: {fileID: 8887035559976117895}
   m_Layer: 0
   m_Name: JupiterModelo2
   m_TagString: Untagged
@@ -6943,6 +6944,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &8887035559976117895
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028869669405603403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93e285337ac39f5498ce7b240b73c307, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7127503730038804925
 GameObject:
   m_ObjectHideFlags: 0
@@ -7747,6 +7767,7 @@ GameObject:
   - component: {fileID: 7383213974334449478}
   - component: {fileID: 5220494460628630309}
   - component: {fileID: 2343444058426690357}
+  - component: {fileID: 8346764514782100648}
   m_Layer: 0
   m_Name: JupiterModelo2
   m_TagString: Untagged
@@ -7816,6 +7837,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &8346764514782100648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541280589448747086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93e285337ac39f5498ce7b240b73c307, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7737371694907570205
 GameObject:
   m_ObjectHideFlags: 0
@@ -9535,6 +9575,7 @@ GameObject:
   - component: {fileID: 2012123597705249622}
   - component: {fileID: 657016407918438797}
   - component: {fileID: 6772992177810589146}
+  - component: {fileID: 6219700795685546571}
   m_Layer: 0
   m_Name: JupiterModelo2
   m_TagString: Untagged
@@ -9604,6 +9645,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &6219700795685546571
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864743361095366177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93e285337ac39f5498ce7b240b73c307, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8901138519595343959
 GameObject:
   m_ObjectHideFlags: 0
@@ -10130,6 +10190,7 @@ GameObject:
   - component: {fileID: 8078501569924232223}
   - component: {fileID: 2183035907080746594}
   - component: {fileID: 5270100208429586688}
+  - component: {fileID: 2322279696436638466}
   m_Layer: 0
   m_Name: JupiterModelo2
   m_TagString: Untagged
@@ -10199,3 +10260,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &2322279696436638466
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161781277114824218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93e285337ac39f5498ce7b240b73c307, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

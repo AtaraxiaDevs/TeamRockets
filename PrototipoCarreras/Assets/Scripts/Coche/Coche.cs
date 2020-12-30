@@ -35,7 +35,7 @@ public class Coche : MonoBehaviour
     public LineRenderer linea;
     public Transform socketCamara;
     private CarreraController carreraController;
-
+    private Animator animator;
     //Informacion Coche
     public Signo[] signosAnadidos = new Signo[2];
     public Vector3 [] posiciones;
@@ -63,7 +63,7 @@ public class Coche : MonoBehaviour
     void Start()
     {
         //linea = GetComponentInParent<LineRenderer>();
-
+        animator = GetComponentInChildren<Animator>();
         IA = GetComponent<IAMoves>();
         carreraController = FindObjectOfType<CarreraController>();
         //PARA TESTEAR BORRAR LUEGO
@@ -172,7 +172,10 @@ public class Coche : MonoBehaviour
 
     IEnumerator CambiandoaCarril()
     {
-        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("CambioCarril", true);
+        //yield return new WaitUntil(()=>!animator.GetCurrentAnimatorStateInfo(0).IsTag("1"));
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("CambioCarril", false);
         iniciado = true;
     }
     #endregion
@@ -224,9 +227,15 @@ public class Coche : MonoBehaviour
     public void FormulaMovimiento(float f)
     {
         currentSpeed += (currentAccel / factorUnidades) + f;
+    
+     
+        if (currentSpeed< stats.Marchas[0])
+        {
+            currentSpeed = stats.Marchas[0];
+        }
         if (soyPlayer)
         {
-           // Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
+            Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
         }
     }
 
@@ -291,21 +300,11 @@ public class Coche : MonoBehaviour
 
                     currentAccel = accelIA;
 
-                    //if (currentSpeed > stats.Marchas[ID + 2] && !Calado[ID])
-                    //{
-                    //    Calado[ID] = true;
-                    //    currentAccel = stats.FinalBrake;
-                    //}
-
-                    //if (Calado[ID])
-                    //{
-                        
-                    //}
                     
 
                     if (acelerando)
                     {
-                        if (currentSpeed >= stats.Marchas[ID])
+                        if (currentSpeed > stats.Marchas[ID])
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
@@ -313,7 +312,7 @@ public class Coche : MonoBehaviour
                     }
                    
                
-                    if (currentSpeed <= stats.Marchas[ID] )
+                    if (currentSpeed < stats.Marchas[ID] )
                         currentSpeed = stats.Marchas[ID];
                     else
                         FormulaMovimiento(fuerza);
@@ -341,14 +340,14 @@ public class Coche : MonoBehaviour
                  
                     if (acelerando)
                     {
-                        if (currentSpeed >= stats.Marchas[ID])
+                        if (currentSpeed > stats.Marchas[ID])
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
                     }
                     else
                     {
-                        if (currentSpeed <= stats.Marchas[ID] )
+                        if (currentSpeed < stats.Marchas[ID] )
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
@@ -375,14 +374,14 @@ public class Coche : MonoBehaviour
            
                     if (acelerando)
                     {
-                        if (currentSpeed >= stats.Marchas[ID])
+                        if (currentSpeed > stats.Marchas[ID])
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
                     }
                     else
                     {
-                        if (currentSpeed <= stats.Marchas[ID] )
+                        if (currentSpeed < stats.Marchas[ID] )
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
@@ -409,14 +408,14 @@ public class Coche : MonoBehaviour
 
                     if (acelerando)
                     {
-                        if (currentSpeed >= stats.Marchas[ID])
+                        if (currentSpeed > stats.Marchas[ID])
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
                     }
                     else
                     {
-                        if (currentSpeed <= stats.Marchas[ID] )
+                        if (currentSpeed < stats.Marchas[ID] )
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
@@ -437,14 +436,14 @@ public class Coche : MonoBehaviour
 
                     if (acelerando)
                     {
-                        if (currentSpeed >= stats.Marchas[ID])
+                        if (currentSpeed > stats.Marchas[ID])
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);
                     }
                     else
                     {
-                        if (currentSpeed <= stats.Marchas[ID] )
+                        if (currentSpeed < stats.Marchas[ID] )
                             currentSpeed = stats.Marchas[ID];
                         else
                             FormulaMovimiento(fuerza);

@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 
     Coche myCAR;//( luego se le asignara)
     Quaternion rotation;
-    Vector3 posTarget = new Vector3(0,15, -5);
+    Vector3 posTarget = new Vector3(0,15, -15);
     float epsilon = 0.05f;
     public bool preparada = false;
   
