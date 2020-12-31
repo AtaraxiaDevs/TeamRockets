@@ -305,8 +305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 274, y: -234}
-  m_SizeDelta: {x: 202.16, y: 73.76}
+  m_AnchoredPosition: {x: 235.6, y: -176.7}
+  m_SizeDelta: {x: 171.53, y: 67.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250670192
 MonoBehaviour:
@@ -1060,8 +1060,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: 58.5}
-  m_SizeDelta: {x: 339.6, y: 82.9}
+  m_AnchoredPosition: {x: 233.8, y: 49.2}
+  m_SizeDelta: {x: 267.68, y: 65.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838820576
 MonoBehaviour:
@@ -1133,8 +1133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -24.4}
-  m_SizeDelta: {x: 339.6, y: 82.9}
+  m_AnchoredPosition: {x: 233.79996, y: -16.349987}
+  m_SizeDelta: {x: 267.68, y: 65.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923741596
 MonoBehaviour:
@@ -1206,8 +1206,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -107.3}
-  m_SizeDelta: {x: 339.6, y: 82.9}
+  m_AnchoredPosition: {x: 233.79996, y: -81.899994}
+  m_SizeDelta: {x: 267.68, y: 65.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059007529
 MonoBehaviour:
@@ -1492,8 +1492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 293, y: 227}
-  m_SizeDelta: {x: 144.6, y: 133.4}
+  m_AnchoredPosition: {x: 216, y: 174}
+  m_SizeDelta: {x: 92, y: 103.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394032683
 MonoBehaviour:
@@ -1568,6 +1568,11 @@ MonoBehaviour:
   "spriteEspa\xF1ol": {fileID: 0}
   spriteIngles: {fileID: 0}
   spriteGallego: {fileID: 0}
+  esTitulo2: 0
+  titulo2: {fileID: 0}
+  "spriteEspa\xF1ol2": {fileID: 0}
+  spriteIngles2: {fileID: 0}
+  spriteGallego2: {fileID: 0}
 --- !u!4 &1518763398
 Transform:
   m_ObjectHideFlags: 0
@@ -2012,7 +2017,7 @@ GameObject:
   - component: {fileID: 2061353411}
   - component: {fileID: 2061353410}
   m_Layer: 5
-  m_Name: Inicio
+  m_Name: Creditos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2047,7 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
