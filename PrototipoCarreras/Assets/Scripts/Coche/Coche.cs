@@ -56,7 +56,7 @@ public class Coche : MonoBehaviour
     private bool acelerando = true;
     public int ultimaVueltaCambio = -1;
 
-    private float bonusTierra=0, bonusFuego=0, bonusAgua = 0, bonusAire = 0;
+    public float bonusTierra=0, bonusFuego=0, bonusAgua = 0, bonusAire = 0;
 
     private Vector3 up;
     #region Unity

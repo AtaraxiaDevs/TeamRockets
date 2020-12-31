@@ -463,7 +463,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ModosJuegos
+          m_StringArgument: TestingCarrera
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &645730739
@@ -1895,7 +1895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159.6, y: 76.6}
+  m_AnchoredPosition: {x: -262.3, y: 76.60002}
   m_SizeDelta: {x: 83.1, y: 77.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744094028
@@ -2818,6 +2818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: idiomaActual
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467637081155738858, guid: b6e0b2defe2fd76418f913acec2bcd4b,
+        type: 3}
+      propertyPath: escenaActual
+      value: CocheReglaje
       objectReference: {fileID: 0}
     - target: {fileID: 3467637081155738859, guid: b6e0b2defe2fd76418f913acec2bcd4b,
         type: 3}
@@ -3927,8 +3932,22 @@ MonoBehaviour:
   btnSigno:
   - {fileID: 623593467}
   - {fileID: 1849758938}
+  btnRegED:
+  - {fileID: 87231914}
+  - {fileID: 521368890}
+  - {fileID: 1429330951}
+  btnRegRM:
+  - {fileID: 744094028}
+  - {fileID: 1787812367}
+  - {fileID: 1129716721}
   cocheDisplay: {fileID: 239458504}
+  xdosDisplay: {fileID: 1866334640}
+  xtresDisplay: {fileID: 1511277513}
   infoCoche: {fileID: 84442107}
+  infoCocheSignos: {fileID: 697503416}
+  infosigno1: {fileID: 1947871611}
+  infosigno2: {fileID: 160497978}
+  txtElemento: {fileID: 943924936}
   signosEscogidos: 
   RM: 0
   ED: 0
@@ -4140,7 +4159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.5, y: 76.6}
+  m_AnchoredPosition: {x: -161.39998, y: 76.60002}
   m_SizeDelta: {x: 83.1, y: 77.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787812367
@@ -4724,7 +4743,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

@@ -15,8 +15,11 @@ public class UIManagerEscogerCoche : MonoBehaviour
     //UI Referencias
     public Button flechaAtras, flechaDelante, btnListo;
     public Button[] btnSigno;
-    public Image cocheDisplay;
-    public Text infoCoche;
+    public Button[] btnRegED;
+    public Button[] btnRegRM;
+    public Image cocheDisplay,xdosDisplay,xtresDisplay;
+    public Text infoCoche,infoCocheSignos,infosigno1,infosigno2, txtElemento;
+
     public int[] signosEscogidos;
     public int RM, ED;
 
@@ -29,7 +32,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
     {
         currentCoche = new DatosCoche();
         currentCoche.ID = 0; // Va a ser el Jugador 1 por ahora
-
+        InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
         eleccionModelo = 0;
         cocheDisplay.sprite = fotoCoches[eleccionModelo];
         currentCoche.infoBase = InformacionPersistente.singleton.modelosCoches[eleccionModelo];
@@ -44,7 +47,19 @@ public class UIManagerEscogerCoche : MonoBehaviour
         signosEscogidos = new int[2];
         signosEscogidos[0] = 0;
         signosEscogidos[1] = 1;
-        UpdateInfoCoche(0);
+        currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
+        currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
+        for (int i=0; i < btnRegED.Length; i++)
+        {
+            int a = i;
+            btnRegED[i].onClick.AddListener(() => ElegirReglajeED(a));
+        }
+        for (int i = 0; i < btnRegRM.Length; i++)
+        {
+            int a = i;
+            btnRegRM[i].onClick.AddListener(() => ElegirReglajeRM(a));
+        }
+        UpdateInfoCoche();
     }
     #endregion
     #region Modificacion Coche
@@ -68,7 +83,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
         }
 
         btnSigno[0].image.sprite = fotoSigno[signosEscogidos[0]];
-        UpdateInfoCoche(0);
+        currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
+        UpdateInfoCoche();
     }
     private void CambiarSigno2()
     {
@@ -90,7 +106,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
         }
 
         btnSigno[1].image.sprite = fotoSigno[signosEscogidos[1]];
-        UpdateInfoCoche(0);
+        currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
+        UpdateInfoCoche();
     }
     private void CambiarCoche(bool avanzar)
     {
@@ -117,20 +134,37 @@ public class UIManagerEscogerCoche : MonoBehaviour
 
         currentCoche.infoBase = InformacionPersistente.singleton.modelosCoches[eleccionModelo];
      
-        UpdateInfoCoche(0);
+        UpdateInfoCoche();
     }
 
-    public void EditarCoche()
+    private void ElegirReglajeED(int index)
     {
-        currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
-        currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
-        //currentCoche.reg.ElegirReglajes(RM.value, ED.value);
-        InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
+        currentCoche.reg.espacioDinamica = (ESPACIODINAMICA)index;
+        for(int i=0; i < btnRegED.Length; i++)
+        {
+            //if (i != index)
+            //{
+            //    btnRegED[i] // cambiar lo suq eno estan seleccionado sy luego el seleccionado
+            //}
+        }
+        UpdateInfoCoche();
     }
+    private void ElegirReglajeRM(int index)
+    {
+        currentCoche.reg.relacionMarchas = (RELACIONMARCHAS)index;
+        UpdateInfoCoche();
+    }
+    //public void EditarCoche()
+    //{
+    //    currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
+    //    currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
+    //    //currentCoche.reg.ElegirReglajes(RM.value, ED.value);
+    //    InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
+    //}
 
     #endregion
     #region Modificacion UI
-    private void UpdateInfoCoche(int b)
+    private void UpdateInfoCoche()
     {
         string [] s = ElTraductor();
 
@@ -139,27 +173,123 @@ public class UIManagerEscogerCoche : MonoBehaviour
         cebo.signosAnadidos = new Signo[2];
         cebo.signosAnadidos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
         cebo.signosAnadidos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
-        Reglajes reg = new Reglajes();
-        //reg.ElegirReglajes(RM.value, ED.value);
-        cebo.CalcularStats(reg);
 
-        infoCoche.text = s[0] + cebo.stats.FinalMaxSpeed + "\n\n" + s[1] +cebo.stats.FinalThrottle + "\n\n" + s[2] + cebo.stats.FinalBrake + "\n\n" + s[3] + currentCoche.infoBase.BaseWeight+"\n\n" + s[4] + currentCoche.infoBase.elemento.ToString();
+        infosigno1.text = cebo.signosAnadidos[0].zodiaco.ToString();
+        infosigno2.text = cebo.signosAnadidos[1].zodiaco.ToString();
+        cebo.CalcularStats(currentCoche.reg);
+
+       
+        string[] plus = new string[6];
+        for(int i=0; i < plus.Length; i++)
+        {
+            plus[i] = " ";
+            if (cebo.signosAnadidos[0].caracteristicaPlus.Equals((Caracteristicas)i))
+            {
+                plus[i] += "+";
+            }
+            else if (cebo.signosAnadidos[0].caracteristicaMinus.Equals((Caracteristicas)i))
+            {
+                plus[i] += "-";
+            }
+            if (cebo.signosAnadidos[1].caracteristicaPlus.Equals((Caracteristicas)i))
+            {
+                plus[i] += "+";
+            }
+            else if (cebo.signosAnadidos[1].caracteristicaMinus.Equals((Caracteristicas)i))
+            {
+                plus[i] += "-";
+            }
+        }
+
+
+        if (cebo.bonusAgua >= 0.5f)
+        {
+            if (cebo.bonusAgua > 0.5f)
+            {
+                xtresDisplay.color = Color.red;
+                xdosDisplay.color = Color.white;
+            }
+            else
+            {
+                xdosDisplay.color = Color.red;
+                xtresDisplay.color = Color.white;
+            }
+            txtElemento.text = "Auga";
+        }
+        else if (cebo.bonusFuego >= 0.5f)
+        {
+            if (cebo.bonusFuego > 0.5f)
+            {
+                xtresDisplay.color = Color.red;
+                xdosDisplay.color = Color.white;
+                plus[1] += "++";
+            }
+            else
+            {
+                xdosDisplay.color = Color.red;
+                xtresDisplay.color = Color.white;
+                plus[1] += "+";
+            }
+            txtElemento.text = "Lume";
+        }
+        else if (cebo.bonusTierra >= 0.5f)
+        {
+            if (cebo.bonusTierra > 0.5f)
+            {
+                xtresDisplay.color = Color.red;
+                xdosDisplay.color = Color.white;
+                plus[0] += "++";
+            }
+            else
+            {
+                xdosDisplay.color = Color.red;
+                xtresDisplay.color = Color.white;
+                plus[0] += "+";
+            }
+            txtElemento.text = "Terra";
+        }
+        else if (cebo.bonusAire >= 0.5f)
+        {
+            if (cebo.bonusAire > 0.5f)
+            {
+                xtresDisplay.color = Color.red;
+                xdosDisplay.color = Color.white;
+                plus[3] += "++";
+            }
+            else
+            {
+                xdosDisplay.color = Color.red;
+                xtresDisplay.color = Color.white;
+                plus[3] += "+";
+            }
+            txtElemento.text = "Ar";
+        }
+        else
+        {
+            xdosDisplay.color = Color.white;
+            xtresDisplay.color = Color.white;
+        }
+
+        infoCoche.text = s[0] + cebo.stats.FinalMaxSpeed + "\n\n" + s[1] +cebo.stats.FinalThrottle + "\n\n" + s[2] + -cebo.stats.FinalBrake + "\n\n" + s[3] + cebo.stats.FinalWeight+"\n\n" + s[4] + currentCoche.infoBase.elemento.ToString();
+        infoCocheSignos.text = s[0] + cebo.stats.FinalMaxSpeed + plus[0] + "\n\n" + s[1] + cebo.stats.FinalThrottle + plus[1] + "\n\n" + s[2] + -cebo.stats.FinalBrake + plus[2] + "\n\n" + s[3] + cebo.stats.FinalWeight + plus[5] + "\n\n" + s[4] + currentCoche.infoBase.elemento.ToString() + "\n\n"+ s[5]+plus[4]+"\n\n"+s[6] +plus[3] ;
     }
 
     public string [] ElTraductor()
     {
-        string[] aux = new string[5];
+        string[] aux = new string[7];
 
         string jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         int idioma = InformacionPersistente.singleton.idiomaActual;
 
-        aux[0] = data[InformacionPersistente.singleton.escenaActual]["VelocidadMaxima"][idioma].Value;
-        aux[1] = data[InformacionPersistente.singleton.escenaActual]["Aceleracion"][idioma].Value;
-        aux[2] = data[InformacionPersistente.singleton.escenaActual]["Frenos"][idioma].Value;
-        aux[3] = data[InformacionPersistente.singleton.escenaActual]["Peso"][idioma].Value;
-        aux[4] = data[InformacionPersistente.singleton.escenaActual]["Elemento"][idioma].Value;
+        aux[0] = data[InformacionPersistente.singleton.escenaActual]["VelocidadMaxima"][idioma].Value+ ": ";
+        aux[1] = data[InformacionPersistente.singleton.escenaActual]["Aceleracion"][idioma].Value + ": ";
+        aux[2] = data[InformacionPersistente.singleton.escenaActual]["Frenos"][idioma].Value + ": ";
+        aux[3] = data[InformacionPersistente.singleton.escenaActual]["Peso"][idioma].Value + ": ";
+        aux[4] = data[InformacionPersistente.singleton.escenaActual]["Elemento"][idioma].Value + ": ";
+        aux[5] = data[InformacionPersistente.singleton.escenaActual]["RelacionMarchas"][idioma].Value + ": ";
+        aux[6] = data[InformacionPersistente.singleton.escenaActual]["EspacioDinamica"][idioma].Value + ": ";
 
         return aux;
     }
