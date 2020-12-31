@@ -53,7 +53,7 @@ public class UIManagerCarrera : MonoBehaviour
 
         if (velocidad != null)
         {
-            velocidad.text = ((int)myCar.currentSpeed).ToString();
+            velocidad.text = (Mathf.Round(myCar.currentSpeed)).ToString();
 
         }
         if (posiciones != null)

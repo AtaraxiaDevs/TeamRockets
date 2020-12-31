@@ -101,6 +101,6 @@ public class Reglajes
         }
 
         c.stats.FinalMinSpeed = 20 * c.stats.FinalWeight / 100;
-        c.stats.FinalBrake = c.statsBase.BaseBrake;
+
     }
 }
