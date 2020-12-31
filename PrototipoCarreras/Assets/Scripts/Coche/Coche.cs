@@ -81,6 +81,9 @@ public class Coche : MonoBehaviour
 
             if (!salidoCircuito)
             {
+                RotarNave();
+         
+                //transform.LookAt(posiciones[currentpoint]);
                 if (!soyPlayer) // Porcentaje de salida del circuito de la IA
                 {
                     if (currentModulo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
@@ -124,27 +127,38 @@ public class Coche : MonoBehaviour
                         currentpoint = 0;
                         transform.position = posiciones[currentpoint];
                     }
-                    else
-                    {
-                        
-                        //transform.rotation = Quaternion.LookRotation(transform.position - posiciones[currentpoint], posiciones[currentpoint]);
-                        transform.LookAt(posiciones[currentpoint]);
-                    }
+                  
 
                     currentPointMod++;
                 }
             }
         }
     }
+
     #endregion
     #region Carrera
+    private void RotarNave()
+    {
+        Quaternion aux = transform.rotation;
+        Vector3 dir = posiciones[currentpoint] - transform.position;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.1f);
+        float giroY = (transform.rotation.eulerAngles - aux.eulerAngles).y;
+        transform.Rotate(0, 0, giroY );
+        //rotar z
+        if (soyPlayer)
+        {
+
+            Debug.Log(transform.rotation.eulerAngles - aux.eulerAngles);
+        }
+    }
     public void Init(ModuloInfo primerModulo)
     {
+
         nuevasPosiciones();
         currentModulo = primerModulo;
         iniciado = true;
         transform.position = posiciones[0];
-
+        transform.LookAt(posiciones[1]);
         if (soyPlayer)
         {
             GetComponent<IAMoves>().enabled = false;
