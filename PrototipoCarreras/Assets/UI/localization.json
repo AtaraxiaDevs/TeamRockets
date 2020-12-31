@@ -27,7 +27,7 @@
 		],
 	},
 	
-	"ModosDeJuego":{
+	"ModosJuegos":{
 		"PartidaRapida":[
 			"PartidaRapida",
 			"QuickPlay",
@@ -52,10 +52,15 @@
 	
 	"NJugadores":{
 		"SinglePlayer":[
+			"Un Jugador",
+			"SinglePlayer",
+			"Un xogador"
 		],
 		"MultiPlayer":[
-		]
-		
+			"Multijugador",
+			"MultiPlayer",
+			"MultiXogador",
+		],
 	},
 	
 	"ElegirCoche":{
@@ -63,6 +68,34 @@
 		"Atras":[],
 		"Stats":[],
 		"NombreCoche":[],
+	},
+
+	"EditorMenu":{
+		"CrearCircuito":[
+			"CrearCircuito",
+			"CreateTrack",
+			"CrearCircuito",
+		],
+		"VistaPrevia":[
+			"VistaPrevia",
+			"Preview",
+			"VistaPrevia",
+		],
+		"Importar":[
+			"Importar",
+			"Import",
+			"Importar",
+		],
+		"Exportar":[
+			"Exportar",
+			"Export",
+			"Importar",
+		],
+		"CrearModulo":[
+			"CrearModulo",
+			"CreateModule",
+			"CrearModulo",
+		],
 	},
 	
 	"Customizacion":{
@@ -123,8 +156,16 @@
 	},
 	
 	"Ajustes":{
-		"Idioma":[],
-		"Volumen":[],
+		"Idioma":[
+			"Idioma",
+			"Language",
+			"Lingua",
+		],
+		"Volumen":[
+			"Volumen",
+			"Volume",
+			"Volume",
+		],
 	}
 	
 	

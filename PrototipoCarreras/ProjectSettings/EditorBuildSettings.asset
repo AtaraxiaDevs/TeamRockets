@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestingCarrera.unity
     guid: 3fc5100cc048b884f8d3afc132909884
   - enabled: 1
+    path: Assets/Scenes/UI/ModosJuegos.unity
+    guid: dd5a78faa2714ec418a282478dbf4f40
+  - enabled: 1
     path: Assets/Scenes/UI/MainMenu.unity
     guid: a57f62615e1e20c4588e614f67388a47
   - enabled: 0
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/Inicio.unity
     guid: 41bef3d14a5fadd439c19628a54577f1
-  - enabled: 1
-    path: Assets/Scenes/UI/ModosJuegos.unity
-    guid: dd5a78faa2714ec418a282478dbf4f40
   - enabled: 1
     path: Assets/Scenes/UI/Tutorial.unity
     guid: 0ee6428cd48c2894d83b95d2a8e54031

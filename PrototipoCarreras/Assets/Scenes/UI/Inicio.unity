@@ -428,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 3467637081155738858, guid: b6e0b2defe2fd76418f913acec2bcd4b,
         type: 3}
       propertyPath: idiomaActual
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3467637081155738859, guid: b6e0b2defe2fd76418f913acec2bcd4b,
         type: 3}
@@ -585,6 +585,11 @@ MonoBehaviour:
   sceneFader: {fileID: 1582403779}
   PPrincipal: {fileID: 0}
   pestanaActual: {fileID: 0}
+  esTitulo: 0
+  titulo: {fileID: 0}
+  "spriteEspa\xF1ol": {fileID: 0}
+  spriteIngles: {fileID: 0}
+  spriteGallego: {fileID: 0}
 --- !u!4 &1518763398
 Transform:
   m_ObjectHideFlags: 0
