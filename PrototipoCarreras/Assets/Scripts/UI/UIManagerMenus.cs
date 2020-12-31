@@ -75,6 +75,11 @@ public class UIManagerMenus : MonoBehaviour
         InformacionPersistente.singleton.escenaActual = s;
     }
 
+    public void Desactivar(GameObject scene)
+    {
+        scene.SetActive(!scene.activeSelf);
+    }
+
     public void CambiarPanel(GameObject scene)
     {
         scene.SetActive(!scene.activeSelf);
