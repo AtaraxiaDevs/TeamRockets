@@ -227,15 +227,16 @@ public class Coche : MonoBehaviour
     public void FormulaMovimiento(float f)
     {
         currentSpeed += (currentAccel / factorUnidades) + f;
-    
-     
+
+        
+
         if (currentSpeed< stats.Marchas[0])
         {
-            currentSpeed = stats.Marchas[0];
+            currentSpeed = stats.Marchas[0]+ f;
         }
         if (soyPlayer)
         {
-            Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
+            //Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
         }
     }
 
@@ -280,199 +281,88 @@ public class Coche : MonoBehaviour
     {
         float fuerza = ForcesBack();
         float speed;
-        int ID;
 
         if (soyPlayer)
         {
-          
+
             //dependiendo de la marcha currentAccel aumenta( cuanto? depende de qué marcha) hasta
             //Debug.Log("Marcha: " + currentMarcha.ToString() + " accel: "+accelIA+" acelerando "+ acelerando+" porcentaje "+ porcentajeIAccel);
-            switch(currentMarcha)
+
+            //Si current es mayor, accel-> frenar, cada vez mas
+            //Si current es menor, accel-> acelerar, cada vez mas
+
+
+
+            if (currentMarcha == 0)
             {
-                //Si current es mayor, accel-> frenar, cada vez mas
-                //Si current es menor, accel-> acelerar, cada vez mas
+                FrenProgresiva(0);
 
-                case Marcha.PRIMERA:
+                currentAccel = accelIA;
 
-                    ID = 0;
 
-                    FrenProgresiva(ID);
 
-                    currentAccel = accelIA;
-
-                    
-
-                    if (acelerando)
-                    {
-                        if (currentSpeed > stats.Marchas[ID])
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-
-                    }
-                   
-               
-                    if (currentSpeed < stats.Marchas[ID] )
-                        currentSpeed = stats.Marchas[ID];
+                if (acelerando)
+                {
+                    if (currentSpeed >= stats.Marchas[0])
+                        currentSpeed = stats.Marchas[0] + fuerza;
                     else
                         FormulaMovimiento(fuerza);
 
+                }
 
 
-
-                    break;
-
-                case Marcha.SEGUNDA:
-
-                    ID = 1;
-
-                    if (currentSpeed < stats.Marchas[ID])
-                    {
-                        AcelProgresiva(ID);
-                    }
-                    else if (currentSpeed > stats.Marchas[ID])
-                    {
-                        FrenProgresiva(ID);
-                    }
-
-                    currentAccel = accelIA;
-
-                 
-                    if (acelerando)
-                    {
-                        if (currentSpeed > stats.Marchas[ID])
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                    else
-                    {
-                        if (currentSpeed < stats.Marchas[ID] )
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                 
-
-                    break;
-
-                case Marcha.TERCERA:
-
-                    ID = 2;
-
-                    if (currentSpeed < stats.Marchas[ID])
-                    {
-                        AcelProgresiva(ID);
-                    }
-                    else
-                    {
-                        FrenProgresiva(ID);
-                    }
-
-                    currentAccel = accelIA;
-
-           
-                    if (acelerando)
-                    {
-                        if (currentSpeed > stats.Marchas[ID])
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                    else
-                    {
-                        if (currentSpeed < stats.Marchas[ID] )
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                
-
-                    break;
-
-                case Marcha.CUARTA:
-
-                    ID = 3;
-
-                    if (currentSpeed < stats.Marchas[ID])
-                    {
-                        AcelProgresiva(ID);
-                    }
-                    else
-                    {
-                        FrenProgresiva(ID);
-                    }
-
-                    currentAccel = accelIA;
-
-
-                    if (acelerando)
-                    {
-                        if (currentSpeed > stats.Marchas[ID])
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                    else
-                    {
-                        if (currentSpeed < stats.Marchas[ID] )
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-
-               
-
-                    break;
-
-                case Marcha.QUINTA:
-
-                    ID = 4;
-                    
-                    AcelProgresiva(ID);
-
-                    currentAccel = accelIA;
-
-
-                    if (acelerando)
-                    {
-                        if (currentSpeed > stats.Marchas[ID])
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-                    else
-                    {
-                        if (currentSpeed < stats.Marchas[ID] )
-                            currentSpeed = stats.Marchas[ID];
-                        else
-                            FormulaMovimiento(fuerza);
-                    }
-
-
-                    break;
+                if (currentSpeed <= stats.Marchas[0])
+                    currentSpeed = stats.Marchas[0] + fuerza;
+                else
+                    FormulaMovimiento(fuerza);
             }
+            else
+            {
+                if (currentSpeed < stats.Marchas[(int)currentMarcha])
+                {
+                    AcelProgresiva((int)currentMarcha);
+                }
+                else if ((currentSpeed > stats.Marchas[(int)currentMarcha])&&((int)currentMarcha!=(int)Marcha.QUINTA))
+                {
+                    FrenProgresiva((int)currentMarcha);
+                }
+       
+
+                currentAccel = accelIA;
+
+
+                if (acelerando)
+                {
+                    if (currentSpeed >= stats.Marchas[(int)currentMarcha])
+                        currentSpeed = stats.Marchas[(int)currentMarcha] + fuerza;
+                    else
+                        FormulaMovimiento(fuerza);
+                }
+                else
+                {
+                    if (currentSpeed <= stats.Marchas[(int)currentMarcha])
+                        currentSpeed = stats.Marchas[(int)currentMarcha] + fuerza;
+                    else
+                        FormulaMovimiento(fuerza);
+                }
+
+            } 
+
+   
         }
         else //Comportamiento de la IA
         {
             currentSpeed = IA.CalculoNuevaPosicionIA(stats, currentSpeed, currentPointMod, sizeMod, factorUnidades, currentModulo, fuerza,currentMarcha);
         }
 
-        if (!soyPlayer)
+        if (currentSpeed < stats.Marchas[0] + fuerza)
         {
-            if (currentSpeed < stats.FinalMinSpeed + fuerza)
-            {
-
-                currentSpeed = stats.FinalMinSpeed;
-            }
-            else if (currentSpeed > stats.FinalMaxSpeed + fuerza)
-            {
-                currentSpeed = stats.FinalMaxSpeed;
-            }
+            currentSpeed = stats.FinalMinSpeed+ fuerza;
         }
-           
-
-      
+        else if (currentSpeed > stats.FinalMaxSpeed + fuerza)
+        {
+            currentSpeed = stats.FinalMaxSpeed+ fuerza;
+        }
 
         speed = currentSpeed / factorSpeed;
 
@@ -516,8 +406,8 @@ public class Coche : MonoBehaviour
                 break;
         }
       
-            Debug.Log(ID+" rozamiento final"+rozamiento);
-            Debug.Log(ID+" rozamiento en bruto "+currentModulo.rozamiento);
+            //Debug.Log(ID+" rozamiento final"+rozamiento);
+            //Debug.Log(ID+" rozamiento en bruto "+currentModulo.rozamiento);
         
       
         f = rozamiento + ef;

@@ -113,7 +113,7 @@ public class IAMoves : MonoBehaviour
         {
             currentSpeed = CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats);
         }
-
+     
         return currentSpeed;
     }
     #endregion
@@ -185,19 +185,19 @@ public class IAMoves : MonoBehaviour
         }
      
     }
-    private int MarchaPerfectaUmbral(float umbral, InfoCoche stats)
-    {
-        int res = -1;
+    //private int MarchaPerfectaUmbral(float umbral, InfoCoche stats)
+    //{
+    //    int res = -1;
         
-        foreach (float v in stats.Marchas)
-        {
-            if (v <= umbral)
-            {
-                res++;
-            }
-        }
-        return res;
-    }
+    //    foreach (float v in stats.Marchas)
+    //    {
+    //        if (v <= umbral)
+    //        {
+    //            res++;
+    //        }
+    //    }
+    //    return res;
+    //}
     #endregion
 
 }
