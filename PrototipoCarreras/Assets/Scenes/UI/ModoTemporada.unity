@@ -3303,6 +3303,16 @@ MonoBehaviour:
   sceneFader: {fileID: 2029891081}
   PPrincipal: {fileID: 1557004194}
   pestanaActual: {fileID: 909388248}
+  esTitulo: 0
+  titulo: {fileID: 0}
+  "spriteEspa\xF1ol": {fileID: 0}
+  spriteIngles: {fileID: 0}
+  spriteGallego: {fileID: 0}
+  esTitulo2: 0
+  titulo2: {fileID: 0}
+  "spriteEspa\xF1ol2": {fileID: 0}
+  spriteIngles2: {fileID: 0}
+  spriteGallego2: {fileID: 0}
 --- !u!1 &614878446
 GameObject:
   m_ObjectHideFlags: 0

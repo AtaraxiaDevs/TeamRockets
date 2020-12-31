@@ -63,11 +63,52 @@
 		],
 	},
 	
-	"ElegirCoche":{
-		"Aceptar":[],
-		"Atras":[],
-		"Stats":[],
-		"NombreCoche":[],
+	"CocheReglaje":{
+		"VelocidadMaxima":[
+			"VelocidadMax",
+			"MaxSpeed",
+			"VelocidadeMax"
+		],
+		"Aceleracion":[
+			"Aceleracion",
+			"Throttle",
+			"Aceleracion",
+		],
+		"Frenos":[
+			"Frenos",
+			"Brakes",
+			"Freos",
+		],
+		"Peso":[
+			"Peso",
+			"Weight",
+			"Peso",
+		],
+		"Elemento":[
+			"Elemento",
+			"Element",
+			"Elemento",
+		],
+		"RelacionMarchas":[
+			"Relacion de Marchas",
+			"Gear Ratio",
+			"Relacion de Marchas",
+		],
+		"EspacioDinamica":[
+			"EspacioDinamica",
+			"SpaceDynamics",
+			"EspazoDinamica",
+		],
+		"Coche":[
+			"Nave",
+			"SpaceShip",
+			"Nave",
+		],
+		"BonusElemental":[
+			"Bonus Elemental",
+			"Elemental Bonus",
+			"Bonus Elemental",
+		],
 	},
 
 	"EditorMenu":{
@@ -96,16 +137,6 @@
 			"CreateModule",
 			"CrearModulo",
 		],
-	},
-	
-	"Customizacion":{
-		"RelacionMarchas":[],
-		"EspacioDinámica":[],
-		"Stats":[],
-		"Zodiaco":[],
-		"Empezar":[],
-		"Atras":[],
-		
 	},
 	
 	"Resultado":{
