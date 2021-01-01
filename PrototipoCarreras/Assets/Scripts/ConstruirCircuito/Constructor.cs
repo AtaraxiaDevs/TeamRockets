@@ -17,6 +17,9 @@ public class Constructor : MonoBehaviour
     public GameObject prefabCircuito;
 
     private Circuito creado;
+    //Para la camara
+    private int numModulos;
+    private Vector3 centro = Vector3.zero;
 
 
     #region Metodos Construccion
@@ -31,7 +34,7 @@ public class Constructor : MonoBehaviour
         Circuito nuevo = Instantiate(prefabCircuito, Vector3.zero, Quaternion.identity).GetComponent<Circuito>();
         nuevo.numVueltas = datos.numVueltas;
         Vector3 posSiguiente = nuevo.transform.position;
-
+        numModulos = datos.modulos.Count;
         foreach (DataModulo dm in datos.modulos)
         {
             TipoModulo tm = dm.modulo;
@@ -116,6 +119,7 @@ public class Constructor : MonoBehaviour
             nuevoModulo.reverse = dm.reverse;
             nuevoModulo.modoConstructor = true;
             nuevoModulo.interactuable = false;
+            centro += nuevoModulo.transform.position;
             nuevo.AddModulo(nuevoModulo);
         }
 
@@ -227,8 +231,11 @@ public class Constructor : MonoBehaviour
             CC.circuito = creado;
             ui.coches.AddRange(creado.pilotos);
             CC.EmpezarCarrera();
+    
             // creado.IniciarCarrera();
-        });
+        });      
+        
+        FindObjectOfType<CameraController>().GirarEnCircuito(centro/numModulos,numModulos);
     }
     #endregion
 

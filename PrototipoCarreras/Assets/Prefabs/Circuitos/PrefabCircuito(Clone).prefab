@@ -223,8 +223,12 @@ MonoBehaviour:
   signosAnadidos:
   - zodiaco: 6
     elemento: 3
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   - zodiaco: 4
     elemento: 1
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   posiciones: []
   iniciado: 0
   salidoCircuito: 0
@@ -241,6 +245,10 @@ MonoBehaviour:
   currentAccel: 0
   currentUmbral: 0
   ultimaVueltaCambio: -1
+  bonusTierra: 0
+  bonusFuego: 0
+  bonusAgua: 0
+  bonusAire: 0
 --- !u!114 &7588261847616966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,8 +1566,12 @@ MonoBehaviour:
   signosAnadidos:
   - zodiaco: 7
     elemento: 3
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   - zodiaco: 10
     elemento: 0
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   posiciones: []
   iniciado: 0
   salidoCircuito: 0
@@ -1576,6 +1588,10 @@ MonoBehaviour:
   currentAccel: 0
   currentUmbral: 0
   ultimaVueltaCambio: -1
+  bonusTierra: 0
+  bonusFuego: 0
+  bonusAgua: 0
+  bonusAire: 0
 --- !u!114 &5948276678774874376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2078,8 +2094,12 @@ MonoBehaviour:
   signosAnadidos:
   - zodiaco: 0
     elemento: 2
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   - zodiaco: 1
     elemento: 2
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   posiciones: []
   iniciado: 0
   salidoCircuito: 0
@@ -2096,6 +2116,10 @@ MonoBehaviour:
   currentAccel: 0
   currentUmbral: 0
   ultimaVueltaCambio: -1
+  bonusTierra: 0
+  bonusFuego: 0
+  bonusAgua: 0
+  bonusAire: 0
 --- !u!114 &815636050449419010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5599,8 +5623,12 @@ MonoBehaviour:
   signosAnadidos:
   - zodiaco: 7
     elemento: 3
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   - zodiaco: 6
     elemento: 3
+    caracteristicaPlus: 0
+    caracteristicaMinus: 0
   posiciones: []
   iniciado: 0
   salidoCircuito: 0
@@ -5617,6 +5645,10 @@ MonoBehaviour:
   currentAccel: 0
   currentUmbral: 0
   ultimaVueltaCambio: -1
+  bonusTierra: 0
+  bonusFuego: 0
+  bonusAgua: 0
+  bonusAire: 0
 --- !u!114 &8820725105573374226
 MonoBehaviour:
   m_ObjectHideFlags: 0

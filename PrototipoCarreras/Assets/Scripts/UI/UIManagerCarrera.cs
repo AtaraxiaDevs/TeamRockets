@@ -39,6 +39,7 @@ public class UIManagerCarrera : MonoBehaviour
         if (circuito!=null)
         {
             coches.AddRange(circuito.pilotos);
+            FindObjectOfType<CameraController>().GirarEnCircuito(circuito.transform);
         }
        
         //stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
@@ -69,21 +70,7 @@ public class UIManagerCarrera : MonoBehaviour
     private void onMinMaxChange(float value)
     {
 
-        ////value va a estar entre 1 y 0 
-        //if (value >= limitSlide)
-        //{
-        //    //0.5 es 0, 1 es finaltrote
-        //    float finalValue = value - limitSlide;
-        //    float porcentaje = finalValue / limitSlide;
-        //    myCar.SetCurrentAccel(porcentaje);
-        //}
-        //else
-        //{
-        //    //0.5 es 0, 0 es finalbrake
-        //    float finalValue = limitSlide - value;
-        //    float porcentaje = finalValue / limitSlide;
-        //    myCar.SetCurrentBrake(porcentaje);
-        //}
+     
         myCar.SetCurrentMarcha((int)value);
   
     }
