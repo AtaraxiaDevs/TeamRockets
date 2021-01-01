@@ -13,7 +13,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
     public Sprite[] fotoCoches;
     public Sprite[] fotoSigno;
     //UI Referencias
-    public Button flechaAtras, flechaDelante, btnListo;
+    public Button flechaAtras, flechaDelante;
     public Button[] btnSigno;
     public Button[] btnRegED;
     public Button[] btnRegRM;
