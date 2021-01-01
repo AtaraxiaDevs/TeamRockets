@@ -101,6 +101,11 @@ public class UIManagerMenus : MonoBehaviour
         pestanaActual.SetActive(!pestanaActual.activeSelf);
         pestanaActual = scene;
     }
+
+    public void AsignarPestana(GameObject scene)
+    {
+        pestanaActual = scene;
+    }
   
     public void CambiarSceneEditor(string scene)
     {

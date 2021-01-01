@@ -36,8 +36,17 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/Inicio.unity
     guid: 41bef3d14a5fadd439c19628a54577f1
   - enabled: 1
+    path: Assets/Scenes/UI/Tienda.unity
+    guid: 5246bdf39965fe247b037d0c56d73023
+  - enabled: 1
+    path: Assets/Scenes/UI/CocheReglaje.unity
+    guid: 9f08d4023395cb24b890c9ce58cbc6e3
+  - enabled: 1
     path: Assets/Scenes/UI/Tutorial.unity
     guid: 0ee6428cd48c2894d83b95d2a8e54031
+  - enabled: 1
+    path: Assets/Scenes/UI/Creditos.unity
+    guid: df32db54fdb94dd4abd31782bb1b4a0e
   - enabled: 1
     path: Assets/Scenes/UI/EditorMenu.unity
     guid: 7ee8573a5c501ae48b0fa5190896d162
