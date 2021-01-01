@@ -3928,7 +3928,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fab87c5ca1b2d61468eb3c931d1ebd6a, type: 3}
   flechaAtras: {fileID: 567629548}
   flechaDelante: {fileID: 882824345}
-  btnListo: {fileID: 0}
   btnSigno:
   - {fileID: 623593467}
   - {fileID: 1849758938}
