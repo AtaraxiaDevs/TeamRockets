@@ -9,15 +9,16 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     public Circuito circuito;
     public Coche myCar;
-   public List<Coche> coches= new List<Coche>();
+     public List<Coche> coches= new List<Coche>();
     //Referencias UI
     public Button startCarrera,stopCarrera;
     public Slider minMaxController;
     public Text velocidad,posiciones;
-    
+    public Fader sceneFader;
+
 
     //Variables
-   // private float limitSlide = 0.5f;
+    // private float limitSlide = 0.5f;
 
     #region Unity
     void Start()
@@ -100,6 +101,13 @@ public class UIManagerCarrera : MonoBehaviour
             myCar = getPlayer();
         }
     }
+    public void IrA(string s)
+    {
+        //si es modo manager, no se hace, pero si es partida rapida y tal:
+        InformacionPersistente.singleton.LimpiarInfoCoches();
+        sceneFader.FadeTo(s);
+        InformacionPersistente.singleton.escenaActual = s;
+    }
     private string PilotosToString()
     {
         int cont = 1;
@@ -111,6 +119,45 @@ public class UIManagerCarrera : MonoBehaviour
             cont++;
         }
         return res;
+    }
+    public void SetPosiciones()
+    {
+        TimeController tc = FindObjectOfType<TimeController>();
+        string[] source = new string[4];
+        float[] tiempos = new float[4];
+        int agua = 1, fuego = 1, aire = 1, tierra = 1;
+        coches.Sort(new PosicionesCarreraComparator());
+        for(int i=0; i < coches.Count; i++)
+        {
+            switch (coches[i].statsBase.elemento)
+            {
+                case Elemento.AGUA:
+                    source[i] = "ID: "+ coches[i].ID+ " Neptuno " + agua;
+                    agua++;
+                    break;
+                case Elemento.AIRE:
+                    source[i] = "ID: " + coches[i].ID + " Jupiter " + aire;
+                    aire++;
+                    break;
+                case Elemento.FUEGO:
+                    source[i] = "ID: " + coches[i].ID + " Marte " + fuego;
+                    fuego++;
+                    break;
+                case Elemento.TIERRA:
+                    source[i] = "ID: " + coches[i].ID + " Saturno " + tierra;
+                    tierra++;
+                    break;
+                default:
+                    source[i] = i + "º " + "UFO ";
+                   
+                    break;
+
+            }
+            tiempos[i] = tc.tiempoMejor[coches[i].ID];
+        }
+        InformacionPersistente.singleton.pilotosOrdenados = source;
+        InformacionPersistente.singleton.tiempos = tiempos;
+        IrA("Ranking");
     }
     #endregion
 }

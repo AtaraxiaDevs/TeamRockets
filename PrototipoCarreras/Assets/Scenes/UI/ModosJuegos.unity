@@ -3451,6 +3451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fader
       objectReference: {fileID: 0}
+    - target: {fileID: 7762039473362927929, guid: f2c2a6395819ba04faac70924ae48dcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7762039473362927931, guid: f2c2a6395819ba04faac70924ae48dcf,
         type: 3}
       propertyPath: m_LocalPosition.x

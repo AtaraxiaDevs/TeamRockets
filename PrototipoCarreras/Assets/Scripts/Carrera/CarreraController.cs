@@ -67,6 +67,7 @@ public class CarreraController : MonoBehaviour
         if(vuelta >= circuito.numVueltas)
         {
             Time.timeScale = 0;
+            FinCarrera();
         }
     }
    
@@ -75,8 +76,8 @@ public class CarreraController : MonoBehaviour
         //times.FinalTiempos();
         
         string[] clasFinal = new string[N_PLAYERS];
-        
         DarPuntos(clasFinal);
+        FindObjectOfType<UIManagerCarrera>().SetPosiciones();
     }
 
     public void DarPuntos(string [] s)

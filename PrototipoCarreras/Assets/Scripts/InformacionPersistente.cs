@@ -21,11 +21,12 @@ public class InformacionPersistente : MonoBehaviour
     //Singleton
 
     public static InformacionPersistente singleton;
-
+    //ranking
+    public string[] pilotosOrdenados;
+    public float[] tiempos;
     //Informacion
 
     public DatosCoche[] cochesCarrera;
-    
     public ModeloCoche[] modelosCoches;
     public Signo[] signosZodiaco;
     public int numCoches;
@@ -35,6 +36,7 @@ public class InformacionPersistente : MonoBehaviour
     #region Unity
     private void Awake()
     {
+        pilotosOrdenados = new string[4];
         if (singleton == null)
         {
             singleton = this;
