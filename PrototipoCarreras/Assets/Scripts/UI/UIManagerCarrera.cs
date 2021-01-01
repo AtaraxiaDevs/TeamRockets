@@ -15,7 +15,13 @@ public class UIManagerCarrera : MonoBehaviour
     public Slider minMaxController;
     public Text velocidad,posiciones;
     public Fader sceneFader;
+    //PC
+    private int marcha;
 
+    //Velocidad
+
+    private float speed=0;
+    private float currentSpeed=0;
 
     //Variables
     // private float limitSlide = 0.5f;
@@ -27,7 +33,7 @@ public class UIManagerCarrera : MonoBehaviour
         {
             myCar.soyPlayer = true;
         }
-
+        marcha = 0;
         //startCarrera.onClick.AddListener(() => {
         //    circuito.Construir();
         //    circuito.IniciarCarrera();
@@ -47,6 +53,8 @@ public class UIManagerCarrera : MonoBehaviour
         {
             minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
         }
+
+        
        
     }
     void Update()
@@ -55,12 +63,40 @@ public class UIManagerCarrera : MonoBehaviour
 
         if (velocidad != null)
         {
-            velocidad.text = (Mathf.Round(myCar.currentSpeed)).ToString();
+            currentSpeed = myCar.currentSpeed;
+            if (Mathf.Abs(currentSpeed - speed) > 1)
+            {
+                speed = currentSpeed;
+                velocidad.text = ((int)Mathf.Round(speed)).ToString();
+            }
+       
 
         }
         if (posiciones != null)
         {
             posiciones.text = PilotosToString();
+
+        }
+        if (!InformacionPersistente.singleton.esMovil)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (marcha > 0)
+                {
+                    marcha--;
+                    minMaxController.value = marcha;
+
+                }
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (marcha <4)
+                {
+                    marcha++;
+                    minMaxController.value = marcha;
+
+                }
+            }
 
         }
     }
@@ -70,7 +106,7 @@ public class UIManagerCarrera : MonoBehaviour
     private void onMinMaxChange(float value)
     {
 
-     
+       
         myCar.SetCurrentMarcha((int)value);
   
     }
