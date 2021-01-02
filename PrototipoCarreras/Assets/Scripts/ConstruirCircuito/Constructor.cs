@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -25,8 +26,10 @@ public class Constructor : MonoBehaviour
     #region Metodos Construccion
     public void ConstruirCircuito(string nombre)
     {
-        DataCircuito datos = CargarCircuito("prueba");
-        DataToCircuito(datos);
+        //DataCircuito datos = CargarCircuito("prueba");
+        string datos = CargarCircuitoMongo("prueba");
+        DataCircuito data = ParseMongo(datos);
+        DataToCircuito(data);
     }
 
     private void DataToCircuito( DataCircuito datos)
@@ -147,7 +150,9 @@ public class Constructor : MonoBehaviour
     public void GuardarCircuito(Circuito circuito)
     {
         DataCircuito datos = CircuitoToData(circuito);
-        SaveCircuito("prueba", datos);
+        string data = ParseCircuito(datos);
+        SaveCircuito("prueba", data);
+        //SaveCircuito("prueba", datos);
     }
     private DataCircuito CircuitoToData(Circuito circuito)
     {
@@ -172,17 +177,17 @@ public class Constructor : MonoBehaviour
 
             resultado.modulos.Add(data);
         }
-        for (int i = 0; i < resultado.modulos.Count; i++)
-        {
-            if (i == resultado.modulos.Count - 1)
-            {
-                resultado.modulos[i].siguiente = null;
-            }
-            else
-            {
-                resultado.modulos[i].siguiente = resultado.modulos[i + 1];
-            }
-        }
+        //for (int i = 0; i < resultado.modulos.Count; i++)
+        //{
+        //    if (i == resultado.modulos.Count - 1)
+        //    {
+        //        resultado.modulos[i].siguiente = null;
+        //    }
+        //    else
+        //    {
+        //        resultado.modulos[i].siguiente = resultado.modulos[i + 1];
+        //    }
+        //}
         return resultado;
     }
     #endregion
@@ -206,8 +211,34 @@ public class Constructor : MonoBehaviour
             return null;
         }
     }
+    private string CargarCircuitoMongo(string nombre)
+    {
+        string resultado="";
+        string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
 
+        if (File.Exists(path))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(path, FileMode.Open);
+            resultado = (string)bf.Deserialize(file);
+            file.Close();
+            return resultado;
+        }
+        else
+        {
+            return null;
+        }
+    }
     private void SaveCircuito(string nombre, DataCircuito circuito)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
+        FileStream file = File.Create(path);
+        bf.Serialize(file, circuito);
+        file.Close();
+
+    }
+    private void SaveCircuito(string nombre,string circuito)
     {
         BinaryFormatter bf = new BinaryFormatter();
         string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
@@ -238,7 +269,56 @@ public class Constructor : MonoBehaviour
         FindObjectOfType<CameraController>().GirarEnCircuito(centro/numModulos,numModulos);
     }
     #endregion
-
+    #region Parser
+    private string ParseCircuito(DataCircuito datos)
+    {
+        int size = datos.modulos.Count;
+        string res = size + "\n";
+        res += datos.numVueltas + "\n";
+        foreach(DataModulo data in datos.modulos)
+        {
+            res += (int)data.rotacion+":";
+            res += (int)data.socketVecino + ":";
+            res += (int)data.modulo + ":";
+            res += data.sizeModulo + ":";
+            if (data.reverse)
+            {
+                res += 1;
+            }
+            else
+            {
+                res += 0;
+            }
+            res += "\n";
+        }
+        return res;
+    }
+    private DataCircuito ParseMongo(string datos)
+    {
+        string[] datosSplit = datos.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries); 
+        int size = int.Parse(datosSplit[0]);
+        DataCircuito res = new DataCircuito(int.Parse(datosSplit[1]));
+        for(int i=0; i < size; i++)
+        {
+            string[] datosModulo = datosSplit[i+2].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+            DataModulo nuevo = new DataModulo();
+            nuevo.rotacion = (Rotacion)int.Parse(datosModulo[0]);
+            nuevo.socketVecino = (TipoSocket)int.Parse(datosModulo[1]);
+            nuevo.modulo = (TipoModulo)int.Parse(datosModulo[2]);
+            nuevo.sizeModulo = int.Parse(datosModulo[3]);
+            if (int.Parse(datosModulo[4])==1)
+            {
+                nuevo.reverse = true;
+            }
+            else
+            {
+                nuevo.reverse = false;
+            }
+            res.modulos.Add(nuevo);
+        }
+        return res;
+    }
+    #endregion
 
 }
 
@@ -258,7 +338,7 @@ public class DataCircuito
 [System.Serializable]
 public class DataModulo
 {
-    public DataModulo siguiente;
+   // public DataModulo siguiente;
     public Rotacion rotacion;
     public TipoSocket socketVecino;
     public TipoModulo modulo;

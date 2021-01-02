@@ -52,6 +52,7 @@ public class UIManagerCarrera : MonoBehaviour
         if (minMaxController != null)
         {
             minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
+            minMaxController.enabled = false;
         }
 
         
@@ -64,7 +65,7 @@ public class UIManagerCarrera : MonoBehaviour
         if (velocidad != null)
         {
             currentSpeed = myCar.currentSpeed;
-            if (Mathf.Abs(currentSpeed - speed) > 1)
+            if (Mathf.Abs(currentSpeed - speed) > 2)
             {
                 speed = currentSpeed;
                 velocidad.text = ((int)Mathf.Round(speed)).ToString();
@@ -77,7 +78,7 @@ public class UIManagerCarrera : MonoBehaviour
             posiciones.text = PilotosToString();
 
         }
-        if (!InformacionPersistente.singleton.esMovil)
+        if ((!InformacionPersistente.singleton.esMovil)&&(minMaxController.enabled))
         {
             if (Input.GetMouseButtonDown(0))
             {

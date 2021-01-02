@@ -32,7 +32,7 @@ public class CarreraController : MonoBehaviour
         circuito.Construir();
         circuito.IniciarCarrera();
         times.InicioTiempos();
-
+        FindObjectOfType<UIManagerCarrera>().minMaxController.enabled = true;
         vueltaMasActual = 0;
     }
     IEnumerator Empezar()
