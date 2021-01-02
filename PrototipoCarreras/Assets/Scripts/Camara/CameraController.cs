@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     Transform circuito;
     Quaternion rotation;
     Vector3 posTarget = new Vector3(0,15, -15);
-    Vector3 posCircuito = new Vector3(0, 10, 10);
+    Vector3 posCircuito = new Vector3(0, 20, 20);
     Vector3 centro;
     float epsilon = 0.05f;
     public bool preparada = false;

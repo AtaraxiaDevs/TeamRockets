@@ -88,7 +88,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.041484833
-        value: 0.12440109
+        value: 0.8272362
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -223,7 +223,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.041484833
-        value: 0.12440109
+        value: 0.8272362
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -358,7 +358,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.041484833
-        value: 0.12440109
+        value: 0.8272362
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -493,7 +493,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.041484833
-        value: 0.12440109
+        value: 0.4687462
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -571,7 +571,7 @@ Transform:
   m_GameObject: {fileID: 9026503651901435900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 10, y: 4, z: 10}
+  m_LocalScale: {x: 20, y: 4, z: 20}
   m_Children:
   - {fileID: 2146052811197135423}
   - {fileID: 264304677070896829}
@@ -595,7 +595,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026503651901435900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -673,6 +673,7 @@ MonoBehaviour:
     attach: {fileID: 0}
   rotacion: 0
   modoConstructor: 0
+  cargadoFichero: 1
   sizeModulo: 0
   esSalida: 0
   interactuable: 1

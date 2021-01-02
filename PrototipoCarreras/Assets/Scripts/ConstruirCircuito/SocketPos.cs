@@ -10,7 +10,7 @@ public class SocketPos : MonoBehaviour
 {
     //Referencias
     private Modulo parent, attach;
-
+    public GameObject particleSistem;
     //Información socket
     private TipoSocket tipo;
     private bool disponible = true;
@@ -36,13 +36,14 @@ public class SocketPos : MonoBehaviour
     {
         attach = null;
         disponible = true;
-
+        particleSistem.SetActive(true);
         parent.RemoveVecino(tipo);
     }
     public void setAttach(Modulo modulo)
     {
         attach = modulo;
         disponible = false;
+        particleSistem.SetActive(false);
         parent.AddVecino(tipo, modulo);
         modulo.SetAncla(this);
     }

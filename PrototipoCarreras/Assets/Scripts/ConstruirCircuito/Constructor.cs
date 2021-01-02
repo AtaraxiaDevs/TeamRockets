@@ -123,6 +123,7 @@ public class Constructor : MonoBehaviour
             nuevoModulo.modoConstructor = true;
             nuevoModulo.interactuable = false;
             centro += nuevoModulo.transform.position;
+            nuevoModulo.EliminarSockets();
             nuevo.AddModulo(nuevoModulo);
         }
 
@@ -139,6 +140,7 @@ public class Constructor : MonoBehaviour
             }
 
         }
+       
 
         nuevo.modulos[0].soyPrimero();
         nuevo.moduloPrimero = nuevo.modulos[0];

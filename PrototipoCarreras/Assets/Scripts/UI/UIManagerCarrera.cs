@@ -78,7 +78,7 @@ public class UIManagerCarrera : MonoBehaviour
             posiciones.text = PilotosToString();
 
         }
-        if ((!InformacionPersistente.singleton.esMovil)&&(minMaxController.enabled))
+        if ((!InformacionPersistente.singleton.esMovil)&&(minMaxController!=null)&&(minMaxController.enabled))
         {
             if (Input.GetMouseButtonDown(0))
             {

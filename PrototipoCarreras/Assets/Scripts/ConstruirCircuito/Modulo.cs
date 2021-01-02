@@ -444,6 +444,11 @@ public class Modulo : MonoBehaviour
 
     #endregion
     #region Modo Carrera
+    public void EliminarSockets()
+    {
+        Destroy(refS2);
+        Destroy(refS1);
+    }
     #endregion
     #region Coger informacion
     public int GetID()
