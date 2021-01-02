@@ -41,7 +41,7 @@
 		"ModoManager":[
 			"MiEquipo",
 			"MyTeam",
-			"MeuEquipo",
+			"OMeuEquipo",
 		],
 		"Tutorial":[
 			"Tutorial",
@@ -99,15 +99,25 @@
 			"SpaceDynamics",
 			"EspazoDinamica",
 		],
-		"Coche":[
-			"Nave",
-			"SpaceShip",
-			"Nave",
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE",
 		],
-		"BonusElemental":[
-			"Bonus Elemental",
-			"Elemental Bonus",
-			"Bonus Elemental",
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL",
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT",
+		],
+		"CURV":[
+			"CUR",
+			"TURN",
+			"CUR",
 		],
 	},
 
@@ -121,16 +131,6 @@
 			"VistaPrevia",
 			"Preview",
 			"VistaPrevia",
-		],
-		"Importar":[
-			"Importar",
-			"Import",
-			"Importar",
-		],
-		"Exportar":[
-			"Exportar",
-			"Export",
-			"Importar",
 		],
 		"CrearModulo":[
 			"CrearModulo",
@@ -175,6 +175,39 @@
 			"¡Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, ¡CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\n¡Good Luck!",
 			"¡Hola, TERRíCOLA! Bienvenido a la competición deportiva más famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competición, elige el chasis del coche con el que empezar a construirlo. También verás la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
 		],
+		"ListaCircuitos":[
+			"Lista\nCircuitos",
+			"Track\nList",
+			"Lista\nCircuitos",
+		],
+		"VelocidadMaxima":[
+			"VelocidadMax",
+			"MaxSpeed",
+			"VelocidadeMax"
+		],
+		"Aceleracion":[
+			"Aceleracion",
+			"Throttle",
+			"Aceleracion",
+		],
+		"Frenos":[
+			"Frenos",
+			"Brakes",
+			"Freos",
+		],
+		"Peso":[
+			"Peso",
+			"Weight",
+			"Peso",
+		],
+		"Elemento":[
+			"Elemento",
+			"Element",
+			"Elemento",
+		],
+	},
+
+	"ModoManager":{
 		"Simular":[
 			"Simular",
 			"Simulation",
@@ -201,8 +234,81 @@
 			"Sair"
 		],
 	},
-	
-	"ClasificacionManager":{
+
+	"ModificarCoche":{
+		"Mejoras":[
+			"Mejoras",
+			"Upgrades",
+			"Melloras",
+		],
+		"Zodiaco":[
+			"Zodiaco",
+			"Zodiac",
+			"Zodiaco",
+		],
+		"Reglajes":[
+			"Reglajes",
+			"Settings",
+			"Afinacion",
+		],
+		"VelocidadMaxima":[
+			"VelocidadMax",
+			"MaxSpeed",
+			"VelocidadeMax"
+		],
+		"Aceleracion":[
+			"Aceleracion",
+			"Throttle",
+			"Aceleracion",
+		],
+		"Frenos":[
+			"Frenos",
+			"Brakes",
+			"Freos",
+		],
+		"Peso":[
+			"Peso",
+			"Weight",
+			"Peso",
+		],
+		"Elemento":[
+			"Elemento",
+			"Element",
+			"Elemento",
+		],
+		"RelacionMarchas":[
+			"Relacion Marchas ",
+			"Gear Ratio",
+			"Relacion Marchas",
+		],
+		"EspacioDinamica":[
+			"EspacioDinamica",
+			"SpaceDynamics",
+			"EspazoDinamica",
+		],
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE",
+		],
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL",
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT",
+		],
+		"CURV":[
+			"CUR",
+			"TURN",
+			"CUR",
+		],
+	},
+
+	"Clasificacion":{
 		"ClasificacionCircuitoUlt":[],
 		"ClasificacionGeneral":[],
 	},

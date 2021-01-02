@@ -116,9 +116,4 @@ public class UIManagerMenus : MonoBehaviour
     {
         InformacionPersistente.singleton.idiomaActual = i;
     }
-
-    public void PopUp(GameObject scene)
-    {
-        scene.SetActive(!scene.activeSelf);
-    }
 }
