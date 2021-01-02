@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+
+
 
 //Clase con un Singleton estatico que contine informacion inmutable entre escenas
 public class DatosCoche
@@ -10,6 +13,7 @@ public class DatosCoche
     public Signo[] signos = new Signo[2];
     //public InfoCoche stats;
     public int ID;
+
     public DatosCoche()
     {
         reg = new Reglajes();
@@ -18,6 +22,9 @@ public class DatosCoche
 }
 public class InformacionPersistente : MonoBehaviour
 {
+    //Es Movil
+    [DllImport("__Internal")]
+    private static extern bool IsMobile();
     //Singleton
 
     public static InformacionPersistente singleton;
@@ -32,10 +39,20 @@ public class InformacionPersistente : MonoBehaviour
     public int numCoches;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
+    public bool esMovil;
 
+
+    public bool isMobile()
+    {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+             return IsMobile();
+        #endif
+            return false;
+    }
     #region Unity
     private void Awake()
     {
+        esMovil = isMobile();
         pilotosOrdenados = new string[4];
         if (singleton == null)
         {
@@ -47,7 +64,8 @@ public class InformacionPersistente : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+ 
+  
     void Start()
     {
         numCoches = modelosCoches.Length;
