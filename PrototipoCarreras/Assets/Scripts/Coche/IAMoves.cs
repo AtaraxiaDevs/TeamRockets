@@ -12,6 +12,7 @@ public class IAMoves : MonoBehaviour
     public Circuito currentCircuito;
     private Coche coche;
     private int currentModulo;
+
     //Informacion
 
     public float porcentajeFallo = 1;

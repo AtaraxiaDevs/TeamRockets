@@ -140,7 +140,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
     private void ElegirReglajeED(int index)
     {
         currentCoche.reg.espacioDinamica = (ESPACIODINAMICA)index;
-        for(int i=0; i < btnRegED.Length; i++)
+
+        for(int i = 0; i < btnRegED.Length; i++)
         {
             //if (i != index)
             //{
@@ -178,8 +179,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
         infosigno2.text = cebo.signosAnadidos[1].zodiaco.ToString();
         cebo.CalcularStats(currentCoche.reg);
 
-       
         string[] plus = new string[6];
+
         for(int i=0; i < plus.Length; i++)
         {
             plus[i] = " ";
@@ -200,7 +201,6 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 plus[i] += "-";
             }
         }
-
 
         if (cebo.bonusAgua >= 0.5f)
         {

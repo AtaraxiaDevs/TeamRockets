@@ -3,64 +3,77 @@
 		"Jugar":[
 			"Jugar",
 			"Play",
-			"Xogar",
+			"Xogar"
 		],
 		"Editor":[
 			"Editor",
 			"Editor",
-			"Editor",
+			"Editor"
 		],
 		"Tienda":[
 			"Tienda",
 			"Shop",
-			"Tenda",
+			"Tenda"
 		],
 		"Creditos":[
 			"Creditos",
 			"Credits",
-			"Creditos",
+			"Creditos"
 		],
 		"Opciones":[
 			"Opciones",
 			"Options",
-			"Axustes",
-		],
+			"Axustes"
+		]
 	},
 	
 	"ModosJuegos":{
 		"PartidaRapida":[
-			"PartidaRapida",
-			"QuickPlay",
-			"XogoRapido",
+			"Partida\nRapida",
+			"Quick\nPlay",
+			"Xogo\nRapido"
 		],
 		"ModoCopa":[
-			"ModoLiga",
-			"LeagueMode",
-			"ModoLiga",
+			"Modo\nLiga",
+			"League\nMode",
+			"ModoLiga"
 		],
 		"ModoManager":[
-			"MiEquipo",
-			"MyTeam",
-			"OMeuEquipo",
+			"Mi Equipo",
+			"My Team",
+			"O Meu\nEquipo"
 		],
 		"Tutorial":[
 			"Tutorial",
 			"Tutorial",
-			"Tutorial",
-		],
+			"Tutorial"
+		]
 	},
 	
 	"NJugadores":{
 		"SinglePlayer":[
-			"Un Jugador",
-			"SinglePlayer",
-			"Un xogador"
+			"Un\nJugador",
+			"Single\nPlayer",
+			"Un\nxogador"
 		],
 		"MultiPlayer":[
-			"Multijugador",
-			"MultiPlayer",
-			"MultiXogador",
+			"Multi\nJugador",
+			"Multi\nPlayer",
+			"Multi\nXogador"
+		]
+	},
+
+	"NJugadoresCopa":{
+		"SinglePlayer":[
+			"Un\nJugador",
+			"Single\nPlayer",
+			"Un\nxogador"
 		],
+		"MultiPlayer":[
+			"Multi\nJugador",
+			"Multi\nPlayer",
+			"Multi\nXogador"
+		]
 	},
 	
 	"CocheReglaje":{
@@ -72,88 +85,88 @@
 		"Aceleracion":[
 			"Aceleracion",
 			"Throttle",
-			"Aceleracion",
+			"Aceleracion"
 		],
 		"Frenos":[
 			"Frenos",
 			"Brakes",
-			"Freos",
+			"Freos"
 		],
 		"Peso":[
 			"Peso",
 			"Weight",
-			"Peso",
+			"Peso"
 		],
 		"Elemento":[
 			"Elemento",
 			"Element",
-			"Elemento",
+			"Elemento"
 		],
 		"RelacionMarchas":[
-			"Relacion Marchas ",
-			"Gear Ratio",
-			"Relacion Marchas",
+			"RelacionMarchas ",
+			"GearRatio",
+			"RelacionMarchas"
 		],
 		"EspacioDinamica":[
 			"EspacioDinamica",
 			"SpaceDynamics",
-			"EspazoDinamica",
+			"EspazoDinamica"
 		],
 		"ACE":[
 			"ACE",
 			"ACC",
-			"ACE",
+			"ACE"
 		],
 		"VEL":[
 			"VEL",
 			"SPE",
-			"VEL",
+			"VEL"
 		],
 		"RECT":[
 			"RECT",
 			"STRA",
-			"RECT",
+			"RECT"
 		],
 		"CURV":[
 			"CUR",
 			"TURN",
-			"CUR",
-		],
+			"CUR"
+		]
 	},
 
 	"EditorMenu":{
 		"CrearCircuito":[
-			"CrearCircuito",
-			"CreateTrack",
-			"CrearCircuito",
+			"Crear\nCircuito",
+			"Create\nTrack",
+			"Crear\nCircuito"
 		],
 		"VistaPrevia":[
-			"VistaPrevia",
+			"Vista\nPrevia",
 			"Preview",
-			"VistaPrevia",
+			"Vista\nPrevia"
 		],
 		"CrearModulo":[
-			"CrearModulo",
-			"CreateModule",
-			"CrearModulo",
-		],
+			"Crear\nModulo",
+			"Create\nModule",
+			"Crear\nModulo"
+		]
 	},
 	
 	"Resultado":{
 		"Nombre":[],
-		"Tiempo":[],
+		"Tiempo":[]
 	},
 	
 	"SalasMulti":{
 		"Tiempo":[],
 		"JugadoresConectados":[],
-		"Listo":[],
+		"Listo":[]
 	},
 	
 	"ConfigurarCopa":{
 		"CircuitoN":[],
 		"Comenzar":[],
-		"Atras":[],
+		"Atras":[]
 	},
 	
 	"ListaCircuitos":{
@@ -161,24 +174,20 @@
 	},
 	
 	"SalaCopa":{
-		"Clasificacion":[],
+		"Clasificacion":[]
 		
-	},
-	
-	"SalaCopaMulti":{
-		""
 	},
 	
 	"ModoTemporada":{
 		"Presentacion":[
-			"¡Hola, TERRíCOLA! Bienvenido a la competición deportiva más famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competición, elige el chasis de la nave para empezar a construirla. También verás la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
-			"¡Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, ¡CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\n¡Good Luck!",
-			"¡Hola, TERRíCOLA! Bienvenido a la competición deportiva más famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competición, elige el chasis del coche con el que empezar a construirlo. También verás la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
+			"ï¿½Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, ï¿½CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. Tambiï¿½n veras la lista de circuitos del campeonato.\n\nï¿½Mucha Suerte!",
+			"ï¿½Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, ï¿½CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\nï¿½Good Luck!",
+			"ï¿½Hola, TERRï¿½COLA! Bienvenido a la competiciï¿½n deportiva mï¿½s famosa de la galaxia, ï¿½CONSTELATRIX!\n\nPara ingresar en la competiciï¿½n, elige el chasis del coche con el que empezar a construirlo. Tambiï¿½n verï¿½s la lista de circuitos del campeonato.\n\nï¿½Mucha Suerte!"
 		],
 		"ListaCircuitos":[
 			"Lista\nCircuitos",
 			"Track\nList",
-			"Lista\nCircuitos",
+			"Lista\nCircuitos"
 		],
 		"VelocidadMaxima":[
 			"VelocidadMax",
@@ -188,30 +197,30 @@
 		"Aceleracion":[
 			"Aceleracion",
 			"Throttle",
-			"Aceleracion",
+			"Aceleracion"
 		],
 		"Frenos":[
 			"Frenos",
 			"Brakes",
-			"Freos",
+			"Freos"
 		],
 		"Peso":[
 			"Peso",
 			"Weight",
-			"Peso",
+			"Peso"
 		],
 		"Elemento":[
 			"Elemento",
 			"Element",
-			"Elemento",
-		],
+			"Elemento"
+		]
 	},
 
 	"ModoManager":{
 		"Simular":[
 			"Simular",
 			"Simulation",
-			"Simular",
+			"Simular"
 		],
 		"MiCoche":[
 			"Mi Nave",
@@ -221,7 +230,7 @@
 		"Mejoras":[
 			"Mejoras",
 			"Upgrades",
-			"Melloras",
+			"Melloras"
 		],
 		"Clasificacion":[
 			"Resultados",
@@ -232,24 +241,24 @@
 			"Salir",
 			"Back",
 			"Sair"
-		],
+		]
 	},
 
 	"ModificarCoche":{
 		"Mejoras":[
 			"Mejoras",
 			"Upgrades",
-			"Melloras",
+			"Melloras"
 		],
 		"Zodiaco":[
 			"Zodiaco",
 			"Zodiac",
-			"Zodiaco",
+			"Zodiaco"
 		],
 		"Reglajes":[
 			"Reglajes",
 			"Settings",
-			"Afinacion",
+			"Afinacion"
 		],
 		"VelocidadMaxima":[
 			"VelocidadMax",
@@ -259,58 +268,58 @@
 		"Aceleracion":[
 			"Aceleracion",
 			"Throttle",
-			"Aceleracion",
+			"Aceleracion"
 		],
 		"Frenos":[
 			"Frenos",
 			"Brakes",
-			"Freos",
+			"Freos"
 		],
 		"Peso":[
 			"Peso",
 			"Weight",
-			"Peso",
+			"Peso"
 		],
 		"Elemento":[
 			"Elemento",
 			"Element",
-			"Elemento",
+			"Elemento"
 		],
 		"RelacionMarchas":[
 			"Relacion Marchas ",
 			"Gear Ratio",
-			"Relacion Marchas",
+			"Relacion Marchas"
 		],
 		"EspacioDinamica":[
 			"EspacioDinamica",
 			"SpaceDynamics",
-			"EspazoDinamica",
+			"EspazoDinamica"
 		],
 		"ACE":[
 			"ACE",
 			"ACC",
-			"ACE",
+			"ACE"
 		],
 		"VEL":[
 			"VEL",
 			"SPE",
-			"VEL",
+			"VEL"
 		],
 		"RECT":[
 			"RECT",
 			"STRA",
-			"RECT",
+			"RECT"
 		],
 		"CURV":[
 			"CUR",
 			"TURN",
-			"CUR",
-		],
+			"CUR"
+		]
 	},
 
 	"Clasificacion":{
 		"ClasificacionCircuitoUlt":[],
-		"ClasificacionGeneral":[],
+		"ClasificacionGeneral":[]
 	},
 	
 	"Tienda":{
@@ -321,20 +330,12 @@
 		"Idioma":[
 			"Idioma",
 			"Language",
-			"Lingua",
+			"Lingua"
 		],
 		"Volumen":[
 			"Volumen",
 			"Volume",
-			"Volume",
-		],
+			"Volume"
+		]
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

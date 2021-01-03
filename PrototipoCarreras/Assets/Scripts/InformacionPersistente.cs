@@ -25,22 +25,22 @@ public class InformacionPersistente : MonoBehaviour
     //Es Movil
     [DllImport("__Internal")]
     private static extern bool IsMobile();
-    //Singleton
 
+    //Singleton
     public static InformacionPersistente singleton;
-    //ranking
+
+    //Ranking
     public string[] pilotosOrdenados;
     public float[] tiempos;
-    //Informacion
 
+    //Informacion
     public DatosCoche[] cochesCarrera;
     public ModeloCoche[] modelosCoches;
     public Signo[] signosZodiaco;
-    public int numCoches;
+    public int numCoches, nivelRitmoPropio = -1;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
     public bool esMovil;
-
 
     public bool isMobile()
     {
@@ -54,6 +54,7 @@ public class InformacionPersistente : MonoBehaviour
     {
         esMovil = isMobile();
         pilotosOrdenados = new string[4];
+
         if (singleton == null)
         {
             singleton = this;
@@ -64,7 +65,6 @@ public class InformacionPersistente : MonoBehaviour
             Destroy(gameObject);
         }
     }
- 
   
     void Start()
     {
