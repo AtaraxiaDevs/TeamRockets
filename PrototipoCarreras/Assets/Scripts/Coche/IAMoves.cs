@@ -31,12 +31,12 @@ public class IAMoves : MonoBehaviour
     {
         if (moduloSiguiente != null)
         {
-            if ((SiguienteCurva() && (currentPointMod >= sizeMod / 2)))
+            if (SiguienteCurva() && (currentPointMod >= sizeMod / 2))
             {
-                
                 if (currentSpeed > CalcularMarchaUmbral( moduloSiguiente.myInfo.umbral - nivelRitmo,stats))
                 {
                     Frenar(currentSpeed, marcha, stats);
+
                     if (accelIA > stats.FinalBrake)
                     {
                         if (acelerando)
@@ -51,30 +51,26 @@ public class IAMoves : MonoBehaviour
                         //Debug.Log("Frenando");
                
                     }
-                 
                 }
                 else if (currentSpeed < CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
                 {
                     Acelerar(currentSpeed, marcha, stats);
                    
                     if (!acelerando)
-                        {
-                            acelerando = true;
-                            porcentajeIAccel = 0;
-                        }
-                        if (accelIA < stats.FinalThrottle)
-                        {
-                            accelIA = porcentajeIAccel * stats.FinalThrottle;
-                            porcentajeIAccel += accel;
+                    {
+                        acelerando = true;
+                        porcentajeIAccel = 0;
+                    }
+                    
+                    if (accelIA < stats.FinalThrottle)
+                    {
+                        accelIA = porcentajeIAccel * stats.FinalThrottle;
+                        porcentajeIAccel += accel;
 
                         // Debug.Log("Acelerando");
-                        }
-                      
-                }
-               
-             
+                    }  
+                }             
             }
-            
             else
             {
                 if (currentSpeed < CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
@@ -85,22 +81,22 @@ public class IAMoves : MonoBehaviour
                         acelerando = true;
                         porcentajeIAccel = 0;
                     }
+
                     if (accelIA < stats.FinalThrottle)
                     {
                         accelIA = porcentajeIAccel * stats.FinalThrottle;
                         porcentajeIAccel += accel;
 
                         // Debug.Log("Acelerando");
-          
                     }
-                 
                 }
-              
             }
+
             if (porcentajeIAccel == 1)
             {
                 porcentajeIAccel = 1;
             }
+
             currentSpeed += (accelIA / factorUnidades) + fuerza;
             //comprobacion Umbral current
         }
@@ -109,7 +105,8 @@ public class IAMoves : MonoBehaviour
         {
             currentSpeed = currentMod.umbral - nivelRitmo;
         }
-        if(currentSpeed> CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
+
+        if(currentSpeed > CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats))
         {
             currentSpeed = CalcularMarchaUmbral(currentMod.umbral - nivelRitmo, stats);
         }
@@ -156,12 +153,12 @@ public class IAMoves : MonoBehaviour
                 porcentajeIAccel = 0;
             }
         }
-
-
     }
+
     private float CalcularMarchaUmbral(float umbral, InfoCoche stats)
     {
         float res= stats.Marchas[0];
+
         foreach( float v in stats.Marchas)
         {
             if( v<= umbral)
@@ -169,21 +166,20 @@ public class IAMoves : MonoBehaviour
                 res = v;
             }
         }
+
         return res;
     }
+
     private void Frenar(float currentSpeed, Marcha marcha, InfoCoche stats)
     {
-        if((int)marcha> (int) Marcha.PRIMERA)
+        if((int)marcha > (int) Marcha.PRIMERA)
         {
             if (currentSpeed < stats.Marchas[(int)marcha-1])
             {
-              
-                    coche.SetCurrentMarcha((int)marcha - 1);
-                    porcentajeIAccel = 0;
-                
+                coche.SetCurrentMarcha((int)marcha - 1);
+                porcentajeIAccel = 0;
             }
         }
-     
     }
     //private int MarchaPerfectaUmbral(float umbral, InfoCoche stats)
     //{

@@ -28,11 +28,6 @@ public class Ranking : MonoBehaviour
             listaParticipantes[i].nombre = nombres[i];
         }
     }
-
-    private void Reorganizar()
-    {
-        
-    }
 }
 
 public class Participante

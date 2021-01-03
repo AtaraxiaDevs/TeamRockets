@@ -34,7 +34,7 @@ public class Circuito : MonoBehaviourPunCallbacks
 
         if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
-            modulos = new List<Modulo>();
+             modulos = new List<Modulo>();
              CrearPilotos();
         }
         else
@@ -63,6 +63,7 @@ public class Circuito : MonoBehaviourPunCallbacks
         {
             vertexcont[i] = 0;
         }
+
         AsignarPiloto();
     }
 
@@ -175,6 +176,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     public void TransformModulos()
     {
         modulos.Sort(new ComparadorModulo());
+
         for (int h = 0; h < modulos.Count; h++)
         {
             modulos[h].transform.parent = this.transform;

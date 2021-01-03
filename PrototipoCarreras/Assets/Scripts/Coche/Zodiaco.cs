@@ -59,13 +59,14 @@ public class Signo
                 caracteristicaPlus = Caracteristicas.PESO;
                 caracteristicaMinus = Caracteristicas.VELOCIDADMAX;
                 break;
+
             case Zodiaco.SAGITARIO:
                 stats.FinalWeight -= valuePlus*2 * stats.FinalWeight;
                 CalcularMarchas(false, stats, RM);
                 caracteristicaPlus = Caracteristicas.PESO;
                 caracteristicaMinus = Caracteristicas.RELACIONMARCHAS;
-
                 break;
+
             case Zodiaco.LEO:
                 stats.FinalThrottle += stats.FinalThrottle*valuePlus;
                 stats.ElectricForceRecta -= valueMinus * stats.FinalWeight / 100;
@@ -73,19 +74,21 @@ public class Signo
                 caracteristicaPlus = Caracteristicas.ACCEL;
                 caracteristicaMinus = Caracteristicas.ESPACIODINAMICA;
                 break;
+
             case Zodiaco.LIBRA:
                 stats.FinalMaxSpeed += stats.FinalMaxSpeed * valuePlus;
                 stats.FinalWeight += valueMinus * stats.FinalWeight;
                 caracteristicaPlus = Caracteristicas.VELOCIDADMAX;
                 caracteristicaMinus = Caracteristicas.PESO;
                 break;
+
             case Zodiaco.GEMINIS:
                 stats.FinalThrottle -= valueMinus * stats.FinalThrottle;
                 CalcularMarchas(true, stats, RM);
                 caracteristicaPlus = Caracteristicas.RELACIONMARCHAS;
                 caracteristicaMinus = Caracteristicas.ACCEL;
-
                 break;
+
             case Zodiaco.ACUARIO:
                 stats.ElectricForceRecta += valueMinus * stats.FinalWeight / 100;
                 stats.ElectricForceCurva += valueMinus * stats.FinalWeight / 100;
@@ -93,19 +96,21 @@ public class Signo
                 caracteristicaPlus = Caracteristicas.ESPACIODINAMICA;
                 caracteristicaMinus = Caracteristicas.ACCEL;
                 break;
+
             case Zodiaco.PISCIS:
                 stats.FinalMaxSpeed += stats.FinalMaxSpeed * valuePlus;
                 stats.FinalBrake -= stats.FinalBrake * valueMinus;
                 caracteristicaPlus = Caracteristicas.VELOCIDADMAX;
                 caracteristicaMinus = Caracteristicas.FRENO;
-
                 break;
+
             case Zodiaco.ESCORPIO:
                 stats.FinalWeight += valueMinus * stats.FinalWeight;
                 CalcularMarchas(true, stats, RM);
                 caracteristicaPlus = Caracteristicas.RELACIONMARCHAS;
                 caracteristicaMinus = Caracteristicas.PESO;
                 break;
+
             case Zodiaco.CANCER:
                 stats.FinalBrake -= stats.FinalBrake * valueMinus;
                 stats.ElectricForceRecta += valueMinus * stats.FinalWeight / 100;
@@ -113,6 +118,7 @@ public class Signo
                 caracteristicaPlus = Caracteristicas.ESPACIODINAMICA;
                 caracteristicaMinus = Caracteristicas.FRENO;
                 break;
+
             case Zodiaco.CAPRICORNIO:
                 stats.FinalBrake += stats.FinalBrake * valuePlus;
                 stats.ElectricForceRecta -= valueMinus * stats.FinalWeight / 100;
@@ -120,36 +126,35 @@ public class Signo
                 caracteristicaPlus = Caracteristicas.FRENO;
                 caracteristicaMinus = Caracteristicas.ESPACIODINAMICA;
                 break;
-            case Zodiaco.TAURO:
 
+            case Zodiaco.TAURO:
                 stats.FinalWeight -= valuePlus * stats.FinalWeight;
                 CalcularMarchas(false, stats, RM);
                 caracteristicaPlus = Caracteristicas.PESO;
                 caracteristicaMinus = Caracteristicas.RELACIONMARCHAS;
                 break;
+
             case Zodiaco.VIRGO:
                 stats.FinalMaxSpeed -= valueMinus * stats.FinalMaxSpeed;
                 stats.FinalBrake += valuePlus * stats.FinalBrake;
                 caracteristicaPlus = Caracteristicas.FRENO;
                 caracteristicaMinus = Caracteristicas.VELOCIDADMAX;
-
                 break;
+
             default:
                 break;
-         
-
         }
-
-
-       
     }
+
     private void CalcularMarchas(bool plus, InfoCoche stats, RELACIONMARCHAS RM)
     {
         int signo = -1;
+
         if(plus)
         {
             signo = 1;
         }
+
         switch (RM)
         {
             case RELACIONMARCHAS.ACELERACION:
@@ -173,6 +178,5 @@ public class Signo
 
                 break;
         }
-
     }
 }

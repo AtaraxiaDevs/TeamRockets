@@ -15,8 +15,6 @@ public class Reglajes
 
     public void ElegirReglajes(int a, int b)
     {
-      
-
         switch (a)
         {
             case 0:
@@ -48,11 +46,9 @@ public class Reglajes
                 espacioDinamica = ESPACIODINAMICA.EQUILIBRADOA;
                 break;
         }
-        
- 
     }
 
-    public  void CalcularReglajes(Coche c)
+    public void CalcularReglajes(Coche c)
     {
         switch (relacionMarchas)
         {

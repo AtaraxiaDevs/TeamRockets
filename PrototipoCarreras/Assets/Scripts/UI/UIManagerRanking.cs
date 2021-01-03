@@ -11,10 +11,12 @@ public class UIManagerRanking : MonoBehaviour
     {
         string[] resultadoCarrera = InformacionPersistente.singleton.pilotosOrdenados;
         float[] tiempo = InformacionPersistente.singleton.tiempos;
+
         for (int i = 0; i < posicion.Length; i++)
         {
             posicion[i].text = resultadoCarrera[i];
-            if ((tiempo[i] == 0)|| (tiempo[i] == null))
+
+            if ((tiempo[i] == 0) || (tiempo[i] == null))
             {
                 tiempos[i].text = "???";
             }
@@ -22,9 +24,6 @@ public class UIManagerRanking : MonoBehaviour
             {
                 tiempos[i].text = tiempo[i].ToString();
             }
-           
         }
     }
-
- 
 }

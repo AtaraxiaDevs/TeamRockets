@@ -23,10 +23,10 @@ public enum Marcha
 
 public class Coche : MonoBehaviour
 {
-
     //TESTING QUITAR
     public RELACIONMARCHAS RM;
     public ESPACIODINAMICA ED;
+
     //Referencias
     public InfoCoche stats;
     public ModeloCoche statsBase;
@@ -36,6 +36,7 @@ public class Coche : MonoBehaviour
     public Transform socketCamara;
     private CarreraController carreraController;
     private Animator animator;
+
     //Informacion Coche
     public Signo[] signosAnadidos = new Signo[2];
     public Vector3 [] posiciones;
@@ -97,7 +98,6 @@ public class Coche : MonoBehaviour
                             accidente = true;
                         }
                     }
-
                 }
 
                 if ((currentSpeed > currentModulo.umbral && currentPointMod >= sizeMod / 2) || accidente)
@@ -127,7 +127,6 @@ public class Coche : MonoBehaviour
                         currentpoint = 0;
                         transform.position = posiciones[currentpoint];
                     }
-                  
 
                     currentPointMod++;
                 }
@@ -147,28 +146,29 @@ public class Coche : MonoBehaviour
         //rotar z
         if (soyPlayer)
         {
-
             Debug.Log(transform.rotation.eulerAngles - aux.eulerAngles);
         }
     }
     public void Init(ModuloInfo primerModulo)
     {
-
-        nuevasPosiciones();
+        NuevasPosiciones();
         currentModulo = primerModulo;
         iniciado = true;
         transform.position = posiciones[0];
         transform.LookAt(posiciones[1]);
+
         if (soyPlayer)
         {
             GetComponent<IAMoves>().enabled = false;
         }
     }
-    public void nuevasPosiciones()
+
+    public void NuevasPosiciones()
     {
         posiciones = new Vector3[linea.positionCount];
         linea.GetPositions(posiciones);
     }
+
     public void CambiarCarril()
     {
         currentCarril++;
@@ -179,7 +179,7 @@ public class Coche : MonoBehaviour
         }
 
         linea = IA.currentCircuito.GetCircuito(currentCarril);
-        nuevasPosiciones();
+        NuevasPosiciones();
         iniciado = false;
         StartCoroutine(CambiandoaCarril());
     }
@@ -242,12 +242,11 @@ public class Coche : MonoBehaviour
     {
         currentSpeed += (currentAccel / factorUnidades) + f;
 
-        
-
         if (currentSpeed< stats.Marchas[0])
         {
             currentSpeed = stats.Marchas[0]+ f;
         }
+
         if (soyPlayer)
         {
             //Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
@@ -260,12 +259,12 @@ public class Coche : MonoBehaviour
         {
             accelIA = porcentajeIAccel * stats.FinalThrottle;
             porcentajeIAccel += accel;
-
         }
         else 
         {
             porcentajeIAccel = 0;
         }
+
         if (porcentajeIAccel >= 1)
         {
             porcentajeIAccel = 1;
@@ -282,14 +281,13 @@ public class Coche : MonoBehaviour
         else
         {
             porcentajeIAccel = 0;
-
         }
+
         if (porcentajeIAccel >= 1)
         {
             porcentajeIAccel = 1;
         }
-    
-}
+    }
 
     public Vector3 CalculoNuevaPosicion()
     {
@@ -305,15 +303,11 @@ public class Coche : MonoBehaviour
             //Si current es mayor, accel-> frenar, cada vez mas
             //Si current es menor, accel-> acelerar, cada vez mas
 
-
-
             if (currentMarcha == 0)
             {
                 FrenProgresiva(0);
 
                 currentAccel = accelIA;
-
-
 
                 if (acelerando)
                 {
@@ -321,9 +315,7 @@ public class Coche : MonoBehaviour
                         currentSpeed = stats.Marchas[0] + fuerza;
                     else
                         FormulaMovimiento(fuerza);
-
                 }
-
 
                 if (currentSpeed <= stats.Marchas[0])
                     currentSpeed = stats.Marchas[0] + fuerza;
@@ -340,10 +332,8 @@ public class Coche : MonoBehaviour
                 {
                     FrenProgresiva((int)currentMarcha);
                 }
-       
 
                 currentAccel = accelIA;
-
 
                 if (acelerando)
                 {
@@ -359,10 +349,7 @@ public class Coche : MonoBehaviour
                     else
                         FormulaMovimiento(fuerza);
                 }
-
             } 
-
-   
         }
         else //Comportamiento de la IA
         {
@@ -400,12 +387,15 @@ public class Coche : MonoBehaviour
         {
             ef = stats.ElectricForceCurva;
         }
+
         float rozamiento = currentModulo.rozamiento;
+
         switch (currentModulo.elemento)
         {
             case Elemento.AIRE:
                 rozamiento -= bonusAire * rozamiento;
                 break;
+
             case Elemento.AGUA:
                 rozamiento -= bonusAgua * rozamiento;
                 break;
@@ -413,16 +403,17 @@ public class Coche : MonoBehaviour
             case Elemento.TIERRA:
                 rozamiento -= bonusTierra * rozamiento;
                 break;
+
             case Elemento.FUEGO:
                 rozamiento -= bonusFuego * rozamiento;
                 break;
+
             default:
                 break;
         }
       
-            //Debug.Log(ID+" rozamiento final"+rozamiento);
-            //Debug.Log(ID+" rozamiento en bruto "+currentModulo.rozamiento);
-        
+        //Debug.Log(ID+" rozamiento final"+rozamiento);
+        //Debug.Log(ID+" rozamiento en bruto "+currentModulo.rozamiento);
       
         f = rozamiento + ef;
 
@@ -461,6 +452,7 @@ public class Coche : MonoBehaviour
 
         CalcularStats(datos.reg);
     }
+
     public void CalcularStats(Reglajes reg)
     {
         stats = new InfoCoche();
@@ -478,6 +470,7 @@ public class Coche : MonoBehaviour
         signosAnadidos[1].ModificarStats(stats,statsBase, reg.relacionMarchas, reg.espacioDinamica);
         reg.CalcularReglajes(this);
         CalcularBonus();
+
         for (int i = 0; i < Calado.Length; i++)
         {
             Calado[i] = false;
@@ -502,10 +495,12 @@ public class Coche : MonoBehaviour
     {
         //comprobamos los elementos del coche y de los signos!
         float porcentaje = 0.25f;
+
         List<Elemento> ele = new List<Elemento>();
         ele.Add(statsBase.elemento);
         ele.Add(signosAnadidos[0].elemento);
         ele.Add(signosAnadidos[1].elemento);
+
         List<Elemento> fuego = ele.FindAll((E)=>E.Equals(Elemento.FUEGO));
         List<Elemento> tierra = ele.FindAll((E) => E.Equals(Elemento.TIERRA)); 
         List<Elemento> aire = ele.FindAll((E) => E.Equals(Elemento.AIRE)); 
@@ -515,9 +510,9 @@ public class Coche : MonoBehaviour
         bonusTierra = tierra.Count * 0.25f;
         bonusAire = aire.Count * 0.25f;
         bonusFuego = fuego.Count * 0.25f;
+
         if (fuego.Count >= 2)
         {
-            
             if (fuego.Count == 3)
             {
                 porcentaje = 0.5f;
@@ -525,13 +520,15 @@ public class Coche : MonoBehaviour
             }
 
             stats.FinalThrottle += stats.FinalThrottle* porcentaje;
-        }else if (tierra.Count >= 2)
+        }
+        else if (tierra.Count >= 2)
         {
             if (tierra.Count == 3)
             {
                 porcentaje = 0.5f;
                 bonusTierra = 0.8f;
             }
+
             stats.FinalMaxSpeed += stats.FinalMaxSpeed* porcentaje;
         }
         else if (aire.Count >= 2)
@@ -541,9 +538,9 @@ public class Coche : MonoBehaviour
                 porcentaje = 0.5f;
                 bonusAire= 0.8f;
             }
+
             stats.ElectricForceCurva -= stats.ElectricForceCurva * porcentaje;
             stats.ElectricForceRecta -= stats.ElectricForceRecta * porcentaje;
-
         }
         else if (agua.Count >= 2)
         {

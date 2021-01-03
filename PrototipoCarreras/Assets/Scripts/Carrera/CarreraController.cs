@@ -33,23 +33,25 @@ public class CarreraController : MonoBehaviour
         circuito.IniciarCarrera();
         times.InicioTiempos();
         UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
+
         if (ui.minMaxController != null)
         {
-
              ui.minMaxController.enabled = true;
         }
+
         vueltaMasActual = 0;
     }
+
     IEnumerator Empezar()
     {
         tiempoSalida.SetActive(true);
         
-        for(int i=3;i>=0; i--)
+        for(int i = 3; i >= 0; i--)
         {
             tiempoSalida.GetComponent<Text>().text = i.ToString();
             yield return new WaitForSeconds(1);
-           
         }
+
         tiempoSalida.SetActive(false);
         
         InicioCarrera();

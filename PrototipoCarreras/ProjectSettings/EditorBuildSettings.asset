@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/ModosJuegos.unity
     guid: dd5a78faa2714ec418a282478dbf4f40
   - enabled: 1
+    path: Assets/Scenes/UI/ElegirCircuito.unity
+    guid: 04ed80f341760834ab322454c5a361ab
+  - enabled: 1
     path: Assets/Scenes/UI/MainMenu.unity
     guid: a57f62615e1e20c4588e614f67388a47
   - enabled: 0
