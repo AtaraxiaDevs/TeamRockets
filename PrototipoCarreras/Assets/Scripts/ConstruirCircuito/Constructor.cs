@@ -266,9 +266,14 @@ public class Constructor : MonoBehaviour
             CC.EmpezarCarrera();
     
             // creado.IniciarCarrera();
-        });      
+        });
+        CameraFuncionando(FindObjectOfType<CameraController>());
         
-        FindObjectOfType<CameraController>().GirarEnCircuito(centro/numModulos,numModulos);
+    }
+    public void CameraFuncionando(CameraController camara)
+    {
+
+        camara.GirarEnCircuito(centro / numModulos, numModulos);
     }
     #endregion
     #region Parser

@@ -57,6 +57,7 @@ public class Circuito : MonoBehaviourPunCallbacks
             pilotos[i].ID = i;
             pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
             circuito[i] = mytmp.GetComponent<LineRenderer>();
+            pilotos[i].gameObject.SetActive(false);
         }
 
         for (int i = 0; i < maxPilotos; i++)
@@ -75,6 +76,7 @@ public class Circuito : MonoBehaviourPunCallbacks
             pilotos[i].currentCarril = i;
             pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
             circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
+            pilotos[i].gameObject.SetActive(false);
         }
 
         AsignarPiloto();
@@ -229,6 +231,7 @@ public class Circuito : MonoBehaviourPunCallbacks
         for (int i = 0; i < maxPilotos; i++)
         {
             pilotos[i].Init(moduloPrimero.myInfo);
+            pilotos[i].gameObject.SetActive(true);
         }    
     }
     public Coche getPlayer()

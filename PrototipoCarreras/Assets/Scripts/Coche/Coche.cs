@@ -140,9 +140,9 @@ public class Coche : MonoBehaviour
     {
         Quaternion aux = transform.rotation;
         Vector3 dir = posiciones[currentpoint] - transform.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.1f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.3f);
         float giroY = (transform.rotation.eulerAngles - aux.eulerAngles).y;
-        transform.Rotate(0, 0, giroY );
+        transform.Rotate(0, 0, giroY*1.1f );
         //rotar z
         if (soyPlayer)
         {
@@ -547,7 +547,24 @@ public class Coche : MonoBehaviour
             if (agua.Count == 3)
             {
                 porcentaje = 0.5f;
-                bonusAgua = 0.85f;
+                bonusAgua = 0.8f;
+            }
+            bonusAgua += 0.1f;
+            bonusAire += porcentaje ;
+            bonusFuego += porcentaje;
+            bonusTierra += porcentaje ;
+          
+            if (bonusAire> 0.8)
+            {
+                bonusAire = 0.8f;
+            }
+            if (bonusFuego > 0.8)
+            {
+                bonusFuego = 0.8f;
+            }
+            if (bonusTierra > 0.8)
+            {
+                bonusTierra = 0.8f;
             }
             //penalizacion y rozamiento poco! cosas del rozamiento
         }
