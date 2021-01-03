@@ -49,6 +49,7 @@ public class CarreraController : MonoBehaviour
 
     IEnumerator Empezar()
     {
+        FindObjectOfType<SeleccionadorCamara>().AddCoches();
         tiempoSalida.SetActive(true);
         
         for(int i = 3; i >= 0; i--)

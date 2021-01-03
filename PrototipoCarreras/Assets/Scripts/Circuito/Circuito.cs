@@ -230,8 +230,9 @@ public class Circuito : MonoBehaviourPunCallbacks
         }
         for (int i = 0; i < maxPilotos; i++)
         {
-            pilotos[i].Init(moduloPrimero.myInfo);
             pilotos[i].gameObject.SetActive(true);
+            pilotos[i].Init(moduloPrimero.myInfo);
+            
         }    
     }
     public Coche getPlayer()
@@ -255,6 +256,13 @@ public class Circuito : MonoBehaviourPunCallbacks
         else
         {
             return modulos[id];
+        }
+    }
+    public void PararCarrera(bool value)
+    {
+        foreach(Coche c in pilotos)
+        {
+            c.iniciado =!value;
         }
     }
 

@@ -12,7 +12,7 @@ public class UIManagerCarrera : MonoBehaviour
     public List<Coche> coches = new List<Coche>();
 
     //Referencias UI
-    public Button startCarrera,stopCarrera;
+    public Button startCarrera,stopCarrera,reanudarCarrera;
     public Slider minMaxController;
     public Text velocidad,posiciones;
     public Fader sceneFader;
@@ -50,8 +50,8 @@ public class UIManagerCarrera : MonoBehaviour
             coches.AddRange(circuito.pilotos);
             FindObjectOfType<CameraController>().GirarEnCircuito(circuito.transform);
         }
-       
-        //stopCarrera.onClick.AddListener(() => Time.timeScale = 0);
+
+        stopCarrera.onClick.AddListener(() => PararCarrera()) ;
         if (minMaxController != null)
         {
             minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
@@ -104,7 +104,20 @@ public class UIManagerCarrera : MonoBehaviour
     }
     #endregion
     #region Gestion de eventos
-
+    private void PararCarrera()
+    {
+        Time.timeScale = 0;
+        circuito.PararCarrera(true);
+        stopCarrera.onClick.RemoveAllListeners();
+        stopCarrera.onClick.AddListener(() => ReanudarCarrera());
+    }
+    private void ReanudarCarrera()
+    {
+        Time.timeScale = 1;
+        circuito.PararCarrera(false);
+        stopCarrera.onClick.RemoveAllListeners();
+        stopCarrera.onClick.AddListener(() => PararCarrera());
+    }
     private void onMinMaxChange(float value)
     {
         myCar.SetCurrentMarcha((int)value);

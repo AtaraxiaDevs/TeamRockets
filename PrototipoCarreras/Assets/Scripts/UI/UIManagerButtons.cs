@@ -16,7 +16,9 @@ public class UIManagerButtons : MonoBehaviour
 
     void Start()
     {
-        jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
+     
+        TextAsset aux = Resources.Load<TextAsset>("localization");
+        jsonData = aux.ToString();
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         idioma = InformacionPersistente.singleton.idiomaActual;
@@ -30,7 +32,9 @@ public class UIManagerButtons : MonoBehaviour
     {
         if(idioma != InformacionPersistente.singleton.idiomaActual)
         {
-            jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
+            
+            TextAsset aux = Resources.Load<TextAsset>("localization");
+            jsonData = aux.ToString();
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
             idioma = InformacionPersistente.singleton.idiomaActual;
             buttText = data[InformacionPersistente.singleton.escenaActual][buttKey][idioma].Value;

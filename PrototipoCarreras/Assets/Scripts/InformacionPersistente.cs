@@ -40,7 +40,7 @@ public class InformacionPersistente : MonoBehaviour
     public int numCoches, nivelRitmoPropio = -1;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
-    public bool esMovil;
+    public bool esMovil, esEditor;
 
     public bool isMobile()
     {
@@ -49,10 +49,18 @@ public class InformacionPersistente : MonoBehaviour
         #endif
             return false;
     }
+    public bool isEditor()
+    {
+        #if UNITY_EDITOR
+            return true;
+        #endif
+            return false;
+    }
     #region Unity
     private void Awake()
     {
         esMovil = isMobile();
+        esEditor = isEditor();
         pilotosOrdenados = new string[4];
 
         if (singleton == null)

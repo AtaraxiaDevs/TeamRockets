@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     public void ComenzarCarrera(Coche myCAR)
     {
         esCircuito = false;
+        transform.parent = null;
         this.myCAR = myCAR;
         transform.parent = myCAR.transform;
         transform.position = myCAR.transform.TransformPoint(posTarget);
@@ -41,13 +42,14 @@ public class CameraController : MonoBehaviour
     public void GirarEnCircuito( Transform circuito)
     {       
         esCircuito = true;
-  
+        transform.parent = null;
         centro = GetCenter(circuito);
         transform.position = circuito.transform.TransformPoint(posCircuito);
     }
 
     public void GirarEnCircuito(Vector3 centro,int num)
     {
+        transform.parent = null;
         esCircuito = true;
 
         this.centro = centro;

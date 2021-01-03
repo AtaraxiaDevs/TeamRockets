@@ -278,7 +278,17 @@ public class UIManagerEscogerCoche : MonoBehaviour
     {
         string[] aux = new string[7];
 
-        string jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
+        string jsonData;
+        //if (InformacionPersistente.singleton.esEditor)
+        //{
+        //    jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
+        //}
+        //else
+        //{
+        //    jsonData = File.ReadAllText(Application.dataPath + "localization.json");
+        //}
+        TextAsset auxtxt = Resources.Load<TextAsset>("localization");
+        jsonData = auxtxt.ToString();
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         int idioma = InformacionPersistente.singleton.idiomaActual;
