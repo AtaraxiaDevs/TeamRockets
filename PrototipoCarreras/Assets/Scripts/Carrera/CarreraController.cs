@@ -39,6 +39,11 @@ public class CarreraController : MonoBehaviour
              ui.minMaxController.enabled = true;
         }
 
+        if(InformacionPersistente.singleton.nivelRitmoPropio >= 0)
+        {
+            circuito.pilotos[0].GetComponent<IAMoves>().nivelRitmo = InformacionPersistente.singleton.nivelRitmoPropio;
+        }
+
         vueltaMasActual = 0;
     }
 

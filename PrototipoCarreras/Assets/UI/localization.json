@@ -29,19 +29,19 @@
 	
 	"ModosJuegos":{
 		"PartidaRapida":[
-			"PartidaRapida",
-			"QuickPlay",
-			"XogoRapido",
+			"Partida\nRapida",
+			"Quick\nPlay",
+			"Xogo\nRapido",
 		],
 		"ModoCopa":[
-			"ModoLiga",
-			"LeagueMode",
+			"Modo\nLiga",
+			"League\nMode",
 			"ModoLiga",
 		],
 		"ModoManager":[
-			"MiEquipo",
-			"MyTeam",
-			"OMeuEquipo",
+			"Mi Equipo",
+			"My Team",
+			"O Meu\nEquipo",
 		],
 		"Tutorial":[
 			"Tutorial",
@@ -52,14 +52,27 @@
 	
 	"NJugadores":{
 		"SinglePlayer":[
-			"Un Jugador",
-			"SinglePlayer",
-			"Un xogador"
+			"Un\nJugador",
+			"Single\nPlayer",
+			"Un\nxogador"
 		],
 		"MultiPlayer":[
-			"Multijugador",
-			"MultiPlayer",
-			"MultiXogador",
+			"Multi\nJugador",
+			"Multi\nPlayer",
+			"Multi\nXogador",
+		],
+	},
+
+	"NJugadoresCopa":{
+		"SinglePlayer":[
+			"Un\nJugador",
+			"Single\nPlayer",
+			"Un\nxogador"
+		],
+		"MultiPlayer":[
+			"Multi\nJugador",
+			"Multi\nPlayer",
+			"Multi\nXogador",
 		],
 	},
 	
@@ -90,9 +103,9 @@
 			"Elemento",
 		],
 		"RelacionMarchas":[
-			"Relacion Marchas ",
-			"Gear Ratio",
-			"Relacion Marchas",
+			"RelacionMarchas ",
+			"GearRatio",
+			"RelacionMarchas",
 		],
 		"EspacioDinamica":[
 			"EspacioDinamica",
@@ -123,19 +136,19 @@
 
 	"EditorMenu":{
 		"CrearCircuito":[
-			"CrearCircuito",
-			"CreateTrack",
-			"CrearCircuito",
+			"Crear\nCircuito",
+			"Create\nTrack",
+			"Crear\nCircuito",
 		],
 		"VistaPrevia":[
-			"VistaPrevia",
+			"Vista\nPrevia",
 			"Preview",
-			"VistaPrevia",
+			"Vista\nPrevia",
 		],
 		"CrearModulo":[
-			"CrearModulo",
-			"CreateModule",
-			"CrearModulo",
+			"Crear\nModulo",
+			"Create\nModule",
+			"Crear\nModulo",
 		],
 	},
 	
@@ -171,7 +184,7 @@
 	
 	"ModoTemporada":{
 		"Presentacion":[
-			"¡Hola, TERRíCOLA! Bienvenido a la competición deportiva más famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competición, elige el chasis de la nave para empezar a construirla. También verás la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
+			"¡Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. También veras la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
 			"¡Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, ¡CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\n¡Good Luck!",
 			"¡Hola, TERRíCOLA! Bienvenido a la competición deportiva más famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competición, elige el chasis del coche con el que empezar a construirlo. También verás la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
 		],
@@ -329,12 +342,4 @@
 			"Volume",
 		],
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

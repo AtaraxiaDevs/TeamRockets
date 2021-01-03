@@ -9,19 +9,21 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     public Circuito circuito;
     public Coche myCar;
-     public List<Coche> coches= new List<Coche>();
+    public List<Coche> coches = new List<Coche>();
+
     //Referencias UI
     public Button startCarrera,stopCarrera;
     public Slider minMaxController;
     public Text velocidad,posiciones;
     public Fader sceneFader;
+
     //PC
     private int marcha;
 
     //Velocidad
 
-    private float speed=0;
-    private float currentSpeed=0;
+    private float speed = 0;
+    private float currentSpeed = 0;
 
     //Variables
     // private float limitSlide = 0.5f;
@@ -33,6 +35,7 @@ public class UIManagerCarrera : MonoBehaviour
         {
             myCar.soyPlayer = true;
         }
+
         marcha = 0;
         //startCarrera.onClick.AddListener(() => {
         //    circuito.Construir();
@@ -42,7 +45,7 @@ public class UIManagerCarrera : MonoBehaviour
 
         //    Time.timeScale = 1;
         //});
-        if (circuito!=null)
+        if (circuito != null)
         {
             coches.AddRange(circuito.pilotos);
             FindObjectOfType<CameraController>().GirarEnCircuito(circuito.transform);
@@ -54,10 +57,8 @@ public class UIManagerCarrera : MonoBehaviour
             minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
             minMaxController.enabled = false;
         }
-
-        
-       
     }
+
     void Update()
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
@@ -106,25 +107,24 @@ public class UIManagerCarrera : MonoBehaviour
 
     private void onMinMaxChange(float value)
     {
-
-       
         myCar.SetCurrentMarcha((int)value);
-  
     }
 
     #endregion
     #region Metodos auxiliares
-    public Coche getPlayer()
+    public Coche GetPlayer()
     {
         return circuito.getPlayer();
     }
+
     public void Comenzar()
     {
         if (myCar == null)
         {
-            myCar = getPlayer();
+            myCar = GetPlayer();
         }
     }
+
     public void IrA(string s)
     {
         //si es modo manager, no se hace, pero si es partida rapida y tal:
@@ -132,11 +132,13 @@ public class UIManagerCarrera : MonoBehaviour
         sceneFader.FadeTo(s);
         InformacionPersistente.singleton.escenaActual = s;
     }
+
     private string PilotosToString()
     {
         int cont = 1;
         coches.Sort(new PosicionesCarreraComparator());
         string res = "";
+
         foreach(Coche c in coches)
         {
             res += cont + "º: " + c.ID + " " + c.statsBase.elemento.ToString() + "\n";
@@ -144,6 +146,7 @@ public class UIManagerCarrera : MonoBehaviour
         }
         return res;
     }
+
     public void SetPosiciones()
     {
         TimeController tc = FindObjectOfType<TimeController>();
@@ -151,6 +154,7 @@ public class UIManagerCarrera : MonoBehaviour
         float[] tiempos = new float[4];
         int agua = 1, fuego = 1, aire = 1, tierra = 1;
         coches.Sort(new PosicionesCarreraComparator());
+
         for(int i=0; i < coches.Count; i++)
         {
             switch (coches[i].statsBase.elemento)
@@ -159,26 +163,30 @@ public class UIManagerCarrera : MonoBehaviour
                     source[i] = "ID: "+ coches[i].ID+ " Neptuno " + agua;
                     agua++;
                     break;
+
                 case Elemento.AIRE:
                     source[i] = "ID: " + coches[i].ID + " Jupiter " + aire;
                     aire++;
                     break;
+
                 case Elemento.FUEGO:
                     source[i] = "ID: " + coches[i].ID + " Marte " + fuego;
                     fuego++;
                     break;
+
                 case Elemento.TIERRA:
                     source[i] = "ID: " + coches[i].ID + " Saturno " + tierra;
                     tierra++;
                     break;
+
                 default:
                     source[i] = i + "º " + "UFO ";
-                   
                     break;
-
             }
+
             tiempos[i] = tc.tiempoMejor[coches[i].ID];
         }
+
         InformacionPersistente.singleton.pilotosOrdenados = source;
         InformacionPersistente.singleton.tiempos = tiempos;
         IrA("Ranking");
