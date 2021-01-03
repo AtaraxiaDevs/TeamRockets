@@ -132,6 +132,19 @@ public class Modulo : MonoBehaviour
     #endregion
     #region Modo Editor
 
+    public void Destacar(bool value)
+    {
+
+        if (value)
+        {
+            GetComponent<MeshRenderer>().enabled = true;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+    
+    }
     private void ForzarModulo()
     {
         if ((path[0] == null)||(!cargadoFichero))
@@ -468,7 +481,9 @@ public class Modulo : MonoBehaviour
 
         if (selecPrimero)
         {
+            
             uiManager.current = this;
+        
         }
         //modo seleccionar primero boolean
     }

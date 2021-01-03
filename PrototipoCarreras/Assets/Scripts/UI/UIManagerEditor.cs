@@ -8,7 +8,28 @@ using UnityEngine.UI;
 public class UIManagerEditor : MonoBehaviour
 {
     //Referencias
-    public Modulo current;
+    private Modulo m_current;
+    public Modulo current 
+    { 
+        get 
+        { 
+            return m_current; 
+        }
+        set 
+        {
+            if (m_current != null)
+            {
+                m_current.Destacar(false);
+            }
+            m_current = value;
+            if (m_current != null)
+            {
+                m_current.Destacar(true);
+            }
+      
+
+        } 
+    }
     public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
     public Circuito circuito;
     public Dropdown vueltas;
@@ -59,6 +80,9 @@ public class UIManagerEditor : MonoBehaviour
         Vector3 posicion = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z);
 
         GameObject nuevoModulo = Instantiate(prefab, posicion, Quaternion.identity);
+    
+        current = nuevoModulo.GetComponent<Modulo>();
+   
         // nuevoModulo.transform.Rotate
         circuito.AddModulo(nuevoModulo.GetComponent<Modulo>());
     }
