@@ -100,8 +100,6 @@
  
   *+ Simulador:* Este modo de juego es exclusivo para un jugador. El competidor se enfrentará a tres cohetes controlados por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para evitar cualquier imprevisto antes de empezar la partida.
  
-  *+ Práctica:* En este modo de juego el jugador podrá probar sus combinaciones de nave + signos del Zodiaco de forma individual, sin competidores.
- 
 **- Naves:** Antes de empezar una partida, los jugadores podrán elegir una nave entre los cuatro tipos disponibles: aire, agua, fuego y tierra. Cada una de estas naves dispondrá de unas caarcterísticas iniciales distintas y podrá circular mejor en módulos afines a su elemento. Además, cada nave podrá equiparse dos signos del Zodiaco, los cuales aumentarán o disminuirán las características de las naves.
 
 **- Editor de circuitos:** Los jugadores tendrán a su disposición un editor de circuitos por módulos. Existen distintos tipos de módulos: recta, curva, ... pudiendo girarlos y conectarlos entre sí para crear circuitos únicos. Estos circuitos se podrán compartir con cualquier persona que tenga el juego mediante códigos QR o IDs.
@@ -112,24 +110,64 @@
 ### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
 #### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
 
-Antes de iniciar una partida, cada jugador deberá elegir una nave espacial. Estas naves se dividen en los cuatro elementos: aire, agua, fuego y tierra. Cada uno de estos cohetes tiene unas estadísticas diferentes y una habilidad especial.
+Podemos dividir el juego en dos grandes fases:
 
-Una vez elegida una nave, los jugadores tendrán que elegir qué signos del Zodiaco podrán equipar a sus vehículos. Cada nave podrá equiparse dos signos, que alterarán las características de cada nave, pudiendo tanto aumentar algunas como disminuir otras.
+**FASE DE PREPARACIÓN**
 
-Al terminar la personalización de las naves, los jugadores pasarán a elegir circuitos. En esta pantalla se mostrarán tanto los circuitos básicos, los creados por el jugador y los descargados mediante código QR. Si la partida es en solitario, el circuito escogido por el jugador será el elegido. En caso de multijugador, cada jugador podrá elegir un circuito en un máximo de 30 segundos. Una vez elegidos los circuitos se jugará al más votado o, en caso de empate, se elegirá de forma aleatoria entre los circuitos empatados.
+Antes de iniciar una partida, los jugadores deberán escoger una nave. Hay disponibles cuatro naves: Júpiter, Neptuno, Marte y Saturno. Cada uno de estos vehículos representa uno de los cuatro elementos principales: aire, agua, fuego y tierra, respectivamente. Cada una de estas naves tendrá una serie de características distintivas al resto, además de ciertas bonificaciones en ciertos aspectos relacionados con sus elementos. Estos aspectos serán explicados en apartados posteriores. 
 
-Al empezar una carrera los jugadores serán colocados en sus respectivas líneas. El jugador 1 siempre será colocado en la línea más externa del circuito y el resto de cohetes, sean jugadores o controlador por IA, serán colocados en las líneas contiguas. Si se juega de forma individual, el resto de líneas serán cubiertas por naves controladas por IA. Estas naves se generarán de forma aleatoria, tanto su elemento como los signos del Zodiaco asignados. En cambio, en el modo multijugador, las líneas serán cubiertas por el resto de jugadores.
+Las naves no estarán restringidas a un solo jugador en el modo multijugador. En un jugador la IA elegirá de manera aleatoria una nave.
+
+Una vez escogida la nave pasaremos a elegir los signos del zodiaco, que aumentarán o disminuirán ciertas características de las naves, dándole un aspecto de estrategia y diferenciación con el resto de vehículos contrarios. Cada jugador podrá equipar a su nave hasta dos signos distintos. Cada signo aumentará una característica del coche y disminuirá otra. Además también pueden afectar a la probabilidad de choque en caso de existir módulos especiales en el circuito escogido. Esta decisión surgió para evitar signos del zodiaco muy poderosos, haciendo que el resto fueran ignorados. 
+
+Los signos tienen su propio elemento, al igual que las naves, pero eso no implica que solamente los jugadores podrán equipar en sus naves los elementos compatibles. Cada jugador podrá elegir libremente sus dos signos a equipar. Al igual que las naves, la IA elegirá de forma aleatoria los dos signos.
+
+Por último, se elegirá un circuito. Dependiendo del número de jugadores se podrá elegir o se escogerá de manera aleatoria. Si la partida es de un solo jugador, este podrá escoger entre los circuitos predeterminados del juego, los creados por él o los circuitos recibidos de otros jugadores. En caso de multijugador se escogerá un circuito al azar de entre todos los disponibles en la base de datos general, independientemente del autor.
+
+Una vez seleccionado un circuito se empezará la carrera.
+
+**CARRERA**
+
+Al iniciar una partida, los vehículos serán colocados en la línea de salida del circuito escogido. Estos vehículos pueden ser controlados tanto por jugadores como por inteligencia artificial, dependiendo del modo escogido. A continuación se mostrará una cuenta atrás, dando inicio a la carrera.
+
+El vehículo se desplazará sobre el circuito de forma automática y el jugador podrá alterar su velocidad mediante una barra de desplazamiento vertical ubicada en la parte derecha de la pantalla. Para evitar una jugabilidad monótona haciendo que los jugadores se limiten a escoger la mayor velocidad posible se han incluido ciertas reglas típicas de la Fórmula 1. Por ejemplo, si un jugador lleva una velocidad muy elevada y se dirige a una curva sin bajar la velocidad, se saldrá del circuito, teniendo que reaparecer en un punto anterior y perdiendo un tiempo valioso.
+
+Para ganar una carrera es necesario dar cuatro vueltas en total al circuito y llegar en primer lugar a la meta en la última vuelta. Al dar una vuelta al circuito los jugadores serán desplazados al carril contiguo a su derecha, haciendo que los jugadores tengan que enfrentarse a las situaciones que presenten el resto de carriles.
+
+En la interfaz de una partida se podrán observar el número de vueltas dadas al circuito en la esquina inferior izquierda y la posición del jugador en la esquina superior derecha.
+
+Una vez finalizada la carrera se mostrará una pantalla con las posiciones de los jugadores y sus tiempos. Desde esta pantalla se podrá salir al menú principal o volver a empezar la partida con los mismos ajustes.
+
+**MODO TORNEO**
+
+En el modo Torneo se aplican las mismas reglas explicadas anteriormente pero, en lugar de correr una sola carrera, se competirá en cuatro circuitos distintos elegidos al azar. Una vez finalizada una carrera se mostrarán los resultados al igual que en una carrera normal, pero con diferencias. En este modo se incluye una puntuación, determinada por la posición obtenida en la carrera, la cual irá aumentando en las siguientes carreras y determinará al ganador del torneo. Esta puntuación se obtiene de esta forma:
+
+* Primer puesto - 10 puntos.
+* Segundo puesto - 8 puntos.
+* Tercer puesto - 5 puntos.
+* Cuarto puesto - 3 puntos.
+
+Al finalizar las cuatro carreras se mostrará un ranking de los competidores.
 
 #### 5.1.2.- VEHÍCULOS  <a name="mecanicas2"/>
 
+Las naves son los elementos fundamentales de Constela-Trix. A continuación se exponen las características principales, en qué consisten y la regla mnemotécnica utilizada:
 
+- `VEL`: Velocidad de movimiento. Determina la velocidad máxima a la que puede llegar una nave.
+- `ACEL`: Aceleración. Determina lo rápido que puede llegar una nave a máxima velocidad.
+- `P`: Peso. Afecta a la velocidad y a la velocidad de frenado.
+- `F`: Frenado. Determina lo rápido que tarda un coche en bajar de velocidad.
+- `MARCHAS`: Relación de marchas. 
+- `ED`: Espaciodinámica.
 
-| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** |
-| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: |
-| Atacante        | Tostada                 |    4    |   9    |   15    |    1    |    1    |
-| Defensor        | Magdalena               |   2.5   |   15   |    5    |   0.65  |    1    |
-| Distancia       | Bol de Cereales         |   3.5   |   7    |   10    |   1.5   |    5    |
-| Velocista       | Robot Velocista         |    8    |   3    |   15    |    1    |    1    | 
+Las naves, su elemento y sus estadísticas son:
+
+| **NOMBRE**      | **ELEMENTO**           | **VEL** | **ACEL** | **P** | **F** | **MARCHAS** | **ED** |
+| :-------------: | :--------------------: | :-----: | :------: | :---: | :---: | :---------: | :----: |
+| Júpiter         | Aire                   |    4    |   9      |   15  |    1  |    1        |        |
+| Neptuno         | Agua                   |   2.5   |   15     |    5  |  0.65 |    1        |        |
+| Marte           | Fuego                  |   3.5   |   7      |   10  |   1.5 |    5        |        |
+| Saturno         | Tierra                 |    8    |   3      |   15  |    1  |    1        |        | 
 
 #### 5.1.3.- SIGNOS DEL ZODIACO     <a name="mecanicas3"/>
 
@@ -137,7 +175,7 @@ Los signos del zodiaco forman una parte fundamental del juego, pudiendo aumentar
 
 Cada jugador podrá equipar a su nave dos signos a su elección, independientemente del elemento tanto del coche como el del signo elegido. Aun así, elegir elementos compatibles aportará ventajas extra, las cuales serán explicadas a continuación.
 
-En la siguiente tabla se pueden ver todos los signos del zodiaco disponibles, las características que varían y la ventaja extra:
+En la siguiente tabla se pueden ver todos los signos del zodiaco disponibleS y las características que varían:
 
 | **SIGNO**    | **ELEMENTO**  | **VEL** | **ACEL** | **P** | **F** | **MARCHAS** | **ED** |
 | :----------: | :-----------: | :-----: | :------: | :---: | :---: | :---------: | :----: |
@@ -160,11 +198,41 @@ En la siguiente tabla se pueden ver todos los signos del zodiaco disponibles, la
 
 #### 5.1.5.- CIRCUITOS    <a name="mecanicas5"/>
 
+Una de las principales características de Constela-Trix son sus circuitos y cómo crearlos. Cada circuito está dividido en módulos independientes, los cuales pueden ser conectados para formar un circuito completo. Al terminar un circuito se formará un camino el cual las naves recorrerán de forma automática. Existen varios tipos de módulos:
 
+- Recta.
+- Curva.
+- *Loop*.
+- Cambio de carril.
+- Zizag.
+
+Además de estos módulos básicos existen cuatro módulos especiales que afectarán a la conducción de las naves. Cada módulo especial representa a uno de los cuatro elementos y pueden afectar al curso normal de una carrera, frenando las naves que no sean del mismo elemento durante un pequeño espacio de tiempo. Como se explicó anteriormente, estos efectos pueden ser contrarrestados por los signos del Zodiaco. A continuación se expone una comparación y cómo afectan las naves y signos.
+
+- Si un jugador pasa por un módulo especial cuyo elemento no coincide con el de su nave y no tiene equipado ningún signo compatible, existe un **50%** de probabilidades de que el jugador sea frenado.
+- Si un jugador pasa por un módulo especial cuyo elemento coincide con el de su nave y no tiene equipado ningún signo compatible, existe un **25%** de probabilidaddes de que el jugador sea frenado.
+- Por cada signo del Zodiaco equipado compatible con el módulo especial la probabilidad de frenado se reduce en un **10%**.
+- Si un jugador pasa por un módulo especiall cuyo elemento coincide con el de su nave y tiene equipados dos signos compatibles, la posibilidad de frenado se reduce a un **0%**.
+
+Al ser una mecánica un tanto confusa se expondrá un ejemplo:
+
+**Nave Neptuno (Agua) con los signo Cáncer (Agua) y Virgo (Tierra)**
+- Módulo de aire: 50% de frenado (ni la nave ni los signos son del elemento aire).
+- Módulo de agua: 15% de frenado (25% por nave de agua - 10% por signo de agua).
+- Módulo de fuego: 50% de frenado (ni la nave ni los signos son del elemento fuego).
+- Módulo de tierra: 40% de frenado (la nave no coincide, pero -10% por el signo de tierra).
 
 #### 5.1.6.- CONSTRUCTOR    <a name="mecanicas6"/>
 
+El juego ofrece a los usuarios un constructor de circuitos usando los módulos explicados anteriormente. Los jugadores podrán colocar, girar y unir cualquier módulo que deseen con total libertad, aunque existen un par de restricciones:
 
+- Todos los circuitos deben estar unidos. Ya que la salida de la carrera y la meta son un único módulo, tienen que estar conectadas.
+- Todos los circuitos deben tener un módulo de cambio de carril.
+
+En cualquier momento el creador podrá acceder a una vista previa del circuito pulsando un botón. 
+
+Una vez el autor considere que acabado su circuito, podrá subirlo a una base de datos general, dónde se almacenarán todos los circuitos creados por otros jugadores. Además, por cada circuito se creará un código QR y una ID para compartir el circuito creado con cualquier persona.
+
+Los jugadores podrán descargar los circuitos de sus conocidos y amigos introduciendo el código QR o la ID correspondientes.
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
@@ -212,41 +280,44 @@ Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y m�
 
 **CONTROLES PC**
 
-Basado en el ratón. (Al solo tener una Habilidad por Ronda, y que no se conserve entre ellas, no hay necesidad de hacer controles de Teclado. Esto ocurre porque solo un jugador tiene la posibilidad de usar la Habilidad, por lo que no hay conflictos. En versiones posteriores del juego esto puede cambiar hacia unos controles de teclado, que dividan los controles en 2.)
+Basado en ratón (Al utilizar controles sencillos tanto en los menús como en las carreras como tal no ha sido necesario utilizar controles de teclado).
 
 *Controles Menú* <br>
 `Ratón`: Seleccionar entre opciones<br>
 `Click Izq Ratón`: Elegir opción
 
-*Jugadores*<br>
-`Click Izq Ratón a la habilidad en su respectiva interfaz`: Selecciona la Habilidad, y si necesitas elegir una linea, te muestra flechas en las diferentes líneas para poder seleccionar a cual de ellas aplicar la Habilidad.
+*Jugadores* <br>
+`Click Izq Ratón en la barra de velocidad y arrastrar`: Aumenta o disminuye la velocidad del vehículo. Si el jugador arrastra la barra hacia la zona superior la nave irá aumentando de velocidad progresivamente hasta llegar al máximo disponible. Si el jugador arrastra la barra hacia la zona inferior de la pantalla la nave frenará progresivamente hasta quedar parada.
 
 **CONTROLES MÓVIL Y TABLETA**
 
-Basado en el control táctil. Los mismos controles para los dos jugadores, un tipo de botón para cada uno. Los Menús se controlan con botones táctiles.
+Basado en el control táctil. Los Menús se controlan con botones táctiles.
 
 *Jugadores*<br>
-`FLECHAS DE LÍNEA`: Elegir línea. Solo hay que hacerlo cuando se resaltan.<br>
-`ICONO DE UNIDADES`: Al pulsar, cambias la unidad seleccionada.<br>
-`ICONO DE HABILIDADES`: Al pulsar,activas la habilidad acumulada.<br>
+`Pulsar y arrastrar barra de cambio de velocidad`: Al igual que en PC, al pulsar y arrastrar la barra de velocidad durante una partida podemos aumentar o disminuir la velocidad de nuestra nave.
 
 *Botones Extra*<br>
 `SALIR`: Sale al menú principal
 
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
 
+El progreso del juego se verá reflejado de dos formas distintas: en las clasificaciones de cada partida y en las clasificaciones generales.
 
-
-El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran los mejores jugadores.
+Al acabar cada carrera se mostrará una clasificación de esa carrera, indicando la posición en la que ha acabado cada jugador la carrera además del tiempo que han tardado en recorrer todas las vueltas del circuito.
 
 ### 5.6.- MODOS DE JUEGO	<a name="niveles"/>
 
-Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego:
+En el juego se ofrecen tres modos de juego principales, dos de ellos siendo posible un modo multijugador entre dos y cuatro jugadores.
 
-- **PARTIDA RÁPIDA**: Basado en Juego Solitario Local.
+- **PARTIDA RÁPIDA UN JUGADOR**: El jugador elegirá su nave y sus signos del Zodiaco y competirá contra tres naves controladas por IA en un circuito escogido por el jugador. Al terminar la carrera escogida el jugador podrá salir al menú principal o volver a jugar.
 
-- **MODO TEMPORADA**: Basado en Juego Solitario Local. 
+- **PARTIDA RÁPIDA MULTIJUGADOR**: En este modo cada jugador podrá elegir su nave y sus signos. Se elegirá un circuito de forma aleatoria entre todos los disponibles en la BBDD.
 
+- **MODO TEMPORADA UN JUGADOR**: El jugador competirá en cuatro carreras consecutivas elegidas al azar contra tres naves controladas por inteligencia artificial. El ganador se determinará mediante un sistema de puntuación.
+
+- **MODO TEMPORADA MULTIJUGADOR**: Los jugadores competirán en cuatro carreras consecutivas elegidas al azar. El ganador se determinará mediante un sistema de puntuación.
+
+- **MODO SIMULACIÓN**: Este modo de juego es exclusivo para un solo jugador. En este modo el jugador tendrá que ajustar los reglajes de su coche de forma que pueda recorrer un circuito sin percances.
 
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
