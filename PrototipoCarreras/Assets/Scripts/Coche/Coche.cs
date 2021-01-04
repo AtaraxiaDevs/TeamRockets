@@ -28,6 +28,7 @@ public class Coche : MonoBehaviour
     public ESPACIODINAMICA ED;
 
     //Referencias
+    public GameObject nave;
     public InfoCoche stats;
     public ModeloCoche statsBase;
     public ModuloInfo currentModulo;
@@ -449,7 +450,10 @@ public class Coche : MonoBehaviour
         statsBase = datos.infoBase;
         signosAnadidos[0] = datos.signos[0];
         signosAnadidos[1] = datos.signos[1];
-
+        nave.GetComponent<MeshFilter>().mesh = statsBase.mesh;
+        nave.GetComponent<MeshRenderer>().materials = statsBase.materialesCoche;
+               // nave.GetComponent<MeshFilter>().mesh= InformacionPersistente.singleton.meshCoches[]
+             
         CalcularStats(datos.reg);
     }
 

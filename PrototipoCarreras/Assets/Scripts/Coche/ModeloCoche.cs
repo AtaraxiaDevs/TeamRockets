@@ -10,4 +10,6 @@ public class ModeloCoche : ScriptableObject
     public float BaseMaxSpeed, BaseThrottle, BaseBrake;
     public float BaseWeight;
     public Elemento elemento;
+    public Mesh mesh;
+    public Material[] materialesCoche;
 }

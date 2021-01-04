@@ -17,15 +17,33 @@ public class Ranking : MonoBehaviour
 
     //Variables
 
-    public Participante[] listaParticipantes;
+    public List <Participante> listaParticipantes;
 
     private void Start()
     {
-        listaParticipantes = new Participante[N_PLAYERS];
-        
-        for (int i = 0; i < listaParticipantes.Length; i++)
+        InformacionPersistente ip = InformacionPersistente.singleton;
+        if (ip.navesModoMan == null)
         {
-            listaParticipantes[i].nombre = nombres[i];
+            listaParticipantes = new List<Participante>();
+            for (int i = 0; i < listaParticipantes.Count; i++)
+            {
+                listaParticipantes[i].nombre = ip.pilotosOrdenados[i];
+                
+
+            }
+            listaParticipantes[0].SetPuntos(5);
+            listaParticipantes[1].SetPuntos(3);
+            listaParticipantes[2].SetPuntos(1);
+            ip.navesModoMan = listaParticipantes;
+
+
+        }
+        else
+        {
+            listaParticipantes = ip.navesModoMan;
+            listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[0])).SetPuntos(5);
+            listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[1])).SetPuntos(3);
+            listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[2])).SetPuntos(1);
         }
     }
 }

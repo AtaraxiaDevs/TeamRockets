@@ -17,3 +17,6 @@ MonoBehaviour:
   BaseBrake: -22
   BaseWeight: 100
   elemento: 2
+  mesh: {fileID: -951608786083511892, guid: caa8ebac5c891b146ba2de9afc3f867d, type: 3}
+  materialesCoche:
+  - {fileID: 3758915863956265881, guid: caa8ebac5c891b146ba2de9afc3f867d, type: 3}

@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RM: 0
   ED: 0
+  nave: {fileID: 2045335374949148179}
   statsBase: {fileID: 11400000, guid: 6dea0c2a418ab3741b199409ea85770a, type: 2}
   currentModulo: {fileID: 0}
   IA: {fileID: 0}
