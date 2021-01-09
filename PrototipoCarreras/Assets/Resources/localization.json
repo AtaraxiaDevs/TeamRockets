@@ -229,11 +229,6 @@
 			"Create\nTrack",
 			"Crear\nCircuito"
 		],
-		"VistaPrevia":[
-			"Vista\nPrevia",
-			"Preview",
-			"Vista\nPrevia"
-		],
 		"CrearModulo":[
 			"Crear\nModulo",
 			"Create\nModule",
@@ -413,6 +408,30 @@
 	
 	"Tienda":{
 	
+	},
+
+	"ElegirCircuito":{
+		"Elegir":[
+			"Elige el circuito",
+			"Choose Track",
+			"Escoller o circuito"
+		],
+		"Prueba":[
+			"¡Prueba a importarlo de tus propios diseños o incluso de otros usuarios!",
+			"Go on and try importing your own designs, or use other users'!",
+			"Proba a importalo dos teus propios deseños,ou mesmo os doutros usuarios!"
+		],
+		"Importar":[
+			"Importar",
+			"Import",
+			"Importar"
+		],
+		"Generar":[
+			"Generar",
+			"Generate",
+			"Xerar"
+		]
+
 	},
 	
 	"Ajustes":{

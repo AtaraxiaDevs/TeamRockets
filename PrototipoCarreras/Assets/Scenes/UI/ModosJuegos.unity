@@ -1401,6 +1401,7 @@ GameObject:
   - component: {fileID: 672563767}
   - component: {fileID: 672563769}
   - component: {fileID: 672563768}
+  - component: {fileID: 672563770}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1469,6 +1470,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672563766}
   m_CullTransparentMesh: 0
+--- !u!114 &672563770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672563766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: ModoCopa
+  hola: {fileID: 672563768}
 --- !u!1 &680926986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,9 +1533,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 680926986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: MultiPlayer
+  hola: {fileID: 1324691504}
 --- !u!114 &680926989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,6 +2020,7 @@ GameObject:
   - component: {fileID: 1159599518}
   - component: {fileID: 1159599517}
   - component: {fileID: 1159599516}
+  - component: {fileID: 1159599519}
   - component: {fileID: 1159599515}
   m_Layer: 5
   m_Name: ModoTemporada
@@ -2134,6 +2152,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159599513}
   m_CullTransparentMesh: 0
+--- !u!114 &1159599519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159599513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: ModoManager
+  hola: {fileID: 2112798877}
 --- !u!1 &1161800073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,9 +2816,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565730100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: MultiPlayer
+  hola: {fileID: 1524762706}
 --- !u!114 &1565730103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,9 +3046,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696841789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: SinglePlayer
+  hola: {fileID: 525897856}
 --- !u!114 &1696841792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3246,9 +3282,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760296081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: PartidaRapida
+  hola: {fileID: 369230353}
 --- !u!1 &1762500409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,9 +3519,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090305419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: SinglePlayer
+  hola: {fileID: 1038414410}
 --- !u!114 &2090305422
 MonoBehaviour:
   m_ObjectHideFlags: 0
