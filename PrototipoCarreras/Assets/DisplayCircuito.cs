@@ -12,17 +12,10 @@ public class DisplayCircuito : MonoBehaviour
     private void Start()
     {
         constructor = FindObjectOfType<Constructor>();
+        constructor.ConstruirCircuitoRandom(this);
+       
+    }
 
-        constructor.ConstruirCircuito(this);
-      
-     
-        
-           
-    }
-    public void CircuitoCargado(Constructor c)
-    {
-        c.CameraFuncionando(camara);
-    }
     private void Update()
     {
         var current = RenderTexture.active;
@@ -35,5 +28,19 @@ public class DisplayCircuito : MonoBehaviour
         display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0,0));
     }
 
+    public void CircuitoCargado(Constructor c)
+    {
+        
+        c.CameraFuncionando(camara);
+    }
+    public void OtroNuevo()
+    {
+        foreach(Modulo m in constructor.creado.modulos)
+        {
+            Destroy(m.gameObject);
+        }
+        Destroy(constructor.creado.gameObject);
+        constructor.ConstruirCircuitoRandom(this);
+    }
 
 }

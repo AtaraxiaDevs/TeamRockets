@@ -41,7 +41,7 @@ public class Constructor : MonoBehaviour
         //DataToCircuito(data);
         db.GetCircuitoFromDataBaseRandom(this,manager);
     }
-    public void ConstruirCircuito(DisplayCircuito dc)
+    public void ConstruirCircuitoRandom(DisplayCircuito dc)
     {
         //////DataCircuito datos = CargarCircuito("prueba");
         //string datos = CargarCircuitoMongo("prueba");
@@ -63,12 +63,14 @@ public class Constructor : MonoBehaviour
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
     {
         DataCircuito data = ParseMongo(datos);
+        InformacionPersistente.singleton.currentCircuito =data;
         DataToCircuito(data);
         dc.CircuitoCargado(this);
     }
 
-    private void DataToCircuito( DataCircuito datos)
+    public void DataToCircuito( DataCircuito datos)
     {
+        centro = Vector3.zero;
         Circuito nuevo = Instantiate(prefabCircuito, Vector3.zero, Quaternion.identity).GetComponent<Circuito>();
         nuevo.numVueltas = datos.numVueltas;
         Vector3 posSiguiente = nuevo.transform.position;
