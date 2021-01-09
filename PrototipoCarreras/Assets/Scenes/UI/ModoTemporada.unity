@@ -2239,6 +2239,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 23301381daafb8f49973d6727b483964, type: 3}
   - {fileID: 21300000, guid: 103c0786938cad3478f0f843af15b718, type: 3}
   - {fileID: 21300000, guid: fa3b7b807b39bd4428a24e2b078d466f, type: 3}
+  tutorial: {fileID: 0}
   flechaAtras: {fileID: 1011473901}
   flechaDelante: {fileID: 275324596}
   btnSigno:
@@ -4900,6 +4901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 2029891081}
+  tutorial: {fileID: 0}
   PPrincipal: {fileID: 1557004194}
   pestanaActual: {fileID: 1215888812}
   esTitulo: 1
@@ -4943,6 +4945,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3100d525ca76b1d41974209e527ac59a, type: 3}
   - {fileID: 21300000, guid: ac4ba42d030489344a8c98ef9dd6e9dc, type: 3}
   - {fileID: 21300000, guid: fab87c5ca1b2d61468eb3c931d1ebd6a, type: 3}
+  tutorial: {fileID: 0}
   flechaAtras: {fileID: 985557663}
   flechaDelante: {fileID: 1918424620}
   btnSigno:
@@ -20162,7 +20165,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PruebaCargadoCircuito
+          m_StringArgument: Simulador
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1719319038

@@ -64,8 +64,11 @@ public class SoundManager : MonoBehaviour
     {
         if (!muteado)
         {
+            float aux=0;
+           
             Sonido.clip = Sonidos[(int)s];
             Sonido.Play();
+          
         }
     
     }

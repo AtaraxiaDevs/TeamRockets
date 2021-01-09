@@ -37,7 +37,7 @@ public class UIManagerCarrera : MonoBehaviour
       
         Constructor c = FindObjectOfType<Constructor>();
         //Si no hay un string de hay circuito en el informacionpersitente
-        if (InformacionPersistente.singleton.currentCircuito == null)
+        if (InformacionPersistente.singleton.currentCircuito.modulos.Count == 0)
         {
 
             c.ConstruirCircuito(this);

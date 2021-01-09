@@ -6,6 +6,7 @@ public class UIManagerMenus : MonoBehaviour
 {
     public Fader sceneFader;
 
+    public GameObject tutorial;
     [Header("Panel Principal")]
     public GameObject PPrincipal;
 
@@ -29,7 +30,11 @@ public class UIManagerMenus : MonoBehaviour
     private void Start()
     {
         SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
-
+        if ((InformacionPersistente.singleton.esTutorial) && tutorial != null)
+        {
+            tutorial.SetActive(true);
+      
+        }
 
         foreach(Button b in Resources.FindObjectsOfTypeAll<Button>())
         {
@@ -79,9 +84,9 @@ public class UIManagerMenus : MonoBehaviour
         }
     }
 
-    public void ModoTutorialOn()
+    public void ModoTutorialOn(bool value)
     {
-
+        InformacionPersistente.singleton.esTutorial = value;
     }
     public void IrA(string s)
     {

@@ -44,7 +44,7 @@ public class InformacionPersistente : MonoBehaviour
     public int numCoches, nivelRitmoPropio = -1;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
-    public bool esMovil, esEditor;
+    public bool esMovil, esEditor, esTutorial = false;
     public string nombreUsuario = "Celtia";
     public DataCircuito currentCircuito = null;
     public DataCircuito[] modoCopa = new DataCircuito[4];

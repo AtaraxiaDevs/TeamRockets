@@ -9,9 +9,11 @@ using System.IO;
 
 public class UIManagerEscogerCoche : MonoBehaviour
 {
+    
     //Referencias
     public Sprite[] fotoCoches;
     public Sprite[] fotoSigno;
+    public GameObject tutorial;
     //UI Referencias
     public Button flechaAtras, flechaDelante;
     public Button[] btnSigno;
@@ -30,6 +32,10 @@ public class UIManagerEscogerCoche : MonoBehaviour
     #region Unity
     void Start()
     {
+        if (InformacionPersistente.singleton.esTutorial)
+        {
+            tutorial.SetActive(true);
+        }
         currentCoche = new DatosCoche();
         currentCoche.ID = 0; // Va a ser el Jugador 1 por ahora
         InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;

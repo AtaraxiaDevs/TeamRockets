@@ -15,5 +15,7 @@ MonoBehaviour:
   conver:
   - conver: Hola, soy Uisge, el CEO de Atarakushia S.A.
     enUso: 0
+  - conver: "Te voy a ense\xF1ar como participar en una carrera espacial."
+    enUso: 0
   clave: "CircuitoEspa\xF1ol"
   iniciado: 0

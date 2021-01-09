@@ -13,6 +13,7 @@ public class MovimientoEditor : MonoBehaviour
     float speedTouch = 0.5f;
     float speedScroll = 40f;
     float speedMove = 3f;
+    float epsilonTouch = 0.1f;
     private void Start()
     {
         main = Camera.main;
@@ -25,7 +26,7 @@ public class MovimientoEditor : MonoBehaviour
         {
             if (Input.touchCount == 2)
             {
-                moviendose = false;
+                moviendose = true;
                 Touch primero = Input.GetTouch(0);
                 Touch segundo = Input.GetTouch(1);
                 Vector2 primeroOld = primero.position - primero.deltaPosition;
@@ -34,12 +35,10 @@ public class MovimientoEditor : MonoBehaviour
                 float distanciaActual = Vector2.Distance(primero.position , segundo.position);
 
                 float deltadistance = distanciaAnterior - distanciaActual;
-                Zoom(-deltadistance,speedTouch);
+                if(Mathf.Abs(deltadistance)>epsilonTouch)
+                    Zoom(-deltadistance,speedTouch);
             }
-            else if (Input.touchCount ==1)
-            {
-                moviendose = true;
-            }
+           
             else
             {
                 moviendose = false;

@@ -18,10 +18,7 @@ public class ConverManager : MonoBehaviour
     private bool ejecutando = false;
     private SoundManager sm;
 
-    private void Start()
-    {
-        sm = FindObjectOfType<SoundManager>();
-    }
+  
     public void addConver(Conversacion c)
     {
         if (listConver.ContainsKey(c.clave))
@@ -40,8 +37,8 @@ public class ConverManager : MonoBehaviour
     public bool PlayConversation(string clave)
 
     {
-    
 
+        sm = FindObjectOfType<SoundManager>();
         Conversacion aux;
         if (listConver.TryGetValue(clave, out aux))
         {
