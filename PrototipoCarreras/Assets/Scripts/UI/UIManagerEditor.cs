@@ -41,6 +41,21 @@ public class UIManagerEditor : MonoBehaviour
     #region Unity
     void Start()
     {
+        rotar.onClick.AddListener(()=> SoundManager.singleton.EjecutarSonido(SONIDO.BOTON1));
+
+        remove.onClick.AddListener(()=>SoundManager.singleton.EjecutarSonido(SONIDO.ERROR2));
+        listoPrimero.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON1));
+        listoConstruir.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON1));
+        Recta.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        ZigZag.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Abierta.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Vuelta.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Cerrada.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Chicanne.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Especial.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+
+
+        SoundManager.singleton.EjecutarMusica(MUSICA.EDITOR);
         current = null;
         rotar.onClick.AddListener(() =>
         {

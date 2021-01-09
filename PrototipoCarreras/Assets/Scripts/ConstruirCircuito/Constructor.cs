@@ -13,11 +13,11 @@ public class Constructor : MonoBehaviour
     //UI
     public Text posiciones;
     //Referencias a prefabs modulos
-    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio,prefabMontaña;
+    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio,prefabMontaña,prefabBurbujas,prefabMeteoritos,prefabElectrico;
     //Referencias a prefab Circuito
     public GameObject prefabCircuito;
 
-    private Circuito creado;
+    public Circuito creado;
     //Para la camara
     private int numModulos;
     private Vector3 centro = Vector3.zero;
@@ -68,6 +68,15 @@ public class Constructor : MonoBehaviour
                     break;
                 case TipoModulo.MONTANHA:
                     nuevoModulo = Instantiate(prefabMontaña, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
+                    break;
+                case TipoModulo.ELECTRICO:
+                    nuevoModulo = Instantiate(prefabElectrico, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
+                    break;
+                case TipoModulo.BURBUJAS:
+                    nuevoModulo = Instantiate(prefabBurbujas, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
+                    break;
+                case TipoModulo.ASTEROIDES:
+                    nuevoModulo = Instantiate(prefabMeteoritos, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
                     break;
                 default:
                     nuevoModulo = Instantiate(prefabModuloRecta, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
@@ -253,21 +262,21 @@ public class Constructor : MonoBehaviour
     #region UI
     public void EmpezarCarreraListener( Button btn)
     {
-        btn.gameObject.SetActive(true);
-        btn.onClick.AddListener(() =>
-        {
+        //btn.gameObject.SetActive(true);
+        //btn.onClick.AddListener(() =>
+        //{
           
-            UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
-            ui.circuito = creado;
-            ui.posiciones = posiciones;
-            CarreraController CC = FindObjectOfType<CarreraController>();
-            CC.circuito = creado;
-            ui.coches.AddRange(creado.pilotos);
-            CC.EmpezarCarrera();
+        //    UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
+        //    ui.circuito = creado;
+        //    ui.posiciones = posiciones;
+        //    CarreraController CC = FindObjectOfType<CarreraController>();
+        //    CC.circuito = creado;
+        //    ui.coches.AddRange(creado.pilotos);
+        //    CC.EmpezarCarrera();
     
-            // creado.IniciarCarrera();
-        });
-        CameraFuncionando(FindObjectOfType<CameraController>());
+        //    // creado.IniciarCarrera();
+        //});
+        //CameraFuncionando(FindObjectOfType<CameraController>());
         
     }
     public void CameraFuncionando(CameraController camara)

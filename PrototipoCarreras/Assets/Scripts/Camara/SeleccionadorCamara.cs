@@ -18,6 +18,7 @@ public class SeleccionadorCamara : MonoBehaviour
     { 
         camera = FindObjectOfType<CameraController>();
         constructor = FindObjectOfType<Constructor>();
+       
         seleccionador.onValueChanged.AddListener((value) => CambiarCamara(value));
     }
     public void AddCoches()

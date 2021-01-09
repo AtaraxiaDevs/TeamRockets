@@ -8,8 +8,8 @@ public class CameraController : MonoBehaviour
     Transform circuito;
 
     Quaternion rotation;
-    Vector3 posTarget = new Vector3(0,15, -15);
-    Vector3 posCircuito = new Vector3(0, 20, 20);
+    Vector3 posTarget = new Vector3(0,25, -22);
+    Vector3 posCircuito = new Vector3(0, 30, 30);
     Vector3 centro;
 
     public bool preparada = false, esCircuito = false;
@@ -20,13 +20,15 @@ public class CameraController : MonoBehaviour
         esCircuito = false;
         transform.parent = null;
         this.myCAR = myCAR;
+        
         transform.parent = myCAR.transform;
         transform.position = myCAR.transform.TransformPoint(posTarget);
         // transform.forward = myCAR.right;
+        
         transform.LookAt(myCAR.transform);
         //transform.forward = myCAR.forward;
-        rotation = transform.rotation;
 
+       // rotation = transform.rotation;
         preparada = true;
     }
 
@@ -37,6 +39,7 @@ public class CameraController : MonoBehaviour
             transform.LookAt(centro);
             transform.RotateAround(centro, new Vector3(0, 1, 0), 3f * Time.deltaTime);
         }
+        
     }
 
     public void GirarEnCircuito( Transform circuito)

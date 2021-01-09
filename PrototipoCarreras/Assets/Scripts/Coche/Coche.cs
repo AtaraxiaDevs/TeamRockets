@@ -28,6 +28,9 @@ public class Coche : MonoBehaviour
     public ESPACIODINAMICA ED;
 
     //Referencias
+    public AudioSource myAudio;
+    public GameObject arosSaturno;
+    public GameObject particleSystem;
     public GameObject nave;
     public InfoCoche stats;
     public ModeloCoche statsBase;
@@ -50,7 +53,7 @@ public class Coche : MonoBehaviour
     private bool[] Calado;
 
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
-    private float factorSpeed = 10, factorUnidades = 20;
+    private float factorSpeed = 5, factorUnidades = 20;
 
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral;
@@ -141,7 +144,7 @@ public class Coche : MonoBehaviour
     {
         Quaternion aux = transform.rotation;
         Vector3 dir = posiciones[currentpoint] - transform.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.15f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.09f);
         float giroY = (transform.rotation.eulerAngles - aux.eulerAngles).y;
         transform.Rotate(0, 0, giroY );
         //rotar z
@@ -187,23 +190,29 @@ public class Coche : MonoBehaviour
 
     IEnumerator CambiandoaCarril()
     {
+        particleSystem.SetActive(false);
         animator.SetBool("CambioCarril", true);
         //yield return new WaitUntil(()=>!animator.GetCurrentAnimatorStateInfo(0).IsTag("1"));
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("CambioCarril", false);
         iniciado = true;
+        particleSystem.SetActive(true);
     }
     #endregion
     #region Carrera Fisicas
     public void SetCurrentMarcha( int marcha)
     {
+        
         if (marcha < (int)currentMarcha)
         {
             acelerando = false;
+            SoundManager.singleton.EjecutarSonido(SONIDO.CURVAS, myAudio);
         }
         else
         {
             acelerando = true;
+            SoundManager.singleton.EjecutarSonido(SONIDO.ARRANCAR, myAudio);
+
         }
         currentMarcha = (Marcha)marcha;
         porcentajeIAccel = 0;
@@ -422,6 +431,7 @@ public class Coche : MonoBehaviour
     }
     IEnumerator SaliendoCircuito(Vector3 posIni)
     {
+        SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);
         for (int i = 0; i < speedAnimSaliendo; i++)
         {
             transform.position += transform.forward;
@@ -450,8 +460,12 @@ public class Coche : MonoBehaviour
         statsBase = datos.infoBase;
         signosAnadidos[0] = datos.signos[0];
         signosAnadidos[1] = datos.signos[1];
-        nave.GetComponent<MeshFilter>().mesh = statsBase.mesh;
-        nave.GetComponent<MeshRenderer>().materials = statsBase.materialesCoche;
+        nave.GetComponentInChildren<MeshFilter>().mesh = statsBase.mesh;
+        nave.GetComponentInChildren<MeshRenderer>().materials = statsBase.materialesCoche;
+        if (statsBase.elemento == Elemento.TIERRA)
+        {
+            arosSaturno.SetActive(true);
+        }
                // nave.GetComponent<MeshFilter>().mesh= InformacionPersistente.singleton.meshCoches[]
              
         CalcularStats(datos.reg);
@@ -494,6 +508,37 @@ public class Coche : MonoBehaviour
         RM = reg.relacionMarchas;
         ED = reg.espacioDinamica;
   
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Coche"))
+        {
+            Coche c = collision.gameObject.GetComponent<Coche>();
+            if (c.linea.Equals(linea))
+            {
+
+                SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);
+                if (c.vuelta > vuelta)
+                {
+                    if (soyPlayer)
+                    {
+                        FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
+                        FindObjectOfType<UIManagerCarrera>().minMaxController.gameObject.SetActive(false);
+                    }
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    if (c.soyPlayer)
+                    {
+                        FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
+                        FindObjectOfType<UIManagerCarrera>().minMaxController.gameObject.SetActive(false);
+                    }
+                    Destroy(c.gameObject);
+
+                }
+            }
+        }
     }
     private void CalcularBonus()
     {

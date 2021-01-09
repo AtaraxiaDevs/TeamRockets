@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class UIManagerCarrera : MonoBehaviour
 {
     //Referencias
-    public Circuito circuito;
+    private Circuito circuito;
+    [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
-
+    public bool PartidaRapida;
     //Referencias UI
     public Button startCarrera,stopCarrera,reanudarCarrera;
     public Slider minMaxController;
@@ -31,32 +32,29 @@ public class UIManagerCarrera : MonoBehaviour
     #region Unity
     void Start()
     {
-        if (myCar != null)
-        {
-            myCar.soyPlayer = true;
-        }
-
+        SoundManager.singleton.EjecutarMusica(MUSICA.CARRERA);
         marcha = 0;
-        //startCarrera.onClick.AddListener(() => {
-        //    circuito.Construir();
-        //    circuito.IniciarCarrera();
-        //    // Camera.main.transform.position = myCar.transform.position+Vector3.up*2;
-        //    // Camera.main.transform.rotation = Quaternion.LookRotation(transform.position - myCar.transform.position, myCar.transform.position);
-
-        //    Time.timeScale = 1;
-        //});
-        if (circuito != null)
+      
+        Constructor c = FindObjectOfType<Constructor>();
+        c.ConstruirCircuito("Prueba");// sustituir por circuito que indique el inmortal
+        circuito = c.creado;
+        coches.AddRange(circuito.pilotos);
+      
+        CameraController cc = FindObjectOfType<CameraController>();
+        c.CameraFuncionando(cc);
+        if (PartidaRapida)
         {
-            coches.AddRange(circuito.pilotos);
-            FindObjectOfType<CameraController>().GirarEnCircuito(circuito.transform);
+            myCar = circuito.pilotos[0];
+            myCar.soyPlayer = true;
+            if (minMaxController != null)
+            {
+                minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
+                minMaxController.enabled = false;
+            }
         }
-
-        stopCarrera.onClick.AddListener(() => PararCarrera()) ;
-        if (minMaxController != null)
-        {
-            minMaxController.onValueChanged.AddListener((value) => onMinMaxChange(value));
-            minMaxController.enabled = false;
-        }
+         stopCarrera.onClick.AddListener(() => PararCarrera()) ;
+         startCarrera.onClick.AddListener(() => { FindObjectOfType<CarreraController>().EmpezarCarrera(); startCarrera.gameObject.SetActive(false); }); ;
+     
     }
 
     void Update()

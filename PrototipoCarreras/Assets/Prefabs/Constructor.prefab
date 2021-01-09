@@ -60,5 +60,12 @@ MonoBehaviour:
     type: 3}
   "prefabMonta\xF1a": {fileID: 9026503651901435900, guid: 591b26cb4bcdde44bace84e6eb7ef783,
     type: 3}
+  prefabBurbujas: {fileID: 9026503651901435900, guid: d77805895c71328499a168edb2b9e460,
+    type: 3}
+  prefabMeteoritos: {fileID: 9026503651901435900, guid: b1337f29f12c7cf4982f684bda0b5a8a,
+    type: 3}
+  prefabElectrico: {fileID: 9026503651901435900, guid: 6a6a32f8ff430064dab484becf344df9,
+    type: 3}
   prefabCircuito: {fileID: 7080469772363994084, guid: 03d256d68184a0e49b2a7742d8e113cc,
     type: 3}
+  creado: {fileID: 0}

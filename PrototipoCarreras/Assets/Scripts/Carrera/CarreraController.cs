@@ -37,6 +37,7 @@ public class CarreraController : MonoBehaviour
         if (ui.minMaxController != null)
         {
              ui.minMaxController.enabled = true;
+            FindObjectOfType<CameraController>().ComenzarCarrera(ui.myCar);
         }
 
         if(InformacionPersistente.singleton.nivelRitmoPropio >= 0)
@@ -49,10 +50,12 @@ public class CarreraController : MonoBehaviour
 
     IEnumerator Empezar()
     {
-        FindObjectOfType<SeleccionadorCamara>().AddCoches();
+        SoundManager.singleton.EjecutarSonido(SONIDO.CUENTATRAS);
+        if(FindObjectOfType<SeleccionadorCamara>()!=null)
+            FindObjectOfType<SeleccionadorCamara>().AddCoches();
         tiempoSalida.SetActive(true);
         
-        for(int i = 3; i >= 0; i--)
+        for(int i = 3; i >= 1; i--)
         {
             tiempoSalida.GetComponent<Text>().text = i.ToString();
             yield return new WaitForSeconds(1);
@@ -86,8 +89,7 @@ public class CarreraController : MonoBehaviour
    
     public void FinCarrera()
     {
-        //times.FinalTiempos();
-        
+ 
         string[] clasFinal = new string[N_PLAYERS];
         DarPuntos(clasFinal);
         FindObjectOfType<UIManagerCarrera>().SetPosiciones();

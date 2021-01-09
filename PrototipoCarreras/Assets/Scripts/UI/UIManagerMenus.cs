@@ -26,6 +26,16 @@ public class UIManagerMenus : MonoBehaviour
     public Sprite spriteIngles2;
     public Sprite spriteGallego2;
 
+    private void Start()
+    {
+        SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
+
+
+        foreach(Button b in Resources.FindObjectsOfTypeAll<Button>())
+        {
+            b.onClick.AddListener(()=>SoundManager.singleton.EjecutarSonido(SONIDO.BOTON1));
+        }
+    }
     private void Update()
     {
         if (esTitulo)
@@ -95,6 +105,10 @@ public class UIManagerMenus : MonoBehaviour
         }
     }
 
+    public void Mutear(bool value)
+    {
+        SoundManager.singleton.Mutear(value);
+    }
     public void CambiarPestana(GameObject scene)
     {
         scene.SetActive(!scene.activeSelf);

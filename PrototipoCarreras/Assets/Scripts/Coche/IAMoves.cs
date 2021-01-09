@@ -151,6 +151,7 @@ public class IAMoves : MonoBehaviour
             {
            
                 coche.SetCurrentMarcha((int)marcha + 1);
+
                 porcentajeIAccel = 0;
             }
         }
