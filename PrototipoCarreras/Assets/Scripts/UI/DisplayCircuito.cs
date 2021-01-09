@@ -9,15 +9,25 @@ public class DisplayCircuito : MonoBehaviour
     public CameraController camara;
     public Camera render;
     public Image display;
+    private bool esperandoCircuitoFlag= false;
     private void Start()
     {
         constructor = FindObjectOfType<Constructor>();
-        constructor.ConstruirCircuitoRandom(this);
+        constructor.ConstruirCircuito();
+        esperandoCircuitoFlag = true;
        
     }
 
     private void Update()
     {
+        if (esperandoCircuitoFlag)
+        {
+            if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
+            {
+                constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
+                esperandoCircuitoFlag = false;
+            }
+        }
         var current = RenderTexture.active;
         RenderTexture.active = render.targetTexture;
         render.Render();
@@ -40,7 +50,8 @@ public class DisplayCircuito : MonoBehaviour
             Destroy(m.gameObject);
         }
         Destroy(constructor.creado.gameObject);
-        constructor.ConstruirCircuitoRandom(this);
+        constructor.ConstruirCircuito();
+        esperandoCircuitoFlag = true;
     }
 
 }

@@ -26,10 +26,10 @@ public class Constructor : MonoBehaviour
 
     private void Start()
     {
-        db = FindObjectOfType<DatabaseAccess>();
+       
     }
     #region Metodos Construccion
-    public void ConstruirCircuito(UIManagerCarrera manager)
+    public void ConstruirCircuito()
     {
         //////DataCircuito datos = CargarCircuito("prueba");
         //string datos = CargarCircuitoMongo("prueba");
@@ -43,22 +43,24 @@ public class Constructor : MonoBehaviour
         //db.PRUEBA(this, manager);
 
         //
-        db.GetCircuitoFromDataBaseRandom(this,manager);
+        db = FindObjectOfType<DatabaseAccess>();
+
+        db.GetCircuitoFromDataBaseRandom();
         //
     }
-    public void ConstruirCircuitoRandom(DisplayCircuito dc)
-    {
-        //////DataCircuito datos = CargarCircuito("prueba");
-        //string datos = CargarCircuitoMongo("prueba");
-        ////string datos = CargarRandomCircuitoFirebase();
+    //public void ConstruirCircuitoRandom(DisplayCircuito dc)
+    //{
+    //    //////DataCircuito datos = CargarCircuito("prueba");
+    //    //string datos = CargarCircuitoMongo("prueba");
+    //    ////string datos = CargarRandomCircuitoFirebase();
 
-        //////Añadir Get con el string y pasarselo a la siguiente linea
+    //    //////Añadir Get con el string y pasarselo a la siguiente linea
 
-        //DataCircuito data = ParseMongo(datos);
-        //DataToCircuito(data);
+    //    //DataCircuito data = ParseMongo(datos);
+    //    //DataToCircuito(data);
     
-        db.GetCircuitoFromDataBaseRandom(this, dc);
-    }
+    //    db.GetCircuitoFromDataBaseRandom(this, dc);
+    //}
     public void ConstruirCircuitoDesdeBD(string datos,UIManagerCarrera manager)
     {
         DataCircuito data = ParserFireBase(datos);

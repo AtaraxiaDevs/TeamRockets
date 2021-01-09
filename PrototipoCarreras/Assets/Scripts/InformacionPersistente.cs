@@ -46,6 +46,7 @@ public class InformacionPersistente : MonoBehaviour
     public string escenaActual = "MainMenu";
     public bool esMovil, esEditor, esTutorial = false;
     public string nombreUsuario = "Celtia";
+    public string DATA_BD = "";
     public DataCircuito currentCircuito = null;
     public DataCircuito[] modoCopa = new DataCircuito[4];
 

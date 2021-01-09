@@ -40,29 +40,31 @@ public class DatabaseAccess : MonoBehaviour
         });
    }
 
-    public async void GetCircuitoFromDataBaseRandom(Constructor mine,UIManagerCarrera manager){
-        RestClient.Get(pathLoad).Then(response =>
-        {
-            int numberOfItems = 0;
-            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+    //public async void GetCircuitoFromDataBaseRandom(Constructor mine,UIManagerCarrera manager){
+    //    RestClient.Get(pathLoad).Then(response =>
+    //    {
+    //        int numberOfItems = 0;
+    //        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
 
-            foreach(var kvp in data){
-                numberOfItems++;
-            }
+    //        foreach(var kvp in data){
+    //            numberOfItems++;
+    //        }
 
-            int randomNumber = Random.Range(0,(numberOfItems));
-            Debug.Log(randomNumber);
-            Debug.Log(data[randomNumber]["order"]);
-            mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"],manager);
-        });
-    }
-    public async void GetCircuitoFromDataBaseRandom(Constructor mine, DisplayCircuito dc)
+    //        int randomNumber = Random.Range(0,(numberOfItems));
+    //        Debug.Log(randomNumber);
+    //        Debug.Log(data[randomNumber]["order"]);
+    //       // mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"],manager);
+    //    });
+    //}
+    public async void GetCircuitoFromDataBaseRandom()
     {
+        Debug.Log("Antes del Get");
         RestClient.Get(pathLoad).Then(response =>
         {
             int numberOfItems = 0;
+            Debug.Log("Antes del parser");
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
-
+            Debug.Log("Antes del Get");
             foreach (var kvp in data)
             {
                 numberOfItems++;
@@ -70,8 +72,10 @@ public class DatabaseAccess : MonoBehaviour
 
             int randomNumber = Random.Range(0, (numberOfItems ));
             Debug.Log(randomNumber);
+            Debug.Log("Antes del debug de la info");
             Debug.Log(data[randomNumber]["order"]);
-            mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"], dc);
+            InformacionPersistente.singleton.DATA_BD = data[randomNumber]["order"];
+           // mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"], dc);
         });
     }
     public async void GetCircuitoFromDataBaseModoCopa()

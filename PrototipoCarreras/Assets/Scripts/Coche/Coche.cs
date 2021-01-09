@@ -464,12 +464,12 @@ public class Coche : MonoBehaviour
         statsBase = datos.infoBase;
         signosAnadidos[0] = datos.signos[0];
         signosAnadidos[1] = datos.signos[1];
-        nave.GetComponentInChildren<MeshFilter>().mesh = statsBase.mesh;
-        nave.GetComponentInChildren<MeshRenderer>().materials = statsBase.materialesCoche;
-        if (statsBase.elemento == Elemento.TIERRA)
-        {
-            arosSaturno.SetActive(true);
-        }
+     ////   nave.GetComponentInChildren<MeshFilter>().mesh = statsBase.mesh;
+     //   nave.GetComponentInChildren<MeshRenderer>().materials = statsBase.materialesCoche;
+     //   if (statsBase.elemento == Elemento.TIERRA)
+     //   {
+     //       arosSaturno.SetActive(true);
+     //   }
                // nave.GetComponent<MeshFilter>().mesh= InformacionPersistente.singleton.meshCoches[]
              
         CalcularStats(datos.reg);

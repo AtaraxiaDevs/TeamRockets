@@ -8,6 +8,7 @@ public class UIManagerCarrera : MonoBehaviour
 {
     //Referencias
     private Circuito circuito;
+    private Constructor constructor;
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
@@ -25,7 +26,7 @@ public class UIManagerCarrera : MonoBehaviour
 
     private float speed = 0;
     private float currentSpeed = 0;
-
+    private bool flagEsperandoCircuito = false;
     //Variables
     // private float limitSlide = 0.5f;
 
@@ -35,17 +36,19 @@ public class UIManagerCarrera : MonoBehaviour
         SoundManager.singleton.EjecutarMusica(MUSICA.CARRERA);
         marcha = 0;
       
-        Constructor c = FindObjectOfType<Constructor>();
+        constructor = FindObjectOfType<Constructor>();
         //Si no hay un string de hay circuito en el informacionpersitente
         if (InformacionPersistente.singleton.currentCircuito.modulos.Count == 0)
         {
 
-            c.ConstruirCircuito(this);
+            constructor.ConstruirCircuito();
+            Debug.Log("Despues del construir del carreramanager");
+            flagEsperandoCircuito = true;
         }
         else
         {
-            c.DataToCircuito(InformacionPersistente.singleton.currentCircuito);
-            CircuitoCargado(c);
+            constructor.DataToCircuito(InformacionPersistente.singleton.currentCircuito);
+            CircuitoCargado(constructor);
             InformacionPersistente.singleton.currentCircuito = null;
         }
         //CircuitoCargado(c);
@@ -77,6 +80,16 @@ public class UIManagerCarrera : MonoBehaviour
     void Update()
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
+
+        if (flagEsperandoCircuito)
+        {
+            if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
+            {
+                Debug.Log("flag activado");
+                constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
+                flagEsperandoCircuito = false;
+            }
+        }
 
         if ((velocidad != null)&&(myCar!=null))
         {
