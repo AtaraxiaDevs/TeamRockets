@@ -167,7 +167,9 @@ public class UIManagerEscogerCoche : MonoBehaviour
     #region Modificacion UI
     private void UpdateInfoCoche()
     {
-        string [] s = ElTraductor();
+        int idioma = InformacionPersistente.singleton.idiomaActual;
+
+        string [] s = ElTraductor(idioma);
 
         Coche cebo = new Coche();
         cebo.statsBase = currentCoche.infoBase;
@@ -175,8 +177,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
         cebo.signosAnadidos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
         cebo.signosAnadidos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
 
-        infosigno1.text = cebo.signosAnadidos[0].zodiaco.ToString();
-        infosigno2.text = cebo.signosAnadidos[1].zodiaco.ToString();
+        infosigno1.text = MiniTraductor(cebo.signosAnadidos[0].zodiaco.ToString(), idioma);
+        infosigno2.text = MiniTraductor(cebo.signosAnadidos[1].zodiaco.ToString(), idioma);
         cebo.CalcularStats(currentCoche.reg);
 
         string[] plus = new string[6];
@@ -214,7 +216,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xdosDisplay.color = Color.red;
                 xtresDisplay.color = Color.white;
             }
-            txtElemento.text = "Auga";
+            txtElemento.text = MiniTraductor("Agua", idioma);
         }
         else if (cebo.bonusFuego >= 0.5f)
         {
@@ -230,7 +232,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[1] += "+";
             }
-            txtElemento.text = "Lume";
+            txtElemento.text = MiniTraductor("Fuego", idioma);
         }
         else if (cebo.bonusTierra >= 0.5f)
         {
@@ -246,7 +248,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[0] += "+";
             }
-            txtElemento.text = "Terra";
+            txtElemento.text = MiniTraductor("Tierra", idioma);
         }
         else if (cebo.bonusAire >= 0.5f)
         {
@@ -262,7 +264,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[3] += "+";
             }
-            txtElemento.text = "Ar";
+            txtElemento.text = MiniTraductor("Aire", idioma); ;
         }
         else
         {
@@ -274,24 +276,29 @@ public class UIManagerEscogerCoche : MonoBehaviour
         infoCocheSignos.text = s[0] + cebo.stats.FinalMaxSpeed + plus[0] + "\n\n" + s[1] + cebo.stats.FinalThrottle + plus[1] + "\n\n" + s[2] + -cebo.stats.FinalBrake + plus[2] + "\n\n" + s[3] + cebo.stats.FinalWeight + plus[5] + "\n\n" + s[4] + currentCoche.infoBase.elemento.ToString() + "\n\n"+ s[5]+plus[4]+"\n\n"+s[6] +plus[3] ;
     }
 
-    public string [] ElTraductor()
+    public string MiniTraductor(string key, int lang)
     {
-        string[] aux = new string[7];
+        string palabro = "";
 
         string jsonData;
-        //if (InformacionPersistente.singleton.esEditor)
-        //{
-        //    jsonData = File.ReadAllText(Application.dataPath + "/UI/localization.json");
-        //}
-        //else
-        //{
-        //    jsonData = File.ReadAllText(Application.dataPath + "localization.json");
-        //}
         TextAsset auxtxt = Resources.Load<TextAsset>("localization");
         jsonData = auxtxt.ToString();
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
-        int idioma = InformacionPersistente.singleton.idiomaActual;
+        palabro = data[InformacionPersistente.singleton.escenaActual][key][lang].Value;
+
+        return palabro;
+    }
+
+
+    public string [] ElTraductor(int idioma)
+    {
+        string[] aux = new string[7];
+
+        string jsonData;
+        TextAsset auxtxt = Resources.Load<TextAsset>("localization");
+        jsonData = auxtxt.ToString();
+        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         aux[0] = data[InformacionPersistente.singleton.escenaActual]["VelocidadMaxima"][idioma].Value+ ": ";
         aux[1] = data[InformacionPersistente.singleton.escenaActual]["Aceleracion"][idioma].Value + ": ";

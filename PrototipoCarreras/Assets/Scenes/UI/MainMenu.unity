@@ -298,9 +298,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 115917970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Creditos
+  hola: {fileID: 280636880}
 --- !u!114 &115917973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,9 +516,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 209577815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Editor
+  hola: {fileID: 672563768}
 --- !u!114 &209577818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,9 +1350,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 937214866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Volumen
+  hola: {fileID: 937214868}
 --- !u!1 &978622227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,9 +1736,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159599513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Tienda
+  hola: {fileID: 2112798877}
 --- !u!114 &1159599516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2689,9 +2697,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760296081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Jugar
+  hola: {fileID: 369230353}
 --- !u!1 &1762500409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,9 +2834,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798474403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Opciones
+  hola: {fileID: 318855835}
 --- !u!114 &1798474406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3246,9 +3258,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2098293410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttKey: Idioma
+  hola: {fileID: 2098293412}
 --- !u!1 &2112798875
 GameObject:
   m_ObjectHideFlags: 0
