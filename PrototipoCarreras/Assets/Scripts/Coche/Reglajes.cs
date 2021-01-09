@@ -56,7 +56,7 @@ public class Reglajes
                 //c.stats.FinalMaxSpeed = c.statsBase.BaseMaxSpeed + 10f;
                 //c.stats.FinalThrottle = c.statsBase.BaseThrottle+ 7f;
                 c.stats.FinalMaxSpeed = c.stats.FinalMaxSpeed + 10f;
-                c.stats.FinalThrottle = c.stats.FinalThrottle + 7f;
+                c.stats.FinalThrottle = c.stats.FinalThrottle + 8f;
                 break;
             case RELACIONMARCHAS.VELOCIDAD:
                 //c.stats.FinalMaxSpeed = c.statsBase.BaseMaxSpeed + 30f;
@@ -68,7 +68,7 @@ public class Reglajes
                 //c.stats.FinalMaxSpeed = c.statsBase.BaseMaxSpeed + 20f;
                 //c.stats.FinalThrottle = c.statsBase.BaseThrottle + 2f;
                 c.stats.FinalMaxSpeed = c.stats.FinalMaxSpeed + 20f;
-                c.stats.FinalThrottle = c.stats.FinalThrottle + 2f;
+                c.stats.FinalThrottle = c.stats.FinalThrottle + 6f;
                 break;
             default:
                 //c.stats.FinalMaxSpeed = c.statsBase.BaseMaxSpeed + 20f;

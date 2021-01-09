@@ -24,18 +24,47 @@ public class Constructor : MonoBehaviour
 
     public DatabaseAccess db;
 
-
-    #region Metodos Construccion
-    public void ConstruirCircuito(string nombre)
+    private void Start()
     {
-        //DataCircuito datos = CargarCircuito("prueba");
-        string datos = CargarCircuitoMongo("prueba");
-        
-        
-        //Añadir Get con el string y pasarselo a la siguiente linea
+        db = FindObjectOfType<DatabaseAccess>();
+    }
+    #region Metodos Construccion
+    public void ConstruirCircuito(UIManagerCarrera manager)
+    {
+        //////DataCircuito datos = CargarCircuito("prueba");
+        //string datos = CargarCircuitoMongo("prueba");
+        ////string datos = CargarRandomCircuitoFirebase();
 
+        //////Añadir Get con el string y pasarselo a la siguiente linea
+
+        //DataCircuito data = ParseMongo(datos);
+        //DataToCircuito(data);
+        db.GetCircuitoFromDataBaseRandom(this,manager);
+    }
+    public void ConstruirCircuito(DisplayCircuito dc)
+    {
+        //////DataCircuito datos = CargarCircuito("prueba");
+        //string datos = CargarCircuitoMongo("prueba");
+        ////string datos = CargarRandomCircuitoFirebase();
+
+        //////Añadir Get con el string y pasarselo a la siguiente linea
+
+        //DataCircuito data = ParseMongo(datos);
+        //DataToCircuito(data);
+    
+        db.GetCircuitoFromDataBaseRandom(this, dc);
+    }
+    public void ConstruirCircuitoDesdeBD(string datos,UIManagerCarrera manager)
+    {
         DataCircuito data = ParseMongo(datos);
         DataToCircuito(data);
+        manager.CircuitoCargado(this);
+    }
+    public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
+    {
+        DataCircuito data = ParseMongo(datos);
+        DataToCircuito(data);
+        dc.CircuitoCargado(this);
     }
 
     private void DataToCircuito( DataCircuito datos)
@@ -252,6 +281,7 @@ public class Constructor : MonoBehaviour
             return null;
         }
     }
+
     private void SaveCircuito(string nombre, DataCircuito circuito)
     {
         BinaryFormatter bf = new BinaryFormatter();
