@@ -45,6 +45,8 @@ public class InformacionPersistente : MonoBehaviour
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
     public bool esMovil, esEditor;
+    public string nombreUsuario = "Celtia";
+
 
     public bool isMobile()
     {

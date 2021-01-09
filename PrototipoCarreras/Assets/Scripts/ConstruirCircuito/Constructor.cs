@@ -22,12 +22,18 @@ public class Constructor : MonoBehaviour
     private int numModulos;
     private Vector3 centro = Vector3.zero;
 
+    public DatabaseAccess db;
+
 
     #region Metodos Construccion
     public void ConstruirCircuito(string nombre)
     {
         //DataCircuito datos = CargarCircuito("prueba");
         string datos = CargarCircuitoMongo("prueba");
+        
+        
+        //Añadir Get con el string y pasarselo a la siguiente linea
+
         DataCircuito data = ParseMongo(datos);
         DataToCircuito(data);
     }
@@ -162,8 +168,13 @@ public class Constructor : MonoBehaviour
     {
         DataCircuito datos = CircuitoToData(circuito);
         string data = ParseCircuito(datos);
-        SaveCircuito("prueba", data);
-        //SaveCircuito("prueba", datos);
+
+        //HACER POST CON DATA
+
+        db.SaveCircuitToDataBase(data);
+
+        
+        
     }
     private DataCircuito CircuitoToData(Circuito circuito)
     {
@@ -208,6 +219,7 @@ public class Constructor : MonoBehaviour
     {
         DataCircuito resultado;
         string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
+
 
         if (File.Exists(path))
         {

@@ -1,46 +1,60 @@
-﻿ using MongoDB.Bson;
- using MongoDB.Driver;
- using MongoDB.Bson.Serialization.Attributes;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Proyecto26;
 
 public class DatabaseAccess : MonoBehaviour
 {
 
-    MongoClient client = new MongoClient("mongodb+srv://AtaraziaDevs:webyrs2020@cluster0.3sf9z.mongodb.net/<dbname>?retryWrites=true&w=majority");
-    IMongoDatabase database;
-    IMongoCollection<BsonDocument> collection;
+    
     void Start()
     {
-        database = client.GetDatabase("ConstelatrixDB");
-        collection = database.GetCollection<BsonDocument>("Circuitos");
-
-
+        SaveCircuitToDataBase("aquello");
+        //GetCircuitoFromDataBase("-MQ_lLjAC1VfctaEM6BR");
+        GetCircuitoFromDataBaseRandom();
     }
 
-   public async void SaveCircuitToDataBase(){
-        //¿Cómo vamos a rellenarlo?
-        var document = new BsonDocument {{"highScore" , 200}};
-        collection.InsertOne(document);
-
-
+   public async void SaveCircuitToDataBase(string order){
+       DatosCircuitos nuevoCircuito = new DatosCircuitos();
+       nuevoCircuito.order = order;
+       RestClient.Post("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos/.json", nuevoCircuito);
+        Debug.Log("Datos Subidos");
    }
 
-   public async void GetCircuitoFromDataBase(string busqueda){
-        //1- Crear query de filtrado
-        //2- Pasarlo a un find y recoger el primero que encontremos.
-        //var filter = Builders<BsonDocument>.Filter.Eq("keyName", busqueda);
-        //var circuitoSelecionado = collection.Find(filter).FirstOrDefault();
-        //Console.WriteLine(circuitoSeleccionado.ToString());
+   public async void GetCircuitoFromDataBaseByName(string name){
+       RestClient.Get("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'").Then(response =>
+        {
+            //Debug.Log(response.Text);
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+            
+            foreach (var kvp in data)
+            {
+                if(name.Equals(kvp.Key))
+                Debug.Log(data[kvp.Key]["order"]); 
+           }
+          
 
-       // return "Hola";
+        });
    }
+
+    public async void GetCircuitoFromDataBaseRandom(){
+        RestClient.Get("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'").Then(response =>
+        {
+            int numberOfItems = 0;
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+
+            foreach(var kvp in data){
+                numberOfItems++;
+            }
+
+            int randomNumber = Random.Range(0,(numberOfItems-1));
+            Debug.Log(randomNumber);
+            Debug.Log(data[randomNumber]["order"]);
+        });
+    }
+
+    
 }
 
-public class CircuitoData{
-    //public string keyName {get;set;}
-    //public string order {get;set}
-    //public float bestTime{get;set}
-    //public string creator {get;set}
-}
+
+
