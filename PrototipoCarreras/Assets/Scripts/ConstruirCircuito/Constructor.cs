@@ -39,7 +39,12 @@ public class Constructor : MonoBehaviour
 
         //DataCircuito data = ParseMongo(datos);
         //DataToCircuito(data);
+
+        //db.PRUEBA(this, manager);
+
+        //
         db.GetCircuitoFromDataBaseRandom(this,manager);
+        //
     }
     public void ConstruirCircuitoRandom(DisplayCircuito dc)
     {

@@ -97,6 +97,30 @@ public class DatabaseAccess : MonoBehaviour
         });
     }
 
+
+    //public async void PRUEBA(Constructor mine, UIManagerCarrera manager)
+    //{
+    //    Debug.Log("antes del get");
+    //    RestClient.Get(pathLoad).Then(response =>
+    //    {
+    //        Debug.Log("hola");
+    //        int numberOfItems = 0;
+    //        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+    //        Debug.Log("Despues del parser");
+    //        //foreach (var kvp in data)
+    //        //{
+    //        //    numberOfItems++;
+    //        //}
+
+    //        //int randomNumber = Random.Range(0, (numberOfItems));
+    //        //Debug.Log(randomNumber);
+    //        //Debug.Log(data[randomNumber]["order"]);
+    //        mine.ConstruirCircuitoDesdeBD(data[0]["order"], manager);
+    //        Debug.Log("Despues del construir" +
+    //            "");
+    //    });
+    //}
+
 }
 
 
