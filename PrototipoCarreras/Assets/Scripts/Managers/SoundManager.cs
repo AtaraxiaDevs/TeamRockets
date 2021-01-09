@@ -11,7 +11,8 @@ public enum SONIDO
     CUENTATRAS,
     CURVAS,
     ERROR1,
-    ERROR2
+    ERROR2,
+    HABLA
 }
 public enum MUSICA
 {
