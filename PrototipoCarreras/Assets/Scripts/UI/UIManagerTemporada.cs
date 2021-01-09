@@ -20,6 +20,7 @@ public class UIManagerTemporada : MonoBehaviour
     public GameObject[] mejorasGraficos4;
 
     private int[] nivelMejora;
+    private string mejora = "";
 
     public void Start()
     {
@@ -34,6 +35,13 @@ public class UIManagerTemporada : MonoBehaviour
         nivelPiloto = 1;
 
         numeroMejoras -= nivelPiloto;
+        
+        string jsonData;
+        TextAsset auxtxt = Resources.Load<TextAsset>("localization");
+        jsonData = auxtxt.ToString();
+        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
+
+        mejora = data[InformacionPersistente.singleton.escenaActual]["Mejoras"][InformacionPersistente.singleton.idiomaActual].Value;
 
         ActualizarMejoras(true);
     }
@@ -89,7 +97,7 @@ public class UIManagerTemporada : MonoBehaviour
         {
             foreach (Text t in mejorasText)
             {
-                t.text = numeroMejoras + " MEJORAS";
+                t.text = numeroMejoras + mejora;
             }
         }  
     }
@@ -114,7 +122,7 @@ public class UIManagerTemporada : MonoBehaviour
 
         foreach (Text t in mejorasText)
         {
-            t.text = numeroMejoras + " MEJORAS";
+            t.text = numeroMejoras + mejora;
         }
     }
 

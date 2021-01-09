@@ -42,11 +42,6 @@
 			"Mi Equipo",
 			"My Team",
 			"O Meu\nEquipo"
-		],
-		"Tutorial":[
-			"Tutorial",
-			"Tutorial",
-			"Tutorial"
 		]
 	},
 	
@@ -264,9 +259,9 @@
 	
 	"ModoTemporada":{
 		"Presentacion":[
-			"�Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, �CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. Tambi�n veras la lista de circuitos del campeonato.\n\n�Mucha Suerte!",
-			"�Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, �CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\n�Good Luck!",
-			"�Hola, TERR�COLA! Bienvenido a la competici�n deportiva m�s famosa de la galaxia, �CONSTELATRIX!\n\nPara ingresar en la competici�n, elige el chasis del coche con el que empezar a construirlo. Tambi�n ver�s la lista de circuitos del campeonato.\n\n�Mucha Suerte!"
+			"¡Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, !CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. Tambien veras la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
+			"Hi, EARTH INHABITANT! Welcome to the most amazing sports competition all around our galaxy, CONSTELATRIX!\n\nTo enter the competition, you have to choose your spaceship's chasis, so you can begin with building and upgrading. You'll also see the track list for the current season.\n\nGood Luck!",
+			"¡Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, !CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis del coche con el que empezar a construirlo. Tambien veras la lista de circuitos del campeonato.\n\n¡Mucha Suerte!"
 		],
 		"ListaCircuitos":[
 			"Lista\nCircuitos",
@@ -311,11 +306,6 @@
 			"My SpaceShip",
 			"A Minha Nave"
 		],
-		"Mejoras":[
-			"Mejoras",
-			"Upgrades",
-			"Melloras"
-		],
 		"Clasificacion":[
 			"Resultados",
 			"Standings",
@@ -343,6 +333,11 @@
 			"Reglajes",
 			"Settings",
 			"Afinacion"
+		],
+		"Config":[
+			"Configura tu Nave",
+			"Modify your SpaceShip",
+			"Configura a tua nave"
 		],
 		"VelocidadMaxima":[
 			"VelocidadMax",
@@ -398,12 +393,122 @@
 			"CUR",
 			"TURN",
 			"CUR"
+		],
+		"Aries":[
+			"Aries",
+			"Aries",
+			"Ariete"
+		],
+		"Sagitario":[
+			"Sagitario",
+			"Sagitarius",
+			"Saxitario"
+		],
+		"Cancer":[
+			"Cancer",
+			"Cancer",
+			"Cangrexo"
+		],
+		"Leo":[
+			"Leo",
+			"Leo",
+			"Leon"
+		],
+		"Piscis":[
+			"Piscis",
+			"Pisces",
+			"Pisces"
+		],
+		"Acuario":[
+			"Acuario",
+			"Aquarius",
+			"Acuario"
+		],
+		"Capricornio":[
+			"Capricornio",
+			"Capricorn",
+			"Capricornio"
+		],
+		"Tauro":[
+			"Tauro",
+			"Taurus",
+			"Touro"
+		],
+		"Virgo":[
+			"Virgo",
+			"Virgo",
+			"Virgo"
+		],
+		"Escorpio":[
+			"Escorpio",
+			"Scorpio",
+			"Escorpion"
+		],
+		"Geminis":[
+			"Geminis",
+			"Gemini",
+			"Xemini"
+		],
+		"Libra":[
+			"Libra",
+			"Libra",
+			"Libra"
+		],
+
+
+		"Aire":[
+			"Aire",
+			"Air",
+			"Ar"
+		],
+		"Agua":[
+			"Agua",
+			"Water",
+			"Auga"
+		],
+		"Fuego":[
+			"Fuego",
+			"Fire",
+			"Lume"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
 		]
 	},
 
-	"Clasificacion":{
-		"ClasificacionCircuitoUlt":[],
-		"ClasificacionGeneral":[]
+	"ClasificacionES":{
+		"Puesto":[
+			"Puesto",
+			"Standing",
+			"Posto"
+		],
+		"Nombre":[
+			"Nombre",
+			"Name",
+			"Nome"
+		],
+		"MejorVuelta":[
+			"Mejor Vuelta",
+			"Best Lap",
+			"Mellor Volta"
+		],
+		"Puntos":[
+			"Puntos",
+			"Points",
+			"Puntos"
+		],
+		"Ultima":[
+			"Ultima",
+			"Last",
+			"Derradeira"
+		],
+		"General":[
+			"General",
+			"General",
+			"Xeral"
+		]
 	},
 	
 	"Tienda":{
