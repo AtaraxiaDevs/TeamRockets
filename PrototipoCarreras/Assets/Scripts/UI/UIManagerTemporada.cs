@@ -42,30 +42,63 @@ public class UIManagerTemporada : MonoBehaviour
     {
         if (nivelPiloto == 1 && a != 1)
         {
-            numeroMejoras -= a;
+            if (a == 2 && numeroMejoras > 0)
+            {
+                numeroMejoras--;
+                MeterDatosPiloto(a);
+            }
+
+            if (a == 3 && numeroMejoras - 1 > 0)
+            {
+                numeroMejoras -= 2;
+                MeterDatosPiloto(a);
+            }
         }
 
         if (nivelPiloto == 2 && a != 2)
         {
             if (a == 1)
+            {
                 numeroMejoras++;
-            if (a == 3)
+                MeterDatosPiloto(a);
+            }
+
+            if (a == 3 && numeroMejoras > 0)
+            {
                 numeroMejoras--;
+                MeterDatosPiloto(a);
+            }
         }
 
         if (nivelPiloto == 3 && a != 3)
         {
-            numeroMejoras += a;
+            if (a == 1)
+            {
+                numeroMejoras += 2;
+                MeterDatosPiloto(a);
+            }
+
+            if (a == 2)
+            {
+                numeroMejoras++;
+                MeterDatosPiloto(a);
+            }
         }
 
-        nivelPiloto = a;
-        Piloto.sprite = pilotoSprite[a - 1];
-        InformacionPersistente.singleton.nivelRitmoPropio = a;
-
-        foreach (Text t in mejorasText)
+        if (numeroMejoras >= 0)
         {
-            t.text = numeroMejoras + " MEJORAS";
-        }
+            foreach (Text t in mejorasText)
+            {
+                t.text = numeroMejoras + " MEJORAS";
+            }
+        }  
+    }
+
+    private void MeterDatosPiloto(int level)
+    {
+        nivelPiloto = level;
+        Piloto.sprite = pilotoSprite[level - 1];
+        InformacionPersistente.singleton.nivelRitmoPropio = level;
     }
 
     public void ActualizarMejoras(bool esMas)

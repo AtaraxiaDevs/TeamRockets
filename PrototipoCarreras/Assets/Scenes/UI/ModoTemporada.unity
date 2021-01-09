@@ -2310,7 +2310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7600098, y: 5.72171}
+  m_AnchoredPosition: {x: 3.7600098, y: 5.7217407}
   m_SizeDelta: {x: -156.37, y: -80.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271983198
@@ -4777,9 +4777,9 @@ MonoBehaviour:
   nivelPiloto: 0
   Piloto: {fileID: 2090812290}
   pilotoSprite:
-  - {fileID: 21300000, guid: 393b84d707ae8794f9830bc4cc9e5fda, type: 3}
-  - {fileID: 21300000, guid: 4124f22c083334b4f9069eabd8fd8690, type: 3}
   - {fileID: 21300000, guid: 20d41640b3702c54da0837f70cd4e3da, type: 3}
+  - {fileID: 21300000, guid: 4124f22c083334b4f9069eabd8fd8690, type: 3}
+  - {fileID: 21300000, guid: 393b84d707ae8794f9830bc4cc9e5fda, type: 3}
   mejorasText:
   - {fileID: 979925853}
   - {fileID: 930480609}
@@ -12971,7 +12971,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -22517,7 +22517,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
