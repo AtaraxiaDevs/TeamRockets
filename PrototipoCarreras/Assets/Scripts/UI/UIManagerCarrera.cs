@@ -36,10 +36,16 @@ public class UIManagerCarrera : MonoBehaviour
         marcha = 0;
       
         Constructor c = FindObjectOfType<Constructor>();
-        c.ConstruirCircuito("Prueba");// sustituir por circuito que indique el inmortal
+        //Si no hay un string de hay circuito en el informacionpersitente
+        c.ConstruirCircuito(this);
+        //CircuitoCargado(c);
+       
+    }
+    public void CircuitoCargado(Constructor c)
+    {
         circuito = c.creado;
         coches.AddRange(circuito.pilotos);
-      
+
         CameraController cc = FindObjectOfType<CameraController>();
         c.CameraFuncionando(cc);
         if (PartidaRapida)
@@ -52,16 +58,17 @@ public class UIManagerCarrera : MonoBehaviour
                 minMaxController.enabled = false;
             }
         }
-         stopCarrera.onClick.AddListener(() => PararCarrera()) ;
-         startCarrera.onClick.AddListener(() => { FindObjectOfType<CarreraController>().EmpezarCarrera(); startCarrera.gameObject.SetActive(false); }); ;
-     
+        stopCarrera.onClick.AddListener(() => PararCarrera());
+        startCarrera.onClick.AddListener(() => { FindObjectOfType<CarreraController>().EmpezarCarrera(); startCarrera.gameObject.SetActive(false); }); ;
+
+
     }
 
     void Update()
     {
         //Camera.main.transform.position = (myCar.transform.position + Vector3.up * 10);
 
-        if (velocidad != null)
+        if ((velocidad != null)&&(myCar!=null))
         {
             currentSpeed = myCar.currentSpeed;
             if (Mathf.Abs(currentSpeed - speed) > 2)

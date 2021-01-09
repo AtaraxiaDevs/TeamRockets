@@ -6,23 +6,25 @@ using Proyecto26;
 public class DatabaseAccess : MonoBehaviour
 {
 
-    
+
+    private string pathSave = "https://constellatrix-27332-default-rtdb.europe-west1.firebasedatabase.app/Circuitos/.json";
+    private string pathLoad = "https://constellatrix-27332-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'";
     void Start()
     {
-        SaveCircuitToDataBase("aquello");
+        //SaveCircuitToDataBase("aquello");
         //GetCircuitoFromDataBase("-MQ_lLjAC1VfctaEM6BR");
-        GetCircuitoFromDataBaseRandom();
+        //GetCircuitoFromDataBaseRandom();
     }
 
    public async void SaveCircuitToDataBase(string order){
        DatosCircuitos nuevoCircuito = new DatosCircuitos();
        nuevoCircuito.order = order;
-       RestClient.Post("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos/.json", nuevoCircuito);
+       RestClient.Post(pathSave, nuevoCircuito);
         Debug.Log("Datos Subidos");
    }
 
-   public async void GetCircuitoFromDataBaseByName(string name){
-       RestClient.Get("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'").Then(response =>
+   public async void GetCircuitoFromDataBaseByName(string name, Constructor mine, UIManagerCarrera manager){
+       RestClient.Get(pathLoad).Then(response =>
         {
             //Debug.Log(response.Text);
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
@@ -32,13 +34,14 @@ public class DatabaseAccess : MonoBehaviour
                 if(name.Equals(kvp.Key))
                 Debug.Log(data[kvp.Key]["order"]); 
            }
-          
+
+           
 
         });
    }
 
-    public async void GetCircuitoFromDataBaseRandom(){
-        RestClient.Get("https://constelatrixdb-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'").Then(response =>
+    public async void GetCircuitoFromDataBaseRandom(Constructor mine,UIManagerCarrera manager){
+        RestClient.Get(pathLoad).Then(response =>
         {
             int numberOfItems = 0;
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
@@ -47,13 +50,31 @@ public class DatabaseAccess : MonoBehaviour
                 numberOfItems++;
             }
 
-            int randomNumber = Random.Range(0,(numberOfItems-1));
+            int randomNumber = Random.Range(0,(numberOfItems));
             Debug.Log(randomNumber);
             Debug.Log(data[randomNumber]["order"]);
+            mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"],manager);
+        });
+    }
+    public async void GetCircuitoFromDataBaseRandom(Constructor mine, DisplayCircuito dc)
+    {
+        RestClient.Get(pathLoad).Then(response =>
+        {
+            int numberOfItems = 0;
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+
+            foreach (var kvp in data)
+            {
+                numberOfItems++;
+            }
+
+            int randomNumber = Random.Range(0, (numberOfItems ));
+            Debug.Log(randomNumber);
+            Debug.Log(data[randomNumber]["order"]);
+            mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"], dc);
         });
     }
 
-    
 }
 
 

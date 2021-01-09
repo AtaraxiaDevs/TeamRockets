@@ -46,7 +46,7 @@ public class InformacionPersistente : MonoBehaviour
     public string escenaActual = "MainMenu";
     public bool esMovil, esEditor;
     public string nombreUsuario = "Celtia";
-
+    public string nameCircuitoActual = null;
 
     public bool isMobile()
     {

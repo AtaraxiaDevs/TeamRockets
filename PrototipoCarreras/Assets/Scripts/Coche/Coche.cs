@@ -192,9 +192,13 @@ public class Coche : MonoBehaviour
     {
         particleSystem.SetActive(false);
         animator.SetBool("CambioCarril", true);
+        if(arosSaturno.activeSelf)
+            arosSaturno.GetComponent<Animator>().SetBool("CambioCarril", true);
         //yield return new WaitUntil(()=>!animator.GetCurrentAnimatorStateInfo(0).IsTag("1"));
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("CambioCarril", false);
+        if (arosSaturno.activeSelf)
+            arosSaturno.GetComponent<Animator>().SetBool("CambioCarril", false);
         iniciado = true;
         particleSystem.SetActive(true);
     }

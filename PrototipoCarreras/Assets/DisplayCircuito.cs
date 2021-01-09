@@ -12,12 +12,16 @@ public class DisplayCircuito : MonoBehaviour
     private void Start()
     {
         constructor = FindObjectOfType<Constructor>();
-        
-        constructor.ConstruirCircuito("prueba");
-        constructor.CameraFuncionando(camara);
+
+        constructor.ConstruirCircuito(this);
+      
      
         
            
+    }
+    public void CircuitoCargado(Constructor c)
+    {
+        c.CameraFuncionando(camara);
     }
     private void Update()
     {

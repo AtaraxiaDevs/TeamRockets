@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestingMultiRoom.unity
     guid: 1e9ce9bd2988b6147832759bd910c590
   - enabled: 1
-    path: Assets/Scenes/PruebaCargadoCircuito.unity
+    path: Assets/Scenes/Simulador.unity
     guid: 2b344d5f65b963949b9f85f31668614b
   - enabled: 1
     path: Assets/Scenes/UI/Tienda.unity
