@@ -103,7 +103,7 @@
 			"Elemento"
 		],
 		"RelacionMarchas":[
-			"RelacionMarchas ",
+			"RelacionMarchas",
 			"GearRatio",
 			"RelacionMarchas"
 		],
@@ -111,6 +111,11 @@
 			"EspacioDinamica",
 			"SpaceDynamics",
 			"EspazoDinamica"
+		],
+		"Carrera":[
+			"Carrera",
+			"Race",
+			"Carreira"
 		],
 		"ACE":[
 			"ACE",
@@ -131,6 +136,90 @@
 			"CUR",
 			"TURN",
 			"CUR"
+		],
+
+
+		"Aries":[
+			"Aries",
+			"Aries",
+			"Ariete"
+		],
+		"Sagitario":[
+			"Sagitario",
+			"Sagitarius",
+			"Saxitario"
+		],
+		"Cancer":[
+			"Cancer",
+			"Cancer",
+			"Cangrexo"
+		],
+		"Leo":[
+			"Leo",
+			"Leo",
+			"Leon"
+		],
+		"Piscis":[
+			"Piscis",
+			"Pisces",
+			"Pisces"
+		],
+		"Acuario":[
+			"Acuario",
+			"Aquarius",
+			"Acuario"
+		],
+		"Capricornio":[
+			"Capricornio",
+			"Capricorn",
+			"Capricornio"
+		],
+		"Tauro":[
+			"Tauro",
+			"Taurus",
+			"Touro"
+		],
+		"Virgo":[
+			"Virgo",
+			"Virgo",
+			"Virgo"
+		],
+		"Escorpio":[
+			"Escorpio",
+			"Scorpio",
+			"Escorpion"
+		],
+		"Geminis":[
+			"Geminis",
+			"Gemini",
+			"Xemini"
+		],
+		"Libra":[
+			"Libra",
+			"Libra",
+			"Libra"
+		],
+
+
+		"Aire":[
+			"Aire",
+			"Air",
+			"Ar"
+		],
+		"Agua":[
+			"Agua",
+			"Water",
+			"Auga"
+		],
+		"Fuego":[
+			"Fuego",
+			"Fire",
+			"Lume"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
 		]
 	},
 

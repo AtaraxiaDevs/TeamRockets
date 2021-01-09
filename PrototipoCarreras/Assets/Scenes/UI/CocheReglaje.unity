@@ -411,7 +411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 87231912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: RECT
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 452456278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: RelacionMarchas
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 521368888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: CURV
@@ -1627,6 +1627,7 @@ GameObject:
   - component: {fileID: 645730740}
   - component: {fileID: 645730739}
   - component: {fileID: 645730738}
+  - component: {fileID: 645730741}
   m_Layer: 5
   m_Name: Carrera
   m_TagString: Untagged
@@ -1745,6 +1746,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645730736}
   m_CullTransparentMesh: 0
+--- !u!114 &645730741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645730736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Carrera
+  hola: {fileID: 784150172}
 --- !u!1 &694076674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2048,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 744094026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: ACE
@@ -4311,7 +4326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1787812365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: VEL
@@ -4993,7 +5008,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2017166353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc196242242ba4b9baed21f4eb04e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttKey: EspacioDinamica
