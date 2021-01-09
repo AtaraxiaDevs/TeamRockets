@@ -79,6 +79,10 @@ public class UIManagerMenus : MonoBehaviour
         }
     }
 
+    public void ModoTutorialOn()
+    {
+
+    }
     public void IrA(string s)
     {
         sceneFader.FadeTo(s);

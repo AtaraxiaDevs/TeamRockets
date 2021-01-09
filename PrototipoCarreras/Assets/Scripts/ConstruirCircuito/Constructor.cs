@@ -56,13 +56,13 @@ public class Constructor : MonoBehaviour
     }
     public void ConstruirCircuitoDesdeBD(string datos,UIManagerCarrera manager)
     {
-        DataCircuito data = ParseMongo(datos);
+        DataCircuito data = ParserFireBase(datos);
         DataToCircuito(data);
         manager.CircuitoCargado(this);
     }
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
     {
-        DataCircuito data = ParseMongo(datos);
+        DataCircuito data = ParserFireBase(datos);
         InformacionPersistente.singleton.currentCircuito =data;
         DataToCircuito(data);
         dc.CircuitoCargado(this);
@@ -353,7 +353,7 @@ public class Constructor : MonoBehaviour
         }
         return res;
     }
-    private DataCircuito ParseMongo(string datos)
+    public static DataCircuito ParserFireBase(string datos)
     {
         string[] datosSplit = datos.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries); 
         int size = int.Parse(datosSplit[0]);
