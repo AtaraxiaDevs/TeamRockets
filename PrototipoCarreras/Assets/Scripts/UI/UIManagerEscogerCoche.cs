@@ -283,8 +283,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
             xtresDisplay.color = Color.white;
         }
 
-        infoCoche.text = s[0] + cebo.stats.FinalMaxSpeed + "\n\n" + s[1] +cebo.stats.FinalThrottle + "\n\n" + s[2] + -cebo.stats.FinalBrake + "\n\n" + s[3] + cebo.stats.FinalWeight+"\n\n" + s[4] + currentCoche.infoBase.elemento.ToString();
-        infoCocheSignos.text = s[0] + cebo.stats.FinalMaxSpeed + plus[0] + "\n\n" + s[1] + cebo.stats.FinalThrottle + plus[1] + "\n\n" + s[2] + -cebo.stats.FinalBrake + plus[2] + "\n\n" + s[3] + cebo.stats.FinalWeight + plus[5] + "\n\n" + s[4] + currentCoche.infoBase.elemento.ToString() + "\n\n"+ s[5]+plus[4]+"\n\n"+s[6] +plus[3] ;
+        infoCoche.text = s[0] + cebo.stats.FinalMaxSpeed + "\n\n" + s[1] +cebo.stats.FinalThrottle + "\n\n" + s[2] + -cebo.stats.FinalBrake + "\n\n" + s[3] + cebo.stats.FinalWeight+"\n\n" + s[4] + MiniTraductor(currentCoche.infoBase.elemento.ToString(), idioma);
+        infoCocheSignos.text = s[0] + cebo.stats.FinalMaxSpeed + plus[0] + "\n\n" + s[1] + cebo.stats.FinalThrottle + plus[1] + "\n\n" + s[2] + -cebo.stats.FinalBrake + plus[2] + "\n\n" + s[3] + cebo.stats.FinalWeight + plus[5] + "\n\n" + s[4] + MiniTraductor(currentCoche.infoBase.elemento.ToString(), idioma) + "\n\n"+ s[5]+plus[4]+"\n\n"+s[6] +plus[3] ;
     }
 
     public string MiniTraductor(string key, int lang)

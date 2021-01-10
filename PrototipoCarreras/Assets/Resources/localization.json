@@ -77,6 +77,16 @@
 			"Choose SpaceShip",
 			"Escoller a minha nave"
 		],
+		"ElegirZodiaco":[
+			"Elige los signos",
+			"Choose your signs",
+			"Escoller o meu signo"
+		],
+		"ElegirSettings":[
+			"Elige los reglajes",
+			"Choose your settings",
+			"Escoller a minha afinacion"
+		],
 
 	
 		"VelocidadMaxima":[
@@ -539,6 +549,29 @@
 			"General",
 			"General",
 			"Xeral"
+		]
+	},
+
+	"Ranking":{
+		"Puesto":[
+			"Puesto",
+			"Standing",
+			"Posto"
+		],
+		"Nombre":[
+			"Nombre",
+			"Name",
+			"Nome"
+		],
+		"MejorVuelta":[
+			"Mejor Vuelta",
+			"Best Lap",
+			"Mellor Volta"
+		],
+		"Puntos":[
+			"Puntos",
+			"Points",
+			"Puntos"
 		]
 	},
 	

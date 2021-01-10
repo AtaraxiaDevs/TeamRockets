@@ -2239,7 +2239,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 23301381daafb8f49973d6727b483964, type: 3}
   - {fileID: 21300000, guid: 103c0786938cad3478f0f843af15b718, type: 3}
   - {fileID: 21300000, guid: fa3b7b807b39bd4428a24e2b078d466f, type: 3}
-  tutorial: {fileID: 0}
   flechaAtras: {fileID: 1011473901}
   flechaDelante: {fileID: 275324596}
   btnSigno:
@@ -4945,7 +4944,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3100d525ca76b1d41974209e527ac59a, type: 3}
   - {fileID: 21300000, guid: ac4ba42d030489344a8c98ef9dd6e9dc, type: 3}
   - {fileID: 21300000, guid: fab87c5ca1b2d61468eb3c931d1ebd6a, type: 3}
-  tutorial: {fileID: 0}
   flechaAtras: {fileID: 985557663}
   flechaDelante: {fileID: 1918424620}
   btnSigno:
