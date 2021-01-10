@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
+  m_Name: "Espa\xF1ol 3"
+  m_EditorClassIdentifier: 
+  conver:
+  - conver: Siguiente paso, elegir las partes del Zodiaco que lleva tu nave. Esto
+      puede sonar un poco raro
+    enUso: 0
+  - conver: "Las naves espaciales pueden a\xF1adir piezas del Zodiaco para mejorar
+      sus estad\xEDsticas"
+    enUso: 0
+  - conver: Tienes que elegir 2 signos, y puedes combinarlos con tu coche para obtener
+      un bonus elemental
+    enUso: 0
+  - conver: Prueba a elegir los signos que prefieras
+    enUso: 0
+  clave: "SignosEspa\xF1ol"
+  iniciado: 0

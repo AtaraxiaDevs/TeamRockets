@@ -82,7 +82,7 @@ public class CarreraController : MonoBehaviour
         
         if(vuelta >= circuito.numVueltas)
         {
-            Time.timeScale = 0;
+            
             FinCarrera();
         }
     }

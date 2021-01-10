@@ -12,6 +12,8 @@ public class UIManagerCarrera : MonoBehaviour
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
+
+    public GameObject tuto;
     public bool PartidaRapida;
     //Referencias UI
     public Button startCarrera,stopCarrera,reanudarCarrera;
@@ -33,6 +35,10 @@ public class UIManagerCarrera : MonoBehaviour
     #region Unity
     void Start()
     {
+        if (InformacionPersistente.singleton.esTutorial)
+        {
+            tuto.SetActive(true);
+        }
         SoundManager.singleton.EjecutarMusica(MUSICA.CARRERA);
         marcha = 0;
       

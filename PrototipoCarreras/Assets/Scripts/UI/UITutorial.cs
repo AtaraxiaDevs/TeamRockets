@@ -12,9 +12,35 @@ public class UITutorial : MonoBehaviour
     {
         CM = GetComponent<ConverManager>();
         CM.refUI = this.gameObject;
+
+        switch (InformacionPersistente.singleton.idiomaActual)
+        {
+            case 0:
+
+                break;
+
+            case 1:
+                clave.Replace("Español", "Ingles");
+                break;
+
+            case 2:
+                clave.Replace("Español", "Gallego");
+                break;
+
+            default:
+
+                break;
+        }
         playConversacion.onClick.AddListener(() => CM.PlayConversation(clave));
         CM.PlayConversation(clave);
     }
-
+    public void CambiarConversacion(string nuevaClave)
+    {
+        if (InformacionPersistente.singleton.esTutorial)
+        {
+            clave = nuevaClave;
+            CM.PlayConversation(clave);
+        }
+    }
     
 }

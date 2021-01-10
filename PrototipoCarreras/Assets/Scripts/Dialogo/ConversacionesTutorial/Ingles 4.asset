@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
-  m_Name: "TutorialCircuitoEspa\xF1ol"
+  m_Name: Ingles 4
   m_EditorClassIdentifier: 
-  conver:
-  - conver: Hola, soy Uisge, el CEO de Atarakushia S.A.
-    enUso: 0
-  - conver: "Te voy a ense\xF1ar como participar en una carrera espacial."
-    enUso: 0
-  clave: "CircuitoEspa\xF1ol"
+  conver: []
+  clave: 
   iniciado: 0

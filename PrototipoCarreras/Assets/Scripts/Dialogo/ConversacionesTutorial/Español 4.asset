@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
+  m_Name: "Espa\xF1ol 4"
+  m_EditorClassIdentifier: 
+  conver:
+  - conver: "Por \xFAltimo, un apartado importante de las carreras: los reglajes."
+    enUso: 0
+  - conver: Los reglajes son ajustes menores que se hacen al coche para adaptarlo
+      a un circuito
+    enUso: 0
+  - conver: "Un reglaje correcto te hara ser mas r\xE1pido que tus rivales. Hay 2
+      tipos."
+    enUso: 0
+  - conver: "La Relacion de Marchas sirve para enfocar tu coche en ganar velocidad
+      o aceleraci\xF3n"
+    enUso: 0
+  - conver: "La Espacio Dinamica (similar a la aerodin\xE1mica terrestre) son causadas
+      por las ondas el\xE9ctricas del espacio."
+    enUso: 0
+  - conver: La nave tiene un chasis modificable, para que la EspacioDinamica incida
+      menos en rectas o curvas.
+    enUso: 0
+  - conver: Atento al circuito y elige los reglajes que consideres adecuados
+    enUso: 0
+  clave: "ReglajesEspa\xF1ol"
+  iniciado: 0
