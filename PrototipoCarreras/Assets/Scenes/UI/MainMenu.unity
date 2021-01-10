@@ -2291,6 +2291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 1582403779}
+  tutorial: {fileID: 0}
   PPrincipal: {fileID: 1549398510}
   pestanaActual: {fileID: 1210014232}
   esTitulo: 1
