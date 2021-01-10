@@ -324,19 +324,19 @@ En el juego se ofrecen tres modos de juego principales, dos de ellos siendo posi
 
 Podríamos considerar que los personajes del juego son las naves espaciales que escogen los jugadores para competir en las carreras. A continuación se muestran los bocetos de cada nave espacial:
 
-* **Júpiter**:
+- **Júpiter**:
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Jupiter2.png)
 
-* **Marte**:
+- **Marte**:
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Marte.png)
 
-* **Saturno**:
+- **Saturno**:
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Saturno3.png)
 
-* **Neptuno**:
+- **Neptuno**:
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Neptuno2.png)
 
@@ -355,34 +355,73 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 Al ser un juego dirigido a todo los públicos, pero especialmente al público adolescente, se ha querido optar por unos diseños vistosos y atractivos. Debido a que las naves tienen los nombres de algunos dioses romanos se añadieron en su diseño final ciertas referencias dependiendo del dios. A continuación se exponen cómo han afectado estas referencias mitológicas a cada una de las naves:
 
-* **Júpiter**:
+- **Júpiter**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/REFERENCIAS%20MITOL%C3%93GICAS/jupiterDios.jpg)
+
+El dios Júpiter es el equivalente al dios griego Zeus. Uno de sus principales símbolos es el rayo y es por ese motivo que la nave Júpiter tiene un cierto parecido a una pistola eléctrica.
+
+- **Marte**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/REFERENCIAS%20MITOL%C3%93GICAS/marteDios.jpg)
+
+Marte es conocido como el dios de la guerra y normalmente es representado con armadura, espada, escudo y caso. En este caso, la nave Marte representa un casco.
+
+- **Saturno**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/REFERENCIAS%20MITOL%C3%93GICAS/saturnoDios.jpg)
+
+Saturno es el dios de la agricultura y la cosecha y normalmente era representado con una hoz. La nave Saturno tiene forma de hoz.
+
+- **Neptuno**: 
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/REFERENCIAS%20MITOL%C3%93GICAS/neptunoDios.jpg)
+
+Neptuno es el dios de los mares y los océanos y normalmente era representado con un carro de combate y con un tridente. Su respectiva nave representa el tridente de Neptuno.
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
-- **EJEMPLO:**
+- **Júpiter**:
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/NavesFinalesPNG/JupiterFinalPNG.png)
+
+- **Marte**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/NavesFinalesPNG/MarteFinalPNG.png)
+
+- **Saturno**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/NavesFinalesPNG/SaturnoFinalPNG.png)
+
+- **Neptuno**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/NavesFinalesPNG/NeptunoFinalPNG.png)
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
-- **EJEMPLO:**
-
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/RedesSociales/Teaser.png)
 
 ---
 
 ## 8.- SONIDO	<a name="sonido"/>
 
-REFERENCIAS
+Al tratarse de un juego de carreras se decidió utilizar música electrónica y EDM, que animase al jugador a jugar y a mantenerse en tensión durante toda la competición. Además, el juego transcurre en el espacio exterior, por lo que este tipo de música encajaba perfectamente con la estética general que se quería conseguir. Por otro lado, la música utilizada para el constructor de circuitos es calmada y permite al jugador concentrarse en la tarea. 
 
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
+Todos los temas de la banda sonora son assets externos. Todas las canciones se han obtenido de Mixkit, una página web dedicada a distintos recursos "de stock" totalmente gratuitos, desde música y efectos sonoros hasta vídeos y fotos:
 
-- *Tema Menú*: Cartoon Fun Holidays by Hadwin Channel<br>
+<a href="https://mixkit.co/"/>Web de Mixkit</a>
+
+A continuación se exponen los temas utilizados para el videojuego junto al nombre de la pieza y su correspondiente autor:
+
+- *Tema Menú*: Ode to Synths by Alejandro Magaña (A. M.)<br>
+- *Tema Carrera*: Techno Fest Feel by Alejandro Magaña (A. M.)<br>
+- *Tema Constructor*: Majestic by Diego Nava<br>
 
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
 
-Realizados con sonidos reales modificados a través de Audacity.
+Al igual que la banda sonora, los efectos sonoros también han sido obtenidos de Mixkit. Estos efectos sonoros pueden ser utilizados para videojuegos, tal y como expone la licencia de Mixkit para efectos de sonido:
 
 - *Grito 1*
 
