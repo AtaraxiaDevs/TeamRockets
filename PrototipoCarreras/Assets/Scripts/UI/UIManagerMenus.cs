@@ -30,10 +30,10 @@ public class UIManagerMenus : MonoBehaviour
     private void Start()
     {
         SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
+
         if ((InformacionPersistente.singleton.esTutorial) && tutorial != null)
         {
             tutorial.SetActive(true);
-      
         }
 
         foreach(Button b in Resources.FindObjectsOfTypeAll<Button>())
@@ -88,6 +88,12 @@ public class UIManagerMenus : MonoBehaviour
     {
         InformacionPersistente.singleton.esTutorial = value;
     }
+
+    public void ModoTemporadaOn(bool value)
+    {
+        //InformacionPersistente.singleton.esManager = value;
+    }
+
     public void IrA(string s)
     {
         sceneFader.FadeTo(s);

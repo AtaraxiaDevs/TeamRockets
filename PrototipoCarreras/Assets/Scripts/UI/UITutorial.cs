@@ -13,6 +13,12 @@ public class UITutorial : MonoBehaviour
         CM = GetComponent<ConverManager>();
         CM.refUI = this.gameObject;
 
+        ComprobarIdioma();
+        playConversacion.onClick.AddListener(() => CM.PlayConversation(clave));
+        CM.PlayConversation(clave);
+    }
+    private void ComprobarIdioma()
+    {
         switch (InformacionPersistente.singleton.idiomaActual)
         {
             case 0:
@@ -31,14 +37,13 @@ public class UITutorial : MonoBehaviour
 
                 break;
         }
-        playConversacion.onClick.AddListener(() => CM.PlayConversation(clave));
-        CM.PlayConversation(clave);
     }
     public void CambiarConversacion(string nuevaClave)
     {
         if (InformacionPersistente.singleton.esTutorial)
         {
             clave = nuevaClave;
+            ComprobarIdioma();
             CM.PlayConversation(clave);
         }
     }
