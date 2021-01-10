@@ -9,7 +9,7 @@ public enum ESPACIODINAMICA { RECTAS, CURVAS, EQUILIBRADOA }
 
 public class Reglajes 
 {
-    public int numReglajes=2;
+    public int numReglajes=3;
     public RELACIONMARCHAS relacionMarchas;
     public ESPACIODINAMICA espacioDinamica;
 

@@ -143,19 +143,27 @@ public class UIManagerEscogerCoche : MonoBehaviour
     private void ElegirReglajeED(int index)
     {
         currentCoche.reg.espacioDinamica = (ESPACIODINAMICA)index;
-
-        for(int i = 0; i < btnRegED.Length; i++)
+        btnRegED[index].image.color = Color.red;
+        for (int i = 0; i < btnRegED.Length; i++)
         {
-            //if (i != index)
-            //{
-            //    btnRegED[i] // cambiar lo suq eno estan seleccionado sy luego el seleccionado
-            //}
+            if (i != index)
+            {
+                btnRegED[i].image.color = Color.white; // cambiar lo suq eno estan seleccionado sy luego el seleccionado
+            }
         }
         UpdateInfoCoche();
     }
     private void ElegirReglajeRM(int index)
     {
         currentCoche.reg.relacionMarchas = (RELACIONMARCHAS)index;
+        btnRegRM[index].image.color = Color.red;
+        for (int i = 0; i < btnRegED.Length; i++)
+        {
+            if (i != index)
+            {
+                btnRegRM[i].image.color = Color.white; // cambiar lo suq eno estan seleccionado sy luego el seleccionado
+            }
+        }
         UpdateInfoCoche();
     }
     //public void EditarCoche()

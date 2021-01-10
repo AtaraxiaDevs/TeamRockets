@@ -12,7 +12,7 @@ public class UIManagerCarrera : MonoBehaviour
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
-
+    public GameObject MenuPausa;
     public GameObject tuto;
     public bool PartidaRapida;
     //Referencias UI
@@ -35,6 +35,7 @@ public class UIManagerCarrera : MonoBehaviour
     #region Unity
     void Start()
     {
+       
         if (InformacionPersistente.singleton.esTutorial)
         {
             tuto.SetActive(true);
@@ -142,17 +143,18 @@ public class UIManagerCarrera : MonoBehaviour
     #region Gestion de eventos
     private void PararCarrera()
     {
+        MenuPausa.SetActive(true);
+        MenuPausa.GetComponent<UIManagerPausa>().ActualizarInfo(circuito.pilotos);
         Time.timeScale = 0;
         circuito.PararCarrera(true);
-        stopCarrera.onClick.RemoveAllListeners();
-        stopCarrera.onClick.AddListener(() => ReanudarCarrera());
+       
     }
-    private void ReanudarCarrera()
+    public void ReanudarCarrera()
     {
+        MenuPausa.SetActive(false);
         Time.timeScale = 1;
         circuito.PararCarrera(false);
-        stopCarrera.onClick.RemoveAllListeners();
-        stopCarrera.onClick.AddListener(() => PararCarrera());
+ 
     }
     private void onMinMaxChange(float value)
     {
