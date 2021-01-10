@@ -409,28 +409,56 @@ Al tratarse de un juego de carreras se decidió utilizar música electrónica y 
 
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
-Todos los temas de la banda sonora son assets externos. Todas las canciones se han obtenido de Mixkit, una página web dedicada a distintos recursos "de stock" totalmente gratuitos, desde música y efectos sonoros hasta vídeos y fotos:
+Todos los temas de la banda sonora son assets externos. Todas las canciones han sido obtenidas de Free Stock Music, una página web que ofrece temas musicales y efectos sonoros con licencia Creative Commons.
 
-<a href="https://mixkit.co/"/>Web de Mixkit</a>
+<a href="https://www.free-stock-music.com/"/>Free Stock Music</a>
 
 A continuación se exponen los temas utilizados para el videojuego junto al nombre de la pieza y su correspondiente autor:
 
-- *Tema Menú*: Ode to Synths by Alejandro Magaña (A. M.)<br>
-- *Tema Carrera*: Techno Fest Feel by Alejandro Magaña (A. M.)<br>
-- *Tema Constructor*: Majestic by Diego Nava<br>
+- *Tema Menú*: A Few Jumps Away by Arthur Vyncke<br>
+
+A Few Jumps Away by Arthur Vyncke | https://soundcloud.com/arthurvost
+Music promoted by https://www.free-stock-music.com
+Creative Commons Attribution-ShareAlike 3.0 Unported
+https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+
+- *Tema Carrera*: Banger by FSM Team feat. < e s c p ><br>
+
+Banger by | e s c p | https://escp-music.bandcamp.com
+Music promoted by https://www.free-stock-music.com
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+- *Tema Constructor*: Lucid Dreaming by FSM Team feat. < e s c p><br>
+
+Lucid Dreaming by | e s c p | https://escp-music.bandcamp.com
+Music promoted by https://www.free-stock-music.com
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
 
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
 
-Al igual que la banda sonora, los efectos sonoros también han sido obtenidos de Mixkit. Estos efectos sonoros pueden ser utilizados para videojuegos, tal y como expone la licencia de Mixkit para efectos de sonido:
+Los efectos sonoros han sido obtenidos de Mixkit, una página web que ofrece recursos de "stock" de manera gratuita, desde música y efectos sonoros hasta vídeos y fotos. Estos efectos sonoros pueden ser utilizados para videojuegos, tal y como expone la licencia de Mixkit para efectos de sonido:
 
-- *Grito 1*
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/Licencias%20m%C3%BAsica/efectosSonorosLicencia.PNG)
+
+<a href="https://mixkit.co/"/>Mixkit</a>
+
+- Long sweeping air swoosh.
+- Sci Fi positive notification.
+- Sci Fi error alert.
+- Sci Fi click.
+- Fast sweeping transition.
+- Short race countdown.
 
 ---
 
 ## 9.- NARRATIVA Y GUION	<a name="narrativaYGuion"/>
 ### 9.1.- SINOPSIS <a name="sinopsis"/>	
 
+Una vez al año, en cierto lugar de la galaxia, se celebra Constela-Trix, una gran competición de carreras de naves espaciales. Pilotos de todas partes de la galaxia se reúnen en este lugar para dar lo mejor de sí y conseguir ganar el torneo. Pero esta ocasión es más especial que cualquier otra, ya que se inaugura el gran constructor de circutios, que permitirá a los espectadores diseñar el circuito por el que correrán los pilotos.
 
+La competición cuenta con unos participantes bastante estrafalarios como, por ejemplo, Lancelot, un ricachón procedente de Saturno que siempre lleva el coche más rápido, pero sus habilidades al volante dejan mucho que desear. Otra participante muy interesante es Vagalume, procedente de Marte, gran fan de la Fórmula 1 terrestre y primeriza en las carreras espaciales. Por otro lado tenemos a la capitana A'Rhea, una piloto experimentada en las fuerzas atmosféricas de Júpiter y con ganas de ganar para apoyar a su familia. Y toda esta gran competición no podría ser posible sin Uisge, CEO de Ataraxia S.A. y patrocinador del equipo oficial de Neptuno. ¿Quién llegará a lo más alto en esta nueva temporada de Constela-Trix?
 
 ---
 
