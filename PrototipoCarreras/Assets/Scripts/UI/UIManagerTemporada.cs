@@ -41,7 +41,7 @@ public class UIManagerTemporada : MonoBehaviour
         jsonData = auxtxt.ToString();
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
-        mejora = data[InformacionPersistente.singleton.escenaActual]["Mejoras"][InformacionPersistente.singleton.idiomaActual].Value;
+        mejora = data["ModificarCoche"]["Mejoras"][InformacionPersistente.singleton.idiomaActual].Value;
 
         ActualizarMejoras(true);
     }
@@ -97,7 +97,7 @@ public class UIManagerTemporada : MonoBehaviour
         {
             foreach (Text t in mejorasText)
             {
-                t.text = numeroMejoras + mejora;
+                t.text = numeroMejoras + " " + mejora;
             }
         }  
     }
@@ -122,7 +122,7 @@ public class UIManagerTemporada : MonoBehaviour
 
         foreach (Text t in mejorasText)
         {
-            t.text = numeroMejoras + mejora;
+            t.text = numeroMejoras + " " + mejora;
         }
     }
 

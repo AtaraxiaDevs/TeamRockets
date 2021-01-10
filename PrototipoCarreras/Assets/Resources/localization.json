@@ -148,7 +148,7 @@
 		],
 		"CURV":[
 			"CUR",
-			"TURN",
+			"TUR",
 			"CUR"
 		],
 		"RMED":[
@@ -297,6 +297,16 @@
 			"Track\nList",
 			"Lista\nCircuitos"
 		],
+		"ElegirNave":[
+			"Elige nave",
+			"Choose SpaceShip",
+			"Escoller a minha nave"
+		],
+		"Mejoras":[
+			"Mejoras",
+			"Upgrades",
+			"Melloras"
+		],
 		"VelocidadMaxima":[
 			"VelocidadMax",
 			"MaxSpeed",
@@ -321,6 +331,26 @@
 			"Elemento",
 			"Element",
 			"Elemento"
+		],
+		"AIRE":[
+			"Aire",
+			"Air",
+			"Ar"
+		],
+		"AGUA":[
+			"Agua",
+			"Water",
+			"Auga"
+		],
+		"FUEGO":[
+			"Fuego",
+			"Fire",
+			"Lume"
+		],
+		"TIERRA":[
+			"Tierra",
+			"Earth",
+			"Terra"
 		]
 	},
 
@@ -421,7 +451,7 @@
 		],
 		"CURV":[
 			"CUR",
-			"TURN",
+			"TUR",
 			"CUR"
 		],
 		"RMED":[
@@ -497,29 +527,29 @@
 		],
 
 
-		"Aire":[
+		"AIRE":[
 			"Aire",
 			"Air",
 			"Ar"
 		],
-		"Agua":[
+		"AGUA":[
 			"Agua",
 			"Water",
 			"Auga"
 		],
-		"Fuego":[
+		"FUEGO":[
 			"Fuego",
 			"Fire",
 			"Lume"
 		],
-		"Tierra":[
+		"TIERRA":[
 			"Tierra",
 			"Earth",
 			"Terra"
 		]
 	},
 
-	"ClasificacionES":{
+	"Clasificaciones":{
 		"Puesto":[
 			"Puesto",
 			"Standing",

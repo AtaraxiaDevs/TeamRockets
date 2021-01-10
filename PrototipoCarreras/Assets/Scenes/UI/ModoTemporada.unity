@@ -20497,6 +20497,7 @@ GameObject:
   - component: {fileID: 1762520089}
   - component: {fileID: 1762520091}
   - component: {fileID: 1762520090}
+  - component: {fileID: 1762520092}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -20563,6 +20564,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762520088}
   m_CullTransparentMesh: 0
+--- !u!114 &1762520092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762520088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: ElegirNave
+  hola: {fileID: 1762520090}
 --- !u!1 &1775989011
 GameObject:
   m_ObjectHideFlags: 0
