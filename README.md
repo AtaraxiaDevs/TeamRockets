@@ -322,28 +322,40 @@ En el juego se ofrecen tres modos de juego principales, dos de ellos siendo posi
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
 
-- **EJEMPLO:**
+Podríamos considerar que los personajes del juego son las naves espaciales que escogen los jugadores para competir en las carreras. A continuación se muestran los bocetos de cada nave espacial:
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+* **Júpiter**:
 
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Jupiter2.png)
+
+* **Marte**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Marte.png)
+
+* **Saturno**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Saturno3.png)
+
+* **Neptuno**:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/Bocetos%20naves/Concept_Neptuno2.png)
 
 ### 6.2.- LOCALIZACIONES	<a name="localizaciones"/>
 
-Este apartado se refiere a los diferentes escenarios visuales en los que se desarrolla el juego:
+Este apartado se refiere a los diferentes escenarios visuales en los que se desarrolla el juego. Al no tener un escenario fijo, sino que este depende del circuito elegido, en este apartado se expone un ejemplo de circuito. Al ser un juego relacionado con naves espaciales, todas las localizaciones se ubican en el espacio exterior.
 
-- **EJEMPLO:**
+* **Circuito de ejemplo**:
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/BocetosPista/ejemplo%20circuito.png)
 
 ---
 
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 
-- **EJEMPLO:**
+Al ser un juego dirigido a todo los públicos, pero especialmente al público adolescente, se ha querido optar por unos diseños vistosos y atractivos. Debido a que las naves tienen los nombres de algunos dioses romanos se añadieron en su diseño final ciertas referencias dependiendo del dios. A continuación se exponen cómo han afectado estas referencias mitológicas a cada una de las naves:
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
-
+* **Júpiter**:
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
