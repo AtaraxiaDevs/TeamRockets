@@ -5,19 +5,20 @@ using UnityEngine;
 public class MovimientoEditor : MonoBehaviour
 {
     //input mouse 1
-    Vector3 comienzo,centro;
+    Vector2 antiguo,nuevo;
     Camera main;
     bool moviendose;
     float width = 100, height = 100;
     float maxSize = 200, minSize = 50;
     float speedTouch = 0.5f;
     float speedScroll = 40f;
-    float speedMove = 3f;
+    float speedMove = 3f, speedMoveMovil = 1f;
     float epsilonTouch = 0.1f;
+    
     private void Start()
     {
         main = Camera.main;
-        centro = new Vector3(Screen.width, 0, Screen.height);
+     
     }
     private void Update()
     {
@@ -27,8 +28,19 @@ public class MovimientoEditor : MonoBehaviour
             if (Input.touchCount == 2)
             {
                 moviendose = true;
+                
                 Touch primero = Input.GetTouch(0);
                 Touch segundo = Input.GetTouch(1);
+                if(primero.phase.Equals(TouchPhase.Began)|| segundo.phase.Equals(TouchPhase.Began))
+                {
+                    nuevo = (primero.position + segundo.position) / 2;
+                    antiguo = nuevo;
+                }
+                else
+                {
+                    antiguo = nuevo;
+                    nuevo = (primero.position + segundo.position) / 2;
+                }
                 Vector2 primeroOld = primero.position - primero.deltaPosition;
                 Vector2 segundoOld = segundo.position - segundo.deltaPosition;
                 float distanciaAnterior = Vector2.Distance(primeroOld, segundoOld);
@@ -59,7 +71,7 @@ public class MovimientoEditor : MonoBehaviour
             }
 
         }
-        Debug.Log(Input.mousePosition);
+     
     }
     
     private void FixedUpdate()
@@ -79,7 +91,15 @@ public class MovimientoEditor : MonoBehaviour
             }
             pos.y = main.transform.position.y;
             //main.transform.Translate(pos);
-            main.transform.position = Vector3.MoveTowards(main.transform.position, pos,speedMove);
+            if (InformacionPersistente.singleton.esMovil)
+            {
+                Vector2 movimiento = nuevo-antiguo;
+                main.transform.position = Vector3.MoveTowards(main.transform.position, movimiento, speedMoveMovil);
+            }
+            else
+            {
+                main.transform.position = Vector3.MoveTowards(main.transform.position, pos, speedMove);
+            }
             Vector3 position = main.transform.position;
             if( (Mathf.Abs(main.transform.position.x) > width))
             {

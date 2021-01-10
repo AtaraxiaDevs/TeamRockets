@@ -143,10 +143,14 @@ public class InformacionPersistente : MonoBehaviour
 
     public void LimpiarInfoCoches()
     {
-        for (int i = 0; i < numCoches; i++)
-        {
-            cochesCarrera[i] = null;
-        }
+        //if (!modoTemporada)
+        //{
+            for (int i = 0; i < numCoches; i++)
+            {
+                cochesCarrera[i] = null;
+            }
+
+       // }
     }
     #endregion
 

@@ -57,9 +57,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d2db2f8563c19a245a1fb4a281fbd474, type: 3}
   - {fileID: 8300000, guid: a84ceedc16a4418428831a95a01869dd, type: 3}
   Canciones:
-  - {fileID: 8300000, guid: 128a8b3653629614c9c8d1147f90bbb8, type: 3}
-  - {fileID: 8300000, guid: 3ce7fe1040b2e3f47a5048ac18ad2032, type: 3}
-  - {fileID: 8300000, guid: 45326bde34a529c4199051f0b459ef80, type: 3}
+  - {fileID: 8300000, guid: 8267338d41bf67c4b8e6a789e0bb2a16, type: 3}
+  - {fileID: 8300000, guid: a9f865c973d1d254a941f00286a81f9e, type: 3}
+  - {fileID: 8300000, guid: 678baa3cebc53f342bf47ff0f52dec60, type: 3}
 --- !u!82 &1996667507647963664
 AudioSource:
   m_ObjectHideFlags: 0

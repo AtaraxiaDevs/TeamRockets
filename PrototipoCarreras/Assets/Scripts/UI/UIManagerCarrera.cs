@@ -29,6 +29,7 @@ public class UIManagerCarrera : MonoBehaviour
     private float speed = 0;
     private float currentSpeed = 0;
     private bool flagEsperandoCircuito = false;
+    //private bool noAccedido = false;
     //Variables
     // private float limitSlide = 0.5f;
 
@@ -158,7 +159,19 @@ public class UIManagerCarrera : MonoBehaviour
     }
     private void onMinMaxChange(float value)
     {
-        myCar.SetCurrentMarcha((int)value);
+        //if (value < marcha && noAccedido)
+        //{
+        //    noAccedido
+        //}
+       bool success=  myCar.SetCurrentMarcha((int)value);
+        if (!success)
+        {
+            minMaxController.value = value-1;
+        }
+        else
+        {
+            marcha = (int)value;
+        }
     }
 
     #endregion

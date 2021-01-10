@@ -18,6 +18,7 @@ public class CarreraController : MonoBehaviour
     public GameObject tiempoSalida;
     public Text tiemposJugador;
     //Variables
+    private int contCochesAcabados = 0;
 
     private int vueltaMasActual;
 
@@ -68,22 +69,31 @@ public class CarreraController : MonoBehaviour
 
     public void UpdateCarrera(int ID,int vuelta)
     {
-        if (vueltaMasActual < vuelta)
+        if (vuelta <= circuito.numVueltas)
         {
-            vueltaMasActual = vuelta;
-        }
 
-        string tiempos= times.UpdateVuelta(ID,vuelta);
+            if (vueltaMasActual < vuelta)
+            {
+                vueltaMasActual = vuelta;
+            }
 
-        if(ID == 0)
-        {
-            tiemposJugador.text = tiempos;
-        }
+            string tiempos= times.UpdateVuelta(ID,vuelta);
+
+            if(ID == 0)
+            {
+                tiemposJugador.text = tiempos;
+            }
         
-        if(vuelta >= circuito.numVueltas)
-        {
-            
-            FinCarrera();
+            if(vuelta >= circuito.numVueltas)
+            {
+                contCochesAcabados++;
+                if (ID == 0)
+                {
+                    FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
+                }
+                if(contCochesAcabados>=N_PLAYERS)
+                    FinCarrera();
+            }
         }
     }
    

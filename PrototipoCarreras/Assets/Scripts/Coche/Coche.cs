@@ -53,7 +53,7 @@ public class Coche : MonoBehaviour
     private bool[] Calado;
 
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
-    private float factorSpeed = 5, factorUnidades = 20;
+    private float factorSpeed = 5, factorUnidades = 10;
 
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral;
@@ -147,11 +147,8 @@ public class Coche : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.09f);
         float giroY = (transform.rotation.eulerAngles - aux.eulerAngles).y;
         transform.Rotate(0, 0, giroY );
-        //rotar z
-        if (soyPlayer)
-        {
-            Debug.Log(transform.rotation.eulerAngles - aux.eulerAngles);
-        }
+    
+      
     }
     public void Init(ModuloInfo primerModulo)
     {
@@ -204,7 +201,7 @@ public class Coche : MonoBehaviour
     }
     #endregion
     #region Carrera Fisicas
-    public void SetCurrentMarcha( int marcha)
+    public bool SetCurrentMarcha( int marcha)
     {
         
         if (marcha < (int)currentMarcha)
@@ -214,12 +211,22 @@ public class Coche : MonoBehaviour
         }
         else
         {
+            if (soyPlayer)
+            {
+                float epsilon = ForcesBack() *1.5f;
+                if (soyPlayer&&(currentSpeed- epsilon)<stats.Marchas[(int)currentMarcha] )
+                {
+                    return false;
+                }
+
+            }
             acelerando = true;
             SoundManager.singleton.EjecutarSonido(SONIDO.ARRANCAR, myAudio);
-
+          
         }
         currentMarcha = (Marcha)marcha;
         porcentajeIAccel = 0;
+        return true;
     }
 
     public float GetCurrentAccel()
@@ -263,7 +270,7 @@ public class Coche : MonoBehaviour
 
         if (soyPlayer)
         {
-            //Debug.Log("currentspeed" + currentSpeed+"currentAccel" + currentAccel+"fuerza" + f);
+            Debug.Log("currentspeed" + currentSpeed + "currentAccel" + currentAccel + "fuerza" + f);
         }
     }
 
@@ -311,9 +318,7 @@ public class Coche : MonoBehaviour
         if (soyPlayer)
         {
 
-            //dependiendo de la marcha currentAccel aumenta( cuanto? depende de qué marcha) hasta
-            //Debug.Log("Marcha: " + currentMarcha.ToString() + " accel: "+accelIA+" acelerando "+ acelerando+" porcentaje "+ porcentajeIAccel);
-
+            //dependiendo de la marcha currentAccel aumenta( cuanto? depende de qué marcha) 
             //Si current es mayor, accel-> frenar, cada vez mas
             //Si current es menor, accel-> acelerar, cada vez mas
 
