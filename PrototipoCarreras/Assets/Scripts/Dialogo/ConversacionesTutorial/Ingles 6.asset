@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
   m_Name: Ingles 6
   m_EditorClassIdentifier: 
-  conver: []
-  clave: 
+  conver:
+  - conver: Fantastic. You managed to finish the race. Here, you can see the results
+    enUso: 0
+  - conver: This is the end of the tutorial. Try the rest of the game by yourelf.
+      Thank you so much for your attention
+    enUso: 0
+  clave: RankingIngles
   iniciado: 0

@@ -12,6 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
   m_Name: Ingles 4
   m_EditorClassIdentifier: 
-  conver: []
-  clave: 
+  conver:
+  - conver: Last, but not least, the Settings, a very important part of racing
+    enUso: 0
+  - conver: Settings are minor changes made in SpaceShips to adapt them to certain
+      tracks
+    enUso: 0
+  - conver: A right set of Settings will make you faster. There are 2 different Settings.
+    enUso: 0
+  - conver: Gear Ratio is used to gain more Throttle or more Speed, your choice to
+      make.
+    enUso: 0
+  - conver: Space Dynamics, similar to the Earth's aerodynamics, are caused by strong
+      electrical streams.
+    enUso: 0
+  - conver: Your Spacheship's Chasis is modifiable, so you can select to focus on
+      straights or turns
+    enUso: 0
+  - conver: Watch out for the track and choose your Settings carefully
+    enUso: 0
+  clave: ReglajesIngles
   iniciado: 0
