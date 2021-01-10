@@ -85,8 +85,10 @@ public class UIManagerCarrera : MonoBehaviour
         {
             if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
             {
+               
                 Debug.Log("flag activado");
                 constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
+                InformacionPersistente.singleton.DATA_BD = "";
                 flagEsperandoCircuito = false;
             }
         }

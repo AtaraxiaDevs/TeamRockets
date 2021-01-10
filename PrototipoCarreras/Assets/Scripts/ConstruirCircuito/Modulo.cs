@@ -151,13 +151,13 @@ public class Modulo : MonoBehaviour
         {
             return;
         }
-        
+
         //float origen = (3 * sizeModulo) / 10;
 
         //float decrement = (2 * sizeModulo) / 10;
-        float origen = (3f ) / 10f;
+        float origen = 1f/6f ;//(3f ) / 10f;   
 
-        float decrement = (2f ) / 10f;
+        float decrement =1f/12f ;//(2f ) / 10f;  
 
         // primero mover su transform al centro
         // segundo, forzar  todos los puntos a su respectivo sitio

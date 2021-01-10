@@ -7,15 +7,27 @@ public class DisplayCircuito : MonoBehaviour
 {
     Constructor constructor;
     public CameraController camara;
+
     public Camera render;
     public Image display;
     private bool esperandoCircuitoFlag= false;
+    public bool UISelector;
     private void Start()
     {
+        camara = FindObjectOfType<CameraController>();
         constructor = FindObjectOfType<Constructor>();
-        constructor.ConstruirCircuito();
-        esperandoCircuitoFlag = true;
-       
+        if (UISelector)
+        {
+            constructor.ConstruirCircuito();
+            esperandoCircuitoFlag = true;
+
+        }
+        else
+        {
+            constructor.DataToCircuito(InformacionPersistente.singleton.currentCircuito);
+            constructor.CameraFuncionando(camara);
+        }
+        //camara = FindObjectOfType<CameraController>();
     }
 
     private void Update()
@@ -24,18 +36,50 @@ public class DisplayCircuito : MonoBehaviour
         {
             if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
             {
+               
                 constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
+                InformacionPersistente.singleton.DATA_BD = "";
                 esperandoCircuitoFlag = false;
+                if (InformacionPersistente.singleton.esMovil)
+                {
+                    render.gameObject.SetActive(true);
+                    var current = RenderTexture.active;
+                    RenderTexture.active = render.targetTexture;
+                    render.Render();
+                    Texture2D circuito = new Texture2D(render.targetTexture.width, render.targetTexture.height);
+                    circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
+                    circuito.Apply();
+                    RenderTexture.active = current;
+                    display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+                    render.gameObject.SetActive(false);
+
+                }
             }
         }
+
+        if (!InformacionPersistente.singleton.esMovil)
+        {
+            var current = RenderTexture.active;
+            RenderTexture.active = render.targetTexture;
+            render.Render();
+            Texture2D circuito = new Texture2D(render.targetTexture.width, render.targetTexture.height);
+            circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
+            circuito.Apply();
+            RenderTexture.active = current;
+            display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+        }
+        MostrarCircuito();
+    }
+    private void MostrarCircuito()
+    {
         var current = RenderTexture.active;
         RenderTexture.active = render.targetTexture;
         render.Render();
         Texture2D circuito = new Texture2D(render.targetTexture.width, render.targetTexture.height);
-        circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height),0,0);
+        circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
         circuito.Apply();
         RenderTexture.active = current;
-        display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0,0));
+        display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
     }
 
     public void CircuitoCargado(Constructor c)
