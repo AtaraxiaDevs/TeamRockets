@@ -72,6 +72,13 @@
 	},
 	
 	"CocheReglaje":{
+		"ElegirNave":[
+			"Elige nave",
+			"Choose SpaceShip",
+			"Escoller a minha nave"
+		],
+
+	
 		"VelocidadMaxima":[
 			"VelocidadMax",
 			"MaxSpeed",
