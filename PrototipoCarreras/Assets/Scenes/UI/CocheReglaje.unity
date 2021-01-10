@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttKey: menuPrincipal
+  buttKey: ElegirZodiaco
   hola: {fileID: 659402241}
 --- !u!1 &694076674
 GameObject:

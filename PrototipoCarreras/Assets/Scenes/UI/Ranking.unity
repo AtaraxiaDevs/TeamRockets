@@ -1618,9 +1618,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
         type: 3}
+      propertyPath: listConveraux.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
       propertyPath: listConveraux.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 430674510519f07498858b8583b965d3,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 37497f7b16f264d40809ba53066f945b,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ce510e0cd1c62948aecb95f85970fe0,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916159f638ff224a8b2eea9c55612b6, type: 3}
