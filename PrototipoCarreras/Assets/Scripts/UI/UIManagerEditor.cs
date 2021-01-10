@@ -129,6 +129,8 @@ public class UIManagerEditor : MonoBehaviour
     {
         if (circuito.CircuitoListo())
         {
+            
+            current = null;
             vueltas.gameObject.SetActive(true);
             circuito.numVueltas = 4;
             circuito.SetInteractuable(false);

@@ -157,7 +157,7 @@ public class Modulo : MonoBehaviour
         //float decrement = (2 * sizeModulo) / 10;
         float origen = 1f/6f ;//(3f ) / 10f;   
 
-        float decrement =1f/12f ;//(2f ) / 10f;  
+        float decrement =1f/9f ;//(2f ) / 10f;  
 
         // primero mover su transform al centro
         // segundo, forzar  todos los puntos a su respectivo sitio
@@ -315,6 +315,7 @@ public class Modulo : MonoBehaviour
     public void soyPrimero()
     {
         ID = 0;
+        GetComponent<MeshRenderer>().enabled = true;
         vecino2.attach.NumerarSiguiente(this, 1);
     }
 
@@ -481,7 +482,7 @@ public class Modulo : MonoBehaviour
 
         if (selecPrimero)
         {
-            
+            if(!myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL)&&!vecino1.attach.myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL)&& !vecino2.attach.myInfo.tipoCircuito.Equals(TipoModulo.CAMBIOCARRIL))
             uiManager.current = this;
         
         }
