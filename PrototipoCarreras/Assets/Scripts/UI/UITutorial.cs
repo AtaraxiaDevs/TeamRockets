@@ -20,11 +20,11 @@ public class UITutorial : MonoBehaviour
                 break;
 
             case 1:
-                clave.Replace("Español", "Ingles");
+                clave = clave.Replace("Español", "Ingles");
                 break;
 
             case 2:
-                clave.Replace("Español", "Gallego");
+                clave = clave.Replace("Español", "Gallego");
                 break;
 
             default:

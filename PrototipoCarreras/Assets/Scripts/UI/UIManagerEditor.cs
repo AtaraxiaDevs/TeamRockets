@@ -26,8 +26,6 @@ public class UIManagerEditor : MonoBehaviour
             {
                 m_current.Destacar(true);
             }
-      
-
         } 
     }
     public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
@@ -37,6 +35,12 @@ public class UIManagerEditor : MonoBehaviour
 
     //Referencias UI
     public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne,Especial, remove,listoConstruir, save;
+
+    //Pop Ups
+
+    [Header("PopUp")]
+    public GameObject PopUp1;
+    public GameObject PopUp2;
 
     #region Unity
     void Start()
@@ -122,6 +126,7 @@ public class UIManagerEditor : MonoBehaviour
         else
         {
             Debug.Log("No ha elegido un primero");
+            PopUp1.SetActive(true);
         }
 
     }
@@ -154,6 +159,7 @@ public class UIManagerEditor : MonoBehaviour
         else
         {
             Debug.Log("Circuito no cerrado");
+            PopUp2.SetActive(true);
         }
     }
     #endregion
