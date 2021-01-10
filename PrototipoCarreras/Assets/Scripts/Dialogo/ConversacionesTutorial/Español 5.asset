@@ -25,7 +25,7 @@ MonoBehaviour:
     enUso: 0
   - conver: "Puedes pausar en cualquier momento con el bot\xF3n de pausa."
     enUso: 0
-  - conver: "Para controlar el coche, tienes que mover la palanca de la derecha. Puedes
+  - conver: "Para controlar la nave, tienes que mover la palanca de la derecha. Puedes
       usar tu dedo o el rat\xF3n"
     enUso: 0
   - conver: Las naves tienen 5 marchas distintas, las cuales sirven para ajustar la
@@ -34,7 +34,7 @@ MonoBehaviour:
   - conver: Cada zona del circuito puede superarse a una velocidad concreta. Ten cuidado
       y no te salgas
     enUso: 0
-  - conver: Intenta completar una vuelta.
+  - conver: Intenta completar una carrera.
     enUso: 0
   clave: "CarreraEspa\xF1ol"
   iniciado: 0

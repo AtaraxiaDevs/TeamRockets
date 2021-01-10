@@ -132,6 +132,16 @@
 			"TURN",
 			"CUR"
 		],
+		"RMED":[
+			"RM/ED",
+			"GR/SD",
+			"RM/ED"
+		],
+		"ROZ":[
+			"ROZ",
+			"FRIC",
+			"ROZ"
+		],
 
 
 		"Aries":[
@@ -374,6 +384,7 @@
 			"SpaceDynamics",
 			"EspazoDinamica"
 		],
+
 		"ACE":[
 			"ACE",
 			"ACC",
@@ -394,6 +405,17 @@
 			"TURN",
 			"CUR"
 		],
+		"RMED":[
+			"RM/ED",
+			"GR/SD",
+			"RM/ED"
+		],
+		"ROZ":[
+			"ROZ",
+			"FRIC",
+			"ROZ"
+		],
+
 		"Aries":[
 			"Aries",
 			"Aries",

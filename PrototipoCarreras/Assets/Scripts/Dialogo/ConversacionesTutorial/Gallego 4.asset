@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
   m_Name: Gallego 4
   m_EditorClassIdentifier: 
-  conver: []
-  clave: 
+  conver:
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  - conver: 
+    enUso: 0
+  clave: ReglajesGallego
   iniciado: 0

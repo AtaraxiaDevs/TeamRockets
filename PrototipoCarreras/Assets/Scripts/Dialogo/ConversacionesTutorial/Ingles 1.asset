@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Ingles 1
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: Welcome, I'm Uisge, CEO of Atarakushia S.A.
     enUso: 0
-  - conver: 
+  - conver: I'm here to explain you how to race in Constelatrix
     enUso: 0
-  - conver: 
+  - conver: We have to choose a track to begin with. It is randomly selected from
+      our database.
     enUso: 0
-  - conver: 
+  - conver: Try it for yourself
     enUso: 0
   clave: CircuitoIngles
   iniciado: 0

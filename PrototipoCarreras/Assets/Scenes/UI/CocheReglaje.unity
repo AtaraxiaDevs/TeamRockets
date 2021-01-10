@@ -4194,7 +4194,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3100d525ca76b1d41974209e527ac59a, type: 3}
   - {fileID: 21300000, guid: ac4ba42d030489344a8c98ef9dd6e9dc, type: 3}
   - {fileID: 21300000, guid: fab87c5ca1b2d61468eb3c931d1ebd6a, type: 3}
-  tutorial: {fileID: 0}
   flechaAtras: {fileID: 567629548}
   flechaDelante: {fileID: 882824345}
   btnSigno:
@@ -5515,7 +5514,7 @@ PrefabInstance:
     - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
         type: 3}
       propertyPath: listConveraux.Array.size
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
         type: 3}
@@ -5534,6 +5533,42 @@ PrefabInstance:
       propertyPath: listConveraux.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 450e692ee8d80d24998ae63f5be3cf12,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 596ea3f4ecfa94444bcb498983f41ea6,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e6e02588cdfd5449738f602ee8f76e,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: e42b6baa5e38c7c4988afc917a78412e,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: c063b97d9a17d574f8c31f9c47799d7f,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ec6276aa3893b14e9f3c0bcb2f0d090,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8317941d0c4617244863b8b4a5d0ee7e,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916159f638ff224a8b2eea9c55612b6, type: 3}

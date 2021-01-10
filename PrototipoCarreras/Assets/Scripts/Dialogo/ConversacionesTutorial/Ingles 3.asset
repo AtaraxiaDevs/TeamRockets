@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Ingles 3
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: Next step, choosing the Zodiac parts. This might sound a bit weird.
     enUso: 0
-  - conver: 
+  - conver: SpaceShips can add Zodiac parts to upgrade their stats
     enUso: 0
-  - conver: 
+  - conver: You must choose 2 signs, and you can combine them to gain an elemental
+      bonus
     enUso: 0
-  - conver: 
+  - conver: Try choosing 2 Zodiac signs
     enUso: 0
   clave: SignosIngles
   iniciado: 0

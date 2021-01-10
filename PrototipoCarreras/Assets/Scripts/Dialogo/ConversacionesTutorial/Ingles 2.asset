@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Ingles 2
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: Excelent. Now, we are going to choose our SpaceShip. We offer 4 different
+      models to choose from
     enUso: 0
-  - conver: 
+  - conver: Each one of them has got certain strong points, that you can see in their
+      stats on the right side
     enUso: 0
-  - conver: 
+  - conver: Choose the most suited one for your driving.
     enUso: 0
   clave: CocheIngles
   iniciado: 0
