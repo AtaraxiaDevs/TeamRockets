@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
+  m_Name: "Espa\xF1ol 5"
+  m_EditorClassIdentifier: 
+  conver:
+  - conver: 'Bueno, pues ya estamos en la carrera. '
+    enUso: 0
+  - conver: Los circuitos consisten en pistas de 4 carriles por los que deben pasar
+      todos los coches
+    enUso: 0
+  - conver: "Las vueltas, por este motivo, son siempre m\xFAltiplos de 4."
+    enUso: 0
+  - conver: "En tu pantalla, tienes informaci\xF3n de las vueltas, tu posici\xF3n
+      y tu mejor vuelta"
+    enUso: 0
+  - conver: "Puedes pausar en cualquier momento con el bot\xF3n de pausa."
+    enUso: 0
+  - conver: "Para controlar el coche, tienes que mover la palanca de la derecha. Puedes
+      usar tu dedo o el rat\xF3n"
+    enUso: 0
+  - conver: Las naves tienen 5 marchas distintas, las cuales sirven para ajustar la
+      velocidad
+    enUso: 0
+  - conver: Cada zona del circuito puede superarse a una velocidad concreta. Ten cuidado
+      y no te salgas
+    enUso: 0
+  - conver: Intenta completar una vuelta.
+    enUso: 0
+  clave: "CarreraEspa\xF1ol"
+  iniciado: 0

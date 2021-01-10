@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a79473c8a7fb94d9f6b30079ca30b2, type: 3}
+  m_Name: "Espa\xF1ol 1"
+  m_EditorClassIdentifier: 
+  conver:
+  - conver: Hola, soy Uisge, el CEO de Atarakushia S.A.
+    enUso: 0
+  - conver: Te voy a explicar como participar en una carrera espacial en Constelatrix
+    enUso: 0
+  - conver: Para empezar, tenemos que elegir un circuito. Se escoge uno aleatoriamente
+      de nuestra base de datos.
+    enUso: 0
+  - conver: "Prueba a elegir uno t\xFA"
+    enUso: 0
+  clave: "CircuitoEspa\xF1ol"
+  iniciado: 0
