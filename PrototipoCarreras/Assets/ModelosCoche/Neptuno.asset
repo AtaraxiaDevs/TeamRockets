@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Neptuno
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 110
-  BaseThrottle: 19
+  BaseThrottle: 18
   BaseBrake: -40
   BaseWeight: 150
   elemento: 3

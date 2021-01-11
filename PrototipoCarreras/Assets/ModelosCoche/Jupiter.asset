@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c30bb0bf069aca4b9decd6aa94877ee, type: 3}
   m_Name: Jupiter
   m_EditorClassIdentifier: 
-  BaseMaxSpeed: 100
-  BaseThrottle: 14
+  BaseMaxSpeed: 120
+  BaseThrottle: 17
   BaseBrake: -25
   BaseWeight: 160
   elemento: 1
