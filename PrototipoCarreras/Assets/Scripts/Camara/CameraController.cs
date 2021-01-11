@@ -6,22 +6,29 @@ public class CameraController : MonoBehaviour
 {
     Coche myCAR;//( luego se le asignara)
     Transform circuito;
-
+    Camera myCamera;
     Quaternion rotation;
     Vector3 posTarget = new Vector3(0,25, -22);
     Vector3 posCircuito = new Vector3(0, 30, 30);
     Vector3 centro;
 
-    public bool preparada = false, esCircuito = false;
+    public bool  esCircuito = false, tengoCoche=false;
     public float m_speed, epsilon = 0.05f;
-   
+
+    private void Start()
+    {
+        
+        myCamera = FindObjectOfType<Camera>();
+    }
     public void ComenzarCarrera(Coche myCAR)
     {
+
+        tengoCoche = true;
         esCircuito = false;
-        transform.parent = null;
+        //transform.parent = null;
         this.myCAR = myCAR;
         
-        transform.parent = myCAR.transform;
+        //transform.parent = myCAR.transform;
         transform.position = myCAR.transform.TransformPoint(posTarget);
         // transform.forward = myCAR.right;
         
@@ -29,7 +36,7 @@ public class CameraController : MonoBehaviour
         //transform.forward = myCAR.forward;
 
        // rotation = transform.rotation;
-        preparada = true;
+    
     }
 
     private void FixedUpdate()
@@ -39,11 +46,20 @@ public class CameraController : MonoBehaviour
             transform.LookAt(centro);
             transform.RotateAround(centro, new Vector3(0, 1, 0), 3f * Time.deltaTime);
         }
+        else if(tengoCoche)
+        {
+            // transform.eulerAngles= transform.parent.TransformPoint(transform.)
+           
+            transform.position = myCAR.transform.TransformPoint(posTarget);
+            transform.LookAt(myCAR.transform);
+          
+        }
         
     }
 
     public void GirarEnCircuito( Transform circuito)
-    {       
+    {
+        myCamera.fieldOfView = 60;
         esCircuito = true;
         transform.parent = null;
         centro = GetCenter(circuito);
@@ -52,6 +68,7 @@ public class CameraController : MonoBehaviour
 
     public void GirarEnCircuito(Vector3 centro,int num)
     {
+        myCamera.fieldOfView = 60;
         transform.parent = null;
         esCircuito = true;
 

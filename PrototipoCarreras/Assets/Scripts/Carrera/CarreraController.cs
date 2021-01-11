@@ -18,9 +18,10 @@ public class CarreraController : MonoBehaviour
     public GameObject tiempoSalida;
     public Text tiemposJugador;
     //Variables
-    private int contCochesAcabados = 0;
+    [HideInInspector]
+    public int contCochesAcabados = 0;
 
-    private int vueltaMasActual;
+    private int vueltaMasActual=0;
 
     public void EmpezarCarrera()
     {
@@ -84,7 +85,7 @@ public class CarreraController : MonoBehaviour
                 tiemposJugador.text = tiempos;
             }
         
-            if(vuelta >= circuito.numVueltas)
+            if(vuelta >= circuito.numVueltas-1)
             {
                 contCochesAcabados++;
                 if (ID == 0)

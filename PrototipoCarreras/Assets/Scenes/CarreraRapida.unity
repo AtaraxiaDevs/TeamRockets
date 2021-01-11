@@ -1939,6 +1939,7 @@ MonoBehaviour:
   circuito: {fileID: 0}
   tiempoSalida: {fileID: 135900345}
   tiemposJugador: {fileID: 450900142}
+  contCochesAcabados: 0
 --- !u!4 &1151179228
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,10 +2225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparada: 0
   esCircuito: 0
   m_speed: 0
   epsilon: 0.05
+  factor: 100
 --- !u!1001 &1566476847
 PrefabInstance:
   m_ObjectHideFlags: 0

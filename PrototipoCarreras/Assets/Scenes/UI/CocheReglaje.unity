@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.6, y: -75.5}
+  m_AnchoredPosition: {x: 188.5, y: -75.5}
   m_SizeDelta: {x: 272.84, y: 295.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84442107
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -597,8 +597,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.7, y: 3.4}
-  m_SizeDelta: {x: 241.71, y: 208.94}
+  m_AnchoredPosition: {x: -142.54, y: 3.4}
+  m_SizeDelta: {x: 295.85, y: 208.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239458504
 MonoBehaviour:
@@ -1865,8 +1865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparada: 0
   esCircuito: 0
+  tengoCoche: 0
   m_speed: 0
   epsilon: 0.05
 --- !u!1 &645730736
@@ -2362,7 +2362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2838,7 +2838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.1299992, y: 0.1300106}
+  m_AnchoredPosition: {x: 14.5, y: 0.1300106}
   m_SizeDelta: {x: 59.95, y: 138.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882824345
@@ -4434,10 +4434,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fotoCoches:
-  - {fileID: 21300000, guid: 300b189c28066354894ff445d25329be, type: 3}
-  - {fileID: 21300000, guid: 4124f22c083334b4f9069eabd8fd8690, type: 3}
-  - {fileID: 21300000, guid: 20d41640b3702c54da0837f70cd4e3da, type: 3}
-  - {fileID: 21300000, guid: 393b84d707ae8794f9830bc4cc9e5fda, type: 3}
+  - {fileID: 21300000, guid: 27b4ce48da6fb4e4ab87e9fa64026aa5, type: 3}
+  - {fileID: 21300000, guid: 61f3212d31213f049bb707e85fd8ecc0, type: 3}
+  - {fileID: 21300000, guid: 31c7aff6f74c0d24593a7625ceed1267, type: 3}
+  - {fileID: 21300000, guid: af0c3d24ef232314c90e4f16dedc8719, type: 3}
   fotoSigno:
   - {fileID: 21300000, guid: 62077c723061331408b5c7f51c67cbd3, type: 3}
   - {fileID: 21300000, guid: 47155d92415f40e4589b5e8c3c46feba, type: 3}

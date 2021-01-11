@@ -225,22 +225,22 @@
 		],
 
 
-		"Aire":[
+		"AIRE":[
 			"Aire",
 			"Air",
 			"Ar"
 		],
-		"Agua":[
+		"AGUA":[
 			"Agua",
 			"Water",
 			"Auga"
 		],
-		"Fuego":[
+		"FUEGO":[
 			"Fuego",
 			"Fire",
 			"Lume"
 		],
-		"Tierra":[
+		"TIERRA":[
 			"Tierra",
 			"Earth",
 			"Terra"

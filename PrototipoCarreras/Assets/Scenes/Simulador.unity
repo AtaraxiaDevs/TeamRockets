@@ -1660,6 +1660,7 @@ MonoBehaviour:
   circuito: {fileID: 0}
   tiempoSalida: {fileID: 135900345}
   tiemposJugador: {fileID: 450900142}
+  contCochesAcabados: 0
 --- !u!4 &1151179228
 Transform:
   m_ObjectHideFlags: 0
@@ -2217,8 +2218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparada: 0
   esCircuito: 0
+  tengoCoche: 0
   m_speed: 0
   epsilon: 0.05
 --- !u!1001 &1566476847
@@ -3194,6 +3195,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888220537}
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReanudarCarrera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164341665045782954, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3538422898978786353, guid: 54fb2d4955740fc45a8bc8e92f135660,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3308,6 +3339,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1888220537}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IrA
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ModoTemporada
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb2d4955740fc45a8bc8e92f135660, type: 3}

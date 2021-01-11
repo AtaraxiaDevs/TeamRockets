@@ -216,6 +216,7 @@ public class Coche : MonoBehaviour
                 float epsilon = ForcesBack() *1.5f;
                 if (soyPlayer&&(currentSpeed- epsilon)<stats.Marchas[(int)currentMarcha] )
                 {
+                    SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);
                     return false;
                 }
 
@@ -527,6 +528,7 @@ public class Coche : MonoBehaviour
             {
 
                 SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);
+                FindObjectOfType<CarreraController>().contCochesAcabados++;
                 if (c.vuelta > vuelta)
                 {
                     if (soyPlayer)
