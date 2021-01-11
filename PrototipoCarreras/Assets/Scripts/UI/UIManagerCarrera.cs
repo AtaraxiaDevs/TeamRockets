@@ -192,6 +192,8 @@ public class UIManagerCarrera : MonoBehaviour
     public void IrA(string s)
     {
         //si es modo manager, no se hace, pero si es partida rapida y tal:
+       
+        
         InformacionPersistente.singleton.LimpiarInfoCoches();
         sceneFader.FadeTo(s);
         InformacionPersistente.singleton.escenaActual = s;

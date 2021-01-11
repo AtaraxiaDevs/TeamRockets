@@ -2568,7 +2568,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1439761831}
   - component: {fileID: 1439761830}
-  - component: {fileID: 1439761829}
   - component: {fileID: 1439761828}
   m_Layer: 0
   m_Name: Main Camera (1)
@@ -2589,18 +2588,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparada: 0
   esCircuito: 0
+  tengoCoche: 0
   m_speed: 0
   epsilon: 0.05
---- !u!81 &1439761829
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439761827}
-  m_Enabled: 0
 --- !u!20 &1439761830
 Camera:
   m_ObjectHideFlags: 0
@@ -2701,6 +2692,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
   m_ObjectHideFlags: 0

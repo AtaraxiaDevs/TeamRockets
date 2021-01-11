@@ -44,11 +44,18 @@ public class InformacionPersistente : MonoBehaviour
     public int numCoches, nivelRitmoPropio = -1;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
-    public bool esMovil, esEditor, esTutorial = false;
+
+    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, esCopa = false,copaTerminada=false,temporadaTerminada=false;
     public string nombreUsuario = "Celtia";
     public string DATA_BD = "";
+    [HideInInspector]
     public DataCircuito currentCircuito = null;
+    [HideInInspector]
     public DataCircuito[] modoCopa = new DataCircuito[4];
+    [HideInInspector]
+    public DataCircuito[] modoManager = new DataCircuito[4];
+    [HideInInspector]
+    public int contCircuitoManager = 0, contCircuitoCopa = 0;
 
     public bool isMobile()
     {
@@ -140,17 +147,45 @@ public class InformacionPersistente : MonoBehaviour
         cochesCarrera[pos] = res;
         return res;
     }
+   
 
     public void LimpiarInfoCoches()
     {
-        //if (!modoTemporada)
-        //{
+        if (!esTemporada || !esCopa)
+        {
             for (int i = 0; i < numCoches; i++)
             {
                 cochesCarrera[i] = null;
             }
-
-       // }
+        }
+        else
+        {
+            if (esTemporada)
+            {
+                if(contCircuitoManager < 3)
+                {
+                    contCircuitoManager++;
+                    currentCircuito = modoManager[contCircuitoManager];
+                }
+                else
+                {
+                    temporadaTerminada = true;
+                }
+            }
+            else if(esCopa)
+            {
+                if (contCircuitoCopa < 3)
+                {
+                    contCircuitoCopa++;
+                    currentCircuito = modoCopa[contCircuitoCopa];
+                }
+                else
+                {
+                    copaTerminada = true;
+                }
+            }
+        }
+      
     }
     #endregion
 

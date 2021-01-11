@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class UIManagerMenus : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class UIManagerMenus : MonoBehaviour
     public Sprite spriteIngles2;
     public Sprite spriteGallego2;
 
+
+    //ModoTemporada
+    [HideInInspector]
+    public bool circuitosListos = false;
     private void Start()
     {
         SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
@@ -93,7 +98,20 @@ public class UIManagerMenus : MonoBehaviour
     {
         //InformacionPersistente.singleton.esManager = value;
     }
-
+    public void GenerarCircuitosTemporadas()
+    {
+        InformacionPersistente.singleton.esTemporada = true;
+        circuitosListos = false;
+        DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
+        db.GetCircuitoFromDataBaseModoTemporada(this);
+        StartCoroutine(esperarCircuitos());
+    }
+    IEnumerator esperarCircuitos()
+    {
+        yield return new WaitUntil(() => circuitosListos);
+        InformacionPersistente.singleton.contCircuitoManager = 0;
+        IrA("ModoTemporada");
+    }
     public void IrA(string s)
     {
         sceneFader.FadeTo(s);

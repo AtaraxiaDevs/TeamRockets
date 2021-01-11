@@ -15,10 +15,10 @@ public class CameraController : MonoBehaviour
     public bool  esCircuito = false, tengoCoche=false;
     public float m_speed, epsilon = 0.05f;
 
-    private void Start()
+    private void Awake()
     {
         
-        myCamera = FindObjectOfType<Camera>();
+        myCamera = GetComponent<Camera>();
     }
     public void ComenzarCarrera(Coche myCAR)
     {

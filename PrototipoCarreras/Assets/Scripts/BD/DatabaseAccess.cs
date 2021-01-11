@@ -58,13 +58,13 @@ public class DatabaseAccess : MonoBehaviour
     //}
     public async void GetCircuitoFromDataBaseRandom()
     {
-        Debug.Log("Antes del Get");
+       
         RestClient.Get(pathLoad).Then(response =>
         {
             int numberOfItems = 0;
-            Debug.Log("Antes del parser");
+          
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
-            Debug.Log("Antes del Get");
+           
             foreach (var kvp in data)
             {
                 numberOfItems++;
@@ -72,7 +72,7 @@ public class DatabaseAccess : MonoBehaviour
 
             int randomNumber = Random.Range(0, (numberOfItems ));
             Debug.Log(randomNumber);
-            Debug.Log("Antes del debug de la info");
+        
             Debug.Log(data[randomNumber]["order"]);
             InformacionPersistente.singleton.DATA_BD = data[randomNumber]["order"];
            // mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"], dc);
@@ -100,7 +100,30 @@ public class DatabaseAccess : MonoBehaviour
            
         });
     }
+    public async void GetCircuitoFromDataBaseModoTemporada(UIManagerMenus llamador)
+    {
+        RestClient.Get(pathLoad).Then(response =>
+        {
+            int numberOfItems = 0;
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
 
+            foreach (var kvp in data)
+            {
+                numberOfItems++;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int randomNumber = Random.Range(0, (numberOfItems));
+       
+                Debug.Log(data[randomNumber]["order"]);
+                InformacionPersistente.singleton.modoManager[i] = Constructor.ParserFireBase(data[randomNumber]["order"]);
+                InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoManager[0];
+                llamador.circuitosListos = true;
+            }
+
+
+        });
+    }
 
     //public async void PRUEBA(Constructor mine, UIManagerCarrera manager)
     //{

@@ -1732,6 +1732,7 @@ GameObject:
   - component: {fileID: 605283919}
   - component: {fileID: 605283918}
   - component: {fileID: 605283917}
+  - component: {fileID: 605283920}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1787,6 +1788,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  circuitosListos: 0
 --- !u!4 &605283919
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,6 +1803,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605283920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605283916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc9aa9edb6f3014a9c5e77fb3ebf32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombres: []
+  puntos:
+  - {fileID: 1532319208}
+  - {fileID: 728968766}
+  - {fileID: 846727421}
+  - {fileID: 649041661}
 --- !u!1 &649041659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,9 +4457,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 605283918}
-        m_MethodName: IrA
-        m_Mode: 5
+      - m_Target: {fileID: 605283920}
+        m_MethodName: SalirRanking
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
