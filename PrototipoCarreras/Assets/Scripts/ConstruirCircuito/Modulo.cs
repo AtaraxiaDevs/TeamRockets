@@ -185,41 +185,103 @@ public class Modulo : MonoBehaviour
 
                     path[i].SetPosition(posPrimero, aux);
                     aux = new Vector3(0, 0, origen - decrement * i);
-                    for (int j = 1; j < posPrimero; j++)
-                    {
-                        path[i].SetPosition(j, path[i].GetPosition(j) + aux);
-                    }
+                    //if (socket2.Equals(TipoSocket.POSX))
+                    //{
+                        for (int j = 1; j < posPrimero; j++)
+                        {
+                            path[i].SetPosition(j, path[i].GetPosition(j) + aux);
+                        }
+                    //}
+                    //else
+                    //{
+                    //    for (int j = 1; j < posPrimero/2; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux);
+                    //    }
+                    //    aux = new Vector3(-origen + decrement * i, 0,0);
+                    //    for (int j = posPrimero/2; j < posPrimero ; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux);
+                    //    }
+
+                    //}
+                     
                     break;
                 case TipoSocket.NEGZ:
                     Vector3 aux2 = new Vector3(-origen + decrement * i, path[i].GetPosition(posPrimero).y, path[i].GetPosition(posPrimero).z);
 
                     path[i].SetPosition(posPrimero, aux2);
                     aux2 = new Vector3(-origen + decrement * i, 0, 0);
-                    for (int j = 1; j < posPrimero; j++)
-                    {
-                        path[i].SetPosition(j, path[i].GetPosition(j) + aux2);
-                    }
+                    //if (socket2.Equals(TipoSocket.POSZ))
+                    //{
+                        for (int j = 1; j < posPrimero; j++)
+                        {
+                            path[i].SetPosition(j, path[i].GetPosition(j) + aux2);
+                        }
+                    //}
+                    //else
+                    //{
+                    //    for (int j = 1; j < posPrimero / 2; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux2);
+                    //    }
+                    //    aux2 = new Vector3(0, 0, origen-decrement*i);
+                    //    for (int j = posPrimero / 2; j < posPrimero; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux2);
+                    //    }
+                    //}
                     break;
                 case TipoSocket.POSX:
                     Vector3 aux3 = new Vector3(path[i].GetPosition(posPrimero).x, path[i].GetPosition(posPrimero).y, -origen + decrement * i);
 
                     path[i].SetPosition(posPrimero, aux3);
                     aux3 = new Vector3(0, 0, -origen + decrement * i);
-                    for (int j = 1; j < posPrimero; j++)
+                    //if (socket2.Equals(TipoSocket.NEGX))
+                    //{
+                        for (int j = 1; j < posPrimero; j++)
                     {
                         path[i].SetPosition(j, path[i].GetPosition(j) + aux3);
                     }
+                    //}
+                    //else
+                    //{
+                    //    for (int j = 1; j < posPrimero / 2; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux3);
+                    //    }
+                    //    aux3 = new Vector3(origen - decrement * i, 0,0 );
+                    //    for (int j = posPrimero / 2; j < posPrimero; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux3);
+                    //    }
+                    //}
                     break;
                 case TipoSocket.POSZ:
                     Vector3 aux4 = new Vector3(origen - decrement * i, path[i].GetPosition(posPrimero).y, path[i].GetPosition(posPrimero).z);
 
                     path[i].SetPosition(posPrimero, aux4);
                     aux4 = new Vector3(origen - decrement * i, 0, 0);
-                    for (int j = 1; j < posPrimero; j++)
-                    {
-                        path[i].SetPosition(j, path[i].GetPosition(j) + aux4);
-                    }
-                    break;
+                    //if (socket2.Equals(TipoSocket.NEGZ))
+                    //{
+                        for (int j = 1; j < posPrimero; j++)
+                        {
+                            path[i].SetPosition(j, path[i].GetPosition(j) + aux4);
+                        }
+                    //}
+                    //else
+                    //{
+                    //    for (int j = 1; j < posPrimero / 2; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux4);
+                    //    }
+                    //    aux4 = new Vector3(0, 0, -origen + decrement * i);
+                    //    for (int j = posPrimero / 2; j < posPrimero; j++)
+                    //    {
+                    //        path[i].SetPosition(j, path[i].GetPosition(j) + aux4);
+                    //    }
+                    //}
+                        break;
                 default:
                     break;
             }
@@ -227,7 +289,7 @@ public class Modulo : MonoBehaviour
             {
                 case TipoSocket.NEGX:
                   
-                      
+                     
                         Vector3 aux = new Vector3(path[i].GetPosition(0).x, path[i].GetPosition(0).y, -origen + decrement * i);
                         path[i].SetPosition(0, aux);
                     
@@ -256,6 +318,26 @@ public class Modulo : MonoBehaviour
                     break;
                 default:
                     break;
+            }
+            for(int j=0; j < posPrimero; j++)// Que no se salgan del módulo
+            {
+                Vector3 aComprobar = path[i].GetPosition(j);
+                if (aComprobar.x > 0.5)
+                {
+                    path[i].SetPosition(j, new Vector3(0.5f, aComprobar.y, aComprobar.z));
+                }
+                else if (aComprobar.x < -0.5)
+                {
+                    path[i].SetPosition(j, new Vector3(-0.5f, aComprobar.y, aComprobar.z));
+                }
+                if (aComprobar.z > 0.5)
+                {
+                    path[i].SetPosition(j, new Vector3(aComprobar.x, aComprobar.y, 0.5f));
+                }
+                else if(aComprobar.z< -0.5)
+                {
+                    path[i].SetPosition(j, new Vector3( aComprobar.x, aComprobar.y, -0.5f));
+                }
             }
         }
     

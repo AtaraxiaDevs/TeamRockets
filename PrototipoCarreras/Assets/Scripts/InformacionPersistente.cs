@@ -36,9 +36,9 @@ public class InformacionPersistente : MonoBehaviour
 
     //Informacion
     public DatosCoche[] cochesCarrera;
-    public DatosCoche[] cochesManager;
+    public static DatosCoche[] cochesManager;
     // quizas hacer un datoscoche con los del modo manager?¿
-    public List<Participante> navesModoMan;
+    public  List<Participante> navesModoMan;
     public List<Participante> navesModoCopa;
     public ModeloCoche[] modelosCoches;
   
@@ -77,12 +77,13 @@ public class InformacionPersistente : MonoBehaviour
     #region Unity
     private void Awake()
     {
-        esMovil = isMobile();
-        esEditor = isEditor();
-        pilotosOrdenados = new string[4];
+        
 
         if (singleton == null)
         {
+            esMovil = isMobile();
+            esEditor = isEditor();
+            pilotosOrdenados = new string[4];
             singleton = this;
             DontDestroyOnLoad(gameObject);
         }

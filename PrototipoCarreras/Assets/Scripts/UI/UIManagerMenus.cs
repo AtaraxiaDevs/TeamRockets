@@ -96,8 +96,9 @@ public class UIManagerMenus : MonoBehaviour
 
     public void ModoTemporadaOn(bool value)
     {
-        //InformacionPersistente.singleton.esManager = value;
+        InformacionPersistente.singleton.esTemporada = value;
     }
+   
     public void GenerarCircuitosTemporadas()
     {
         if (!InformacionPersistente.singleton.esTemporada)
