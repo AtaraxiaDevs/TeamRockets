@@ -101,14 +101,14 @@ public class CarreraController : MonoBehaviour
     public void FinCarrera()
     {
  
-        string[] clasFinal = new string[N_PLAYERS];
-        DarPuntos(clasFinal);
+        //string[] clasFinal = new string[N_PLAYERS];
+        //DarPuntos(clasFinal);
         FindObjectOfType<UIManagerCarrera>().SetPosiciones();
     }
 
-    public void DarPuntos(string [] s)
-    {
-        int[] puntos;
-    }
+    //public void DarPuntos(string [] s)
+    //{
+    //    int[] puntos;
+    //}
 
 }

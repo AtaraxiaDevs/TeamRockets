@@ -708,6 +708,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  circuitosListos: 0
 --- !u!114 &92389363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc564d6d7f9f08c45bf407df950e1edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabRecta: {fileID: 9026503651901435900, guid: 591b26cb4bcdde44bace84e6eb7ef783,
+  prefabRecta: {fileID: 9026503651901435900, guid: e728de0134681854ca72939df1174106,
     type: 3}
   prefabVuelta: {fileID: 9026503651901435900, guid: 48abad956a33e57458e2290d9158774a,
     type: 3}

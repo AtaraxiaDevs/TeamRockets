@@ -9,7 +9,7 @@ public class DisplayCircuito : MonoBehaviour
     public CameraController camara;
 
     public Camera render;
-    public Image display;
+    public Image[] display;
     private bool esperandoCircuitoFlag= false;
     public bool UISelector;
     private void Start()
@@ -50,7 +50,11 @@ public class DisplayCircuito : MonoBehaviour
                     circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
                     circuito.Apply();
                     RenderTexture.active = current;
-                    display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+                    foreach(Image i in display)
+                    {
+
+                        i.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+                    }
                     render.gameObject.SetActive(false);
 
                 }
@@ -66,7 +70,11 @@ public class DisplayCircuito : MonoBehaviour
             circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
             circuito.Apply();
             RenderTexture.active = current;
-            display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+            foreach (Image i in display)
+            {
+
+                i.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+            }
         }
         MostrarCircuito();
     }
@@ -79,7 +87,11 @@ public class DisplayCircuito : MonoBehaviour
         circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
         circuito.Apply();
         RenderTexture.active = current;
-        display.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+        foreach (Image i in display)
+        {
+
+            i.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
+        }
     }
 
     public void CircuitoCargado(Constructor c)

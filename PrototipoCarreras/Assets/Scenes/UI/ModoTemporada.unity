@@ -5006,6 +5006,28 @@ MonoBehaviour:
   - {fileID: 622886240}
   - {fileID: 1625241537}
   - {fileID: 1685732181}
+  pantallaElegir: {fileID: 1777163766}
+  uimanager: {fileID: 1557004194}
+  ParticipantesName:
+  - {fileID: 1507906934}
+  - {fileID: 978074936}
+  - {fileID: 501948408}
+  - {fileID: 661486058}
+  ParticipantesPuntos:
+  - {fileID: 1710493716}
+  - {fileID: 800065024}
+  - {fileID: 1091642617}
+  - {fileID: 1507902854}
+  ParticipantesNameUltima:
+  - {fileID: 1147394101}
+  - {fileID: 908599464}
+  - {fileID: 1674776905}
+  - {fileID: 1993414838}
+  ParticipantesTiemposUltima:
+  - {fileID: 211858294}
+  - {fileID: 1492822739}
+  - {fileID: 2046289170}
+  - {fileID: 1138514761}
 --- !u!1 &572912990
 GameObject:
   m_ObjectHideFlags: 0
@@ -13448,7 +13470,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camara: {fileID: 1799691305}
   render: {fileID: 1799691307}
-  display: {fileID: 1464837647}
+  display:
+  - {fileID: 1464837647}
+  - {fileID: 793140762}
   UISelector: 0
 --- !u!4 &1207577087
 Transform:
