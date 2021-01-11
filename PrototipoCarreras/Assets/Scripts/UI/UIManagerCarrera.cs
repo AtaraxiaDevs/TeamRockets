@@ -10,6 +10,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     private Circuito circuito;
     private Constructor constructor;
+    private CarreraController carrerita;
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
@@ -19,7 +20,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias UI
     public Button startCarrera,stopCarrera,reanudarCarrera;
     public Slider minMaxController;
-    public Text velocidad,posiciones;
+    public Text velocidad,posiciones, vueltas;
     public Fader sceneFader;
 
     //PC
@@ -37,15 +38,17 @@ public class UIManagerCarrera : MonoBehaviour
     #region Unity
     void Start()
     {
-       
         if (InformacionPersistente.singleton.esTutorial)
         {
             tuto.SetActive(true);
         }
+
         SoundManager.singleton.EjecutarMusica(MUSICA.CARRERA);
         marcha = 0;
       
         constructor = FindObjectOfType<Constructor>();
+        carrerita = FindObjectOfType<CarreraController>();
+
         //Si no hay un string de hay circuito en el informacionpersitente
         if (InformacionPersistente.singleton.currentCircuito.modulos.Count == 0)
         {
@@ -81,8 +84,7 @@ public class UIManagerCarrera : MonoBehaviour
             }
         }
         stopCarrera.onClick.AddListener(() => PararCarrera());
-        startCarrera.onClick.AddListener(() => { FindObjectOfType<CarreraController>().EmpezarCarrera(); startCarrera.gameObject.SetActive(false); }); ;
-
+        startCarrera.onClick.AddListener(() => { FindObjectOfType<CarreraController>().EmpezarCarrera(); startCarrera.gameObject.SetActive(false); });
 
     }
 
@@ -94,7 +96,6 @@ public class UIManagerCarrera : MonoBehaviour
         {
             if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
             {
-               
                 Debug.Log("flag activado");
                 constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
                 InformacionPersistente.singleton.DATA_BD = "";
@@ -105,19 +106,19 @@ public class UIManagerCarrera : MonoBehaviour
         if ((velocidad != null)&&(myCar!=null))
         {
             currentSpeed = myCar.currentSpeed;
+
             if (Mathf.Abs(currentSpeed - speed) > 2)
             {
                 speed = currentSpeed;
                 velocidad.text = ((int)Mathf.Round(speed)).ToString();
             }
-       
-
         }
+
         if (posiciones != null)
         {
             posiciones.text = PilotosToString();
-
         }
+
         if ((!InformacionPersistente.singleton.esMovil)&&(minMaxController!=null)&&(minMaxController.enabled))
         {
             if (Input.GetMouseButtonDown(0))
