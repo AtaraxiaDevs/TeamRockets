@@ -65,7 +65,7 @@ public class TimeController : MonoBehaviour
         float vueltaRapidaPropia = tiempoMejor[idJugador], ultimaVuelta = 0;
 
         ultimaVuelta = tiempoUltimaVuelta[idJugador];
-
+        tiempoGeneral[idJugador] += ultimaVuelta;
         if ((ultimaVuelta < vueltaRapidaPropia) || (vueltaRapidaPropia == 0))
         {
             vueltaRapidaPropia = ultimaVuelta;

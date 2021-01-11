@@ -219,14 +219,15 @@ public class Circuito : MonoBehaviourPunCallbacks
 
             pilotos[i].AsignarCoche(ip.cochesCarrera[i]);
         }
-        //if ((ip.esTemporada)&& (ip.cochesManager == null)){
+        if ((ip.esTemporada) && (ip.cochesManager == null))
+        {
 
-        //    ip.cochesManager = new DatosCoche[ip.numCoches];
-        //    for (int i = 0; i < ip.numCoches; i++)
-        //    {
-        //        ip.cochesManager[i] = ip.cochesCarrera[i];
-        //    }
-        //}
+            ip.cochesManager = new DatosCoche[ip.numCoches];
+            for (int i = 0; i < ip.numCoches; i++)
+            {
+                ip.cochesManager[i] = ip.cochesCarrera[i];
+            }
+        }
     }
 
     public void IniciarCarrera()

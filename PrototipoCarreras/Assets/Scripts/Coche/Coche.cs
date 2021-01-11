@@ -12,6 +12,13 @@ public class PosicionesCarreraComparator : Comparer<Coche>
         return (y.posiciones.Length * y.vuelta + y.currentpoint) - (x.posiciones.Length * x.vuelta + x.currentpoint);
     }
 }
+public class PosicionesCarreraFinalComparator : Comparer<Coche>
+{
+    public override int Compare(Coche x, Coche y)
+    {
+        return (y.posiciones.Length * y.vuelta + y.currentpoint) - (x.posiciones.Length * x.vuelta + x.currentpoint);
+    }
+}
 public enum Marcha
 {
     PRIMERA,

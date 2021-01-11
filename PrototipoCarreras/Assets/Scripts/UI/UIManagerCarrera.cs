@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -202,6 +203,7 @@ public class UIManagerCarrera : MonoBehaviour
     private string PilotosToString()
     {
         int cont = 1;
+        
         coches.Sort(new PosicionesCarreraComparator());
         string res = "";
 
@@ -220,30 +222,58 @@ public class UIManagerCarrera : MonoBehaviour
         float[] tiempos = new float[4];
         int[] ids = new int[4];
         //int agua = 1, fuego = 1, aire = 1, tierra = 1;
-        coches.Sort(new PosicionesCarreraComparator());
+        Posicion[] pos = new Posicion[4];
+        float[] tiemposGenerales = tc.tiempoGeneral.ToArray();
+        for (int i=0; i < 4; i++)
+        {
+            pos[i] = new Posicion();
+            pos[i].ID = i;
+            pos[i].time = tiemposGenerales[i];
+        }
+
+        Array.Sort(pos, (x, y) => {
+
+          float aux=  x.time - y.time;
+            if (aux > 0)
+            {
+                return 1;
+            }   else if (aux < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        });
+
+        //  coches.Sort(new PosicionesCarreraComparator());
+        Coche[] posicionesFinales = new Coche[4];
 
         for(int i=0; i < coches.Count; i++)
         {
-            ids[i] = coches[i].ID;
-            switch (coches[i].statsBase.elemento)
+            posicionesFinales[i] = coches.Find((c) => c.ID.Equals(pos[i].ID));
+       
+            ids[i] = posicionesFinales[i].ID;
+            switch (posicionesFinales[i].statsBase.elemento)
             {
                 case Elemento.AGUA:
-                    source[i] =   " Neptuno " + coches[i].ID;
+                    source[i] =   " Neptuno " + posicionesFinales[i].ID;
                   //  agua++;
                     break;
 
                 case Elemento.AIRE:
-                    source[i] =   " Jupiter " + coches[i].ID;
+                    source[i] =   " Jupiter " + posicionesFinales[i].ID;
                    // aire++;
                     break;
 
                 case Elemento.FUEGO:
-                    source[i] =  " Marte " + coches[i].ID;
+                    source[i] =  " Marte " + posicionesFinales[i].ID;
                    // fuego++;
                     break;
 
                 case Elemento.TIERRA:
-                    source[i] =  " Saturno " + coches[i].ID;
+                    source[i] =  " Saturno " + posicionesFinales[i].ID;
                     //tierra++;
                     break;
 
@@ -252,7 +282,7 @@ public class UIManagerCarrera : MonoBehaviour
                     break;
             }
             
-            tiempos[i] = tc.tiempoMejor[coches[i].ID];
+            tiempos[i] = tc.tiempoMejor[posicionesFinales[i].ID];
             
         }
 
@@ -262,4 +292,10 @@ public class UIManagerCarrera : MonoBehaviour
         IrA("Ranking");
     }
     #endregion
+}
+
+public class Posicion
+{
+    public int ID;
+    public float time;
 }

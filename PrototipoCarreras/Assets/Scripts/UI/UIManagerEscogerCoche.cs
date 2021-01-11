@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 
 //Gestion de la UI para la seleccion de los reglajes del coche, además del modelo y el zodiaco
@@ -35,23 +36,44 @@ public class UIManagerEscogerCoche : MonoBehaviour
        
         currentCoche = new DatosCoche();
         currentCoche.ID = 0; // Va a ser el Jugador 1 por ahora
-        InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
-        eleccionModelo = 0;
-        cocheDisplay.sprite = fotoCoches[eleccionModelo];
-        currentCoche.infoBase = InformacionPersistente.singleton.modelosCoches[eleccionModelo];
-        flechaAtras.onClick.AddListener(() => CambiarCoche(false));
-        flechaDelante.onClick.AddListener(() => CambiarCoche(true));
-        //btnListo.onClick.AddListener(() => EditarCoche());
-        btnSigno[0].onClick.AddListener(() => CambiarSigno1());
-        btnSigno[1].onClick.AddListener(() => CambiarSigno2());
-        //RM.onValueChanged.AddListener((b) => UpdateInfoCoche(b));
-        //ED.onValueChanged.AddListener((b) => UpdateInfoCoche(b));
-
+                             //y offline
         signosEscogidos = new int[2];
+
         signosEscogidos[0] = 0;
         signosEscogidos[1] = 1;
-        currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
-        currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
+        eleccionModelo = 0;
+        if (InformacionPersistente.singleton.cochesCarrera[0] == null)
+        {
+            InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
+          
+            
+            currentCoche.infoBase = InformacionPersistente.singleton.modelosCoches[eleccionModelo];
+
+            currentCoche.signos[1] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[1]];
+            currentCoche.signos[0] = InformacionPersistente.singleton.signosZodiaco[signosEscogidos[0]];
+        }
+        else
+        {
+            currentCoche = InformacionPersistente.singleton.cochesCarrera[currentCoche.ID];
+            eleccionModelo = Array.FindIndex(InformacionPersistente.singleton.modelosCoches, (m) => m.elemento.Equals(currentCoche.infoBase.elemento));
+
+            signosEscogidos[0] = (int)(currentCoche.signos[0].zodiaco) ;
+            signosEscogidos[1] = (int)(currentCoche.signos[1].zodiaco);
+            btnSigno[0].image.sprite = fotoSigno[signosEscogidos[0]];
+            btnSigno[1].image.sprite = fotoSigno[signosEscogidos[1]];
+            btnRegED[(int)currentCoche.reg.espacioDinamica].onClick.Invoke();
+            btnRegRM[(int)currentCoche.reg.relacionMarchas].onClick.Invoke();
+        }
+       
+       
+       
+        flechaAtras.onClick.AddListener(() => CambiarCoche(false));
+        flechaDelante.onClick.AddListener(() => CambiarCoche(true));
+        btnSigno[0].onClick.AddListener(() => CambiarSigno1());
+        btnSigno[1].onClick.AddListener(() => CambiarSigno2());
+  
+
+      
         for (int i=0; i < btnRegED.Length; i++)
         {
             int a = i;
@@ -62,6 +84,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
             int a = i;
             btnRegRM[i].onClick.AddListener(() => ElegirReglajeRM(a));
         }
+        cocheDisplay.sprite = fotoCoches[eleccionModelo];
         UpdateInfoCoche();
     }
     #endregion
@@ -240,7 +263,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xdosDisplay.color = Color.red;
                 xtresDisplay.color = Color.white;
             }
-            txtElemento.text = MiniTraductor("Agua", idioma);
+            txtElemento.text = MiniTraductor("AGUA", idioma);
         }
         else if (bonusFuego >=2)
         {
@@ -256,7 +279,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[1] += "+";
             }
-            txtElemento.text = MiniTraductor("Fuego", idioma);
+            txtElemento.text = MiniTraductor("FUEGO", idioma);
         }
         else if (bonusTierra >= 2)
         {
@@ -272,7 +295,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[0] += "+";
             }
-            txtElemento.text = MiniTraductor("Tierra", idioma);
+            txtElemento.text = MiniTraductor("TIERRA", idioma);
         }
         else if (bonusAire >= 2)
         {
@@ -288,7 +311,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 xtresDisplay.color = Color.white;
                 plus[3] += "+";
             }
-            txtElemento.text = MiniTraductor("Aire", idioma); ;
+            txtElemento.text = MiniTraductor("AIRE", idioma); ;
         }
         else
         {

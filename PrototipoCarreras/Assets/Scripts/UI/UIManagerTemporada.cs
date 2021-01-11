@@ -30,8 +30,8 @@ public class UIManagerTemporada : MonoBehaviour
     {
  
         InformacionPersistente ip = InformacionPersistente.singleton;
-        //if(ip.cochesManager!=null)
-        //    ip.cochesCarrera = ip.cochesManager;
+        if (ip.cochesManager != null)
+            ip.cochesCarrera = ip.cochesManager;
 
         if (ip.navesModoMan != null)
         {
