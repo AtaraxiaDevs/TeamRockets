@@ -2154,7 +2154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camara: {fileID: 1439761828}
   render: {fileID: 1439761830}
-  display: {fileID: 2100675502}
+  display:
+  - {fileID: 2100675502}
   UISelector: 1
 --- !u!1 &1231773438
 GameObject:

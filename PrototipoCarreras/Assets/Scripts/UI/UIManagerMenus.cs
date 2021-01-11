@@ -100,17 +100,47 @@ public class UIManagerMenus : MonoBehaviour
     }
     public void GenerarCircuitosTemporadas()
     {
-        InformacionPersistente.singleton.esTemporada = true;
-        circuitosListos = false;
-        DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
-        db.GetCircuitoFromDataBaseModoTemporada(this);
-        StartCoroutine(esperarCircuitos());
+        if (!InformacionPersistente.singleton.esTemporada)
+        {
+            InformacionPersistente.singleton.esTemporada = true;
+            circuitosListos = false;
+            DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
+            db.GetCircuitoFromDataBaseModoTemporada(this);
+            StartCoroutine(esperarCircuitos("ModoTemporada"));
+        }
+        else
+        {
+            InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoManager[InformacionPersistente.singleton.contCircuitoManager];
+         
+            IrA("ModoTemporada");
+        }
+  
     }
-    IEnumerator esperarCircuitos()
+    public void GenerarCircuitosCopa()
+    {
+        if (!InformacionPersistente.singleton.esCopa)
+        {
+            InformacionPersistente.singleton.esCopa = true;
+            circuitosListos = false;
+            DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
+            db.GetCircuitoFromDataBaseModoCopa(this);
+            StartCoroutine(esperarCircuitos("CocheReglaje"));
+        }
+        else
+        {
+            InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoCopa[InformacionPersistente.singleton.contCircuitoManager];
+
+            IrA("CocheReglaje");
+        }
+    }
+
+
+
+        IEnumerator esperarCircuitos(string scene)
     {
         yield return new WaitUntil(() => circuitosListos);
         InformacionPersistente.singleton.contCircuitoManager = 0;
-        IrA("ModoTemporada");
+        IrA(scene);
     }
     public void IrA(string s)
     {

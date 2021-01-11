@@ -218,43 +218,47 @@ public class UIManagerCarrera : MonoBehaviour
         TimeController tc = FindObjectOfType<TimeController>();
         string[] source = new string[4];
         float[] tiempos = new float[4];
-        int agua = 1, fuego = 1, aire = 1, tierra = 1;
+        int[] ids = new int[4];
+        //int agua = 1, fuego = 1, aire = 1, tierra = 1;
         coches.Sort(new PosicionesCarreraComparator());
 
         for(int i=0; i < coches.Count; i++)
         {
+            ids[i] = coches[i].ID;
             switch (coches[i].statsBase.elemento)
             {
                 case Elemento.AGUA:
-                    source[i] = "ID: "+ coches[i].ID+ " Neptuno " + agua;
-                    agua++;
+                    source[i] =   " Neptuno " + coches[i].ID;
+                  //  agua++;
                     break;
 
                 case Elemento.AIRE:
-                    source[i] = "ID: " + coches[i].ID + " Jupiter " + aire;
-                    aire++;
+                    source[i] =   " Jupiter " + coches[i].ID;
+                   // aire++;
                     break;
 
                 case Elemento.FUEGO:
-                    source[i] = "ID: " + coches[i].ID + " Marte " + fuego;
-                    fuego++;
+                    source[i] =  " Marte " + coches[i].ID;
+                   // fuego++;
                     break;
 
                 case Elemento.TIERRA:
-                    source[i] = "ID: " + coches[i].ID + " Saturno " + tierra;
-                    tierra++;
+                    source[i] =  " Saturno " + coches[i].ID;
+                    //tierra++;
                     break;
 
                 default:
-                    source[i] = i + "º " + "UFO ";
+                    source[i] =  "UFO ";
                     break;
             }
-
+            
             tiempos[i] = tc.tiempoMejor[coches[i].ID];
+            
         }
 
         InformacionPersistente.singleton.pilotosOrdenados = source;
         InformacionPersistente.singleton.tiempos = tiempos;
+        InformacionPersistente.singleton.IDsPosiciones = ids;
         IrA("Ranking");
     }
     #endregion

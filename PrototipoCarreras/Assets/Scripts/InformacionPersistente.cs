@@ -31,12 +31,15 @@ public class InformacionPersistente : MonoBehaviour
 
     //Ranking
     public string[] pilotosOrdenados;
+    public int[] IDsPosiciones;
     public float[] tiempos;
 
     //Informacion
     public DatosCoche[] cochesCarrera;
+    //public DatosCoche[] cochesManager;
     // quizas hacer un datoscoche con los del modo manager?¿
     public List<Participante> navesModoMan;
+    public List<Participante> navesModoCopa;
     public ModeloCoche[] modelosCoches;
   
     public Signo[] signosZodiaco;
@@ -151,18 +154,11 @@ public class InformacionPersistente : MonoBehaviour
 
     public void LimpiarInfoCoches()
     {
-        if (!esTemporada || !esCopa)
-        {
-            for (int i = 0; i < numCoches; i++)
-            {
-                cochesCarrera[i] = null;
-            }
-        }
-        else
+        if (!esCopa)
         {
             if (esTemporada)
             {
-                if(contCircuitoManager < 3)
+                if (contCircuitoManager < 3)
                 {
                     contCircuitoManager++;
                     currentCircuito = modoManager[contCircuitoManager];
@@ -172,8 +168,20 @@ public class InformacionPersistente : MonoBehaviour
                     temporadaTerminada = true;
                 }
             }
-            else if(esCopa)
+            else
             {
+              
+                for (int i = 0; i < numCoches; i++)
+                {
+                    cochesCarrera[i] = null;
+                    
+                }
+            }
+        }
+        else
+        {
+           
+            
                 if (contCircuitoCopa < 3)
                 {
                     contCircuitoCopa++;
@@ -183,7 +191,7 @@ public class InformacionPersistente : MonoBehaviour
                 {
                     copaTerminada = true;
                 }
-            }
+            
         }
       
     }

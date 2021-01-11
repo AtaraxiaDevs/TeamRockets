@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class ComparadorParticipantes : Comparer<Participante>
+{
+    public override int Compare(Participante x, Participante y)
+    {
+        return y.puntos - x.puntos;
+    }
+}
 public class Ranking : MonoBehaviour
 {
     //Aquí se gestionará el ranking
@@ -23,18 +30,21 @@ public class Ranking : MonoBehaviour
     public List <Participante> listaParticipantes;
 
     private void Start()
-    {
-        if (InformacionPersistente.singleton.esTemporada)
+    {    
+        InformacionPersistente ip = InformacionPersistente.singleton;
+        if (ip.esTemporada)
         {
-            InformacionPersistente ip = InformacionPersistente.singleton;
+        
             if (ip.navesModoMan == null)
             {
+                
                 listaParticipantes = new List<Participante>();
                 for (int i = 0; i < 4; i++)
                 {
                     listaParticipantes.Add(new Participante(ip.pilotosOrdenados[i]));
-                  
-                  
+
+                    listaParticipantes[i].ID = ip.IDsPosiciones[i];
+            
 
 
                 }
@@ -51,25 +61,103 @@ public class Ranking : MonoBehaviour
                 listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[0])).SetPuntos(5);
                 listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[1])).SetPuntos(3);
                 listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[2])).SetPuntos(1);
+                ip.navesModoMan.Sort(new ComparadorParticipantes());
             }
-            for(int i=0;i<4;i++)
-            puntos[Array.IndexOf(ip.pilotosOrdenados, listaParticipantes[i])].text = listaParticipantes[i].puntos.ToString();
+            for(int i = 0; i < 4; i++)
+            {
+                puntos[Array.FindIndex(ip.pilotosOrdenados,(p)=>p.Equals(listaParticipantes[i].nombre))].text = listaParticipantes[i].puntos.ToString();
+            }
+                
         }
-            
+            else if (ip.esCopa)
+        {
+           
+                if (ip.navesModoCopa == null)
+                {
+
+                    listaParticipantes = new List<Participante>();
+                    for (int i = 0; i < 4; i++)
+                    {
+                        listaParticipantes.Add(new Participante(ip.pilotosOrdenados[i]));
+
+                        listaParticipantes[i].ID = ip.IDsPosiciones[i];
+
+
+
+                    }
+                    listaParticipantes[0].SetPuntos(5);
+                    listaParticipantes[1].SetPuntos(3);
+                    listaParticipantes[2].SetPuntos(1);
+                    ip.navesModoCopa = listaParticipantes;
+
+
+                }
+                else
+                {
+                    listaParticipantes = ip.navesModoCopa;
+                    listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[0])).SetPuntos(5);
+                    listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[1])).SetPuntos(3);
+                    listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[2])).SetPuntos(1);
+                    ip.navesModoCopa.Sort(new ComparadorParticipantes());
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    puntos[Array.FindIndex(ip.pilotosOrdenados, (p) => p.Equals(listaParticipantes[i].nombre))].text = listaParticipantes[i].puntos.ToString();
+                }
+
+            }
+        }
        
-    }
+    
     public void SalirRanking()
     {
         UIManagerMenus ui = FindObjectOfType<UIManagerMenus>();
-        if (InformacionPersistente.singleton.esTemporada)
-        {
-            ui.IrA("ModoTemporada");
-        }
-        else if (InformacionPersistente.singleton.esCopa){
-            if(InformacionPersistente.singleton.copaTerminada)
-                ui.IrA("ModosJuegos");
+        InformacionPersistente ip = InformacionPersistente.singleton;
+        if (ip.esTemporada)
+        { 
+        
+            if (ip.temporadaTerminada)
+            {
+              
+                ip.esTemporada = false;
+                ip.temporadaTerminada = false; 
+                ip.LimpiarInfoCoches();
+                for(int i=0; i<4; i++)
+                {
+                    ip.modoManager[i] = null;
+                   
+                }
+                ip.navesModoMan = null;
+                ip.currentCircuito = null;
+            
+                ip.contCircuitoManager = 0;
+            }
             else
-                ui.IrA("CarreraRápida");
+            {
+                ui.IrA("ModoTemporada");
+            }
+        }
+        else if (ip.esCopa){
+               
+             
+              
+            if (ip.copaTerminada)
+            {
+            
+                ip.esCopa = false;
+                ip.copaTerminada = false;  
+                ip.LimpiarInfoCoches();
+                for (int i = 0; i < 4; i++)
+                {
+                    ip.modoCopa[i] = null;
+
+                }
+                ip.contCircuitoCopa = 0;
+                ip.currentCircuito = null;
+                ui.IrA("ModosJuegos");
+            }
+            else
+                ui.IrA("CarreraRapida");
         }
         else
         {
@@ -82,7 +170,7 @@ public class Participante
 {
     public string nombre;
     public int puntos;
-    
+    public int ID;
     public Participante(string s)
     {
         nombre = s;

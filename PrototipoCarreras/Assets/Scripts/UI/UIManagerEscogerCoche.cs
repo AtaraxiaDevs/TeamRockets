@@ -214,10 +214,23 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 plus[i] += "-";
             }
         }
+        List<Elemento> ele = new List<Elemento>();
+        ele.Add(cebo.statsBase.elemento);
+        ele.Add(cebo.signosAnadidos[0].elemento);
+        ele.Add(cebo.signosAnadidos[1].elemento);
 
-        if (cebo.bonusAgua >= 0.5f)
+        List<Elemento> fuego = ele.FindAll((E) => E.Equals(Elemento.FUEGO));
+        List<Elemento> tierra = ele.FindAll((E) => E.Equals(Elemento.TIERRA));
+        List<Elemento> aire = ele.FindAll((E) => E.Equals(Elemento.AIRE));
+        List<Elemento> agua = ele.FindAll((E) => E.Equals(Elemento.AGUA));
+
+        int bonusAgua = agua.Count;
+        int bonusTierra = tierra.Count ;
+        int bonusAire = aire.Count ;
+        int bonusFuego = fuego.Count ;
+        if (bonusAgua >= 2)
         {
-            if (cebo.bonusAgua > 0.5f)
+            if (bonusAgua > 2)
             {
                 xtresDisplay.color = Color.red;
                 xdosDisplay.color = Color.white;
@@ -229,9 +242,9 @@ public class UIManagerEscogerCoche : MonoBehaviour
             }
             txtElemento.text = MiniTraductor("Agua", idioma);
         }
-        else if (cebo.bonusFuego >= 0.5f)
+        else if (bonusFuego >=2)
         {
-            if (cebo.bonusFuego > 0.5f)
+            if (bonusFuego > 2)
             {
                 xtresDisplay.color = Color.red;
                 xdosDisplay.color = Color.white;
@@ -245,9 +258,9 @@ public class UIManagerEscogerCoche : MonoBehaviour
             }
             txtElemento.text = MiniTraductor("Fuego", idioma);
         }
-        else if (cebo.bonusTierra >= 0.5f)
+        else if (bonusTierra >= 2)
         {
-            if (cebo.bonusTierra > 0.5f)
+            if (bonusTierra > 2)
             {
                 xtresDisplay.color = Color.red;
                 xdosDisplay.color = Color.white;
@@ -261,9 +274,9 @@ public class UIManagerEscogerCoche : MonoBehaviour
             }
             txtElemento.text = MiniTraductor("Tierra", idioma);
         }
-        else if (cebo.bonusAire >= 0.5f)
+        else if (bonusAire >= 2)
         {
-            if (cebo.bonusAire > 0.5f)
+            if (bonusAire > 2)
             {
                 xtresDisplay.color = Color.red;
                 xdosDisplay.color = Color.white;

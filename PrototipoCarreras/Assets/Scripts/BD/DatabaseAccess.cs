@@ -124,7 +124,30 @@ public class DatabaseAccess : MonoBehaviour
 
         });
     }
+    public async void GetCircuitoFromDataBaseModoCopa(UIManagerMenus llamador)
+    {
+        RestClient.Get(pathLoad).Then(response =>
+        {
+            int numberOfItems = 0;
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
 
+            foreach (var kvp in data)
+            {
+                numberOfItems++;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int randomNumber = Random.Range(0, (numberOfItems));
+
+                Debug.Log(data[randomNumber]["order"]);
+                InformacionPersistente.singleton.modoCopa[i] = Constructor.ParserFireBase(data[randomNumber]["order"]);
+                InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoCopa[0];
+                llamador.circuitosListos = true;
+            }
+
+
+        });
+    }
     //public async void PRUEBA(Constructor mine, UIManagerCarrera manager)
     //{
     //    Debug.Log("antes del get");

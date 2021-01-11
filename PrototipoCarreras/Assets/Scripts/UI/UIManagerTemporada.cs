@@ -18,12 +18,42 @@ public class UIManagerTemporada : MonoBehaviour
     public GameObject[] mejorasGraficos2;
     public GameObject[] mejorasGraficos3;
     public GameObject[] mejorasGraficos4;
-
+    public GameObject pantallaElegir, uimanager;
+    public Text[] ParticipantesName;
+    public Text[] ParticipantesPuntos;
+    public Text[] ParticipantesNameUltima;
+    public Text[] ParticipantesTiemposUltima;
     private int[] nivelMejora;
     private string mejora = "";
 
     public void Start()
     {
+ 
+        InformacionPersistente ip = InformacionPersistente.singleton;
+        //if(ip.cochesManager!=null)
+        //    ip.cochesCarrera = ip.cochesManager;
+
+        if (ip.navesModoMan != null)
+        {
+            pantallaElegir.SetActive(false);
+            uimanager.SetActive(true);
+            ip.escenaActual = "ModoManager";
+            for (int i = 0; i < 4; i++)
+            {
+                if (ip.pilotosOrdenados != null)
+                {
+                    ParticipantesNameUltima[i].text = ip.pilotosOrdenados[i];
+                    ParticipantesTiemposUltima[i].text = ip.tiempos[i].ToString();
+                   
+
+                }
+               
+                ParticipantesName[i].text = ip.navesModoMan[i].nombre;
+                ParticipantesPuntos[i].text = ip.navesModoMan[i].puntos.ToString();
+            }
+
+        }
+       
         nivelMejora = new int[4];
 
         for (int i = 0; i < nivelMejora.Length; i++)
