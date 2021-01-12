@@ -147,7 +147,7 @@ public class Modulo : MonoBehaviour
     }
     private void ForzarModulo()
     {
-        if ((path[0] == null)||(!cargadoFichero))
+        if ((path[0] == null)||(!cargadoFichero)||myInfo.tipoCircuito.Equals(TipoModulo.CURVACERRADA))
         {
             return;
         }
