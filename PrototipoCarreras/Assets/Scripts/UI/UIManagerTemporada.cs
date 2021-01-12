@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class UIManagerTemporada : MonoBehaviour
 {
-    private int numeroMejoras;
+    [HideInInspector]
+    public static int numeroMejoras= 5;
 
     [HideInInspector]
-    public int nivelPiloto;
+    public int nivelPiloto=0;
 
     public Image Piloto;
     public Sprite[] pilotoSprite;
@@ -33,10 +34,10 @@ public class UIManagerTemporada : MonoBehaviour
         InformacionPersistente ip = InformacionPersistente.singleton;
         if (ip.esTemporada)
         {
-            for(int i=0; i < 4; i++)
-            {
-                AplicarMejora(i);
-            }
+            CambiarMejoras(0, mejorasGraficos1, ip.naveTerricola.infoBase.BaseMaxSpeed.ToString());
+            CambiarMejoras(1, mejorasGraficos2, ip.naveTerricola.infoBase.BaseThrottle.ToString());
+            CambiarMejoras(2, mejorasGraficos3, ip.naveTerricola.infoBase.BaseBrake.ToString());
+            CambiarMejoras(3, mejorasGraficos4, ip.naveTerricola.infoBase.BaseWeight.ToString());
             pantallaElegir.SetActive(false);
             uimanager.SetActive(true);
             ip.escenaActual = "ModoManager";
@@ -63,14 +64,8 @@ public class UIManagerTemporada : MonoBehaviour
         }
        
        
-        nivelMejora = new int[4];
-
-        for (int i = 0; i < nivelMejora.Length; i++)
-        {
-            nivelMejora[i] = 0;
-        }
-
-        numeroMejoras = 8;
+        
+ 
         nivelPiloto = 1;
 
         numeroMejoras -= nivelPiloto;
@@ -81,24 +76,43 @@ public class UIManagerTemporada : MonoBehaviour
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         mejora = data["ModificarCoche"]["Mejoras"][InformacionPersistente.singleton.idiomaActual].Value;
-
+        EscogerPiloto(1);
         ActualizarMejoras(true);
     }
 
     public void EscogerPiloto(int a)
     {
-        if (nivelPiloto == 1 && a != 1)
+        if (a == 0)
         {
             if (a == 2 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(5);
+            }
+            if (a == 2 && numeroMejoras > 0)
+            {
+                numeroMejoras--;
+                MeterDatosPiloto(5);
             }
 
             if (a == 3 && numeroMejoras - 1 > 0)
             {
                 numeroMejoras -= 2;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(5);
+            }
+        }
+        if (nivelPiloto == 1 && a != 1)
+        {
+            if (a == 2 && numeroMejoras > 0)
+            {
+                numeroMejoras--;
+                MeterDatosPiloto(5);
+            }
+
+            if (a == 3 && numeroMejoras - 1 > 0)
+            {
+                numeroMejoras -= 2;
+                MeterDatosPiloto(5);
             }
         }
 
@@ -107,13 +121,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(3);
             }
 
             if (a == 3 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(3);
             }
         }
 
@@ -122,13 +136,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras += 2;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(1);
             }
 
             if (a == 2)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(a);
+                MeterDatosPiloto(1);
             }
         }
 
@@ -177,9 +191,10 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseMaxSpeed = infoTerricola.BaseMaxSpeed + (nivelMejora[tipo - 1]+1) * 20;
-                        CambiarMejoras(tipo - 1, mejorasGraficos1);
-                        caracteristicasText[0].text = ip.naveTerricola.infoBase.BaseMaxSpeed.ToString();
+                        nivelMejora[tipo - 1]++;
+                        ip.naveTerricola.infoBase.BaseMaxSpeed = infoTerricola.BaseMaxSpeed + (nivelMejora[tipo - 1]) * 12.5f;
+                        CambiarMejoras(tipo - 1, mejorasGraficos1, ip.naveTerricola.infoBase.BaseMaxSpeed.ToString());
+                    
                         ActualizarMejoras(true);
                     }
                     break;
@@ -188,9 +203,9 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + (nivelMejora[tipo - 1] + 1) * 2;
-                        CambiarMejoras(tipo - 1, mejorasGraficos2);
-                        caracteristicasText[1].text = ip.naveTerricola.infoBase.BaseThrottle.ToString();
+                        nivelMejora[tipo - 1]++;
+                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + (nivelMejora[tipo - 1] ) * 1.5f;
+                        CambiarMejoras(tipo - 1, mejorasGraficos2, ip.naveTerricola.infoBase.BaseThrottle.ToString());
                         ActualizarMejoras(true);
                     }
                     break;
@@ -199,9 +214,10 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake - (nivelMejora[tipo - 1] + 1) * 5;
-                        CambiarMejoras(tipo - 1, mejorasGraficos3);
-                        caracteristicasText[2].text = ip.naveTerricola.infoBase.BaseBrake.ToString();
+                        nivelMejora[tipo - 1]++;
+                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake + (nivelMejora[tipo - 1] ) * 5;
+                        CambiarMejoras(tipo - 1, mejorasGraficos3, ip.naveTerricola.infoBase.BaseBrake.ToString());
+      
                         ActualizarMejoras(true);
                     }
                     break;
@@ -209,10 +225,11 @@ public class UIManagerTemporada : MonoBehaviour
                 case 4://Peso
                     if (nivelMejora[tipo - 1] < 3)
                     {
+                        nivelMejora[tipo - 1]++;
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - (nivelMejora[tipo - 1] + 1) * 10;
-                        CambiarMejoras(tipo - 1, mejorasGraficos4);
-                        caracteristicasText[3].text = ip.naveTerricola.infoBase.BaseWeight.ToString();
+                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - (nivelMejora[tipo - 1] ) * 10;
+                        CambiarMejoras(tipo - 1, mejorasGraficos4, ip.naveTerricola.infoBase.BaseWeight.ToString());
+                 
                         ActualizarMejoras(true);
                     }
                     break;
@@ -223,11 +240,18 @@ public class UIManagerTemporada : MonoBehaviour
         }
     }
 
-    public void CambiarMejoras(int t, GameObject[] graficos)
+    public void CambiarMejoras( int i ,GameObject[] graficos,string txt)
     {
-        nivelMejora[t]++;
 
-        graficos[nivelMejora[t] - 1].SetActive(true);
+        caracteristicasText[i].text = txt;
+        if(nivelMejora[i] != 0)
+        {
+            for(int j = 0; j < nivelMejora[i]; j++)
+            {
+                graficos[j].SetActive(true);
+            }
+        }
+           
     }
 
     public void NoTemporada()

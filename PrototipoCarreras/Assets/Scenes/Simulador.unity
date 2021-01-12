@@ -2731,6 +2731,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  esCarrera: 1
   circuitosListos: 0
 --- !u!1 &1935222929
 GameObject:

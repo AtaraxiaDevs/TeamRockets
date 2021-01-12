@@ -53,19 +53,58 @@ public class Ranking : MonoBehaviour
                 listaParticipantes[2].SetPuntos(1);
                 ip.navesModoMan = listaParticipantes;
 
+                if (listaParticipantes[0].ID == 0)
+                {
+                    UIManagerTemporada.numeroMejoras += 2;
+                }
+                else if (listaParticipantes[1].ID == 0)
+                {
+                    UIManagerTemporada.numeroMejoras += 3;
+                }
+                else if ((listaParticipantes[2].ID==0))
+                {
+                    UIManagerTemporada.numeroMejoras += 4;
+                }
+                else
+                {
+                    UIManagerTemporada.numeroMejoras += 5;
+                }
 
             }
             else
             {
                 listaParticipantes = ip.navesModoMan;
-                listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[0])).SetPuntos(5);
-                listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[1])).SetPuntos(3);
-                listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[2])).SetPuntos(1);
+                Participante primero= listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[0]));
+                primero.SetPuntos(5);
+              
+                Participante segundo = listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[1]));
+                segundo.SetPuntos(3);
+               
+                Participante tercero = listaParticipantes.Find((p) => p.nombre.Equals(ip.pilotosOrdenados[2]));
+                tercero.SetPuntos(1);
+               
                 ip.navesModoMan.Sort(new ComparadorParticipantes());
+                if (primero.ID == 0)
+                {
+                    UIManagerTemporada.numeroMejoras += 2;
+                }
+                else if (segundo.ID == 0)
+                {
+                    UIManagerTemporada.numeroMejoras += 3;
+                }
+               else  if ((tercero.ID == 0))
+                {
+                    UIManagerTemporada.numeroMejoras += 4;
+                }
+                else
+                {
+                    UIManagerTemporada.numeroMejoras += 5;
+                }
             }
             for(int i = 0; i < 4; i++)
             {
                 puntos[Array.FindIndex(ip.pilotosOrdenados,(p)=>p.Equals(listaParticipantes[i].nombre))].text = listaParticipantes[i].puntos.ToString();
+
             }
                 
         }
@@ -118,7 +157,8 @@ public class Ranking : MonoBehaviour
         
             if (ip.temporadaTerminada)
             {
-              
+
+                UIManagerTemporada.numeroMejoras = 5;
                 ip.esTemporada = false;
                 ip.temporadaTerminada = false; 
                 ip.LimpiarInfoCoches();
@@ -156,7 +196,7 @@ public class Ranking : MonoBehaviour
                 ui.IrA("ModosJuegos");
             }
             else
-                ui.IrA("CocheReglajes");
+                ui.IrA("CocheReglaje");
         }
         else
         {

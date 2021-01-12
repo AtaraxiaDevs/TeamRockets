@@ -11,12 +11,13 @@ public class IAMoves : MonoBehaviour
 
     public Circuito currentCircuito;
     private Coche coche;
-    private int currentModulo;
+
 
     //Informacion
 
     public float porcentajeFallo = 1;
-    public float nivelRitmo = 2;
+ 
+    public float nivelRitmo = 1;
     private float accel = 0.01f, frenacion= 0.01f;
     public float accelIA, porcentajeIAccel;
     public bool acelerando = false;

@@ -27,14 +27,15 @@ public class UIManagerMenus : MonoBehaviour
     public Sprite spriteEspañol2;
     public Sprite spriteIngles2;
     public Sprite spriteGallego2;
-
-
+    [Header("Es Carrera?")]
+    public bool esCarrera= false;
     //ModoTemporada
     [HideInInspector]
     public bool circuitosListos = false;
     private void Start()
     {
-        SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
+        if(!esCarrera)
+            SoundManager.singleton.EjecutarMusica(MUSICA.MENU);
 
         if ((InformacionPersistente.singleton.esTutorial) && tutorial != null)
         {

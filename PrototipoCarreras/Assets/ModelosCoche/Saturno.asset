@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseThrottle: 15
   BaseBrake: -70
   BaseWeight: 115
-  elemento: 0
+  elemento: 2
   mesh: {fileID: 5962896104441820133, guid: 44fee62afdbb2f146a7adaaf4c4005be, type: 3}
   materialesCoche:
   - {fileID: 7314150367296160699, guid: 44fee62afdbb2f146a7adaaf4c4005be, type: 3}

@@ -48,18 +48,31 @@ public class UIManagerEscogerCoche : MonoBehaviour
             ip.naveTerricola = new DatosCoche();
             ip.naveTerricola.infoBase = ip.modelosCoches[(int) Elemento.ESPIRITU].Clone();
             ip.naveTerricola.infoBase.elemento = Elemento.AGUA;
+           
+            ip.naveTerricola.infoBase.mesh = ip.modelosCoches[(int)Elemento.AGUA].mesh;
+            ip.naveTerricola.infoBase.materialesCoche = ip.modelosCoches[(int)Elemento.AGUA].materialesCoche;
             ip.cochesCarrera[0] = ip.naveTerricola;
             currentCoche = ip.naveTerricola;
+            currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
+            currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
         }
         else
         {
             if (ip.cochesCarrera[0] == null)
             {
-
-                ip.cochesCarrera[0] = currentCoche;
-                currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
-                currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
-                currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
+                if (ip.entradoTemporada)
+                {
+                    ip.cochesCarrera[0] = ip.naveTerricola;
+                    currentCoche = ip.cochesCarrera[0];
+                }
+                else
+                {
+                    ip.cochesCarrera[0] = currentCoche;
+                    currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
+                    currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
+                    currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
+                }
+            
             }
             else
             {
@@ -67,16 +80,28 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 {
                     ip.cochesCarrera[0] = ip.naveTerricola;
                 }
+                else
+                {
+                    if (ip.naveTerricola.Equals(ip.cochesCarrera[0]))
+                    {
+                        ip.cochesCarrera[0] = currentCoche;
+                        currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
+                        currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
+                        currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
+                    }
+                    else
+                    {
+                        currentCoche = ip.cochesCarrera[currentCoche.ID];
+                        eleccionModelo = Array.FindIndex(ip.modelosCoches, (m) => m.elemento.Equals(currentCoche.infoBase.elemento));
+                        signosEscogidos[0] = (int)(currentCoche.signos[0].zodiaco);
+                        signosEscogidos[1] = (int)(currentCoche.signos[1].zodiaco);
+                        btnSigno[0].image.sprite = fotoSigno[signosEscogidos[0]];
+                        btnSigno[1].image.sprite = fotoSigno[signosEscogidos[1]];
+                        ElegirReglajeED((int)currentCoche.reg.espacioDinamica);
+                        ElegirReglajeRM((int)currentCoche.reg.relacionMarchas);
+                    }
+                }
                 
-                currentCoche = ip.cochesCarrera[currentCoche.ID];
-                eleccionModelo = Array.FindIndex(ip.modelosCoches, (m) => m.elemento.Equals(currentCoche.infoBase.elemento));
-
-                signosEscogidos[0] = (int)(currentCoche.signos[0].zodiaco);
-                signosEscogidos[1] = (int)(currentCoche.signos[1].zodiaco);
-                btnSigno[0].image.sprite = fotoSigno[signosEscogidos[0]];
-                btnSigno[1].image.sprite = fotoSigno[signosEscogidos[1]];
-                ElegirReglajeED((int)currentCoche.reg.espacioDinamica);
-                ElegirReglajeRM((int)currentCoche.reg.relacionMarchas);
             }
 
         }
@@ -100,10 +125,17 @@ public class UIManagerEscogerCoche : MonoBehaviour
         cocheDisplay.sprite = fotoCoches[eleccionModelo];
         if(displayManager!=null)
             displayManager.sprite = fotoCoches[eleccionModelo];
+       
+        
+        
         UpdateInfoCoche();
     }
     #endregion
     #region Modificacion Coche
+    public void CocheEscogidoTemporada()
+    {
+        InformacionPersistente.singleton.cochesCarrera[0] = currentCoche;
+    }
     private void CambiarSigno1()
     {
         signosEscogidos[0]++;
@@ -174,7 +206,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
         cocheDisplay.sprite = fotoCoches[eleccionModelo];
         if(displayManager!=null)
             displayManager.sprite = fotoCoches[eleccionModelo];
-        if (InformacionPersistente.singleton.esTemporada)
+        if (InformacionPersistente.singleton.entradoTemporada)
         {
             currentCoche.infoBase.elemento= InformacionPersistente.singleton.modelosCoches[eleccionModelo].elemento;
             currentCoche.infoBase.mesh = InformacionPersistente.singleton.modelosCoches[eleccionModelo].mesh;

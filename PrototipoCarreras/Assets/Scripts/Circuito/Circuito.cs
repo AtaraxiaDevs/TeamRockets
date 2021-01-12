@@ -202,6 +202,7 @@ public class Circuito : MonoBehaviourPunCallbacks
         //{
         //    ip.cochesCarrera = ip.cochesManager;
         //}
+        
         for (int i = 0; i < ip.numCoches; i++)
         {
             if (ip.cochesCarrera[i] == null)
@@ -211,6 +212,8 @@ public class Circuito : MonoBehaviourPunCallbacks
 
             pilotos[i].AsignarCoche(ip.cochesCarrera[i]);
         }
+        if (InformacionPersistente.singleton.esTemporada)
+            pilotos[0].GetComponent<IAMoves>().nivelRitmo = InformacionPersistente.singleton.nivelRitmoPropio;
         //if ((ip.esTemporada) && (ip.cochesManager == null))
         //{
 

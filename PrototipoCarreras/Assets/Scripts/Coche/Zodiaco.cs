@@ -6,10 +6,10 @@ using UnityEngine;
 [SerializeField]
 public enum Elemento
 {
-    TIERRA,
-    AIRE,
-    FUEGO,
     AGUA,
+    AIRE,
+    TIERRA,
+    FUEGO,
     ESPIRITU
 }
 
