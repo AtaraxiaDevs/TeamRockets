@@ -4418,6 +4418,11 @@ MonoBehaviour:
   mejorasText:
   - {fileID: 979925853}
   - {fileID: 930480609}
+  caracteristicasText:
+  - {fileID: 641103445}
+  - {fileID: 1137977173}
+  - {fileID: 1816817173}
+  - {fileID: 1580504418}
   mejorasGraficos1:
   - {fileID: 993606760}
   - {fileID: 2128011241}

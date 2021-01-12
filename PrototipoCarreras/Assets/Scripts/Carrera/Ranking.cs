@@ -129,7 +129,6 @@ public class Ranking : MonoBehaviour
                 }
                 ip.navesModoMan = null;
                 ip.currentCircuito = null;
-                ip.cochesManager = null;
                 ip.contCircuitoManager = 0;
             }
             else

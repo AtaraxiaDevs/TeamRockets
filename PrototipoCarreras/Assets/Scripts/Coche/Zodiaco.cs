@@ -99,7 +99,7 @@ public class Signo
 
             case Zodiaco.PISCIS:
                 stats.FinalMaxSpeed += stats.FinalMaxSpeed * valuePlus;
-                stats.FinalBrake -= stats.FinalBrake * valueMinus;
+                stats.FinalBrake += stats.FinalBrake * valueMinus;
                 caracteristicaPlus = Caracteristicas.VELOCIDADMAX;
                 caracteristicaMinus = Caracteristicas.FRENO;
                 break;
@@ -112,7 +112,7 @@ public class Signo
                 break;
 
             case Zodiaco.CANCER:
-                stats.FinalBrake -= stats.FinalBrake * valueMinus;
+                stats.FinalBrake += stats.FinalBrake * valueMinus;
                 stats.ElectricForceRecta += valueMinus * stats.FinalWeight / 100;
                 stats.ElectricForceCurva += valueMinus * stats.FinalWeight / 100;
                 caracteristicaPlus = Caracteristicas.ESPACIODINAMICA;
@@ -120,7 +120,7 @@ public class Signo
                 break;
 
             case Zodiaco.CAPRICORNIO:
-                stats.FinalBrake += stats.FinalBrake * valuePlus;
+                stats.FinalBrake -= stats.FinalBrake * valuePlus;
                 stats.ElectricForceRecta -= valueMinus * stats.FinalWeight / 100;
                 stats.ElectricForceCurva -= valueMinus * stats.FinalWeight / 100;
                 caracteristicaPlus = Caracteristicas.FRENO;
@@ -136,7 +136,7 @@ public class Signo
 
             case Zodiaco.VIRGO:
                 stats.FinalMaxSpeed -= valueMinus * stats.FinalMaxSpeed;
-                stats.FinalBrake += valuePlus * stats.FinalBrake;
+                stats.FinalBrake -= valuePlus * stats.FinalBrake;
                 caracteristicaPlus = Caracteristicas.FRENO;
                 caracteristicaMinus = Caracteristicas.VELOCIDADMAX;
                 break;

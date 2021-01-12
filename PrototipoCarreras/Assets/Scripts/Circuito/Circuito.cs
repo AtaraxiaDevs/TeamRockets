@@ -30,17 +30,14 @@ public class Circuito : MonoBehaviourPunCallbacks
     #region Unity
     void Start()
     {
-        circuito = new LineRenderer[maxPilotos];
+       
 
         if (modoEditor)// Si estamos en el editor instanciamos los coches básicos
         {
              modulos = new List<Modulo>();
              CrearPilotos();
         }
-        else
-        {
-            InicializarPilotos();
-        }
+      
     }
   
     #endregion
@@ -56,31 +53,20 @@ public class Circuito : MonoBehaviourPunCallbacks
             pilotos[i] = mytmp.GetComponentInChildren<Coche>();
             pilotos[i].ID = i;
             pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
-            circuito[i] = mytmp.GetComponent<LineRenderer>();
             pilotos[i].gameObject.SetActive(false);
+            pilotos[i].currentCarril = i;
+            circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
         }
 
         for (int i = 0; i < maxPilotos; i++)
         {
             vertexcont[i] = 0;
         }
-
         AsignarPiloto();
+      
     }
 
-    public void InicializarPilotos()
-    { //moduloPrimero.soyPrimero();
-        for (int i = 0; i < maxPilotos; i++)
-        {
-            pilotos[i].ID = i;
-            pilotos[i].currentCarril = i;
-            pilotos[i].GetComponent<IAMoves>().currentCircuito = this;
-            circuito[i] = pilotos[i].GetComponentInParent<LineRenderer>();
-            pilotos[i].gameObject.SetActive(false);
-        }
 
-        AsignarPiloto();
-    }
 
     public void Construir()
     {
@@ -212,10 +198,10 @@ public class Circuito : MonoBehaviourPunCallbacks
         InformacionPersistente ip = InformacionPersistente.singleton;
        
        
-        if((ip.esTemporada) && (ip.cochesManager != null))
-        {
-            ip.cochesCarrera = ip.cochesManager;
-        }
+        //if((ip.esTemporada) && (ip.cochesManager != null))
+        //{
+        //    ip.cochesCarrera = ip.cochesManager;
+        //}
         for (int i = 0; i < ip.numCoches; i++)
         {
             if (ip.cochesCarrera[i] == null)
@@ -225,15 +211,15 @@ public class Circuito : MonoBehaviourPunCallbacks
 
             pilotos[i].AsignarCoche(ip.cochesCarrera[i]);
         }
-        if ((ip.esTemporada) && (ip.cochesManager == null))
-        {
+        //if ((ip.esTemporada) && (ip.cochesManager == null))
+        //{
 
-            ip.cochesManager = new DatosCoche[ip.numCoches];
-            for (int i = 0; i < ip.numCoches; i++)
-            {
-                ip.cochesManager[i] = ip.cochesCarrera[i];
-            }
-        }
+        //    ip.cochesManager = new DatosCoche[ip.numCoches];
+        //    for (int i = 0; i < ip.numCoches; i++)
+        //    {
+        //        ip.cochesManager[i] = ip.cochesCarrera[i].Clone();
+        //    }
+        //}
     }
 
     public void IniciarCarrera()

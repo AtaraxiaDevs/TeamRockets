@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     Transform circuito;
     Camera myCamera;
     Quaternion rotation;
-    Vector3 posTarget = new Vector3(0,25, -22);
+    Vector3 posTarget = new Vector3(0,17, -25);
     Vector3 posCircuito = new Vector3(0, 30, 30);
     Vector3 centro;
 

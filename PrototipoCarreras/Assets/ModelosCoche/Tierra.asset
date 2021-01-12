@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c30bb0bf069aca4b9decd6aa94877ee, type: 3}
   m_Name: Tierra
   m_EditorClassIdentifier: 
-  BaseMaxSpeed: 150
-  BaseThrottle: 20
-  BaseBrake: -24
-  BaseWeight: 100
+  BaseMaxSpeed: 90
+  BaseThrottle: 14
+  BaseBrake: -50
+  BaseWeight: 140
   elemento: 4
+  mesh: {fileID: 0}
+  materialesCoche: []

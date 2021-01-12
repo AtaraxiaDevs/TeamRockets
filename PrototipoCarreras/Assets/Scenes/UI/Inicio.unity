@@ -665,6 +665,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public class DatosCoche
     {
         reg = new Reglajes();
     }
+    public DatosCoche Clone()
+    {
+        return (DatosCoche)this.MemberwiseClone();
+    }
     
 }
 public class InformacionPersistente : MonoBehaviour
@@ -36,7 +40,7 @@ public class InformacionPersistente : MonoBehaviour
 
     //Informacion
     public DatosCoche[] cochesCarrera;
-    public DatosCoche[] cochesManager;
+    public DatosCoche naveTerricola;
     // quizas hacer un datoscoche con los del modo manager?¿
     public  List<Participante> navesModoMan;
     public List<Participante> navesModoCopa;
@@ -48,7 +52,7 @@ public class InformacionPersistente : MonoBehaviour
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
 
-    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, esCopa = false,copaTerminada=false,temporadaTerminada=false;
+    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, entradoTemporada = false, esCopa = false,copaTerminada=false,temporadaTerminada=false;
     public string nombreUsuario = "Celtia";
     public string DATA_BD = "";
     [HideInInspector]
@@ -95,31 +99,31 @@ public class InformacionPersistente : MonoBehaviour
   
     void Start()
     {
-        numCoches = modelosCoches.Length;
+        numCoches = modelosCoches.Length-1;
         cochesCarrera = new DatosCoche[numCoches];
         LimpiarInfoCoches();
 
-        int a = 0, b = 0;
-        for (int i = 0; i < cochesCarrera.Length; i++)
-        {
-            cochesCarrera[i] = new DatosCoche();
-            cochesCarrera[i].infoBase = modelosCoches[2];
-            cochesCarrera[i].signos[0] = signosZodiaco[1];
-            cochesCarrera[i].signos[1] = signosZodiaco[7];
-            cochesCarrera[i].ID = i;
-            cochesCarrera[i].reg = new Reglajes();
-            cochesCarrera[i].reg.ElegirReglajes(a, b);
+        //int a = 0, b = 0;
+        //for (int i = 0; i < cochesCarrera.Length; i++)
+        //{
+        //    cochesCarrera[i] = new DatosCoche();
+        //    cochesCarrera[i].infoBase = modelosCoches[2];
+        //    cochesCarrera[i].signos[0] = signosZodiaco[1];
+        //    cochesCarrera[i].signos[1] = signosZodiaco[7];
+        //    cochesCarrera[i].ID = i;
+        //    cochesCarrera[i].reg = new Reglajes();
+        //    cochesCarrera[i].reg.ElegirReglajes(a, b);
 
-            if (i % 2 != 0)
-            {
-                b++;
-                a--;
-            }
-            else
-            {
-                a++;
-            }
-        }
+        //    if (i % 2 != 0)
+        //    {
+        //        b++;
+        //        a--;
+        //    }
+        //    else
+        //    {
+        //        a++;
+        //    }
+        //}
     }
     #endregion
     #region Gestion de la informacion

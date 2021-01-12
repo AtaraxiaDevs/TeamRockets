@@ -12,4 +12,9 @@ public class ModeloCoche : ScriptableObject
     public Elemento elemento;
     public Mesh mesh;
     public Material[] materialesCoche;
+
+    public ModeloCoche Clone()
+    {
+        return (ModeloCoche)this.MemberwiseClone();
+    }
 }

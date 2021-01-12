@@ -152,7 +152,7 @@ public class Coche : MonoBehaviour
     {
         Quaternion aux = transform.rotation;
         Vector3 dir = posiciones[currentpoint] - transform.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.09f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), Time.time * 0.05f);
         float giroY = (transform.rotation.eulerAngles - aux.eulerAngles).y;
         transform.Rotate(0, 0, giroY );
     
