@@ -22,6 +22,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
     public Button[] btnRegRM;
     public Image cocheDisplay,xdosDisplay,xtresDisplay;
     public Text infoCoche,infoCocheSignos,infosigno1,infosigno2, txtElemento;
+    public Image displayManager;
 
     public int[] signosEscogidos;
     public int RM, ED;
@@ -33,7 +34,6 @@ public class UIManagerEscogerCoche : MonoBehaviour
     #region Unity
     void Start()
     {
-       
         currentCoche = new DatosCoche();
         currentCoche.ID = 0; // Va a ser el Jugador 1 por ahora
                              //y offline
@@ -42,6 +42,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
         signosEscogidos[0] = 0;
         signosEscogidos[1] = 1;
         eleccionModelo = 0;
+
         if (InformacionPersistente.singleton.cochesCarrera[0] == null)
         {
             InformacionPersistente.singleton.cochesCarrera[currentCoche.ID] = currentCoche;
@@ -65,14 +66,10 @@ public class UIManagerEscogerCoche : MonoBehaviour
             btnRegRM[(int)currentCoche.reg.relacionMarchas].onClick.Invoke();
         }
        
-       
-       
         flechaAtras.onClick.AddListener(() => CambiarCoche(false));
         flechaDelante.onClick.AddListener(() => CambiarCoche(true));
         btnSigno[0].onClick.AddListener(() => CambiarSigno1());
         btnSigno[1].onClick.AddListener(() => CambiarSigno2());
-  
-
       
         for (int i=0; i < btnRegED.Length; i++)
         {
@@ -85,6 +82,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
             btnRegRM[i].onClick.AddListener(() => ElegirReglajeRM(a));
         }
         cocheDisplay.sprite = fotoCoches[eleccionModelo];
+        displayManager.sprite = fotoCoches[eleccionModelo];
         UpdateInfoCoche();
     }
     #endregion
@@ -157,6 +155,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
         }
 
         cocheDisplay.sprite = fotoCoches[eleccionModelo];
+        displayManager.sprite = fotoCoches[eleccionModelo];
 
         currentCoche.infoBase = InformacionPersistente.singleton.modelosCoches[eleccionModelo];
      

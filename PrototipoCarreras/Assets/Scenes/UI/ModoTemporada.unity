@@ -3922,7 +3922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PARK JENNER
+  m_Text: LANCEROT / LV 1
 --- !u!222 &514605045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4393,6 +4393,7 @@ MonoBehaviour:
   infosigno1: {fileID: 1000221589}
   infosigno2: {fileID: 152190664}
   txtElemento: {fileID: 1096158450}
+  displayManager: {fileID: 1351653351}
   signosEscogidos: 
   RM: 0
   ED: 0
@@ -8201,7 +8202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &954282535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9303,7 +9304,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HERNANDO ALFONSO
+  m_Text: VAGALUME / LV 3
 --- !u!222 &1002403297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19829,7 +19830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CARLOS CARLOS
+  m_Text: A'RHEA / LV 2
 --- !u!222 &1817024028
 CanvasRenderer:
   m_ObjectHideFlags: 0
