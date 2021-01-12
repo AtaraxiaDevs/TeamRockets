@@ -2218,6 +2218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCAR: {fileID: 0}
   esCircuito: 0
   tengoCoche: 0
   m_speed: 0
@@ -2657,6 +2658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888220538}
   - component: {fileID: 1888220537}
+  - component: {fileID: 1888220539}
   m_Layer: 0
   m_Name: UICarreraManager
   m_TagString: Untagged
@@ -2687,6 +2689,7 @@ MonoBehaviour:
   minMaxController: {fileID: 0}
   velocidad: {fileID: 0}
   posiciones: {fileID: 780219278}
+  vueltas: {fileID: 0}
   sceneFader: {fileID: 2046921135}
 --- !u!4 &1888220538
 Transform:
@@ -2702,6 +2705,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888220539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888220536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c23afbf6ff85a4c92817572b057ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneFader: {fileID: 2046921135}
+  tutorial: {fileID: 0}
+  PPrincipal: {fileID: 0}
+  pestanaActual: {fileID: 0}
+  esTitulo: 0
+  titulo: {fileID: 0}
+  "spriteEspa\xF1ol": {fileID: 0}
+  spriteIngles: {fileID: 0}
+  spriteGallego: {fileID: 0}
+  esTitulo2: 0
+  titulo2: {fileID: 0}
+  "spriteEspa\xF1ol2": {fileID: 0}
+  spriteIngles2: {fileID: 0}
+  spriteGallego2: {fileID: 0}
+  circuitosListos: 0
 --- !u!1 &1935222929
 GameObject:
   m_ObjectHideFlags: 0
