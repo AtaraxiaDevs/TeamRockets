@@ -47,19 +47,17 @@ public class UIManagerEscogerCoche : MonoBehaviour
         {
             ip.naveTerricola = new DatosCoche();
             ip.naveTerricola.infoBase = ip.modelosCoches[(int) Elemento.ESPIRITU].Clone();
-            ip.cochesCarrera[0] = ip.naveTerricola;
             ip.naveTerricola.infoBase.elemento = Elemento.AGUA;
+            ip.cochesCarrera[0] = ip.naveTerricola;
+            currentCoche = ip.naveTerricola;
         }
-       
         else
         {
             if (ip.cochesCarrera[0] == null)
             {
-                ip.cochesCarrera[currentCoche.ID] = currentCoche;
 
-
+                ip.cochesCarrera[0] = currentCoche;
                 currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
-
                 currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
                 currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
             }

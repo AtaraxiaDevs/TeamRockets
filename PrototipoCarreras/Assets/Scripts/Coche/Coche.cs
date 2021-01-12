@@ -492,7 +492,10 @@ public class Coche : MonoBehaviour
     public void CalcularStats(Reglajes reg)
     {
         stats = new InfoCoche();
-
+        if (statsBase == null)
+        {
+            Debug.Log("Soy " + ID);
+        }
         stats.Marchas = new float[5];
         Calado = new bool[stats.Marchas.Length];
         stats.ElectricForceCurva = 0;

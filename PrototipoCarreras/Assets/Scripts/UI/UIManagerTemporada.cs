@@ -177,7 +177,7 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseMaxSpeed = infoTerricola.BaseMaxSpeed + nivelMejora[tipo - 1] * 20;
+                        ip.naveTerricola.infoBase.BaseMaxSpeed = infoTerricola.BaseMaxSpeed + (nivelMejora[tipo - 1]+1) * 20;
                         CambiarMejoras(tipo - 1, mejorasGraficos1);
                         caracteristicasText[0].text = ip.naveTerricola.infoBase.BaseMaxSpeed.ToString();
                         ActualizarMejoras(true);
@@ -188,7 +188,7 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + nivelMejora[tipo - 1] * 2;
+                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + (nivelMejora[tipo - 1] + 1) * 2;
                         CambiarMejoras(tipo - 1, mejorasGraficos2);
                         caracteristicasText[1].text = ip.naveTerricola.infoBase.BaseThrottle.ToString();
                         ActualizarMejoras(true);
@@ -199,7 +199,7 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake - nivelMejora[tipo - 1] * 5;
+                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake - (nivelMejora[tipo - 1] + 1) * 5;
                         CambiarMejoras(tipo - 1, mejorasGraficos3);
                         caracteristicasText[2].text = ip.naveTerricola.infoBase.BaseBrake.ToString();
                         ActualizarMejoras(true);
@@ -210,7 +210,7 @@ public class UIManagerTemporada : MonoBehaviour
                     if (nivelMejora[tipo - 1] < 3)
                     {
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - nivelMejora[tipo - 1] * 10;
+                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - (nivelMejora[tipo - 1] + 1) * 10;
                         CambiarMejoras(tipo - 1, mejorasGraficos4);
                         caracteristicasText[3].text = ip.naveTerricola.infoBase.BaseWeight.ToString();
                         ActualizarMejoras(true);

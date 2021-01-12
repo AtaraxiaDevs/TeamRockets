@@ -17,6 +17,8 @@ public class DatosCoche
     public DatosCoche()
     {
         reg = new Reglajes();
+        reg.espacioDinamica = (ESPACIODINAMICA)0;
+        reg.relacionMarchas = (RELACIONMARCHAS)0;
     }
     public DatosCoche Clone()
     {

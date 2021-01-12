@@ -60,6 +60,7 @@ public class UIManagerCarrera : MonoBehaviour
         else
         {
             constructor.DataToCircuito(InformacionPersistente.singleton.currentCircuito);
+            constructor.creado.CrearPilotos();
             CircuitoCargado(constructor);
             InformacionPersistente.singleton.currentCircuito = null;
         }

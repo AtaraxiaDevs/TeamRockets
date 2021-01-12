@@ -65,6 +65,7 @@ public class Constructor : MonoBehaviour
     {
         DataCircuito data = ParserFireBase(datos);
         DataToCircuito(data);
+        creado.CrearPilotos();
         manager.CircuitoCargado(this);
     }
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
@@ -197,7 +198,8 @@ public class Constructor : MonoBehaviour
 
         nuevo.modulos[0].soyPrimero();
         nuevo.moduloPrimero = nuevo.modulos[0];
-        nuevo.CrearPilotos();
+       
+       
         creado = nuevo;
     }
     #endregion
