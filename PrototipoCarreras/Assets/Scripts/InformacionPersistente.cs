@@ -36,7 +36,7 @@ public class InformacionPersistente : MonoBehaviour
 
     //Informacion
     public DatosCoche[] cochesCarrera;
-    public static DatosCoche[] cochesManager;
+    public DatosCoche[] cochesManager;
     // quizas hacer un datoscoche con los del modo manager?¿
     public  List<Participante> navesModoMan;
     public List<Participante> navesModoCopa;
