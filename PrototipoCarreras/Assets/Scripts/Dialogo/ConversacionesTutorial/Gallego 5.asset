@@ -13,23 +13,28 @@ MonoBehaviour:
   m_Name: Gallego 5
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: E logo?, pois xa chegamos na carreira!
     enUso: 0
-  - conver: 
+  - conver: "Os circuitos consisten en pistas de 4 carr\xEDs polos que deben pasar
+      t\xF3dalas naves."
     enUso: 0
-  - conver: 
+  - conver: "As voltas, por este motivo, son sempre m\xFAltiplos de 4."
     enUso: 0
-  - conver: 
+  - conver: "Na t\xFAa pantalla, tes informaci\xF3n das voltas, a t\xFAa posici\xF3n
+      e a t\xFAa mellor volta."
     enUso: 0
-  - conver: 
+  - conver: "Podes pausar en calquera momento co bot\xF3n de pausa."
     enUso: 0
-  - conver: 
+  - conver: "Pra controlar a nave, tes que mover a panca da dereita. Podes usar o
+      teu dedo(M\xF3bil) ou o teu rato(Ordenador)."
     enUso: 0
-  - conver: 
+  - conver: "As naves te\xF1en 5 marchas diferentes, as cales serven pra axusta-la
+      velocidade."
     enUso: 0
-  - conver: 
+  - conver: Cada zona do circuito pode superarse na velocidade concreta. Ten coidado!
+      E non che esnafres!
     enUso: 0
-  - conver: 
+  - conver: Tenta completar una carreira.
     enUso: 0
   clave: CarreraGallego
   iniciado: 0

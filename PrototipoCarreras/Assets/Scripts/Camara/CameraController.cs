@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    Coche myCAR;//( luego se le asignara)
+    public Coche myCAR;
     Transform circuito;
     Camera myCamera;
     Quaternion rotation;

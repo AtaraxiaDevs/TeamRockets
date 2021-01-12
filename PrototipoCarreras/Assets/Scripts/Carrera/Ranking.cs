@@ -129,7 +129,7 @@ public class Ranking : MonoBehaviour
                 }
                 ip.navesModoMan = null;
                 ip.currentCircuito = null;
-                InformacionPersistente.cochesManager = null;
+                ip.cochesManager = null;
                 ip.contCircuitoManager = 0;
             }
             else
@@ -157,7 +157,7 @@ public class Ranking : MonoBehaviour
                 ui.IrA("ModosJuegos");
             }
             else
-                ui.IrA("CarreraRapida");
+                ui.IrA("CocheReglajes");
         }
         else
         {

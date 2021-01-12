@@ -1886,9 +1886,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
         type: 3}
+      propertyPath: listConveraux.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
       propertyPath: listConveraux.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 4545fb6b8ebd5584aaf1481c4d3be46d,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 35f129d74c9d02140bebcfc032606069,
+        type: 2}
+    - target: {fileID: 9094579727281027354, guid: 1916159f638ff224a8b2eea9c55612b6,
+        type: 3}
+      propertyPath: listConveraux.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d0e0a7c3e6253f45a8a87989149dde2,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916159f638ff224a8b2eea9c55612b6, type: 3}
@@ -2307,6 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCAR: {fileID: 0}
   esCircuito: 0
   tengoCoche: 0
   m_speed: 0

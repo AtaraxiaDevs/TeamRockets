@@ -70,7 +70,7 @@ public class CarreraController : MonoBehaviour
 
     public void UpdateCarrera(int ID,int vuelta)
     {
-        if (vuelta <= circuito.numVueltas)
+        if (vuelta < circuito.numVueltas)
         {
 
             if (vueltaMasActual < vuelta)

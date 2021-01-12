@@ -69,7 +69,8 @@ public class Coche : MonoBehaviour
     public int ultimaVueltaCambio = -1;
 
     public float bonusTierra = 0, bonusFuego = 0, bonusAgua = 0, bonusAire = 0;
-
+    [HideInInspector]
+    public bool doblado = false;
     private Vector3 up;
     #region Unity
     void Start()
@@ -536,21 +537,32 @@ public class Coche : MonoBehaviour
 
                 SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);
                 FindObjectOfType<CarreraController>().contCochesAcabados++;
+                CameraController cc= FindObjectOfType<CameraController>();
                 if (c.vuelta > vuelta)
                 {
+                    doblado = true;
                     if (soyPlayer)
                     {
                         FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
                         FindObjectOfType<UIManagerCarrera>().minMaxController.gameObject.SetActive(false);
                     }
+                    else if (cc.myCAR.Equals(this))
+                    {
+                        FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
+                    }
                     Destroy(gameObject);
                 }
                 else
                 {
+                    c.doblado = true;
                     if (c.soyPlayer)
                     {
                         FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
                         FindObjectOfType<UIManagerCarrera>().minMaxController.gameObject.SetActive(false);
+                    }
+                    else if (cc.myCAR.Equals(c))
+                    {
+                        FindObjectOfType<Constructor>().CameraFuncionando(FindObjectOfType<CameraController>());
                     }
                     Destroy(c.gameObject);
 

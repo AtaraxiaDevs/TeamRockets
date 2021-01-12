@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: Gallego 4
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: "Por \xFAltimo, un apartado imporante das carreiras: \xE1 afinaci\xF3n."
     enUso: 0
-  - conver: 
+  - conver: "A afinaci\xF3n son axustes menores que se fan na nave pra adaptalo a
+      un circuito."
     enUso: 0
-  - conver: 
+  - conver: "Unha afinaci\xF3n correcta poder\xE1 facercha m\xE1is r\xE1pido ca os
+      teus rivais."
     enUso: 0
-  - conver: 
+  - conver: "A Relaci\xF3n de Marchas serve pra enfocar a t\xFAa nave en ga\xF1ar
+      velocidade ou aceleraci\xF3n."
     enUso: 0
-  - conver: 
+  - conver: "A Espazo Din\xE1mica( semellante \xE1 aerodin\xE1mica terrestre) son
+      causadas polas ondas el\xE9ctricas do espazo."
     enUso: 0
-  - conver: 
+  - conver: "A nave ten un chasis modific\xE1bel, pra que a Espazo Din\xE1mica incida
+      menos en rectas ou curvas."
     enUso: 0
-  - conver: 
+  - conver: "Atento ao circuito i escolle a afinaci\xF3n que consideres axeitados."
     enUso: 0
   clave: ReglajesGallego
   iniciado: 0

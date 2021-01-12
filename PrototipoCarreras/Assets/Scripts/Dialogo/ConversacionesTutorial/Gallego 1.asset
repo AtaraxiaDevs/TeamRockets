@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Gallego 1
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: Ola, eu son Uisge, o CEO de Atarakushia S.A.
     enUso: 0
-  - conver: 
+  - conver: Vouche explicar como participar nunha carreria espacial en Constellatrix
     enUso: 0
-  - conver: 
+  - conver: "Pra comezar, temos que escoller un circuito. Esc\xF3llese un aleatoriamente
+      da nosa base de datos."
     enUso: 0
-  - conver: 
+  - conver: Tenta a escoller un.
     enUso: 0
   clave: CircuitoGallego
   iniciado: 0

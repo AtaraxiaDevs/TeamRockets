@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Gallego 6
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: "Do carallo! Lograches superar unha carreira. Aqu\xED podes ve-los resultados."
     enUso: 0
-  - conver: 
+  - conver: "Pois isto foi o tutorial. Tenta xogar pola t\xFAa conta. Graci\xF1as
+      pola t\xFAa atenci\xF3n."
     enUso: 0
   clave: RankingGallego
   iniciado: 0

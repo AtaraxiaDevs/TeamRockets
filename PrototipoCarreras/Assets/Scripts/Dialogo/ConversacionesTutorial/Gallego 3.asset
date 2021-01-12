@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: Gallego 3
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: "Seguinte paso, escoller as partes do Zodiaco que levar na t\xFAa nave.
+      Esto pode soar un pouco raro."
     enUso: 0
-  - conver: 
+  - conver: "As naves espaciais poden a\xF1adir pezas do Zodiaco pra mellorar as s\xFAas
+      caracter\xEDsticas."
     enUso: 0
-  - conver: 
+  - conver: "T\xE9s que escoller 2 signos, e podes combinalos pra obte\xF1er un bonus
+      elemental."
     enUso: 0
-  - conver: 
+  - conver: Proba a escoller os signos que prefiras.
     enUso: 0
   clave: SignosGallego
   iniciado: 0

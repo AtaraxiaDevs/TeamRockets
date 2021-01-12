@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Gallego 2
   m_EditorClassIdentifier: 
   conver:
-  - conver: 
+  - conver: Excelente. Agora, imos seleccionar unha nave pra compertir.Ofrecemosche
+      4 modelos diferentes.
     enUso: 0
-  - conver: 
+  - conver: "Cada un ten unhas estad\xEDstias concretas que podes ver reflexadas na
+      dereita."
     enUso: 0
-  - conver: 
+  - conver: "Escolle a que m\xE1is se axuste ao circuito e ao teu estilo de pilotaxe."
     enUso: 0
   clave: CocheGallego
   iniciado: 0

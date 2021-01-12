@@ -30,24 +30,28 @@ public class UIManagerTemporada : MonoBehaviour
     {
  
         InformacionPersistente ip = InformacionPersistente.singleton;
-        if (InformacionPersistente.cochesManager != null)
+        if (ip.cochesManager != null)
         {
-            ip.cochesCarrera = InformacionPersistente.cochesManager;
+            ip.cochesCarrera = ip.cochesManager;
             pantallaElegir.SetActive(false);
             uimanager.SetActive(true);
             ip.escenaActual = "ModoManager";
             for (int i = 0; i < 4; i++)
             {
-                if (ip.pilotosOrdenados != null)
+                if (ip.pilotosOrdenados[0] != null)
                 {
                     ParticipantesNameUltima[i].text = ip.pilotosOrdenados[i];
-                    ParticipantesTiemposUltima[i].text = ip.tiempos[i].ToString();
+                    if(ip.tiempos.Length!=0)
+                        ParticipantesTiemposUltima[i].text = ip.tiempos[i].ToString();
                    
 
                 }
-               
-                ParticipantesName[i].text = ip.navesModoMan[i].nombre;
-                ParticipantesPuntos[i].text = ip.navesModoMan[i].puntos.ToString();
+                if (ip.navesModoMan != null)
+                {
+                    ParticipantesName[i].text = ip.navesModoMan[i].nombre;
+                    ParticipantesPuntos[i].text = ip.navesModoMan[i].puntos.ToString();
+
+                }
             }
         
             

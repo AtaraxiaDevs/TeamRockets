@@ -98,12 +98,13 @@ public class UIManagerMenus : MonoBehaviour
     {
         InformacionPersistente.singleton.esTemporada = value;
     }
+
    
     public void GenerarCircuitosTemporadas()
     {
         if (!InformacionPersistente.singleton.esTemporada)
         {
-            InformacionPersistente.singleton.esTemporada = true;
+           
             circuitosListos = false;
             DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
             db.GetCircuitoFromDataBaseModoTemporada(this);

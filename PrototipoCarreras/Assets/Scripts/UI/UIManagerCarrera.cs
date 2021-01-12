@@ -230,22 +230,39 @@ public class UIManagerCarrera : MonoBehaviour
             pos[i] = new Posicion();
             pos[i].ID = i;
             pos[i].time = tiemposGenerales[i];
+            pos[i].doblado = coches.Find((c) => c.ID == pos[i].ID).doblado;
         }
 
         Array.Sort(pos, (x, y) => {
 
-          float aux=  x.time - y.time;
-            if (aux > 0)
+            if (x.doblado != y.doblado)
             {
-                return 1;
-            }   else if (aux < 0)
-            {
-                return -1;
+                if (x.doblado)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
             }
             else
             {
-                return 0;
+                float aux = x.time - y.time;
+                if (aux > 0)
+                {
+                    return 1;
+                }
+                else if (aux < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
+          
         });
 
         //  coches.Sort(new PosicionesCarreraComparator());
@@ -297,6 +314,7 @@ public class UIManagerCarrera : MonoBehaviour
 
 public class Posicion
 {
+    public bool doblado;
     public int ID;
     public float time;
 }
