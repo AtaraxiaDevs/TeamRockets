@@ -1,0 +1,16 @@
+Ciclo de vida:
+- Primera etapa: errores y beta abierta (2 meses).
+- Segunda etapa: lanzar el juego, más módulos, BBDD ampliada (4 meses).
+- Tercera etapa: evento y ampliación del modo manager, primera cinemática, introducción de donaciones (Patreon) (4 meses).
+- Cuarta etapa: segundo evento online (o presencial), más cinemáticas, introducción de customización de vehículos, ampliar modo manager con durabilidad, evento de aniversario, premios a la comunidad (6 meses).
+- Quinta etapa: merchandising, crossover con BTF (naves con forma de comida), primer comic (2 meses).
+- Sexta etapa: transición a plataformas digitales (Steam, Epic), Google Play y App Store, más comics, primer torneo (mejor jugador, mejor circuito, mejor nave), premios a la comunidad, evento de aniversario (6 meses).
+Modelo de negocio:
+- Pay what you can. En web ya no se compran juegos.
+- Generador de módulos. Comprar monedas.
+- Skins y moneda.
+- 0€ juuego, 5€ pack de skin. Modelos 3D de las naves.
+- Fidelización creando un mundo.
+- Spin-off del juego.
+- Merchandising: figuritas.
+- Donaciones.
