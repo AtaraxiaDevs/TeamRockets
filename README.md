@@ -415,9 +415,9 @@ Todos los temas de la banda sonora son assets externos. Todas las canciones han 
 
 A continuación se exponen los temas utilizados para el videojuego junto al nombre de la pieza y su correspondiente autor:
 
-- *Tema Menú*: A Few Jumps Away by Arthur Vyncke<br>
+- *Tema Menú*: Sixty Four Years by Electronic Senses<br>
 
-A Few Jumps Away by Arthur Vyncke | https://soundcloud.com/arthurvost
+Sixty Four Years by Electronic Senses | https://soundcloud.com/electronicsenses
 Music promoted by https://www.free-stock-music.com
 Creative Commons Attribution-ShareAlike 3.0 Unported
 https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
