@@ -165,7 +165,7 @@ public class Ranking : MonoBehaviour
                     ip.modoManager[i] = null;
                    
                 }
-                ip.navesModoMan = null;
+             
                 ip.currentCircuito = null;
                 ip.contCircuitoManager = 0;
                 ui.IrA("Resultados");

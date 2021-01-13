@@ -54,7 +54,7 @@ public class UIManagerEscogerCoche : MonoBehaviour
         signosEscogidos[1] = 1;
         eleccionModelo = 0;
         InformacionPersistente ip = InformacionPersistente.singleton;
-        if ((ip.entradoTemporada) && (ip.naveTerricola == null))
+        if ((ip.entradoTemporada)&& (ip.naveTerricola == null))
         {
             ip.naveTerricola = new DatosCoche();
             ip.naveTerricola.infoBase = ip.modelosCoches[(int) Elemento.ESPIRITU].Clone();

@@ -162,10 +162,7 @@ public class UIManagerCarrera : MonoBehaviour
     }
     private void onMinMaxChange(float value)
     {
-        //if (value < marcha && noAccedido)
-        //{
-        //    noAccedido
-        //}
+       
        bool success=  myCar.SetCurrentMarcha((int)value);
         if (!success)
         {
@@ -205,10 +202,25 @@ public class UIManagerCarrera : MonoBehaviour
        
         
         InformacionPersistente.singleton.LimpiarInfoCoches();
-        sceneFader.FadeTo(s);
-        InformacionPersistente.singleton.escenaActual = s;
+        if (!InformacionPersistente.singleton.esMovil)
+        {
+            sceneFader.FadeTo(s);
+            InformacionPersistente.singleton.escenaActual = s;
+        }
+        else
+        {
+
+            FindObjectOfType<UIManagerMenus>().CambiarSceneEditor(s);
+        }
+       
     }
 
+    public void SalirEnMedioCarrera(string s)
+    {
+        coches.Find((c) => c.ID == 0).doblado = true;
+        SetPosiciones();
+    
+    }
     private string PilotosToString()
     {
         int cont = 1;
@@ -273,8 +285,6 @@ public class UIManagerCarrera : MonoBehaviour
             }
           
         });
-
-        //  coches.Sort(new PosicionesCarreraComparator());
         Coche[] posicionesFinales = new Coche[4];
 
         for(int i=0; i < coches.Count; i++)

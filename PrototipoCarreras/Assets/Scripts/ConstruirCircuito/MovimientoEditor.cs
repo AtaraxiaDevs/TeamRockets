@@ -12,8 +12,8 @@ public class MovimientoEditor : MonoBehaviour
     float maxSize = 200, minSize = 50;
     float speedTouch = 0.5f;
     float speedScroll = 40f;
-    float speedMove = 3f, speedMoveMovil = 1f;
-    float epsilonTouch = 0.1f;
+    float speedMove = 3f, speedMoveMovil = 8f;
+    float epsilonTouch = 1f;
     
     private void Start()
     {
@@ -133,17 +133,6 @@ public class MovimientoEditor : MonoBehaviour
             main.orthographicSize = minSize;
         }
     }
-    //private void OnMouseDown()
-    //{
-    //    comienzo  =Input.mousePosition;
-    //   // main.transform.position = new Vector3(comienzo.x, main.transform.position.y, comienzo.z);
-    //}
-    //private void OnMouseDrag()
-    //{
-    //    //if(main.transform.position.x)
-    //    Vector3 pos = main.ScreenToWorldPoint(comienzo-Input.mousePosition);
-    //    Vector3 move = new Vector3(pos.x * 0.01f, 0, pos.y * 0.01f);
-    //    main.transform.Translate(move, Space.World);
-    //}
+
     
 }

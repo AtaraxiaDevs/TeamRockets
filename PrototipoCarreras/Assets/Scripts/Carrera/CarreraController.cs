@@ -7,7 +7,7 @@ public class CarreraController : MonoBehaviour
 {
     //Aquí se controlarán las posiciones y el progreso de la carrera 
 
-    //Auxiliar, borrar luego
+   
 
     public const int N_PLAYERS = 4;
 
@@ -15,7 +15,7 @@ public class CarreraController : MonoBehaviour
 
     public TimeController times;
     public Circuito circuito;
-    public GameObject tiempoSalida;
+    public GameObject tiempoSalida, buttonPause;
     public Text tiemposJugador, numVuelta;
     //Variables
     [HideInInspector]
@@ -42,6 +42,7 @@ public class CarreraController : MonoBehaviour
                 sc.seleccionador.gameObject.SetActive(true);
             }
         }
+        buttonPause.SetActive(true);
         circuito.Construir();
         circuito.IniciarCarrera();
         times.InicioTiempos();
@@ -115,15 +116,10 @@ public class CarreraController : MonoBehaviour
    
     public void FinCarrera()
     {
- 
-        //string[] clasFinal = new string[N_PLAYERS];
-        //DarPuntos(clasFinal);
+
         FindObjectOfType<UIManagerCarrera>().SetPosiciones();
     }
 
-    //public void DarPuntos(string [] s)
-    //{
-    //    int[] puntos;
-    //}
+ 
 
 }

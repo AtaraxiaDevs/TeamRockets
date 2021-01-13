@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIManagerPausa : MonoBehaviour
 {
     public Sprite[] Signos;
-    //public Coche[] pilotos;
     public Image[] Signos1;
     public Image[] Signos2;
     public Text[] RegEDI;

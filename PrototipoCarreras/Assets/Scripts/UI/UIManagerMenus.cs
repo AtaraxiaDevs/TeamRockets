@@ -106,6 +106,10 @@ public class UIManagerMenus : MonoBehaviour
     public void ModoEntrarTemporadaOn(bool value)
     {
         InformacionPersistente.singleton.entradoTemporada = value;
+        if (value)
+        {
+            InformacionPersistente.singleton.naveTerricola = null;
+        }
     }
 
     public void GenerarCircuitosTemporadas()
@@ -132,20 +136,12 @@ public class UIManagerMenus : MonoBehaviour
     }
     public void GenerarCircuitosCopa()
     {
-        //if (!InformacionPersistente.singleton.esCopa)
-        //{
-        //    InformacionPersistente.singleton.esCopa = true;
+
             circuitosListos = false;
             DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
             db.GetCircuitoFromDataBaseModoCopa(this);
             StartCoroutine(esperarCircuitos("CocheReglaje"));
-        //}
-        //else
-        //{
-        //    InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoCopa[InformacionPersistente.singleton.contCircuitoManager];
-
-        //    IrA("CocheReglaje");
-        //}
+      
     }
 
 
@@ -158,8 +154,18 @@ public class UIManagerMenus : MonoBehaviour
     }
     public void IrA(string s)
     {
-        sceneFader.FadeTo(s);
-        InformacionPersistente.singleton.escenaActual = s;
+
+        if (!InformacionPersistente.singleton.esMovil)
+        {
+            sceneFader.FadeTo(s);
+            InformacionPersistente.singleton.escenaActual = s;
+        }
+        else
+        {
+
+           CambiarSceneEditor(s);
+        }
+     
     }
 
     public void Desactivar(GameObject scene)

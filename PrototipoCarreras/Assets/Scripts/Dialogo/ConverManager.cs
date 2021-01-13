@@ -55,9 +55,17 @@ public class ConverManager : MonoBehaviour
                     refUI.SetActive(true);
 
                 }
-             
-                StopAllCoroutines();
-                StartCoroutine(textoView(line));
+
+                if (InformacionPersistente.singleton.esMovil)
+                {
+                    refLine.text = line;
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(textoView(line));
+                }
+          
                 
                
                 return false;
@@ -80,18 +88,18 @@ public class ConverManager : MonoBehaviour
 
 
     }
-        IEnumerator textoView(string line)
+    IEnumerator textoView(string line)
     {
         ejecutando = true;
-           for(int i=0; i<line.Length;i++)
+        for (int i = 0; i < line.Length; i++)
         {
-            refLine.text = line.Substring(0,i+1);
+            refLine.text = line.Substring(0, i + 1);
             sm.EjecutarSonido(SONIDO.HABLA);
             yield return new WaitForSeconds(1 / speed);
         }
         ejecutando = false;
-       
-        
+
+
     }
 
     public void Resetear()

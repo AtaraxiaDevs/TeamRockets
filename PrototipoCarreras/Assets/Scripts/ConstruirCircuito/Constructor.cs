@@ -32,37 +32,13 @@ public class Constructor : MonoBehaviour
     #region Metodos Construccion
     public void ConstruirCircuito()
     {
-        //////DataCircuito datos = CargarCircuito("prueba");
-        //string datos = CargarCircuitoMongo("prueba");
-        ////string datos = CargarRandomCircuitoFirebase();
-
-        //////Añadir Get con el string y pasarselo a la siguiente linea
-
-        //DataCircuito data = ParseMongo(datos);
-        //DataToCircuito(data);
-
-        //db.PRUEBA(this, manager);
-
-        //
+       
         db = FindObjectOfType<DatabaseAccess>();
 
         db.GetCircuitoFromDataBaseRandom();
 
-        //
     }
-    //public void ConstruirCircuitoRandom(DisplayCircuito dc)a
-    //{
-    //    //////DataCircuito datos = CargarCircuito("prueba");
-    //    //string datos = CargarCircuitoMongo("prueba");
-    //    ////string datos = CargarRandomCircuitoFirebase();
 
-    //    //////Añadir Get con el string y pasarselo a la siguiente linea
-
-    //    //DataCircuito data = ParseMongo(datos);
-    //    //DataToCircuito(data);
-
-    //    db.GetCircuitoFromDataBaseRandom(this, dc);
-    //}
     public void ConstruirCircuitoDesdeBD(string datos, UIManagerCarrera manager)
     {
         DataCircuito data = ParserFireBase(datos);
@@ -73,12 +49,7 @@ public class Constructor : MonoBehaviour
 
     public void ImportarCircuito(string codigo)
     {
-
         db.GetCircuitoFromDataBaseByName(codigo);
-
-
-        //  InformacionPersistente.singleton.DATA_BD;
-
 
     }
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
@@ -263,17 +234,7 @@ public class Constructor : MonoBehaviour
 
             resultado.modulos.Add(data);
         }
-        //for (int i = 0; i < resultado.modulos.Count; i++)
-        //{
-        //    if (i == resultado.modulos.Count - 1)
-        //    {
-        //        resultado.modulos[i].siguiente = null;
-        //    }
-        //    else
-        //    {
-        //        resultado.modulos[i].siguiente = resultado.modulos[i + 1];
-        //    }
-        //}
+    
         return resultado;
     }
     #endregion
@@ -337,25 +298,7 @@ public class Constructor : MonoBehaviour
     }
     #endregion
     #region UI
-    public void EmpezarCarreraListener(Button btn)
-    {
-        //btn.gameObject.SetActive(true);
-        //btn.onClick.AddListener(() =>
-        //{
-
-        //    UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
-        //    ui.circuito = creado;
-        //    ui.posiciones = posiciones;
-        //    CarreraController CC = FindObjectOfType<CarreraController>();
-        //    CC.circuito = creado;
-        //    ui.coches.AddRange(creado.pilotos);
-        //    CC.EmpezarCarrera();
-
-        //    // creado.IniciarCarrera();
-        //});
-        //CameraFuncionando(FindObjectOfType<CameraController>());
-
-    }
+    
     public void CameraFuncionando(CameraController camara)
     {
 
@@ -431,7 +374,7 @@ public class DataCircuito
 [System.Serializable]
 public class DataModulo
 {
-    // public DataModulo siguiente;
+  
     public Rotacion rotacion;
     public TipoSocket socketVecino;
     public TipoModulo modulo;

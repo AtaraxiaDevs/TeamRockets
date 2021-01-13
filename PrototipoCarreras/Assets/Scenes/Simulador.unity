@@ -710,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &557330808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1272,7 +1272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1147469892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,6 +1442,7 @@ MonoBehaviour:
   times: {fileID: 1151179226}
   circuito: {fileID: 0}
   tiempoSalida: {fileID: 135900345}
+  buttonPause: {fileID: 557330807}
   tiemposJugador: {fileID: 450900142}
   numVuelta: {fileID: 2015052363}
   contCochesAcabados: 0
@@ -2307,6 +2308,8 @@ MonoBehaviour:
   sceneFader: {fileID: 2046921135}
   tutorial: {fileID: 0}
   PPrincipal: {fileID: 0}
+  tutoMovil: {fileID: 0}
+  tutoPC: {fileID: 0}
   pestanaActual: {fileID: 0}
   esTitulo: 0
   titulo: {fileID: 0}
@@ -2918,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IrA
+      value: SalirEnMedioCarrera
       objectReference: {fileID: 0}
     - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
         type: 3}
@@ -2928,7 +2931,7 @@ PrefabInstance:
     - target: {fileID: 6143081336951180332, guid: 54fb2d4955740fc45a8bc8e92f135660,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ModoTemporada
+      value: Ranking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb2d4955740fc45a8bc8e92f135660, type: 3}

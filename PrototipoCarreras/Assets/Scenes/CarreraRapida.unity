@@ -871,7 +871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &557330808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2064,6 +2064,7 @@ MonoBehaviour:
   times: {fileID: 1151179226}
   circuito: {fileID: 0}
   tiempoSalida: {fileID: 135900345}
+  buttonPause: {fileID: 557330807}
   tiemposJugador: {fileID: 450900142}
   numVuelta: {fileID: 99958342}
   contCochesAcabados: 0

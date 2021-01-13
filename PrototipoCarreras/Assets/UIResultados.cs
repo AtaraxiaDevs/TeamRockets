@@ -31,6 +31,7 @@ public class UIResultados : MonoBehaviour
                 nombres[i].text = ip.navesModoMan[i].nombre;
                 puntos[i].text = ip.navesModoMan[i].puntos.ToString();
             }
+            ip.navesModoMan = null;
         }
     }
 }
