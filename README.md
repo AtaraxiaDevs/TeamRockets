@@ -473,27 +473,68 @@ La competición cuenta con unos participantes bastante estrafalarios como, por e
 
 ### 10.2.- CICLO DE VIDA	<a name="cicloDeVida"/>
 
+La intención del equipo de desarrollo es alargar la vida del juego lo máximo posible y crear una comunidad rica y llena de jugadores. Para conseguir este objetivo, hemos definido un ciclo de vida de los dos primeros años del videojuego dividida en seis fases.
 
+En la primera fase lanzaremos una beta abierta del juego, la cual servirá como primera toma de contacto con los jugadores. Además, uno de nuestros principales objetivos en esta fase es solucionar los posibles errores que hayan surgido durante el desarrollo del videojuego. Gracias al lanzamiento del videojuego en forma de beta abierta podremos "testear" el videojuego a una mayor escala gracias a los jugadores, lo que nos permitirá encontrar y solucionar errores lo antes posible. Estimamos que esta fase tendrá una duración aproximada de dos meses.
+
+En la segunda etapa el juego abandonará la fase de beta abierta, produciéndose el lanzamiento ofical del juego. Lo ideal sería tener solucionados la mayoría de errores solucionados antes del lanzamiento oficial, pero no descartamos que sigan apareciendo errores, por lo que revisaremos el juego cada poco tiempo para solucionarlos lo antes posible. No solo pensamos solucionar errores, sino que además incluiremos nuevos módulos de circuitos de forma gratuita como, por ejemplo, un módulo curva inclinada. Al aumentar el número de jugadores necesitaremos ampliar el tamaño de la base de datos de circuitos ya que, al aumentar el número de jugadores, la cantidad de circuitos generados aumentará exponencialmente, pudiendo llegar a colapsar la base de datos disponible, impidiendo que los jugadores puedan subir a la nube sus creaciones. Por último, uno de los grandes objetivos de esta fase es la inclusión del modo multijugador online, algo que se nos ha quedado en el tintero y que consideramos fundamental para la correcta realización del resto de etapas. Estimamos que esta etapa, debido a su gran complicación técnica, tenga una duración aproximada de cuatro meses.
+
+Como se ha mencionado anteriormente, uno de los principales objetivos que queremos conseguir con este proyecto es conseguir una comunidad de jugadores activa. Para conseguir esto, pensamos introducir el primer evento online de Constela-Trix, donde celebraremos un torneo entre los jugadores más activos de la comunidad y presentaremos novedades jugables de peso, como la ampliación del modo mánager con nuevas opciones. Es por este motivo que la inclusión del multijugador online en la segunda etapa es de vital importancia. Por último, mostraremos una cinemática animada mostrando los origenes de la Capitana A'Rhea, uno de los personajes del juego. De esta forma podremos expandir la historia del juego, ampliando el *lore* contado mediante las cuentas de Twitter de los personajes.
+
+Otro de los grandes objetivos de la tercera fase es introducir un modelo de donaciones mediante el uso de Patreon. Decidimos utilizar este método ya que es el que mejor se adapta al modelo de negocio que queremos crear con Constela-Trix, el cual será explicado en su correspondiente sección. Esta fase tendrá una duración aproximada de cuatro meses.
+
+En la cuarta etapa celebraremos el primer aniversario del juego con más novedades de peso. En primer lugar organizaremos un segundo evento online. Al igual que en el primer evento, se celebrarán varios torneos competitivos para todos los jugadores que quieran participar. Se mostrará otra cinemática animada sobre el origen de Uisge, otro de los personajes de Twitter. Como se ha dicho anteriormente, en este evento online se mostrará una nueva característica del juego: la personalización completa del vehículo, exclusiva del modo mánager. El jugador podrá modificar casi cualquier aspecto físico de su nave, desde los propulsores a los alerones. Además, el modo mánager será ampliado de nuevo con un modo durabilidad, en el que los jugadores tendrán que cambiar de coche cada cierto tiempo para evitar quedarse tirado en la carretera. Pensamos que estas dos nuevas adiciones fomentarán la parte estratégica del título. También anunciaremos un evento del primer aniversario del juego, con torneos oficiales todas las semanas y otras novedades. Por último se entregarán una serie de premios por categorías: más circuitos creados, mejor jugador, mejor personalización, etc. Al ser una fase con tanto contenido técnico y con una gran carga de organización, estimamos que dure aproximadamente medio año.
+
+La quinta etapa estará centrada principalmente en el merchandising. Estos productos consistirán principalmente en figuras de las cuatro naves principales y un primer cómic que explorará la creación de Constela-Trix como competición de naves espaciales, aumentando todavía más el *lore* del universo creado. Por último se crearán skins especiales para las naves en una colaboración con nuestro anterior juego, Break-Troops-Fast (BTF para acortar). En este juego, unos alienígenas invaden ciertos alimentos del desayuno, como magdalenas o zumos, para convertirlos en vehículos con los que pelear entre sí. Estas skins convertirán las naves espaciales en comida y en la cabina de mandos se mostrará a un alienígena de BTF. Esta fase tendrá una duración aproximada de dos meses.
+
+Por último, en la sexta etapa se celebrará el evento online del segundo aniversario del juego. Al igual que en el evento anteriormente descrito, se celebrarán distintos torneos y se repartirán distintos premios a la comunidad por el apoyo proporcionado. En este evento se anunciará un nuevo cómic y se mostrará la tercera cinemática animada, con Vagalume como protagonista. Durante esta fase anunciaremos una transición a las principales tiendas digitales de PC (Epic Games Store y Steam), además de a Google Play Store y a la App Store de Apple. El título será lanzado como un *free-to-play* con compras dentro de la aplicación. Esta fase tendrá una duración aproximada de seis meses.
+
+Una vez cumplidas las seis fases iniciales del proyecto pensamos ampliar el juego con nuevas funciones, seguir haciendo torneos online o presenciales si la situación lo permitey y arreglando distintos errores pero, al ser a tan largo plazo, no tenemos una planificación exacta establecida.
 
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
 
 *MODELO DE NEGOCIO*
 
+El modelo de negocio principal va a ser *pay what you can* (PWYC). En este modelo cada jugador decide pagar lo que considere justo por nuestro producto. En un principio, el juego es totalmente gratuito, pero presenta una serie de añadidos opcionales, como skins para las naves o módulos nuevos a un precio reducido. El equipo de desarrollo decidió utilizar este modelo de negocio ya que, en una encuesta interna entre conocidos y amigos de los desarrolladores, nadie estaba dispuesto a pagar dinero por un juego de navegador.
 
+En un principio vamos a ofrecer la compra de una moneda virtual creada en exclusiva para el juego, la Constela-Coin (CC). Esta moneda solamente se podrá conseguir mediante dinero real y se venderá en paquetes:
+ - 20 CC a 0,99 €.
+ - 50 CC a 1,99 €.
+ - 100 CC a 2,99 €.
+ - 250 CC a 4,99 €.
+ - 1000 CC a 9,99 €.
+ - 2500 CC a 24,99 €.
+
+Con estas monedas el jugador podrá comprar skins para las naves, nuevos módulos para la creación de circuitos y un editor de módulos. Las skins y los módulos se podrán adquirir de forma separada y en conjuntos de varias skins o módulos a precio reducido. Además, también podremos vender los archivos .stl para que los usuarios puedan imprimir sus propias naves. Por último, el elemento más interesante sería un editor de módulos, donde los jugadores podrán crear sus propios módulos para poder usarlos en cualquier circuito.
+
+El principal objetivo que queremos conseguir es la fidelización de los usuarios. Creando un mundo rico mediante cinemáticas, cómics o las propias cuentas de Twitter, podemos enganchar a los jugadores a la historia que estamos creando. No solo esto, sino que los propios usuarios podrán introducir a conocidos y amistades a nuestro juego gracias al editor de circuitos.
+
+También consideramos la creación de un nuevo juego en forma de *spin-off* de Constela-Trix, utilizando el mismo universo ya creado y ampliando la historia presentada todavía más. Al contrario que Constela-Trix, este juego no sería *free-to-play*, sino que saldría al mercado a un precio todavía por concretar.
+
+Otra opción que barajamos será la creación de merchandising para el juego. Como ya se ha explicado anteriormente, podríamos vender los archivos .stl de las naves espaciales para poder ser utilizados en impresoras 3D, pero este aparato no es algo que esté disponible para todos los bolsillos. De esta forma, vamos a lanzar una serie de figuras oficiales como principal forma de merchandising. Existen más alternativas, como la creación de cómics sobre los distintos acontecimientos y personajes de nuestro universo ficticio e incluso la creación de un juego de mesa emulando el juego de navegador.
+
+Por último, implementaremos un sistema de donaciones basado en Patreon. Hemos decidido utilizar esta herramienta debido a que es la que mejor se adapta a nuestros dos pilares fundamentales del modelo de negocio: PWYC y fidelización. Patreon permite establecer una serie de niveles dependiendo del dinero aportado. Por cada nivel los desarrolladores ofrecen una serie de recompensas y por cada nivel superior se dan recompensas más interesantes y valiosas. El equipo ha decidido establecer los siguientes niveles o *tiers*:
+- *Tier* 1: Los jugadores recibirán un boletín de noticias mensual y una invitación a un servidor de Discord donde podrán hablar del juego y charlar con los desarrolladores y el resto de suscriptores. Valor aproximado de 1 €.
+- *Tier* 2: Los jugadores recibirán un conjunto de skins exclusivas de Patreon + todos los beneficios de *tier* 1. Valor aproximado de 3 €.
+- *Tier* 3: Los jugadores recibirán un conjunto de módulos exclusivas de Patreon + todos los beneficios de *tier* 1. Valor aproximado de 5 €.
+- *Tier* 4: Los jugadores recibirán los beneficios de todas las *tiers* anteriores. Valor aproximado de 7 €.
+- *Tier* 5: Los jugadores podrán diseñar en exclusiva una skin para el juego + todos los beneficios de *tiers* anteriores. Valor aproximado de 12 €.
 
 *MONETIZACION*
 
+- *Free-to-play*: No existe ningún coste a la hora de jugar. El juego se ofrece de forma completa gratuitamente.
+- Constela-Coins: Principal forma de monetización. Sirve para comprar elementos cosméticos y módulos.
+- Merchandising: Venta de merchandising como figuritas, cómics o juegos de mesa basados en la marca.
+- *Spin-off*: Nuevo juego basado en el mismo universo que Constela-Trix, pero a precio completo.
+- Patreon: Modelo de negocio basado en donaciones. Ofreceremos distintas recompensas a los jugadores dependiendo de cuánto aporten a la compañía.
 
+*PÚBLICO META*
 
-*PLAN DE NEGOCIO*
+El principal objetivo de nuestro modelo de negocio es atraer el mayor número de personas para que prueben nuestro juego. Como dependemos del "boca a boca" entre amigos y compañeros, además del uso de las redes sociales, nuestro principal público meta son los jóvenes adultos, ya que muchos de estos pueden acceder a sus propios recursos financieros y abundan en las redes sociales.
 
+Pero no nos quedamos aquí. También podemos atraer a jóvenes gracias a nuestro merchandising, especialmente con las figuritas de las naves y los cómics. Por último, también queremos atraer a los fans de la Fórmula 1 gracias a nuestro modo mánager. Este modo permite planificar y seguir una carrera como si fuera una de verdad, lo cual puede interesar a estos forofos.
 
-
-*PUBLICO META*
-
-
-
-- **MODELO DE LIENZO:**
+*MODELO DE LIENZO:*
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
