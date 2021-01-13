@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 420822511}
   - component: {fileID: 420822510}
   - component: {fileID: 420822509}
+  - component: {fileID: 420822512}
   m_Layer: 5
   m_Name: Modulos
   m_TagString: Untagged
@@ -859,6 +860,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420822507}
   m_CullTransparentMesh: 0
+--- !u!114 &420822512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420822507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Modulos
+  hola: {fileID: 77846799}
 --- !u!1 &466105965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1609,7 @@ GameObject:
   - component: {fileID: 1023889116}
   - component: {fileID: 1023889118}
   - component: {fileID: 1023889117}
+  - component: {fileID: 1023889119}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1660,6 +1676,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023889115}
   m_CullTransparentMesh: 0
+--- !u!114 &1023889119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023889115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Todo
+  hola: {fileID: 1023889117}
 --- !u!1 &1095403486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,6 +2421,7 @@ GameObject:
   - component: {fileID: 1294247814}
   - component: {fileID: 1294247813}
   - component: {fileID: 1294247812}
+  - component: {fileID: 1294247815}
   m_Layer: 5
   m_Name: Comprar
   m_TagString: Untagged
@@ -2509,6 +2540,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294247810}
   m_CullTransparentMesh: 0
+--- !u!114 &1294247815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294247810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Comprar
+  hola: {fileID: 1871943790}
 --- !u!1 &1304578447
 GameObject:
   m_ObjectHideFlags: 0

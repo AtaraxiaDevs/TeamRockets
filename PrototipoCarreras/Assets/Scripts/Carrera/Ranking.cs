@@ -44,10 +44,9 @@ public class Ranking : MonoBehaviour
                     listaParticipantes.Add(new Participante(ip.pilotosOrdenados[i]));
 
                     listaParticipantes[i].ID = ip.IDsPosiciones[i];
-            
-
-
+           
                 }
+
                 listaParticipantes[0].SetPuntos(5);
                 listaParticipantes[1].SetPuntos(3);
                 listaParticipantes[2].SetPuntos(1);
@@ -159,7 +158,6 @@ public class Ranking : MonoBehaviour
             {
 
                 UIManagerTemporada.numeroMejoras = 3;
-                ip.esTemporada = false;
                 ip.temporadaTerminada = false; 
                 ip.LimpiarInfoCoches();
                 for(int i=0; i<4; i++)
@@ -170,6 +168,7 @@ public class Ranking : MonoBehaviour
                 ip.navesModoMan = null;
                 ip.currentCircuito = null;
                 ip.contCircuitoManager = 0;
+                ui.IrA("Resultados");
             }
             else
             {
@@ -183,7 +182,6 @@ public class Ranking : MonoBehaviour
             if (ip.copaTerminada)
             {
             
-                ip.esCopa = false;
                 ip.copaTerminada = false;  
                 ip.LimpiarInfoCoches();
                 for (int i = 0; i < 4; i++)
@@ -193,7 +191,7 @@ public class Ranking : MonoBehaviour
                 }
                 ip.contCircuitoCopa = 0;
                 ip.currentCircuito = null;
-                ui.IrA("ModosJuegos");
+                ui.IrA("Resultados");
             }
             else
             {

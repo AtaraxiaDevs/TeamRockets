@@ -556,7 +556,21 @@
 	},
 	
 	"Tienda":{
-	
+		"Modulos":[
+			"Modulos",
+			"Sections",
+			"Modulos"
+		],
+		"Todo":[
+			"Todo 50",
+			"All 50",
+			"Todo 50"
+		],
+		"Comprar":[
+			"Comprar",
+			"Buy",
+			"Mercar"
+		]
 	},
 
 	"ElegirCircuito":{
@@ -598,6 +612,29 @@
 			"Volumen",
 			"Volume",
 			"Volume"
+		]
+	},
+
+	"Resultados":{
+		"ResultadosF":[
+			"Resultados Finales",
+			"Final Standings",
+			"Resultados Finais"
+		],
+		"Puesto":[
+			"Puesto",
+			"Standing",
+			"Posto"
+		],
+		"Nombre":[
+			"Nombre",
+			"Name",
+			"Nome"
+		],
+		"Puntos":[
+			"Puntos",
+			"Points",
+			"Puntos"
 		]
 	},
 
@@ -837,11 +874,6 @@
 			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO",
 			"INVALID TRACK.\n\n REMEMBER TO PLACE A CHANGE-LINES SECTION.\n\nIT HAS TO BE CLOSED",
 			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO"
-		],
-		"Ayuda":[
-			"Introduce el nombre del circuito",
-			"Introduce circuit's name",
-			"POR TRADUCIR GALLEGO"
 		]
 	}
 }
