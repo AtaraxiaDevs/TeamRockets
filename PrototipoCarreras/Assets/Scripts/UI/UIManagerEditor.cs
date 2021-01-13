@@ -158,7 +158,7 @@ public class UIManagerEditor : MonoBehaviour
         }
         else
         {
-            Debug.Log("Circuito no cerrado");
+  
             PopUp2.SetActive(true);
         }
     }

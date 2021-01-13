@@ -1,4 +1,4 @@
-﻿using Photon.Pun;
+﻿
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +7,7 @@ using UnityEngine;
 // Esta clase crea los linerenderer de los pilotos a partir de los linerenderer de los modulos que lo conforman. Cuenta con metodos
 // que añaden y eliminan modulos, para gestionar los pilotos de la carrera, para construir el circuito etc.
 //Un metodo importante es "Construir()" que es donde coge los linerenderer que seguiran los pilotos, y los modifica para que sigan el circuito
-public class Circuito : MonoBehaviourPunCallbacks
+public class Circuito : MonoBehaviour
 {
     //El circuito estará formado por una serie de módulos y de lineas que conformarán una unica linea
 
@@ -94,7 +94,7 @@ public class Circuito : MonoBehaviourPunCallbacks
                     {
                         Vector3[] pos = new Vector3[path.positionCount];
                         path.GetPositions(pos);
-                        Debug.Log("Buena direccion");
+                
 
                         for (int i = 0; i < path.positionCount - 1; i++)
                         {
@@ -107,7 +107,7 @@ public class Circuito : MonoBehaviourPunCallbacks
                     {
                         Vector3[] pos = new Vector3[modulos[h].path[posicionPath].positionCount];
                         modulos[h].path[posicionPath].GetPositions(pos);
-                        Debug.Log("Mala direccion");
+
 
                         for (int i = modulos[h].path[posicionPath].positionCount - 1; i >= 0; i--)
                         {
@@ -172,20 +172,7 @@ public class Circuito : MonoBehaviourPunCallbacks
     }
     #endregion
     #region Información Pilotos
-    //Elegir cual es el coche jugador
-    public void setMyPlayer(int i)
-    {
-        pilotos[i].soyPlayer = true;
-        pilotos[i].gameObject.GetComponent<PhotonView>().SetOwnerInternal(PhotonNetwork.LocalPlayer, i);
-    }
-    //Variable multiplayer de todos los pilotos de la carrera a true ( en multijugador). Puede que no nos haga falta más adelante
-    public void setMulti()
-    {
-        foreach (Coche p in pilotos)
-        {
-            p.multiPlayer = true;
-        }
-    }
+    
     #endregion
     #region Modo Carrera
     public LineRenderer GetCircuito(int index)

@@ -64,10 +64,12 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 {
                     ip.cochesCarrera[0] = ip.naveTerricola;
                     currentCoche = ip.cochesCarrera[0];
+
                 }
                 else
                 {
                     ip.cochesCarrera[0] = currentCoche;
+                   
                     currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
                     currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
                     currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
@@ -79,15 +81,26 @@ public class UIManagerEscogerCoche : MonoBehaviour
                 if (ip.entradoTemporada)
                 {
                     ip.cochesCarrera[0] = ip.naveTerricola;
+                    currentCoche = ip.cochesCarrera[0];
+                    eleccionModelo = Array.FindIndex(ip.modelosCoches, (m) => m.elemento.Equals(currentCoche.infoBase.elemento));
+                    signosEscogidos[0] = (int)(currentCoche.signos[0].zodiaco);
+                    signosEscogidos[1] = (int)(currentCoche.signos[1].zodiaco);
+                    btnSigno[0].image.sprite = fotoSigno[signosEscogidos[0]];
+                    btnSigno[1].image.sprite = fotoSigno[signosEscogidos[1]];
+                    ElegirReglajeED((int)currentCoche.reg.espacioDinamica);
+                    ElegirReglajeRM((int)currentCoche.reg.relacionMarchas);
                 }
                 else
                 {
-                    if (ip.naveTerricola.Equals(ip.cochesCarrera[0]))
+                    
+                    if( (ip.naveTerricola != null) &&(ip.naveTerricola.Equals(ip.cochesCarrera[0])))
                     {
                         ip.cochesCarrera[0] = currentCoche;
+                  
                         currentCoche.infoBase = ip.modelosCoches[eleccionModelo];
                         currentCoche.signos[1] = ip.signosZodiaco[signosEscogidos[1]];
                         currentCoche.signos[0] = ip.signosZodiaco[signosEscogidos[0]];
+
                     }
                     else
                     {

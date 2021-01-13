@@ -55,19 +55,19 @@ public class Ranking : MonoBehaviour
 
                 if (listaParticipantes[0].ID == 0)
                 {
-                    UIManagerTemporada.numeroMejoras += 2;
+                    UIManagerTemporada.numeroMejoras += 0;
                 }
                 else if (listaParticipantes[1].ID == 0)
                 {
-                    UIManagerTemporada.numeroMejoras += 3;
+                    UIManagerTemporada.numeroMejoras += 1;
                 }
                 else if ((listaParticipantes[2].ID==0))
                 {
-                    UIManagerTemporada.numeroMejoras += 4;
+                    UIManagerTemporada.numeroMejoras += 2;
                 }
                 else
                 {
-                    UIManagerTemporada.numeroMejoras += 5;
+                    UIManagerTemporada.numeroMejoras += 3;
                 }
 
             }
@@ -86,19 +86,19 @@ public class Ranking : MonoBehaviour
                 ip.navesModoMan.Sort(new ComparadorParticipantes());
                 if (primero.ID == 0)
                 {
-                    UIManagerTemporada.numeroMejoras += 2;
+                    UIManagerTemporada.numeroMejoras += 0;
                 }
                 else if (segundo.ID == 0)
                 {
-                    UIManagerTemporada.numeroMejoras += 3;
+                    UIManagerTemporada.numeroMejoras += 1;
                 }
                else  if ((tercero.ID == 0))
                 {
-                    UIManagerTemporada.numeroMejoras += 4;
+                    UIManagerTemporada.numeroMejoras += 2;
                 }
                 else
                 {
-                    UIManagerTemporada.numeroMejoras += 5;
+                    UIManagerTemporada.numeroMejoras += 3;
                 }
             }
             for(int i = 0; i < 4; i++)
@@ -158,7 +158,7 @@ public class Ranking : MonoBehaviour
             if (ip.temporadaTerminada)
             {
 
-                UIManagerTemporada.numeroMejoras = 5;
+                UIManagerTemporada.numeroMejoras = 3;
                 ip.esTemporada = false;
                 ip.temporadaTerminada = false; 
                 ip.LimpiarInfoCoches();

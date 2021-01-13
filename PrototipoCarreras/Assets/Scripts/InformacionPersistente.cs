@@ -105,27 +105,7 @@ public class InformacionPersistente : MonoBehaviour
         cochesCarrera = new DatosCoche[numCoches];
         LimpiarInfoCoches();
 
-        //int a = 0, b = 0;
-        //for (int i = 0; i < cochesCarrera.Length; i++)
-        //{
-        //    cochesCarrera[i] = new DatosCoche();
-        //    cochesCarrera[i].infoBase = modelosCoches[2];
-        //    cochesCarrera[i].signos[0] = signosZodiaco[1];
-        //    cochesCarrera[i].signos[1] = signosZodiaco[7];
-        //    cochesCarrera[i].ID = i;
-        //    cochesCarrera[i].reg = new Reglajes();
-        //    cochesCarrera[i].reg.ElegirReglajes(a, b);
-
-        //    if (i % 2 != 0)
-        //    {
-        //        b++;
-        //        a--;
-        //    }
-        //    else
-        //    {
-        //        a++;
-        //    }
-        //}
+     
     }
     #endregion
     #region Gestion de la informacion
@@ -157,8 +137,33 @@ public class InformacionPersistente : MonoBehaviour
         cochesCarrera[pos] = res;
         return res;
     }
-   
 
+   public static string GetPlaneta(Elemento e, int id)
+    {
+        if ((id == 0) && (InformacionPersistente.singleton.esTemporada))
+        {
+            return "La Tierra"; //Poner traductor: The Earth // A Terra
+        }
+
+        switch (e)
+        {
+            case Elemento.AGUA:
+                return "Neptuno"; //Traductor
+                break;
+            case Elemento.FUEGO:
+                return "Marte";
+                break;
+            case Elemento.AIRE:
+                return "Jupiter";
+                break;
+            case Elemento.TIERRA:
+                return "Saturno";
+                break;
+            default:
+                return "UFO";
+                break;
+        }
+    }
     public void LimpiarInfoCoches()
     {
         if (!esCopa)

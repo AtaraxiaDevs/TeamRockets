@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UIManagerTemporada : MonoBehaviour
 {
     [HideInInspector]
-    public static int numeroMejoras= 5;
-
+    public static int numeroMejoras= 3;
+    
     [HideInInspector]
     public int nivelPiloto=0;
 
@@ -65,10 +65,9 @@ public class UIManagerTemporada : MonoBehaviour
        
        
         
- 
-        nivelPiloto = 1;
 
-        numeroMejoras -= nivelPiloto;
+
+      
         
         string jsonData;
         TextAsset auxtxt = Resources.Load<TextAsset>("localization");
@@ -76,43 +75,33 @@ public class UIManagerTemporada : MonoBehaviour
         SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
 
         mejora = data["ModificarCoche"]["Mejoras"][InformacionPersistente.singleton.idiomaActual].Value;
-        EscogerPiloto(1);
-        ActualizarMejoras(true);
+        if (nivelPiloto == 0)
+        {
+            nivelPiloto = 1;
+            MeterDatosPiloto(15,0);
+        }
+
+        foreach (Text t in mejorasText)
+        {
+            t.text = numeroMejoras + " " + mejora;
+        }
     }
 
     public void EscogerPiloto(int a)
     {
-        if (a == 0)
-        {
-            if (a == 2 && numeroMejoras > 0)
-            {
-                numeroMejoras--;
-                MeterDatosPiloto(5);
-            }
-            if (a == 2 && numeroMejoras > 0)
-            {
-                numeroMejoras--;
-                MeterDatosPiloto(5);
-            }
-
-            if (a == 3 && numeroMejoras - 1 > 0)
-            {
-                numeroMejoras -= 2;
-                MeterDatosPiloto(5);
-            }
-        }
+       
         if (nivelPiloto == 1 && a != 1)
         {
             if (a == 2 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(5);
+                MeterDatosPiloto(8,1);
             }
 
             if (a == 3 && numeroMejoras - 1 > 0)
             {
                 numeroMejoras -= 2;
-                MeterDatosPiloto(5);
+                MeterDatosPiloto(2,2);
             }
         }
 
@@ -121,13 +110,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(3);
+                MeterDatosPiloto(15,0);
             }
 
             if (a == 3 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(3);
+                MeterDatosPiloto(2,2);
             }
         }
 
@@ -136,13 +125,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras += 2;
-                MeterDatosPiloto(1);
+                MeterDatosPiloto(15,0);
             }
 
             if (a == 2)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(1);
+                MeterDatosPiloto(8,1);
             }
         }
 
@@ -155,10 +144,10 @@ public class UIManagerTemporada : MonoBehaviour
         }  
     }
 
-    private void MeterDatosPiloto(int level)
+    private void MeterDatosPiloto(int level,int LVL)
     {
-        nivelPiloto = level;
-        Piloto.sprite = pilotoSprite[level - 1];
+        nivelPiloto = LVL+1;
+        Piloto.sprite = pilotoSprite[LVL];
         InformacionPersistente.singleton.nivelRitmoPropio = level;
     }
 

@@ -364,17 +364,14 @@ public class Modulo : MonoBehaviour
         {
             vecino1.attach = m;
 
-            Debug.Log("Añadido");
+        
         }
         else if (tipo.Equals(socket2))
         {
             vecino2.attach = m;
-            Debug.Log("Añadido");
+           
         }
-        else
-        {
-            Debug.Log("No posible añadir");
-        }
+       
     }
 
     public void RemoveVecino(TipoSocket tipo)

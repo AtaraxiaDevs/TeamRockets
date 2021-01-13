@@ -27,7 +27,7 @@ public class UIManagerCarrera : MonoBehaviour
     private int marcha;
 
     //Velocidad
-
+    private float cooldownCalado = 0.5f, epsilonSpeed = 3;
     private float speed = 0;
     private float currentSpeed = 0;
     private bool flagEsperandoCircuito = false;
@@ -108,7 +108,7 @@ public class UIManagerCarrera : MonoBehaviour
         {
             currentSpeed = myCar.currentSpeed;
 
-            if (Mathf.Abs(currentSpeed - speed) > 2)
+            if (Mathf.Abs(currentSpeed - speed) > epsilonSpeed)
             {
                 speed = currentSpeed;
                 velocidad.text = ((int)Mathf.Round(speed)).ToString();
@@ -170,11 +170,18 @@ public class UIManagerCarrera : MonoBehaviour
         if (!success)
         {
             minMaxController.value = value-1;
+            StartCoroutine(Calado());
         }
         else
         {
             marcha = (int)value;
         }
+    }
+    IEnumerator Calado()
+    {
+        minMaxController.enabled = false;
+        yield return new WaitForSeconds(cooldownCalado);
+        minMaxController.enabled = true;
     }
 
     #endregion
@@ -211,11 +218,12 @@ public class UIManagerCarrera : MonoBehaviour
 
         foreach(Coche c in coches)
         {
-            res += cont + "º: " + c.ID + " " + c.statsBase.elemento.ToString() + "\n";
+            res += cont + "º: " + c.ID + " " + InformacionPersistente.GetPlaneta(c.statsBase.elemento,c.ID) + "\n";
             cont++;
         }
         return res;
     }
+    
 
     public void SetPosiciones()
     {
@@ -274,33 +282,9 @@ public class UIManagerCarrera : MonoBehaviour
             posicionesFinales[i] = coches.Find((c) => c.ID.Equals(pos[i].ID));
        
             ids[i] = posicionesFinales[i].ID;
-            switch (posicionesFinales[i].statsBase.elemento)
-            {
-                case Elemento.AGUA:
-                    source[i] =   " Neptuno " + posicionesFinales[i].ID;
-                  //  agua++;
-                    break;
-
-                case Elemento.AIRE:
-                    source[i] =   " Jupiter " + posicionesFinales[i].ID;
-                   // aire++;
-                    break;
-
-                case Elemento.FUEGO:
-                    source[i] =  " Marte " + posicionesFinales[i].ID;
-                   // fuego++;
-                    break;
-
-                case Elemento.TIERRA:
-                    source[i] =  " Saturno " + posicionesFinales[i].ID;
-                    //tierra++;
-                    break;
-
-                default:
-                    source[i] =  "UFO ";
-                    break;
-            }
-            
+   
+            source[i]= InformacionPersistente.GetPlaneta(posicionesFinales[i].statsBase.elemento,ids[i])+ posicionesFinales[i].ID; 
+          
             tiempos[i] = tc.tiempoMejor[posicionesFinales[i].ID];
             
         }

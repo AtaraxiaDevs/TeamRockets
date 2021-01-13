@@ -57,11 +57,11 @@ public class Coche : MonoBehaviour
     public int ID, currentCarril, vuelta = 0;
 
     private Marcha currentMarcha = Marcha.PRIMERA;
-    private bool[] Calado;
-
+    
+    
     private float epsilon = 0.05f, speedAnimSaliendo = 100;
     private float factorSpeed = 5, factorUnidades = 10;
-
+   
     //Carrera
     public float currentSpeed, currentAccel, currentUmbral;
     private  float accel = 0.05f, frenacion = 0.09f, porcentajeIAccel, accelIA;
@@ -497,7 +497,7 @@ public class Coche : MonoBehaviour
             Debug.Log("Soy " + ID);
         }
         stats.Marchas = new float[5];
-        Calado = new bool[stats.Marchas.Length];
+    
         stats.ElectricForceCurva = 0;
         stats.ElectricForceRecta = 0;
         stats.FinalWeight = statsBase.BaseWeight;
@@ -510,10 +510,7 @@ public class Coche : MonoBehaviour
         reg.CalcularReglajes(this);
         CalcularBonus();
 
-        for (int i = 0; i < Calado.Length; i++)
-        {
-            Calado[i] = false;
-        }
+     
 
         stats.Marchas[0] = stats.FinalMinSpeed;
 

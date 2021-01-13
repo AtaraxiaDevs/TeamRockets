@@ -2219,7 +2219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4341,6 +4341,7 @@ MonoBehaviour:
     type: 3}
   spriteIngles2: {fileID: 21300000, guid: 295b9b446df884444b7948b4f4ba37c9, type: 3}
   spriteGallego2: {fileID: 21300000, guid: 7e44b8cf8ddd1974592cdaaf569d9405, type: 3}
+  esCarrera: 0
   circuitosListos: 0
 --- !u!114 &552711701
 MonoBehaviour:
@@ -19584,7 +19585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

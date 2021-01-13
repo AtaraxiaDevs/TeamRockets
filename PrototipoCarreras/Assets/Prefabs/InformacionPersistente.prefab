@@ -54,15 +54,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6dea0c2a418ab3741b199409ea85770a, type: 2}
   signosZodiaco:
   - zodiaco: 0
-    elemento: 2
+    elemento: 3
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 1
-    elemento: 2
+    elemento: 3
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 2
-    elemento: 2
+    elemento: 3
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 3
@@ -78,27 +78,27 @@ MonoBehaviour:
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 6
-    elemento: 3
+    elemento: 0
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 7
-    elemento: 3
+    elemento: 0
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 8
-    elemento: 3
+    elemento: 0
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 9
-    elemento: 0
+    elemento: 2
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 10
-    elemento: 0
+    elemento: 2
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   - zodiaco: 11
-    elemento: 0
+    elemento: 2
     caracteristicaPlus: 0
     caracteristicaMinus: 0
   numCoches: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   esEditor: 0
   esTutorial: 0
   esTemporada: 0
+  entradoTemporada: 0
   esCopa: 0
   copaTerminada: 0
   temporadaTerminada: 0
