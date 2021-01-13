@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Asteroide
   m_EditorClassIdentifier: 
   tipoCircuito: 8
-  elemento: 2
+  elemento: 3
   rozamiento: -0.5
   umbral: 900

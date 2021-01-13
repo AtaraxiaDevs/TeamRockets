@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseMaxSpeed: 170
   BaseThrottle: 15
-  BaseBrake: -70
+  BaseBrake: -85
   BaseWeight: 115
   elemento: 2
   mesh: {fileID: 5962896104441820133, guid: 44fee62afdbb2f146a7adaaf4c4005be, type: 3}
