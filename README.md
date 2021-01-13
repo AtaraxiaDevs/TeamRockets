@@ -647,7 +647,7 @@ Por último, implementaremos un sistema de donaciones basado en Patreon. Hemos d
 *MONETIZACION*
 
 - *Free-to-play*: No existe ningún coste a la hora de jugar. El juego se ofrece de forma completa gratuitamente.
-- Constela-Coins: Principal forma de monetización. Sirve para comprar elementos cosméticos y módulos.
+- Ataraxia-Coins: Principal forma de monetización. Sirve para comprar elementos cosméticos y módulos.
 - Merchandising: Venta de merchandising como figuritas, cómics o juegos de mesa basados en la marca.
 - *Spin-off*: Nuevo juego basado en el mismo universo que Constela-Trix, pero a precio completo.
 - Patreon: Modelo de negocio basado en donaciones. Ofreceremos distintas recompensas a los jugadores dependiendo de cuánto aporten a la compañía.
