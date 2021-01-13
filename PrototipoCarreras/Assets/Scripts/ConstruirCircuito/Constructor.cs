@@ -70,6 +70,17 @@ public class Constructor : MonoBehaviour
         creado.CrearPilotos();
         manager.CircuitoCargado(this);
     }
+
+    public void ImportarCircuito(string codigo)
+    {
+
+        db.GetCircuitoFromDataBaseByName(codigo);
+
+
+        //  InformacionPersistente.singleton.DATA_BD;
+
+
+    }
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
     {
         DataCircuito data = ParserFireBase(datos);

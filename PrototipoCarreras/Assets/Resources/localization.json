@@ -626,9 +626,14 @@
 			"Importar"
 		],
 		"Generar":[
-			"Generar",
-			"Generate",
-			"Xerar"
+			"Aleatorio",
+			"Random",
+			"Aleatorio"
+		],
+		"ImportarField":[
+			"Introducir código de circuito",
+			"Introduce circuit's code",
+			"Introducir código de circuito"
 		]
 
 	},

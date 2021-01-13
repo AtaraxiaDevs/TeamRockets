@@ -56,7 +56,7 @@ public class DatabaseAccess : MonoBehaviour
 
    }
 
-   public async void GetCircuitoFromDataBaseByName(string name, Constructor mine, UIManagerCarrera manager){
+   public async void GetCircuitoFromDataBaseByName(string name){
        RestClient.Get(pathLoad).Then(response =>
         {
             //Debug.Log(response.Text);
@@ -64,9 +64,13 @@ public class DatabaseAccess : MonoBehaviour
             
             foreach (var kvp in data)
             {
-                if(name.Equals(kvp.Key))
-                Debug.Log(data[kvp.Key]["order"]); 
+                if(name.Equals(kvp.Key)){
+                    Debug.Log(data[kvp.Key]["order"]); 
+                    InformacionPersistente.singleton.DATA_BD = data[name]["order"];
+                    InformacionPersistente.singleton.nombreCircuitoActual = data[name]["name"];
+                }
            }
+
 
            
 

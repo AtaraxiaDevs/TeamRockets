@@ -203,4 +203,13 @@ public class UIManagerMenus : MonoBehaviour
     {
         InformacionPersistente.singleton.idiomaActual = i;
     }
+
+    public void RecogerInput(Text input){
+        string str = input.text;
+
+        Debug.Log(str);
+    }
+
+
+
 }
