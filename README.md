@@ -23,22 +23,22 @@
 ## [5.- DISEÑO DEL JUEGO](#diseñoDelJuego)		
 ### [5.1.- MECÁNICAS](#mecanicas)
 #### [5.1.1.- SISTEMA](#mecanicas1)
-#### [5.1.2.- PERSONAJES](#mecanicas2)
-#### [5.1.3.- COMBATE](#mecanicas3)
-#### [5.1.4.- HABILIDADES](#mecanicas4)
-#### [5.1.5.- ECONOMÍA](#mecanicas5)
-#### [5.1.6.- RANKING](#mecanicas6)
+#### [5.1.2.- VEHÍCULOS](#mecanicas2)
+#### [5.1.3.- SIGNOS DEL ZODIACO](#mecanicas3)
+#### [5.1.4.- REGLAJES](#mecanicas4)
+#### [5.1.5.- CIRCUITOS](#mecanicas5)
+#### [5.1.6.- CONSTRUCTOR](#mecanicas6)
 ### [5.2.- ESTADOS JUEGO](#estadosJuego)
 ### [5.3.- INTERFACES](#interfaces)
 ### [5.4.- CONTROLES](#controles)
 ### [5.5.- PROGRESO DEL JUEGO](#progresoDelJuego)
-### [5.6.- NIVELES](#niveles)
+### [5.6.- MODOS DE JUEGO](#niveles)
 ## [6.- DISEÑO DEL MUNDO](#diseñoDelMundo)
 ### [6.1.- PERSONAJES](#personajes)
 ### [6.2.- LOCALIZACIONES](#localizaciones)
 ## [7.- ARTE](#arte)
 ### [7.1.- ESTILO Y REFERENCIAS](#estiloYReferncias)
-### [7.2.- CONCEPTS](#arteFinal)
+### [7.2.- ARTE FINAL](#arteFinal)
 ### [7.3.- ARTE PROMOCIONAL](#artePromocional)
 ## [8.- SONIDO](#sonido)	
 ### [8.1.- BANDA SONORA](#bandaSonora)	
@@ -51,6 +51,19 @@
 ### [10.3.- MODELO DE NEGOCIO](#modeloDeNegocio)
 ### [10.4.- MARKETING](#marketing)
 ## [11.- POST MORTEM](#postMortem)
+### [11.1 - RETROSPECTIVA PERSONAL](#retroPersonal)
+#### [11.1.1 - DANIEL AYLLÓN PEINADO](#danielAyllonPeinado)
+#### [11.1.2 - PABLO GARCÍA SÁNCHEZ](#pabloGarciaSanchez)
+#### [11.1.3 - CELTIA MARTÍN GARCÍA](#celtiaMartinGarcia)
+#### [11.1.4 - DANIEL MUÑOZ RIVERA](#danielMunozRivera)
+#### [11.1.5 - ALBERTO SÁNCHEZ MATEO](#albertoSanchezMateo)
+#### [11.1.6 - WEI ZHENG](#weiZheng)
+### [11.2 - RETROSPECTIVA GRUPAL](#retroGrupal)
+#### [11.2.1 - PUNTOS FUERTES](#puntosFuertes)
+#### [11.2.2 - PUNTOS DÉBILES](#puntosDebiles)
+### [11.3 - EXTERNOS](#externos)
+#### [11.3.1 - USUARIO CASUAL](#usuarioCasual)
+### [11.4 - ¿HEMOS MEJORADO?](#hemosMejorado)
 
 ---
 ---
@@ -64,13 +77,13 @@
 | **TEMÁTICA**    | Espacio                  |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
 | **JUEGOS RELACIONADOS**  | Slot Racing, Motorsport Manager |
-| **PUBLICO OBJETIVO**     | Cualquier edad. Casual o experto      |
+| **PUBLICO OBJETIVO**     | Jóvenes adultos. Fans de la Fórmula 1      |
 | **ESTILO VISUAL**        | 3D           |
 | **CALIFICACIÓN**         | PEGI 3+                 |
 | **IDIOMA**      | Español, Inglés          |
-| **VISTA**       | ???              |
+| **VISTA**       | Tercera persona              |
 | **TECNOLOGÍAS** | Unity                   |
-| **MECÁNICAS**   | - Corre contra otros cohetes <br> - Construye tu propio circuito <br>- Comparte tus circuitos con QR |
+| **MECÁNICAS**   | - Compite contra otros vehículos <br> - Construye tu propio circuito <br>- Comparte tus circuitos con el mundo |
 
 ---
 
@@ -397,6 +410,10 @@ Neptuno es el dios de los mares y los océanos y normalmente era representado co
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/NavesFinalesPNG/NeptunoFinalPNG.png)
 
+A continuación mostramos una imagen con los modelos 3D de las cuatro naves disponibles en el juego:
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/RedesSociales/ImagenModelos3D.png)
+
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/Arte/RedesSociales/Teaser.png)
@@ -552,7 +569,94 @@ Pero no nos quedamos aquí. También podemos atraer a jóvenes gracias a nuestro
 - Portfolio: Gracias al porfolio hemos podido promocionarnos como una empresa de videojuegos al más alto nivel. Hemos aprovechado esta página web para que los interesados puedan conocer y contactar con los distintos miembros del equipo. Además, también promocionamos nuestro anterior proyecto, Break-Troops-Fast.
 - Blog: Dentro del portfolio existe una sección de blog, donde publicamos distintas entrevistas a los diferentes miembros del equipo explicando su trabajo dentro de cada proyecto.
 
+---
+
 ## 11.- POST MORTEM	<a name="postMortem"/>
+### 11.1.- RETROSPECTIVA PERSONAL <a name="retroPersonal"/>
+#### 11.1.1.- DANIEL AYLLÓN PEINADO <a name="danielAyllonPeinado"/>
 
-COSAS DEL POST MORTEM
+Mi rol con respecto al anterior proyecto cambió a petición propia, ya que yo no controlaba Unity tanto como otros miembros del equipo, por lo que intercambiamos roles Daniel Muñoz y yo, pasando a escribir el GDD, el diseño del juego y manteniendo las redes sociales.
 
+Hablando de mi parte, el manejo de redes sociales ha mejorado bastante con respecto al anterior proyecto. Mientras que en el primer proyecto la cuenta de Twitter no llegaba casi a los 20 tweets he conseguido superar la barrera de los 100 tweets entre promociones, RTs y respuestas a otros equipos de clase. Además, la creación de nuevas cuentas de Twitter y la “narrativa mediante RRSS” que hemos creado ha sido súper satisfactoria y muy divertida de manejar.  
+
+En cuanto a los otros apartados tengo que admitir que ha habido varios errores por mi parte. Bajo mi opinión, diría que no es para nada un mal documento, pero sí que es cierto que he tenido que estar haciéndolo hasta el último momento debido a falta de tiempo. Este también es el motivo por el que al final no he podido componer la música para el juego, teniendo que volver a utilizar canciones y efectos de sonido con licencia CC. En mi defensa para la música diré que en mi vida he compuesto ningún tipo de canción ni efecto, así que cuando pude investigar cómo componer y qué programas utilizar, ya era demasiado tarde. 
+
+En general, estoy muy satisfecho con el trabajo realizado por el resto del equipo. Ha salido un proyecto mucho más potente a nivel empresarial que el anterior, aunque me hubiese gustado tener multijugador online. 
+
+#### 11.1.2.- PABLO GARCÍA SÁNCHEZ <a name="pabloGarciaSanchez"/>
+
+Mi trabajo personal consistía en el diseño de interfaces, fondos y diseño y modelado de pistas para los circuitos. Por mi parte, me siento satisfecho con los resultados obtenidos. En la parte de interfaces, me ha gustado mucho trabajar con este estilo espacial del juego y crear todos los elementos que contienen me ha resultado cómodo. Respecto a la parte de circuitos, me costó más puesto que tuve que echar horas para recordar todas las herramientas de los programas utilizados para modelar. Además, los resultados obtenidos, pese a ser buenos, podrían haber sido óptimos y haber facilitado al equipo de programación su implementación en Unity. 
+
+En el trabajo grupal, se nos ha dado mejor que el primer proyecto puesto que mejoramos en organización y reparto de tareas. Además, todos los miembros del equipo se han implicado al máximo. Ha sido fácil entenderse y comunicarse entre los departamentos de redes sociales, arte y programación. 
+
+#### 11.1.3.- CELTIA MARTÍN GARCÍA <a name="celtiaMartinGarcia"/>
+
+Para empezar, decir que me siento orgullosa de mi trabajo y que siento que he crecido como programadora. He tenido mis fallos como es obvio, pero he aprendido mucho. Además, que antes me sentía incapaz de crear un proyecto de tal tamaño, y ahora me siento más confiada. 
+
+Sin embargo, he tenido bastantes fallos, el trabajo en grupo en cuanto a programación se me da algo mal y he tenido diferencias con otros programadores (como Dani Muñoz, lo siento Dani), pero hemos sabido salir de las reyertas y siento que en ese aspecto este trabajo también me ha ayudado a mejorar este aspecto. También peco de desordenada en el código, y de “síndrome de Diógenes Digital” (mucho código ya no válido comentado por si las moscas), y a falta de tiempo para organizar, el código ha quedado un poco caótico. También añadir que se ha primado la funcionalidad ante el rendimiento, lo cual podría ser un punto importante a mejorar. 
+ 
+Como equipo, hemos trabajado bien, con buena comunicación, y todos son muy buenos con lo suyo y se nota que lo hemos hecho con cariño, y creemos que ha quedado un producto interesante. 
+ 
+Como puntos a mejorar, es cierto que hemos tenido poco tiempo para trabajar, y que algunas cosas podrían haberse hecho con más tiempo de antelación y con más atención. Además, el diseño del juego tardó algo en concretarse, lo cual resultó en descoordinación y funcionalidades añadidas sobre la marcha. 
+ 
+#### 11.1.4.- DANIEL MUÑOZ RIVERA <a name="danielMunozRivera"/>
+ 
+Yo he sido el encargado de hacer la lógica del juego, los estados del juego, la implementación de interfaces y traducción, y la programación de distintos apartados a lo largo del juego. En el anterior, me encargué del GDD y el diseño de juego, cambiando de rol con mi compañero Daniel Ayllón. 
+ 
+Mi trabajo personal creo que ha sido bueno, he apoyado todo el rato a la programadora principal, que ha sido Celtia, en todo lo que ha necesitado. Las interfaces y transiciones han quedado muy bien, y el traductor funciona perfectamente. He aprendido mucho, tanto de cosas que ya sabía cómo de cosas que no, y sin duda Alberto y Celtia me han ayudado muchísimo. Tengo que mejorar en entender más rápidamente el código de mis compañeros, ya que tardo mucho en pillar todo y me cuesta un poco adaptarme. Para no ser mi rol habitual, ha estado muy bien. 
+ 
+En cuanto al trabajo en grupo, ha salido bastante bien. El nuevo sistema de dailys ha servido para irnos enterando de nuestros progresos, y saber cómo íbamos en todo momento. Los distintos apartados han brillado en su campo y todo ha cohesionado muy bien. El único problema flagrante, y está mal que yo lo diga, ha sido el GDD. La primera versión ha llegado muy tarde, con el juego casi acabado, y ha habido algunos problemas de coordinación por la falta del mismo. Eso se ha notado en la comunicación del equipo. Otro problema, que es mucho menor, es intentar el multijugador. Hemos sido demasiado ambiciosos en ese aspecto. 
+ 
+En conclusión, muy buen trabajo. Supera con creces el anterior proyecto, y el juego esta vez sí responde a todo el esfuerzo que hemos metido.  
+ 
+#### 11.1.5.- ALBERTO SÁNCHEZ MATEO <a name="albertoSanchezMateo"/>
+ 
+En cuanto a mi trabajo personal, me frustra el no haber conseguido implementar el multijugador a tiempo. Era algo muy ambicioso el entender una librería nueva y tan complicada como Photon desde 0. Sin embargo, a pesar de no mover tarjetas como es debido, la gestión de las reuniones y la información en importante en el Trello ha sido en mi opinión. También me siento orgulloso de haber llevado a cabo la idea de códigos servidos por una base de datos, lo cual hace de nuestro proyecto algo interesante y diferente, basándonos en la comunidad que buscamos. 
+
+En cuanto al trabajo del grupo, mis compañeros son una maravilla de personas: comprenden las situaciones especiales, apoyan y dan soluciones a los problemas que puedan surgir y colaboran en todo momento. Sin embargo, al igual que yo, no son capaces de mover las tarjetas de Trello. 
+
+#### 11.1.6.- WEI ZHENG <a name="weiZheng"/>
+
+Por mi parte, he quedado satisfecho con los concepts realizados además del modelado final de las naves. También el grabar los vídeos para las redes sociales y sobre todo el realizar muchas variaciones de las naves como colores, formas, etc., para poder mostrar distintas opciones a elegir, y seguir las opiniones y decisiones del grupo. Por otra parte, al no tener mucha experiencia con el modelado 3D, no he ido tan rápido como habría querido. 
+
+Por la parte grupal, hemos trabajado muy bien en equipo ya que nos hemos organizado mejor que en la primera práctica, además de que ha habido mayor comunicación. Gracias a esto, todos hemos podido aportar nuestras ideas y opiniones, resultando en una mayor implicación en el juego.  
+
+### 11.2.- RETROSPECTIVA GRUPAL <a name="retroGrupal"/>
+#### 11.2.1.- PUNTOS FUERTES <a name="puntosFuertes"/>
+
+- **Comunicación**: a diferencia del proyecto anterior, al haber hecho 2 ‘dailys' a la semana, ha ayudado a forzarnos a expresar qué tareas estaban siendo atendidas en ese momento y qué nos preocupaba para terminar. Además, el uso del Trello como centro neurálgico de cada reunión, nos ha hecho priorizar y avanzar muy rápido, llegando a tal punto de ser capaces de gestionar todas las dudas en reuniones de 1 hora. 
+
+- **Producto diferencial**: si algo hemos conseguido, es superarnos en cuanto al producto que hemos creado. Hemos logrado terminar un juego enfocado a las características de la plataforma que estamos usando: compartir contenido en la web a través de los códigos de circuito. Además, la personalización de la experiencia de usuario, así como la creación de circuitos son partes de las que nos sentimos orgullosos como grupo. 
+
+- **Buena cohesión**: tanto las ideas, como las decisiones se toman teniendo en cuenta todos los puntos de vista. Hemos conseguido crear en poco tiempo un ambiente “chachi” donde no nos da vergüenza el decir lo que pensamos en todo momento. 
+
+- **Aprendizaje**: hemos sido capaces de adaptarnos muy rápidamente al nuevo sistema, mejorando mucho la calidad de nuestras funciones respectivas. Si tuviésemos un mes más, no cabría duda de que el juego saldría todavía más pulido, ya que conseguimos cada día encontrar maneras de mejorar. 
+
+#### 11.2.2.- PUNTOS DÉBILES <a name="puntosDebiles"/>
+
+- **Ambición**: en este proyecto quizás hemos pecado de demasiado ambiciosos en ciertos aspectos: el modo multijugador y la composición de música original a pesar de haberlo intentado no han salido adelante. Sin embargo, hemos sabido reaccionar a tiempo, haciendo que este fallo de organización no haya supuesto una carga para otros aspectos del juego. 
+
+- **Trello**: a pesar de definir muy bien cada sprint los objetivos que queríamos cumplir, muchos de nosotros no hemos sido capaces de utilizar la herramienta de manera óptima: no creábamos tareas, no se movían del todo o en algunos casos ni se realizaban. A pesar de ello, gracias a las “dailys” constantes, hemos sabido organizarnos sin comprometer el resultado final. 
+
+- **Falta de tiempo**: debido a factores ajenos a los integrantes del grupo, este proyecto ha sido un trabajo titánico al hacerse en el mes de diciembre con otros proyectos y las navidades en medio. Muchas de las tareas se han retrasado por esto. 
+
+### 11.3.- EXTERNOS <a name="externos"/>
+#### 11.3.1.- USUARIO CASUAL <a name="usuarioCasual"/>
+
+Perfil de estudiante universitario que juega a muchos juegos de móvil en su día a día.
+
+En cuanto a los controles del juego le han parecido complicados de entender de primeras: se salía mucho del circuito por no controlar la velocidad de la nave. Además, al no ser usuario experto no ha sabido cual era la mejor configuración para el circuito que se le presentaba. En el modo “Mi Equipo”, ha tenido las mismas dificultades debido a la configuración de la nave. En cuanto al editor, le ha parecido fácil de usar, aunque a veces tuviese errores en los que no se conectaban los módulos del todo bien. 
+
+### 11.4.- ¿HEMOS MEJORADO? <a name="hemosMejorado"/>
+
+En este apartado, recogeremos los puntos que recogimos en el posmortem anterior donde dedicamos un apartado a las soluciones que intentaríamos implementar para este proyecto y analizaremos si han sido fructíferas o no: 
+
+- **Priorización y organización**: creemos que hemos mejorado, la implementación de un workflow concreto en las reuniones, establecer una serie de metas en cada sprint y el apoyarnos todavía más en la buena comunicación que ya teníamos ha hecho que mejoremos en este apartado. Incluso cosas que no han salido adelante como el multijugador, consideramos que ha sido una buena decisión, ya que hemos priorizado otros aspectos del juego que eran mucho más necesarios para mostrar un primer prototipo del juego. 
+
+- **Estimación**: a pesar de nuestra falta de experiencia como desarrolladores, este proyecto ha tenido una mejor estimación de las tareas. La mayoría de los objetivos que hemos planteado para cada sprint han sido completados con éxito, permitiéndonos ir bastante siempre con bastante tiempo para solucionar imprevistos. 
+
+- **Testeo**: en esta práctica sí que hemos sido capaces de reservar tiempo para testear cada funcionalidad que hemos ido añadiendo. Es por eso que nos sentimos mucho más seguros de la jugabilidad de este juego. 
+
+- **Workflow de las reuniones**: como hemos mencionado en apartados anteriores, este ha sido el posible highlight de este proyecto en cuanto a grupo se refiere. Hemos mejorado mucho gracias a estas reuniones, forzándonos a decir y escuchar que hacen nuestros compañeros y qué es lo que les preocupa. Además, hemos dado en el clavo, ya que a medida que iba pasando el tiempo estas reuniones se hacían más eficientes y aunque hubiese más puntos de los que hablar, terminábamos mucho antes. 
+
+- **Mejora de las redes sociales**: ha habido una mayor cadencia de tweets y de contenido en la cuenta de empresa, pasando de los 20 tweets en el proyecto anterior a 80 en un solo mes. Además, también hemos logrado el interactuar más con las cuentas de los otros grupos, dándonos un poco más a conocer y consiguiendo establecer buenas relaciones con ellos. Además, hemos introducido las cuentas de los personajes, donde pretendíamos expandir el mundo del juego (lore), sin la necesidad de incluirlo con calzador en el propio juego. Esto último ha sido una experiencia muy chula para los participantes y no nos importaría seguir con ella.  
