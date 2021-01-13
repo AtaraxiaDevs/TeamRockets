@@ -71,6 +71,8 @@ public class InformacionPersistente : MonoBehaviour
 
     public string codigoModoEditor;
 
+    public string[] nombreCircuitoTemporada = new string[4];
+
     public bool isMobile()
     {
 #if !UNITY_EDITOR && UNITY_WEBGL

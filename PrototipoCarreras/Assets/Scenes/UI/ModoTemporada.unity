@@ -4462,6 +4462,10 @@ MonoBehaviour:
   - {fileID: 1492822739}
   - {fileID: 2046289170}
   - {fileID: 1138514761}
+  circuito1: {fileID: 2012860400}
+  circuito2: {fileID: 1585880094}
+  circuito3: {fileID: 1334191015}
+  circuito4: {fileID: 1500437727}
 --- !u!1 &572912990
 GameObject:
   m_ObjectHideFlags: 0
@@ -7648,6 +7652,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872414096}
   m_CullTransparentMesh: 0
+--- !u!1001 &874689085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 256894210042557904, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: circuito1
+      value: 
+      objectReference: {fileID: 2012860400}
+    - target: {fileID: 256894210042557904, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: circuito2
+      value: 
+      objectReference: {fileID: 1585880094}
+    - target: {fileID: 256894210042557904, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: circuito3
+      value: 
+      objectReference: {fileID: 1334191015}
+    - target: {fileID: 256894210042557904, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: circuito4
+      value: 
+      objectReference: {fileID: 1500437727}
+    - target: {fileID: 7922245893329802165, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_Name
+      value: DataBase Access
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945517951210142678, guid: 446145484afb7d64fb80922aec9febb8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 446145484afb7d64fb80922aec9febb8, type: 3}
 --- !u!1 &908599462
 GameObject:
   m_ObjectHideFlags: 0
@@ -12121,6 +12214,7 @@ MonoBehaviour:
   - {fileID: 1464837647}
   - {fileID: 793140762}
   UISelector: 0
+  managerUI: {fileID: 0}
 --- !u!4 &1207577087
 Transform:
   m_ObjectHideFlags: 0
@@ -13396,7 +13490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.460022}
+  m_AnchoredPosition: {x: 0, y: 7.460083}
   m_SizeDelta: {x: -20, y: -57.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1279728962
@@ -13745,8 +13839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177bddf229f8d8445a70c0652f03b7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeepAliveInBackground: 60000
-  ApplyDontDestroyOnLoad: 1
 --- !u!4 &1325404918
 Transform:
   m_ObjectHideFlags: 0
@@ -15161,7 +15253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.460022}
+  m_AnchoredPosition: {x: 0, y: 7.460083}
   m_SizeDelta: {x: -20, y: -57.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449809193
@@ -19963,7 +20055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1832115555
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19983,7 +20075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.460022}
+  m_AnchoredPosition: {x: 0, y: 7.460083}
   m_SizeDelta: {x: -20, y: -57.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1832115556
@@ -21652,7 +21744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAQUITO
+  m_Text: PAQUITO MUERE
 --- !u!222 &2012860401
 CanvasRenderer:
   m_ObjectHideFlags: 0

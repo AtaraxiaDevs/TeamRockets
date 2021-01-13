@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class UIManagerTemporada : MonoBehaviour
 {
     [HideInInspector]
-    public static int numeroMejoras= 3;
-    
+    public static int numeroMejoras = 3;
+
     [HideInInspector]
-    public int nivelPiloto=0;
+    public int nivelPiloto = 0;
 
     public Image Piloto;
     public Sprite[] pilotoSprite;
@@ -25,12 +25,17 @@ public class UIManagerTemporada : MonoBehaviour
     public Text[] ParticipantesPuntos;
     public Text[] ParticipantesNameUltima;
     public Text[] ParticipantesTiemposUltima;
-    private static int[] nivelMejora= { 0, 0, 0, 0 };
+    private static int[] nivelMejora = { 0, 0, 0, 0 };
     private string mejora = "";
+
+    public Text circuito1;
+    public Text circuito2;
+    public Text circuito3;
+    public Text circuito4;
 
     public void Start()
     {
- 
+
         InformacionPersistente ip = InformacionPersistente.singleton;
         if (ip.esTemporada)
         {
@@ -46,9 +51,9 @@ public class UIManagerTemporada : MonoBehaviour
                 if (ip.pilotosOrdenados[0] != null)
                 {
                     ParticipantesNameUltima[i].text = ip.pilotosOrdenados[i];
-                    if(ip.tiempos.Length!=0)
+                    if (ip.tiempos.Length != 0)
                         ParticipantesTiemposUltima[i].text = ip.tiempos[i].ToString();
-                   
+
 
                 }
                 if (ip.navesModoMan != null)
@@ -58,17 +63,22 @@ public class UIManagerTemporada : MonoBehaviour
 
                 }
             }
-        
-            
+
+
 
         }
-       
-       
-        
+
+        circuito1.text = InformacionPersistente.singleton.nombreCircuitoTemporada[0];
+        circuito2.text = InformacionPersistente.singleton.nombreCircuitoTemporada[1];
+        circuito3.text = InformacionPersistente.singleton.nombreCircuitoTemporada[2];
+        circuito4.text = InformacionPersistente.singleton.nombreCircuitoTemporada[3];
 
 
-      
-        
+
+
+
+
+
         string jsonData;
         TextAsset auxtxt = Resources.Load<TextAsset>("localization");
         jsonData = auxtxt.ToString();
@@ -78,7 +88,7 @@ public class UIManagerTemporada : MonoBehaviour
         if (nivelPiloto == 0)
         {
             nivelPiloto = 1;
-            MeterDatosPiloto(15,0);
+            MeterDatosPiloto(15, 0);
         }
 
         foreach (Text t in mejorasText)
@@ -89,19 +99,19 @@ public class UIManagerTemporada : MonoBehaviour
 
     public void EscogerPiloto(int a)
     {
-       
+
         if (nivelPiloto == 1 && a != 1)
         {
             if (a == 2 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(8,1);
+                MeterDatosPiloto(8, 1);
             }
 
             if (a == 3 && numeroMejoras - 1 > 0)
             {
                 numeroMejoras -= 2;
-                MeterDatosPiloto(2,2);
+                MeterDatosPiloto(2, 2);
             }
         }
 
@@ -110,13 +120,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(15,0);
+                MeterDatosPiloto(15, 0);
             }
 
             if (a == 3 && numeroMejoras > 0)
             {
                 numeroMejoras--;
-                MeterDatosPiloto(2,2);
+                MeterDatosPiloto(2, 2);
             }
         }
 
@@ -125,13 +135,13 @@ public class UIManagerTemporada : MonoBehaviour
             if (a == 1)
             {
                 numeroMejoras += 2;
-                MeterDatosPiloto(15,0);
+                MeterDatosPiloto(15, 0);
             }
 
             if (a == 2)
             {
                 numeroMejoras++;
-                MeterDatosPiloto(8,1);
+                MeterDatosPiloto(8, 1);
             }
         }
 
@@ -141,12 +151,12 @@ public class UIManagerTemporada : MonoBehaviour
             {
                 t.text = numeroMejoras + " " + mejora;
             }
-        }  
+        }
     }
 
-    private void MeterDatosPiloto(int level,int LVL)
+    private void MeterDatosPiloto(int level, int LVL)
     {
-        nivelPiloto = LVL+1;
+        nivelPiloto = LVL + 1;
         Piloto.sprite = pilotoSprite[LVL];
         InformacionPersistente.singleton.nivelRitmoPropio = level;
     }
@@ -183,7 +193,7 @@ public class UIManagerTemporada : MonoBehaviour
                         nivelMejora[tipo - 1]++;
                         ip.naveTerricola.infoBase.BaseMaxSpeed = infoTerricola.BaseMaxSpeed + (nivelMejora[tipo - 1]) * 12.5f;
                         CambiarMejoras(tipo - 1, mejorasGraficos1, ip.naveTerricola.infoBase.BaseMaxSpeed.ToString());
-                    
+
                         ActualizarMejoras(true);
                     }
                     break;
@@ -193,7 +203,7 @@ public class UIManagerTemporada : MonoBehaviour
                     {
                         //Estadisticas
                         nivelMejora[tipo - 1]++;
-                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + (nivelMejora[tipo - 1] ) * 1.5f;
+                        ip.naveTerricola.infoBase.BaseThrottle = infoTerricola.BaseThrottle + (nivelMejora[tipo - 1]) * 1.5f;
                         CambiarMejoras(tipo - 1, mejorasGraficos2, ip.naveTerricola.infoBase.BaseThrottle.ToString());
                         ActualizarMejoras(true);
                     }
@@ -204,9 +214,9 @@ public class UIManagerTemporada : MonoBehaviour
                     {
                         //Estadisticas
                         nivelMejora[tipo - 1]++;
-                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake + (nivelMejora[tipo - 1] ) * 5;
+                        ip.naveTerricola.infoBase.BaseBrake = infoTerricola.BaseBrake + (nivelMejora[tipo - 1]) * 5;
                         CambiarMejoras(tipo - 1, mejorasGraficos3, ip.naveTerricola.infoBase.BaseBrake.ToString());
-      
+
                         ActualizarMejoras(true);
                     }
                     break;
@@ -216,9 +226,9 @@ public class UIManagerTemporada : MonoBehaviour
                     {
                         nivelMejora[tipo - 1]++;
                         //Estadisticas
-                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - (nivelMejora[tipo - 1] ) * 10;
+                        ip.naveTerricola.infoBase.BaseWeight = infoTerricola.BaseWeight - (nivelMejora[tipo - 1]) * 10;
                         CambiarMejoras(tipo - 1, mejorasGraficos4, ip.naveTerricola.infoBase.BaseWeight.ToString());
-                 
+
                         ActualizarMejoras(true);
                     }
                     break;
@@ -229,18 +239,18 @@ public class UIManagerTemporada : MonoBehaviour
         }
     }
 
-    public void CambiarMejoras( int i ,GameObject[] graficos,string txt)
+    public void CambiarMejoras(int i, GameObject[] graficos, string txt)
     {
 
         caracteristicasText[i].text = txt;
-        if(nivelMejora[i] != 0)
+        if (nivelMejora[i] != 0)
         {
-            for(int j = 0; j < nivelMejora[i]; j++)
+            for (int j = 0; j < nivelMejora[i]; j++)
             {
                 graficos[j].SetActive(true);
             }
         }
-           
+
     }
 
     public void NoTemporada()

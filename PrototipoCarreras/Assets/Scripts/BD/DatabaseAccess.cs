@@ -16,6 +16,8 @@ public class DatabaseAccess : MonoBehaviour
     public GameObject popUp;
     public Text codigo;
     public Text nombreCircuito;
+
+
     
     void Start()
     {
@@ -140,6 +142,9 @@ public class DatabaseAccess : MonoBehaviour
     }
     public async void GetCircuitoFromDataBaseModoTemporada(UIManagerMenus llamador)
     {
+
+       
+
         RestClient.Get(pathLoad).Then(response =>
         {
             int numberOfItems = 0;
@@ -157,6 +162,9 @@ public class DatabaseAccess : MonoBehaviour
                 InformacionPersistente.singleton.modoManager[i] = Constructor.ParserFireBase(data[randomNumber]["order"]);
                 InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoManager[0];
                 llamador.circuitosListos = true;
+
+                InformacionPersistente.singleton.nombreCircuitoTemporada[i] = data[randomNumber]["name"];
+                
             }
 
 
