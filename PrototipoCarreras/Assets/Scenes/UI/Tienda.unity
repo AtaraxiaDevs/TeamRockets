@@ -766,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131, y: 99}
+  m_AnchoredPosition: {x: -131, y: 108}
   m_SizeDelta: {x: 106.77, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420822509
@@ -910,7 +910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -183.6}
+  m_AnchoredPosition: {x: -4, y: -208}
   m_SizeDelta: {x: 217.1, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466105967
@@ -1062,6 +1062,8 @@ MonoBehaviour:
   sceneFader: {fileID: 2029891081}
   tutorial: {fileID: 0}
   PPrincipal: {fileID: 333438459}
+  tutoMovil: {fileID: 0}
+  tutoPC: {fileID: 0}
   pestanaActual: {fileID: 1345583771}
   esTitulo: 1
   titulo: {fileID: 1288701356}
@@ -1373,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.4, y: 98.2}
+  m_AnchoredPosition: {x: -258.4, y: 107.2}
   m_SizeDelta: {x: 106.77, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800070744
@@ -2406,7 +2408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.8, y: 168.3}
+  m_AnchoredPosition: {x: 12.8, y: 189.1}
   m_SizeDelta: {x: 300.97, y: 77.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1294247810
@@ -2446,7 +2448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.6, y: 99}
+  m_AnchoredPosition: {x: 4.6, y: 108}
   m_SizeDelta: {x: 106.77, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294247812

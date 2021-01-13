@@ -1572,7 +1572,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1.15
+  m_Text: ???
 --- !u!222 &211858295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3557,6 +3557,7 @@ MonoBehaviour:
   tutoMovil: {fileID: 0}
   tutoPC: {fileID: 0}
   pestanaActual: {fileID: 1215888812}
+  pestanaActualClas: {fileID: 909388248}
   esTitulo: 1
   titulo: {fileID: 2044907086}
   "spriteEspa\xF1ol": {fileID: 21300000, guid: 175a5ad8ee59b9d49a9fb79874732ef8, type: 3}
@@ -6854,7 +6855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAQUITO
+  m_Text: ???
 --- !u!222 &908599465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8434,7 +8435,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 552711700}
-        m_MethodName: CambiarPestana
+        m_MethodName: EnablePestana
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 954282534}
@@ -9862,6 +9863,28 @@ MonoBehaviour:
           m_StringArgument: ModosJuegos
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 552711700}
+        m_MethodName: DisablePestana
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 954282534}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552711700}
+        m_MethodName: EnablePestana
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 909388248}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1126120211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10116,7 +10139,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1.15
+  m_Text: ???
 --- !u!222 &1138514762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10193,7 +10216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAQUITO
+  m_Text: ???
 --- !u!222 &1147394102
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13916,7 +13939,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1.15
+  m_Text: ???
 --- !u!222 &1492822740
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15451,7 +15474,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 552711700}
-        m_MethodName: CambiarPestana
+        m_MethodName: EnablePestana
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 909388248}
@@ -15880,7 +15903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAQUITO
+  m_Text: ???
 --- !u!222 &1674776906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18991,7 +19014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAQUITO
+  m_Text: ???
 --- !u!222 &1993414839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19735,7 +19758,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1.15
+  m_Text: ???
 --- !u!222 &2046289171
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class UIManagerMenus : MonoBehaviour
 
     [Header("Pestañas")]
     public GameObject pestanaActual;
+    public GameObject pestanaActualClas;
 
     [Header("Titulo")]
     public bool esTitulo;
@@ -225,6 +226,13 @@ public class UIManagerMenus : MonoBehaviour
     public void CambiarIdioma(int i)
     {
         InformacionPersistente.singleton.idiomaActual = i;
+    }
+
+    public void EnablePestana(GameObject scene)
+    {
+        scene.SetActive(!scene.activeSelf);
+        pestanaActualClas.SetActive(!pestanaActual.activeSelf);
+        pestanaActualClas = scene;
     }
 
     public void RecogerInput(Text input){
