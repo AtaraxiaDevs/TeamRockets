@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79685fce4b1324a9dce9ac76d9ad6a, type: 3}
   m_Name: Tormenta
   m_EditorClassIdentifier: 
-  tipoCircuito: 0
+  tipoCircuito: 10
   elemento: 1
   rozamiento: -0.7
   umbral: 900

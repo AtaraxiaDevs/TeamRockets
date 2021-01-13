@@ -45,32 +45,6 @@
 		]
 	},
 	
-	"NJugadores":{
-		"SinglePlayer":[
-			"Un\nJugador",
-			"Single\nPlayer",
-			"Un\nxogador"
-		],
-		"MultiPlayer":[
-			"Multi\nJugador",
-			"Multi\nPlayer",
-			"Multi\nXogador"
-		]
-	},
-
-	"NJugadoresCopa":{
-		"SinglePlayer":[
-			"Un\nJugador",
-			"Single\nPlayer",
-			"Un\nxogador"
-		],
-		"MultiPlayer":[
-			"Multi\nJugador",
-			"Multi\nPlayer",
-			"Multi\nXogador"
-		]
-	},
-	
 	"CocheReglaje":{
 		"ElegirNave":[
 			"Elige nave",
@@ -86,6 +60,11 @@
 			"Elige los reglajes",
 			"Choose your settings",
 			"Escoller a minha afinacion"
+		],
+		"Circuito":[
+			"Circuito",
+			"Track",
+			"Circuito"
 		],
 
 	
@@ -260,32 +239,6 @@
 		]
 	},
 	
-	"Resultado":{
-		"Nombre":[],
-		"Tiempo":[]
-	},
-	
-	"SalasMulti":{
-		"Tiempo":[],
-		"JugadoresConectados":[],
-		"Listo":[]
-	},
-	
-	"ConfigurarCopa":{
-		"CircuitoN":[],
-		"Comenzar":[],
-		"Atras":[]
-	},
-	
-	"ListaCircuitos":{
-		
-	},
-	
-	"SalaCopa":{
-		"Clasificacion":[]
-		
-	},
-	
 	"ModoTemporada":{
 		"Presentacion":[
 			"¡Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. Tambien veras la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
@@ -398,6 +351,8 @@
 			"Modify your SpaceShip",
 			"Configura a tua nave"
 		],
+
+
 		"VelocidadMaxima":[
 			"VelocidadMax",
 			"MaxSpeed",
@@ -606,7 +561,21 @@
 	},
 	
 	"Tienda":{
-	
+		"Modulos":[
+			"Modulos",
+			"Sections",
+			"Modulos"
+		],
+		"Todo":[
+			"Todo 50",
+			"All 50",
+			"Todo 50"
+		],
+		"Comprar":[
+			"Comprar",
+			"Buy",
+			"Mercar"
+		]
 	},
 
 	"ElegirCircuito":{
@@ -651,6 +620,237 @@
 		]
 	},
 
+	"Resultados":{
+		"ResultadosF":[
+			"Resultados Finales",
+			"Final Standings",
+			"Resultados Finais"
+		],
+		"Puesto":[
+			"Puesto",
+			"Standing",
+			"Posto"
+		],
+		"Nombre":[
+			"Nombre",
+			"Name",
+			"Nome"
+		],
+		"Puntos":[
+			"Puntos",
+			"Points",
+			"Puntos"
+		]
+	},
+
+	"CarreraRapida":{
+		"Comenzar":[
+			"Comenzar",
+			"Begin",
+			"Comezar"
+		],
+		"Piloto":[
+			"Piloto",
+			"Driver",
+			"Piloto"
+		],
+		"General":[
+			"General",
+			"General",
+			"Xeral"
+		],
+		"TuPiloto":[
+			"Tu Piloto",
+			"Your Driver",
+			"O Teu Piloto"
+		],
+		"Pausar":[
+			"Pausa",
+			"Pause",
+			"Pausa"
+		],
+		"Volver":[
+			"Volver",
+			"Resume",
+			"Tornar"
+		],
+		"Salir":[
+			"Salir",
+			"Exit",
+			"Sair"
+		],
+
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE"
+		],
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL"
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT"
+		],
+		"CURV":[
+			"CUR",
+			"TUR",
+			"CUR"
+		],
+
+
+		"VueltaRapida":[
+			"Vuelta Rapida",
+			"Fastest Lap",
+			"Volta Rapida"
+		],
+		"MejorTiempo":[
+			"Mejor Tiempo",
+			"Best Lap",
+			"Mellor Tempo"
+		],
+		"UltimaVuelta":[
+			"Ultima Vuelta",
+			"Last Lap",
+			"Derradeira"
+		],
+
+
+		"Saturno":[
+			"Saturno",
+			"Saturn",
+			"Saturno"
+		],
+		"Jupiter":[
+			"Jupiter",
+			"Jupiter",
+			"Xupiter"
+		],
+		"Marte":[
+			"Marte",
+			"Mars",
+			"Marte"
+		],
+		"Neptuno":[
+			"Neptuno",
+			"Neptune",
+			"Neptuno"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
+		]
+
+	},
+
+	"Simulador":{
+		"Comenzar":[
+			"Comenzar",
+			"Begin",
+			"Comezar"
+		],
+		"Piloto":[
+			"Piloto",
+			"Driver",
+			"Piloto"
+		],
+		"General":[
+			"General",
+			"General",
+			"Xeral"
+		],
+		"TuPiloto":[
+			"Tu Piloto",
+			"Your Driver",
+			"O Teu Piloto"
+		],
+		"Pausar":[
+			"Pausa",
+			"Pause",
+			"Pausa"
+		],
+		"Volver":[
+			"Volver",
+			"Resume",
+			"Tornar"
+		],
+		"Salir":[
+			"Salir",
+			"Exit",
+			"Sair"
+		],
+
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE"
+		],
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL"
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT"
+		],
+		"CURV":[
+			"CUR",
+			"TUR",
+			"CUR"
+		],
+
+
+		"VueltaRapida":[
+			"Vuelta Rapida",
+			"Fastest Lap",
+			"Volta Rapida"
+		],
+		"MejorTiempo":[
+			"Mejor Tiempo",
+			"Best Lap",
+			"Mellor Tempo"
+		],
+		"UltimaVuelta":[
+			"Ultima Vuelta",
+			"Last Lap",
+			"Derradeira"
+		],
+
+
+		"Saturno":[
+			"Saturno",
+			"Saturn",
+			"Saturno"
+		],
+		"Jupiter":[
+			"Jupiter",
+			"Jupiter",
+			"Xupiter"
+		],
+		"Marte":[
+			"Marte",
+			"Mars",
+			"Marte"
+		],
+		"Neptuno":[
+			"Neptuno",
+			"Neptune",
+			"Neptuno"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
+		]
+
+	},
+
 	"NombreUsuario":{
 		"PlaceHolder":[
 			"Nombre de Usuario",
@@ -662,11 +862,23 @@
 	"Editor":{
 		"PlaceHolderNombreCircuito":[
 			"Introduce el nombre del circuito",
-			"Introduce circuit's name",
-			"POR TRADUCIR GALLEGO"
+			"Introduce track name",
+			"Introduce o nome do circuito"
+		],
+		"Modulos":[
+			"Modulos",
+			"Sections",
+			"Modulos"
+		],
+		"PopUp1":[
+			"CIRCUITO NO VALIDO.\n\nTIENES QUE ELEGIR EL MODULO SALIDA",
+			"INVALID TRACK.\n\nYOU HAVE TO PICK THE FINISH SECTION",
+			"CIRCUITO NON VALIDO.\n\nTES QUE ESCOLLER O MODULO SALIDA"
+		],
+		"PopUp2":[
+			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO",
+			"INVALID TRACK.\n\n REMEMBER TO PLACE A CHANGE-LINES SECTION.\n\nIT HAS TO BE CLOSED",
+			"CIRCUITO NON VALIDO.\n\n MEMBRA QUE O CIRCUITO TEN QUE TER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMEN TEN QUE ESTAR PECHADO"
 		]
-		
 	}
-
-
 }

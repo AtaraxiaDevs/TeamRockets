@@ -18,8 +18,22 @@ public class SeleccionadorCamara : MonoBehaviour
     { 
         camera = FindObjectOfType<CameraController>();
         constructor = FindObjectOfType<Constructor>();
-       
+
+        int idioma = InformacionPersistente.singleton.idiomaActual;
+
         seleccionador.onValueChanged.AddListener((value) => CambiarCamara(value));
+        //if idioma no se que
+        List<string> opciones = new List<string>();
+
+        opciones.Add(MiniTraductor("General", idioma));
+        opciones.Add(MiniTraductor("TuPiloto", idioma));
+        opciones.Add(MiniTraductor("Piloto", idioma) + " 2");
+        opciones.Add(MiniTraductor("Piloto", idioma) + " 3");
+        opciones.Add(MiniTraductor("Piloto", idioma) + " 4");
+
+        seleccionador.ClearOptions();
+        seleccionador.AddOptions(opciones);
+       
     }
     public void AddCoches()
     {
@@ -38,9 +52,17 @@ public class SeleccionadorCamara : MonoBehaviour
             camera.ComenzarCarrera(coches[value - 1]);
         }
     }
-    // Update is called once per frame
-    void Update()
+    public string MiniTraductor(string key, int lang)
     {
-        
+        string palabro = "";
+
+        string jsonData;
+        TextAsset auxtxt = Resources.Load<TextAsset>("localization");
+        jsonData = auxtxt.ToString();
+        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
+
+        palabro = data[InformacionPersistente.singleton.escenaActual][key][lang].Value;
+
+        return palabro;
     }
 }

@@ -10,7 +10,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     private Circuito circuito;
     private Constructor constructor;
-    private CarreraController carrerita;
+
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
@@ -20,14 +20,14 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias UI
     public Button startCarrera,stopCarrera,reanudarCarrera;
     public Slider minMaxController;
-    public Text velocidad,posiciones, vueltas;
+    public Text velocidad,posiciones;
     public Fader sceneFader;
 
     //PC
     private int marcha;
 
     //Velocidad
-    private float cooldownCalado = 0.5f, epsilonSpeed = 3;
+    private float cooldownCalado = 0.5f, epsilonSpeed = 4;
     private float speed = 0;
     private float currentSpeed = 0;
     private bool flagEsperandoCircuito = false;
@@ -47,7 +47,7 @@ public class UIManagerCarrera : MonoBehaviour
         marcha = 0;
       
         constructor = FindObjectOfType<Constructor>();
-        carrerita = FindObjectOfType<CarreraController>();
+
 
         //Si no hay un string de hay circuito en el informacionpersitente
         if (InformacionPersistente.singleton.currentCircuito.modulos.Count == 0)
@@ -218,7 +218,7 @@ public class UIManagerCarrera : MonoBehaviour
 
         foreach(Coche c in coches)
         {
-            res += cont + "º: " + c.ID + " " + InformacionPersistente.GetPlaneta(c.statsBase.elemento,c.ID) + "\n";
+            res += cont + "º: " + InformacionPersistente.GetPlaneta(c.statsBase.elemento, c.ID) + " " + c.ID + "\n";
             cont++;
         }
         return res;
@@ -286,6 +286,7 @@ public class UIManagerCarrera : MonoBehaviour
             source[i]= InformacionPersistente.GetPlaneta(posicionesFinales[i].statsBase.elemento,ids[i])+ posicionesFinales[i].ID; 
           
             tiempos[i] = tc.tiempoMejor[posicionesFinales[i].ID];
+            tiempos[i] = (float)Math.Round(tiempos[i], 2);
             
         }
 

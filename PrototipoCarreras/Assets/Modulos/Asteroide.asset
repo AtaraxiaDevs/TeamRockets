@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79685fce4b1324a9dce9ac76d9ad6a, type: 3}
   m_Name: Asteroide
   m_EditorClassIdentifier: 
-  tipoCircuito: 0
+  tipoCircuito: 8
   elemento: 2
   rozamiento: -0.5
   umbral: 900

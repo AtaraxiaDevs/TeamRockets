@@ -23,6 +23,7 @@ public class Fader : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        Time.timeScale = 1;
         float t = 1f;
 
         while (t > 0f)

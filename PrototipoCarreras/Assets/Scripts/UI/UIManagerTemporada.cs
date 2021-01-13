@@ -46,6 +46,7 @@ public class UIManagerTemporada : MonoBehaviour
             pantallaElegir.SetActive(false);
             uimanager.SetActive(true);
             ip.escenaActual = "ModoManager";
+
             for (int i = 0; i < 4; i++)
             {
                 if (ip.pilotosOrdenados[0] != null)
@@ -63,21 +64,12 @@ public class UIManagerTemporada : MonoBehaviour
 
                 }
             }
-
-
-
         }
 
         circuito1.text = InformacionPersistente.singleton.nombreCircuitoTemporada[0];
         circuito2.text = InformacionPersistente.singleton.nombreCircuitoTemporada[1];
         circuito3.text = InformacionPersistente.singleton.nombreCircuitoTemporada[2];
         circuito4.text = InformacionPersistente.singleton.nombreCircuitoTemporada[3];
-
-
-
-
-
-
 
         string jsonData;
         TextAsset auxtxt = Resources.Load<TextAsset>("localization");

@@ -1865,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCAR: {fileID: 0}
   esCircuito: 0
   tengoCoche: 0
   m_speed: 0
@@ -4396,6 +4397,8 @@ MonoBehaviour:
   sceneFader: {fileID: 1582403779}
   tutorial: {fileID: 2111780938}
   PPrincipal: {fileID: 0}
+  tutoMovil: {fileID: 0}
+  tutoPC: {fileID: 0}
   pestanaActual: {fileID: 795369372}
   esTitulo: 0
   titulo: {fileID: 0}
@@ -4407,6 +4410,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  esCarrera: 0
   circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
@@ -4473,6 +4477,10 @@ MonoBehaviour:
   infosigno1: {fileID: 1947871611}
   infosigno2: {fileID: 160497978}
   txtElemento: {fileID: 943924936}
+  displayManager: {fileID: 0}
+  escogerChasis: {fileID: 795369372}
+  escogerReglajes: {fileID: 2110849049}
+  atrasZodiaco: {fileID: 800859520}
   signosEscogidos: 
   RM: 0
   ED: 0
@@ -4499,6 +4507,7 @@ GameObject:
   - component: {fileID: 1709094808}
   - component: {fileID: 1709094810}
   - component: {fileID: 1709094809}
+  - component: {fileID: 1709094811}
   m_Layer: 5
   m_Name: Titulo
   m_TagString: Untagged
@@ -4556,7 +4565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'CIRCUITO: '
+  m_Text: 
 --- !u!222 &1709094810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4565,6 +4574,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709094807}
   m_CullTransparentMesh: 0
+--- !u!114 &1709094811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709094807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Circuito
+  hola: {fileID: 1709094809}
 --- !u!1 &1762500409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4891,7 +4914,9 @@ MonoBehaviour:
   render: {fileID: 629343290}
   display:
   - {fileID: 2001624491}
+  codigo: {fileID: 0}
   UISelector: 0
+  managerUI: {fileID: 0}
 --- !u!4 &1823130911
 Transform:
   m_ObjectHideFlags: 0
