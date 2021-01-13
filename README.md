@@ -80,7 +80,7 @@
 | **PUBLICO OBJETIVO**     | Jóvenes adultos. Fans de la Fórmula 1      |
 | **ESTILO VISUAL**        | 3D           |
 | **CALIFICACIÓN**         | PEGI 3+                 |
-| **IDIOMA**      | Español, Inglés          |
+| **IDIOMA**      | Español, Inglés, Gallego          |
 | **VISTA**       | Tercera persona              |
 | **TECNOLOGÍAS** | Unity                   |
 | **MECÁNICAS**   | - Compite contra otros vehículos <br> - Construye tu propio circuito <br>- Comparte tus circuitos con el mundo |
