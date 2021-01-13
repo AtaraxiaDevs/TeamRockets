@@ -11,6 +11,10 @@ public class UIManagerMenus : MonoBehaviour
     [Header("Panel Principal")]
     public GameObject PPrincipal;
 
+    [Header("Tutoriales")]
+    public GameObject tutoMovil;
+    public GameObject tutoPC;
+
     [Header("Pestañas")]
     public GameObject pestanaActual;
 
@@ -163,6 +167,18 @@ public class UIManagerMenus : MonoBehaviour
         scene.SetActive(!scene.activeSelf);
     }
 
+    public void PonerTuto()
+    {
+
+        if (InformacionPersistente.singleton.esMovil)
+        {
+            tutoMovil.SetActive(true);
+        }
+        else
+        {
+            tutoPC.SetActive(true);
+        }
+    }
     public void CambiarPanel(GameObject scene)
     {
         scene.SetActive(!scene.activeSelf);
