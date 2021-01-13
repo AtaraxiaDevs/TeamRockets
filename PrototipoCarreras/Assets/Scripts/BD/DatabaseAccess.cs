@@ -226,7 +226,15 @@ public class DatabaseAccess : MonoBehaviour
 
     public void coppyToClipBoard(){
 
-        GUIUtility.systemCopyBuffer =   InformacionPersistente.singleton.codigoGuardado;
+        if (InformacionPersistente.singleton.esMovil)
+        {
+
+        }
+        else
+        {
+            GUIUtility.systemCopyBuffer = InformacionPersistente.singleton.codigoGuardado;
+        }
+       
 
         Debug.Log(GUIUtility.systemCopyBuffer);
         Debug.Log("HOLA");

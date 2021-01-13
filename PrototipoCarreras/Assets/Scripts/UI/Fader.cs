@@ -11,7 +11,8 @@ public class Fader : MonoBehaviour
     #region Unity
     public void Start()
     {
-        StartCoroutine(FadeIn());
+        if(!InformacionPersistente.singleton.esMovil)
+            StartCoroutine(FadeIn());
     }
     #endregion
     #region Metodos
