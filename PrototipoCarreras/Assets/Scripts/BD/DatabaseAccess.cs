@@ -28,10 +28,8 @@ public class DatabaseAccess : MonoBehaviour
        DatosCircuitos nuevoCircuito = new DatosCircuitos();
        nuevoCircuito.order = order;
        nuevoCircuito.name = name;
-       RestClient.Post(pathSave, nuevoCircuito);
-        Debug.Log("Datos Subidos");
-        popUp.SetActive(true);
-        RestClient.Get(pathLoad).Then(response =>{
+       RestClient.Post(pathSave, nuevoCircuito).Then(res =>{
+            RestClient.Get(pathLoad).Then(response =>{
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
             string keyActual = "";
             foreach (var kvp in data)
@@ -46,8 +44,15 @@ public class DatabaseAccess : MonoBehaviour
 
            codigo.text = InformacionPersistente.singleton.codigoGuardado;
            nombreCircuito.text = data[keyActual]["name"];
+
+           Debug.Log(codigo.text);
            
         });
+       });
+        Debug.Log("Datos Subidos");
+        popUp.SetActive(true);
+
+        
 
    }
 
