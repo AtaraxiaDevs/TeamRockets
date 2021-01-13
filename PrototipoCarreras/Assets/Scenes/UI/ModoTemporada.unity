@@ -4395,6 +4395,9 @@ MonoBehaviour:
   infosigno2: {fileID: 152190664}
   txtElemento: {fileID: 1096158450}
   displayManager: {fileID: 1351653351}
+  escogerChasis: {fileID: 0}
+  escogerReglajes: {fileID: 0}
+  atrasZodiaco: {fileID: 0}
   signosEscogidos: 
   RM: 0
   ED: 0
@@ -12213,6 +12216,7 @@ MonoBehaviour:
   display:
   - {fileID: 1464837647}
   - {fileID: 793140762}
+  codigo: {fileID: 0}
   UISelector: 0
   managerUI: {fileID: 0}
 --- !u!4 &1207577087
@@ -20055,7 +20059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1832115555
 RectTransform:
   m_ObjectHideFlags: 0

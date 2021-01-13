@@ -27,7 +27,7 @@ public class UIManagerCarrera : MonoBehaviour
     private int marcha;
 
     //Velocidad
-    private float cooldownCalado = 0.5f, epsilonSpeed = 3;
+    private float cooldownCalado = 0.5f, epsilonSpeed = 4;
     private float speed = 0;
     private float currentSpeed = 0;
     private bool flagEsperandoCircuito = false;
@@ -286,6 +286,7 @@ public class UIManagerCarrera : MonoBehaviour
             source[i]= InformacionPersistente.GetPlaneta(posicionesFinales[i].statsBase.elemento,ids[i])+ posicionesFinales[i].ID; 
           
             tiempos[i] = tc.tiempoMejor[posicionesFinales[i].ID];
+            tiempos[i] = (float)Math.Round(tiempos[i], 2);
             
         }
 
