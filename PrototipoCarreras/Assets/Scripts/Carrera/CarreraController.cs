@@ -16,21 +16,32 @@ public class CarreraController : MonoBehaviour
     public TimeController times;
     public Circuito circuito;
     public GameObject tiempoSalida;
-    public Text tiemposJugador;
+    public Text tiemposJugador, numVuelta;
     //Variables
     [HideInInspector]
     public int contCochesAcabados = 0;
 
     private int vueltaMasActual=0;
 
+   
     public void EmpezarCarrera()
     {
         circuito = FindObjectOfType<Circuito>();
+        numVuelta.text = "1/" + circuito.numVueltas;
+
         StartCoroutine(Empezar());
     }
 
     public void InicioCarrera()
     {
+        SeleccionadorCamara sc = FindObjectOfType<SeleccionadorCamara>();
+        if (sc != null)
+        {
+            if (sc.seleccionador != null)
+            {
+                sc.seleccionador.gameObject.SetActive(true);
+            }
+        }
         circuito.Construir();
         circuito.IniciarCarrera();
         times.InicioTiempos();
@@ -76,8 +87,12 @@ public class CarreraController : MonoBehaviour
             if (vueltaMasActual < vuelta)
             {
                 vueltaMasActual = vuelta;
+                
             }
-
+            if (ID == 0)
+            {
+                numVuelta.text = (vuelta+2) + "/" + circuito.numVueltas;
+            }
             string tiempos= times.UpdateVuelta(ID,vuelta);
 
             if(ID == 0)

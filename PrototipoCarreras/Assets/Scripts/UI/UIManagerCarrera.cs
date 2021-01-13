@@ -10,7 +10,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias
     private Circuito circuito;
     private Constructor constructor;
-    private CarreraController carrerita;
+
     [HideInInspector]
     public Coche myCar;
     public List<Coche> coches = new List<Coche>();
@@ -20,7 +20,7 @@ public class UIManagerCarrera : MonoBehaviour
     //Referencias UI
     public Button startCarrera,stopCarrera,reanudarCarrera;
     public Slider minMaxController;
-    public Text velocidad,posiciones, vueltas;
+    public Text velocidad,posiciones;
     public Fader sceneFader;
 
     //PC
@@ -47,7 +47,7 @@ public class UIManagerCarrera : MonoBehaviour
         marcha = 0;
       
         constructor = FindObjectOfType<Constructor>();
-        carrerita = FindObjectOfType<CarreraController>();
+
 
         //Si no hay un string de hay circuito en el informacionpersitente
         if (InformacionPersistente.singleton.currentCircuito.modulos.Count == 0)

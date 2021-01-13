@@ -28,14 +28,14 @@ public class UIManagerEditor : MonoBehaviour
             }
         } 
     }
-    public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
+    public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial,prefabTierra,prefabAgua,prefabAire,prefabFuego;
     public Circuito circuito;
     public Dropdown vueltas;
     public InputField nombreCircuito;
  
 
     //Referencias UI
-    public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne,Especial, remove,listoConstruir, save;
+    public Button rotar, listoPrimero, Recta, Vuelta, Abierta, Cerrada, ZigZag, Chicanne,Fuego,Aire,Agua,Tierra,Especial, remove,listoConstruir, save;
 
     //Pop Ups
 
@@ -58,8 +58,10 @@ public class UIManagerEditor : MonoBehaviour
         Cerrada.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
         Chicanne.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
         Especial.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
-
-
+        Agua.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Fuego.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Tierra.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
+        Aire.onClick.AddListener(() => SoundManager.singleton.EjecutarSonido(SONIDO.BOTON2));
         SoundManager.singleton.EjecutarMusica(MUSICA.EDITOR);
         current = null;
         rotar.onClick.AddListener(() =>
@@ -89,6 +91,10 @@ public class UIManagerEditor : MonoBehaviour
         Cerrada.onClick.AddListener(() => CrearModulo(prefabCerrada));
         Chicanne.onClick.AddListener(() => CrearModulo(prefabChicanne));
         Especial.onClick.AddListener(() => CrearModulo(prefabEspecial));
+        Fuego.onClick.AddListener(() => CrearModulo(prefabFuego));
+        Aire.onClick.AddListener(() => CrearModulo(prefabAire));
+        Agua.onClick.AddListener(() => CrearModulo(prefabAgua));
+        Tierra.onClick.AddListener(() => CrearModulo(prefabTierra));
         vueltas.onValueChanged.AddListener((value) => circuito.numVueltas = (value + 1) * 4);
        
     }
