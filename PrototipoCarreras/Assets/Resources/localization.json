@@ -612,10 +612,134 @@
 			"Driver",
 			"Piloto"
 		],
+		"General":[
+			"General",
+			"General",
+			"Xeral"
+		],
+		"TuPiloto":[
+			"Tu Piloto",
+			"Your Driver",
+			"O Teu Piloto"
+		],
 		"Pausar":[
-			"Pausar",
+			"Pausa",
 			"Pause",
-			"Pausar"
+			"Pausa"
+		],
+		"Volver":[
+			"Volver",
+			"Resume",
+			"Tornar"
+		],
+		"Salir":[
+			"Salir",
+			"Exit",
+			"Sair"
+		],
+
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE"
+		],
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL"
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT"
+		],
+		"CURV":[
+			"CUR",
+			"TUR",
+			"CUR"
+		],
+
+
+		"VueltaRapida":[
+			"Vuelta Rapida",
+			"Fastest Lap",
+			"Volta Rapida"
+		],
+		"MejorTiempo":[
+			"Mejor Tiempo",
+			"Best Lap",
+			"Mellor Tempo"
+		],
+		"UltimaVuelta":[
+			"Ultima Vuelta",
+			"Last Lap",
+			"Derradeira"
+		],
+
+
+		"Saturno":[
+			"Saturno",
+			"Saturn",
+			"Saturno"
+		],
+		"Jupiter":[
+			"Jupiter",
+			"Jupiter",
+			"Xupiter"
+		],
+		"Marte":[
+			"Marte",
+			"Mars",
+			"Marte"
+		],
+		"Neptuno":[
+			"Neptuno",
+			"Neptune",
+			"Neptuno"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
+		]
+
+	},
+
+	"Simulador":{
+		"Comenzar":[
+			"Comenzar",
+			"Begin",
+			"Comezar"
+		],
+		"Piloto":[
+			"Piloto",
+			"Driver",
+			"Piloto"
+		],
+		"General":[
+			"General",
+			"General",
+			"Xeral"
+		],
+		"TuPiloto":[
+			"Tu Piloto",
+			"Your Driver",
+			"O Teu Piloto"
+		],
+		"Pausar":[
+			"Pausa",
+			"Pause",
+			"Pausa"
+		],
+		"Volver":[
+			"Volver",
+			"Resume",
+			"Tornar"
+		],
+		"Salir":[
+			"Salir",
+			"Exit",
+			"Sair"
 		],
 
 		"ACE":[
