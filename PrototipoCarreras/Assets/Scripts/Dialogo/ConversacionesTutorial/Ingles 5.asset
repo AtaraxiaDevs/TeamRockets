@@ -27,6 +27,8 @@ MonoBehaviour:
   - conver: To drive your SpaceShip, you have to move the Gear Lever on the right.
       You can do it by touching the screen or using the mouse
     enUso: 0
+  - conver: Left Click to gear up, Right Click to gear down
+    enUso: 0
   - conver: SpaceShips have got 5 gears, used to adjust the speed at will
     enUso: 0
   - conver: Each one of the track zones have to be passed through at certain speed.

@@ -28,6 +28,9 @@ MonoBehaviour:
   - conver: "Pra controlar a nave, tes que mover a panca da dereita. Podes usar o
       teu dedo(M\xF3bil) ou o teu rato(Ordenador)."
     enUso: 0
+  - conver: Click Esquerdo para baixar unha marcha, Click Dereito para subir unha
+      marcha
+    enUso: 0
   - conver: "As naves te\xF1en 5 marchas diferentes, as cales serven pra axusta-la
       velocidade."
     enUso: 0

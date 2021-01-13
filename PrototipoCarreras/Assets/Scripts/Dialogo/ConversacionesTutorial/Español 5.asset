@@ -26,7 +26,9 @@ MonoBehaviour:
   - conver: "Puedes pausar en cualquier momento con el bot\xF3n de pausa."
     enUso: 0
   - conver: "Para controlar la nave, tienes que mover la palanca de la derecha. Puedes
-      usar tu dedo o el rat\xF3n"
+      usar tu dedo o los botones del rat\xF3n"
+    enUso: 0
+  - conver: Click Izquierdo para bajar marchas, y Click Derecho para subirlas
     enUso: 0
   - conver: Las naves tienen 5 marchas distintas, las cuales sirven para ajustar la
       velocidad
