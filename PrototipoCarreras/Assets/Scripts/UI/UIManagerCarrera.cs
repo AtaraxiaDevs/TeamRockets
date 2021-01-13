@@ -31,9 +31,7 @@ public class UIManagerCarrera : MonoBehaviour
     private float speed = 0;
     private float currentSpeed = 0;
     private bool flagEsperandoCircuito = false;
-    //private bool noAccedido = false;
-    //Variables
-    // private float limitSlide = 0.5f;
+
 
     #region Unity
     void Start()
@@ -111,7 +109,7 @@ public class UIManagerCarrera : MonoBehaviour
             if (Mathf.Abs(currentSpeed - speed) > epsilonSpeed)
             {
                 speed = currentSpeed;
-                velocidad.text = ((int)Mathf.Round(speed)).ToString();
+                velocidad.text = ((int)Mathf.Round(speed)).ToString()+" km/h";
             }
         }
 
@@ -126,8 +124,8 @@ public class UIManagerCarrera : MonoBehaviour
             {
                 if (marcha > 0)
                 {
-                    marcha--;
-                    minMaxController.value = marcha;
+                    
+                    minMaxController.value = marcha-1;
 
                 }
             }
@@ -135,8 +133,8 @@ public class UIManagerCarrera : MonoBehaviour
             {
                 if (marcha <4)
                 {
-                    marcha++;
-                    minMaxController.value = marcha;
+                   
+                    minMaxController.value = marcha+1;
 
                 }
             }
@@ -162,17 +160,24 @@ public class UIManagerCarrera : MonoBehaviour
     }
     private void onMinMaxChange(float value)
     {
+        if (Mathf.Abs(value - marcha) == 1){
+            bool success = myCar.SetCurrentMarcha((int)value);
+            if (!success)
+            {
+                minMaxController.value = marcha;
+                StartCoroutine(Calado());
+            }
+            else
+            {
+                marcha = (int)value;
+            }
+        }
+        else if(!(Mathf.Abs(value - marcha) == 0))
+        { 
        
-       bool success=  myCar.SetCurrentMarcha((int)value);
-        if (!success)
-        {
-            minMaxController.value = value-1;
-            StartCoroutine(Calado());
+             minMaxController.value = marcha;
         }
-        else
-        {
-            marcha = (int)value;
-        }
+      
     }
     IEnumerator Calado()
     {

@@ -222,6 +222,7 @@ public class Coche : MonoBehaviour
             if (soyPlayer)
             {
                 float epsilon = ForcesBack() *1.5f;
+
                 if (soyPlayer&&(currentSpeed- epsilon)<stats.Marchas[(int)currentMarcha] )
                 {
                     SoundManager.singleton.EjecutarSonido(SONIDO.ERROR1, myAudio);

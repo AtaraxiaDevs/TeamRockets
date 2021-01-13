@@ -92,7 +92,8 @@ public class CarreraController : MonoBehaviour
             }
             if (ID == 0)
             {
-                numVuelta.text = (vuelta+2) + "/" + circuito.numVueltas;
+                if(vuelta<circuito.numVueltas-1)
+                    numVuelta.text = (vuelta+2) + "/" + circuito.numVueltas;
             }
             string tiempos= times.UpdateVuelta(ID,vuelta);
 

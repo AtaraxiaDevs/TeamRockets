@@ -29,6 +29,7 @@ public class Fader : MonoBehaviour
 
         while (t > 0f)
         {
+            Time.timeScale = 1;
             t -= Time.deltaTime;
 
             float a = fadeCurve.Evaluate(t);
