@@ -497,15 +497,21 @@ Una vez cumplidas las seis fases iniciales del proyecto pensamos ampliar el jueg
 
 El modelo de negocio principal va a ser *pay what you can* (PWYC). En este modelo cada jugador decide pagar lo que considere justo por nuestro producto. En un principio, el juego es totalmente gratuito, pero presenta una serie de añadidos opcionales, como skins para las naves o módulos nuevos a un precio reducido. El equipo de desarrollo decidió utilizar este modelo de negocio ya que, en una encuesta interna entre conocidos y amigos de los desarrolladores, nadie estaba dispuesto a pagar dinero por un juego de navegador.
 
-En un principio vamos a ofrecer la compra de una moneda virtual creada en exclusiva para el juego, la Constela-Coin (CC). Esta moneda solamente se podrá conseguir mediante dinero real y se venderá en paquetes:
- - 20 CC a 0,99 €.
- - 50 CC a 1,99 €.
- - 100 CC a 2,99 €.
- - 250 CC a 4,99 €.
- - 1000 CC a 9,99 €.
- - 2500 CC a 24,99 €.
+En un principio vamos a ofrecer la compra de una moneda virtual creada en exclusiva para el juego, la Ataraxia Coin (AC). Esta moneda solamente se podrá conseguir mediante dinero real y se venderá en paquetes:
+ - 50 AC a 0,99 €.
+ - 150 AC a 1,99 €.
+ - 300 AC a 2,99 €.
+ - 500 AC a 3,99 €.
+ - 1000 AC a 4,99 €.
+ - 1500 AC a 5,99 €.
 
-Con estas monedas el jugador podrá comprar skins para las naves, nuevos módulos para la creación de circuitos y un editor de módulos. Las skins y los módulos se podrán adquirir de forma separada y en conjuntos de varias skins o módulos a precio reducido. Además, también podremos vender los archivos .stl para que los usuarios puedan imprimir sus propias naves. Por último, el elemento más interesante sería un editor de módulos, donde los jugadores podrán crear sus propios módulos para poder usarlos en cualquier circuito.
+Con estas monedas el jugador podrá comprar skins para las naves, nuevos módulos para la creación de circuitos, etc. Además, también planeamos expansiones de contenido con elementos del zodiaco de otras culturas, como el zodiaco maya o chino. A continuación mostramos una lista con algunos precios orientativos.
+- Expansión Zodiaco - Ofiuco (200 monedas): Ofrece un nuevo signo del zodiaco único con sus propias características.
+- Pack curvas (150 monedas): Nuevos módulos para los circuitos.
+- Materiales exclusivos (50 monedas): Se ofrecerán nuevos materiales para módulos como, por ejemplo, hielo o fuego.
+- Skins (50 monedas): Permite cambiar el aspecto de la nave.
+
+Además, también podremos vender los archivos .stl para que los usuarios puedan imprimir sus propias naves. Por último, el elemento más interesante sería un editor de módulos, donde los jugadores podrán crear sus propios módulos para poder usarlos en cualquier circuito.
 
 El principal objetivo que queremos conseguir es la fidelización de los usuarios. Creando un mundo rico mediante cinemáticas, cómics o las propias cuentas de Twitter, podemos enganchar a los jugadores a la historia que estamos creando. No solo esto, sino que los propios usuarios podrán introducir a conocidos y amistades a nuestro juego gracias al editor de circuitos.
 
@@ -534,11 +540,17 @@ El principal objetivo de nuestro modelo de negocio es atraer el mayor número de
 
 Pero no nos quedamos aquí. También podemos atraer a jóvenes gracias a nuestro merchandising, especialmente con las figuritas de las naves y los cómics. Por último, también queremos atraer a los fans de la Fórmula 1 gracias a nuestro modo mánager. Este modo permite planificar y seguir una carrera como si fuera una de verdad, lo cual puede interesar a estos forofos.
 
-*MODELO DE LIENZO:*
+*MODELO DE LIENZO*
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
 ### 10.3.- MARKETING <a name="modeloDeNegocio"/>
+
+- Promoción en redes sociales: El juego se promociona principlamente a través de la cuenta de Twitter @AtaraxiaDevs. En esta cuenta se han publicado periódicamente distintas actualizaciones sobre el juego, desde concept art hasta interfaces y modelos finales. También ha promocionado los distintos vídeos que se subían al canal de YouTube de la organización.
+- *Roleplay* en Twitter: Además de la cuenta principal, se han creado otras cuatro cuentas simulando ser personajes del juego. Cada uno de estos personajes apoya a cada una de las naves disponibles en el juego: Saturno, Neptuno, Júpiter y Marte. Hemos interaccionado con los tweets de la cuenta principal, entre nosotros y con el resto de cuentas de clase. Por último, hemos intentado simular una narrativa mediante estas cuentas, algo pocas veces visto, lo cual ha hecho a estas cuentas tremendamente valiosas.
+- YouTube: En el canal de YouTube de la empresa, AtaraxiaDevs, hemos ido publicando cada cierto tiempo unos vídeos enseñando los modelos de las naves del juego, además del trailer del juego. Gracias a la cuenta de Twitter hemos podido promocionar estos vídeos, aumentando sus visitas.
+- Portfolio: Gracias al porfolio hemos podido promocionarnos como una empresa de videojuegos al más alto nivel. Hemos aprovechado esta página web para que los interesados puedan conocer y contactar con los distintos miembros del equipo. Además, también promocionamos nuestro anterior proyecto, Break-Troops-Fast.
+- Blog: Dentro del portfolio existe una sección de blog, donde publicamos distintas entrevistas a los diferentes miembros del equipo explicando su trabajo dentro de cada proyecto.
 
 ## 11.- POST MORTEM	<a name="postMortem"/>
 
