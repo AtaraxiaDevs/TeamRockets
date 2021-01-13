@@ -431,7 +431,7 @@ En el juego se ofrecen tres modos de juego principales, dos de ellos siendo posi
 
 - **MODO LIGA**: El jugador competirá en cuatro carreras consecutivas elegidas al azar contra tres naves controladas por inteligencia artificial. El ganador se determinará mediante un sistema de puntuación.
 
-- **MI LIGA**: En este modo el jugador tendrá que ajustar los reglajes de su coche de forma que pueda recorrer un circuito sin percances.
+- **MI EQUIPO**: En este modo el jugador tendrá que ajustar los reglajes de su coche de forma que pueda recorrer un circuito sin percances.
 
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
