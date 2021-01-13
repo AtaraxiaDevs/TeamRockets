@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.5, y: 146.8}
+  m_AnchoredPosition: {x: 42.5, y: 165}
   m_SizeDelta: {x: 516.7, y: 87.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &966425425
@@ -548,7 +548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.4700317, y: -166.1}
+  m_AnchoredPosition: {x: -7.4700317, y: -198}
   m_SizeDelta: {x: 202.16, y: 73.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966425427
@@ -975,6 +975,8 @@ MonoBehaviour:
   sceneFader: {fileID: 1582403779}
   tutorial: {fileID: 0}
   PPrincipal: {fileID: 1549398510}
+  tutoMovil: {fileID: 0}
+  tutoPC: {fileID: 0}
   pestanaActual: {fileID: 0}
   esTitulo: 1
   titulo: {fileID: 713583842}
@@ -986,6 +988,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  esCarrera: 0
   circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
