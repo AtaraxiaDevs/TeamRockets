@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovimientoEditor : MonoBehaviour
 {
     //input mouse 1
-    Vector2 antiguo,nuevo;
+    Vector3 antiguo,nuevo;
     Camera main;
     bool moviendose;
     float width = 100, height = 100;
@@ -81,23 +81,15 @@ public class MovimientoEditor : MonoBehaviour
             Vector3 pos;
             if (InformacionPersistente.singleton.esMovil)
             {
-                pos = main.ScreenToWorldPoint((Input.GetTouch(0).position));
-            }
-            else
-            {
-                pos = main.ScreenToWorldPoint(Input.mousePosition);
-              
-
-            }
-            pos.y = main.transform.position.y;
-            //main.transform.Translate(pos);
-            if (InformacionPersistente.singleton.esMovil)
-            {
-                Vector2 movimiento = nuevo-antiguo;
+            
+                Vector3 movimiento = nuevo-antiguo;
+                movimiento.y = main.transform.position.y; 
                 main.transform.position = Vector3.MoveTowards(main.transform.position, movimiento, speedMoveMovil);
             }
             else
             {
+                pos = main.ScreenToWorldPoint(Input.mousePosition);
+                pos.y = main.transform.position.y;
                 main.transform.position = Vector3.MoveTowards(main.transform.position, pos, speedMove);
             }
             Vector3 position = main.transform.position;

@@ -61,6 +61,7 @@ public class DatabaseAccess : MonoBehaviour
    public async void GetCircuitoFromDataBaseByName(string name){
        RestClient.Get(pathLoad).Then(response =>
         {
+            bool noHay = true;
             //Debug.Log(response.Text);
             SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
             
@@ -70,8 +71,13 @@ public class DatabaseAccess : MonoBehaviour
                     Debug.Log(data[kvp.Key]["order"]); 
                     InformacionPersistente.singleton.DATA_BD = data[name]["order"];
                     InformacionPersistente.singleton.nombreCircuitoActual = data[name]["name"];
+                    noHay = false;
                 }
            }
+            if (noHay)
+            {
+                InformacionPersistente.singleton.DATA_BD ="NO";
+            }
 
 
            

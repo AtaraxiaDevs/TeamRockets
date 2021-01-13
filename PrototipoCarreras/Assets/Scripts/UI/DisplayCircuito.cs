@@ -10,7 +10,8 @@ public class DisplayCircuito : MonoBehaviour
 
     public Camera render;
     public Image[] display;
-    private bool esperandoCircuitoFlag= false;
+    public InputField codigo;
+    private bool esperandoCircuitoFlag= false, importandoCircuito= false;
     public bool UISelector;
 
     public GameObject managerUI;
@@ -39,36 +40,29 @@ public class DisplayCircuito : MonoBehaviour
         {
             if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
             {
+                esperandoCircuitoFlag = false;
+                if (importandoCircuito)
+                {
+                    importandoCircuito = false;
+                    if (InformacionPersistente.singleton.DATA_BD.Equals("NO")){
+                        InformacionPersistente.singleton.DATA_BD = "";
+                        //popup
+                        return;
+                    }
 
+                }
+                LimpiarCircuito();
                 constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
                 managerUI.GetComponent<UIManagerElegirCircuito>().cambiarNombre();
 
                 InformacionPersistente.singleton.DATA_BD = "";
-                esperandoCircuitoFlag = false;
-                if (InformacionPersistente.singleton.esMovil)
-                {
-
-                    render.gameObject.SetActive(true);
-                    var current = RenderTexture.active;
-                    RenderTexture.active = render.targetTexture;
-                    render.Render();
-                    Texture2D circuito = new Texture2D(render.targetTexture.width, render.targetTexture.height);
-                    circuito.ReadPixels(new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), 0, 0);
-                    circuito.Apply();
-                    RenderTexture.active = current;
-                    foreach(Image i in display)
-                    {
-
-                        i.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
-                    }
-                    render.gameObject.SetActive(false);
-
-                }
+             
+              
             }
         }
 
-        if (!InformacionPersistente.singleton.esMovil)
-        {
+        //if (!InformacionPersistente.singleton.esMovil)
+        //{
             var current = RenderTexture.active;
             RenderTexture.active = render.targetTexture;
             render.Render();
@@ -81,7 +75,7 @@ public class DisplayCircuito : MonoBehaviour
 
                 i.sprite = Sprite.Create(circuito, new Rect(0, 0, render.targetTexture.width, render.targetTexture.height), new Vector2(0, 0));
             }
-        }
+        
         MostrarCircuito();
     }
     private void MostrarCircuito()
@@ -107,13 +101,39 @@ public class DisplayCircuito : MonoBehaviour
     }
     public void OtroNuevo()
     {
-        foreach(Modulo m in constructor.creado.modulos)
-        {
-            Destroy(m.gameObject);
-        }
-        Destroy(constructor.creado.gameObject);
+        
+       
         constructor.ConstruirCircuito();
         esperandoCircuitoFlag = true;
+    }
+    private void LimpiarCircuito()
+    {
+        if (constructor.creado != null)
+        {
+            foreach (Modulo m in constructor.creado.modulos)
+            {
+                Destroy(m.gameObject);
+            }
+            Destroy(constructor.creado.gameObject);
+            constructor.creado = null;
+
+        }
+    }
+    public void GenerarPorCodigo()
+    {
+        string code = codigo.text.Trim();
+        if (!code.Equals(""))
+        {
+           
+            constructor.ImportarCircuito(code);
+            esperandoCircuitoFlag = true;
+            importandoCircuito = true;
+        }
+        else
+        {
+            //POPUP
+        }
+      
     }
 
 }
