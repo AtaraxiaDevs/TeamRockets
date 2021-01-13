@@ -620,6 +620,15 @@
 		]
 	},
 
+	"ModoCopa":{
+		"Presentacion":[
+			"¡Hola, jugador! En este modo de juego, jugaras contra la IA en 4 circuitos elegidos aleatoriamente.\nLa nave se elige al principio, y puedes cambiar los reglajes\n Si sales de la partida, pierdes tu progreso.\n ¡Mucha Suerte!",
+			"Hi, Player! In this gamemode, you will play against AI in 4 differents tracks chosen randomly\n Your SpaceShip is chosen at the beggining, and you can only change the Settings\n If you exit this gamemode, you will lose the progress\n Good Luck!",
+			"Ola, Xogador! Neste modo de xogo, xogaras contra a IA en 4 circuitos escollidos aleatoriamente.\n A nave elisexe ao comezo, e podes cambiar a afinacion.\n Si saes da partida, perdes o teu progreso.\nBoa sorte!" 
+		]
+	},
+
+
 	"Resultados":{
 		"ResultadosF":[
 			"Resultados Finales",
