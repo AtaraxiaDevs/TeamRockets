@@ -184,19 +184,6 @@ public class IAMoves : MonoBehaviour
             }
         }
     }
-    //private int MarchaPerfectaUmbral(float umbral, InfoCoche stats)
-    //{
-    //    int res = -1;
-        
-    //    foreach (float v in stats.Marchas)
-    //    {
-    //        if (v <= umbral)
-    //        {
-    //            res++;
-    //        }
-    //    }
-    //    return res;
-    //}
     #endregion
 
 }

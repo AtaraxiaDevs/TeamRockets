@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Burbuja
   m_EditorClassIdentifier: 
   tipoCircuito: 9
-  elemento: 3
+  elemento: 0
   rozamiento: -0.6
   umbral: 900
