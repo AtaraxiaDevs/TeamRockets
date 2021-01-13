@@ -97,9 +97,9 @@
  
 ## 3.- SINOPSIS DEL JUEGO <a name="sinopsisDelJuego"/>
 
-> ¡Bienvenidos a una nueva edición del Gran Premio Intergaláctico, la carrera más espectacular de todo el universo! ¿Qué nave te llevará al éxito interplanetario? Escoge con cabeza los mejores signos del Zodiaco y arrasa con todos los que se encuentren en tu camino.
+> ¡Bienvenidos a una nueva edición de Constela-Trix, la carrera más espectacular de todo el universo! ¿Qué nave te llevará al éxito interplanetario? Escoge con cabeza los mejores signos del Zodiaco y arrasa con todos los que se encuentren en tu camino.
 
-> Constela-Trix es un juego de carreras en el que tendrás que ser el más rápido para poder triunfar, tanto en solitario con enemigos controlados por IA como en partidas multijuador de hasta cuatro participantes. Escoge una nave entre cuatro posibilidades: aire, agua, fuego y tierra y equípate dos de los doce signos del Zodiaco para alterar las características de tu vehículo. Puedes competir en los circuitos básicos o crear tus propios recorridos mediante el editor de circuitos. Además, podrás compartir estos niveles mediante ID o, si jugáis en dispositivos móviles, mediante código QR.
+> Constela-Trix es un juego de carreras en el que tendrás que ser el más rápido para poder triunfar en solitario contra enemigos controlados por IA. Escoge una nave entre cuatro posibilidades: aire, agua, fuego y tierra y equípate dos de los doce signos del Zodiaco para alterar las características de tu vehículo. Puedes competir en los circuitos básicos o crear tus propios recorridos mediante el editor de circuitos. Además, podrás compartir estos niveles mediante un código.
 
 ---
 
@@ -107,15 +107,15 @@
 
 **- Diferentes tipos de carreras:** Al iniciar el juego, los jugadores podrán escoger entre una serie de modos de juego:
 
-  *+ Rápido:* En este modo de juego se elegirá un circuito, tanto básicos como creados por los jugadores. Una vez elegido, los jugadores podrán empezar a competir, siendo el objetivo acabar la carrera antes que el resto de competidores, pudiendo ser estos jugadores reales o controlados por la IA. Las naves se moverán mediante un camino predeterminado y los jugadores solo podrán controlar la velocidad de su cohete mediante un elemento de la interfaz.
+  *+ Partida rápida:* En este modo de juego se elegirá un circuito, tanto básicos como creados por los jugadores. El circuito puede ser escogido de forma aleatoria entre todos los disponibles o importarlo directamente. Una vez elegido, los jugadores podrán empezar a competir, siendo el objetivo acabar la carrera antes que el resto de competidores. Las naves se moverán mediante un camino predeterminado y los jugadores solo podrán controlar la velocidad de su vehículo mediante una barra desplazadora.
  
-  *+ Temporada:* Este modo de juego es exclusivo para multijugador. Se elegirán una serie de circuitos los cuales se jugarán de forma continuada. En el último circuito se elegirá el ganador de la temporada, siendo el jugador que más puntos haya acumulado.
+  *+ Modo liga:* En este modo se elegirán una serie de circuitos de forma aleatoria, los cuales se jugarán de forma continuada. En el último circuito se elegirá al ganador de la temporada, siendo el jugador que más puntos haya acumulado.
  
-  *+ Simulador:* Este modo de juego es exclusivo para un jugador. El competidor se enfrentará a tres cohetes controlados por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para evitar cualquier imprevisto antes de empezar la partida.
+  *+ Mi equipo:* El competidor se enfrentará a tres naves controladas por IA, pero no podrá controlar la velocidad de su propia nave. Para poder triunfar tendrá que ajustar su vehículo de la mejor forma posible para maximizar las capacidades según el circuito antes de empezar la partida.
  
-**- Naves:** Antes de empezar una partida, los jugadores podrán elegir una nave entre los cuatro tipos disponibles: aire, agua, fuego y tierra. Cada una de estas naves dispondrá de unas caarcterísticas iniciales distintas y podrá circular mejor en módulos afines a su elemento. Además, cada nave podrá equiparse dos signos del Zodiaco, los cuales aumentarán o disminuirán las características de las naves.
+**- Naves:** Antes de empezar una partida, los jugadores podrán elegir una nave entre los cuatro tipos disponibles: aire, agua, fuego y tierra. Cada una de estas naves dispondrá de unas características iniciales distintas y podrá circular mejor en módulos afines a su elemento. Además, cada nave podrá equiparse dos signos del Zodiaco, los cuales aumentarán o disminuirán ciertas características de los vehículos.
 
-**- Editor de circuitos:** Los jugadores tendrán a su disposición un editor de circuitos por módulos. Existen distintos tipos de módulos: recta, curva, ... pudiendo girarlos y conectarlos entre sí para crear circuitos únicos. Estos circuitos se podrán compartir con cualquier persona que tenga el juego mediante códigos QR o IDs.
+**- Editor de circuitos:** Los jugadores tendrán a su disposición un editor de circuitos por módulos. Existen distintos tipos de módulos: recta, curva, ... pudiendo girarlos y conectarlos entre sí para crear circuitos únicos. Estos circuitos se podrán compartir con cualquier persona que tenga el juego mediante códigos. Además, todos los circuitos serán subidos automáticamente a una base de datos para poder ser usados en cualquier modo de juego y por cualquier jugador.
 
 ---
 
@@ -127,40 +127,51 @@ Podemos dividir el juego en dos grandes fases:
 
 **FASE DE PREPARACIÓN**
 
-Antes de iniciar una partida, los jugadores deberán escoger una nave. Hay disponibles cuatro naves: Júpiter, Neptuno, Marte y Saturno. Cada uno de estos vehículos representa uno de los cuatro elementos principales: aire, agua, fuego y tierra, respectivamente. Cada una de estas naves tendrá una serie de características distintivas al resto, además de ciertas bonificaciones en ciertos aspectos relacionados con sus elementos. Estos aspectos serán explicados en apartados posteriores. 
+En primer lugar, se elegirá un circuito de forma aleatoria o importándolo. Esta decisión se hizo para que los jugadores pudiesen adaptar sus vehículos al circuito elegido.
 
-Las naves no estarán restringidas a un solo jugador en el modo multijugador. En un jugador la IA elegirá de manera aleatoria una nave.
+Antes de iniciar una partida, los jugadores deberán escoger una nave. Hay disponibles cuatro naves: Júpiter, Neptuno, Marte y Saturno. Cada uno de estos vehículos representa uno de los cuatro elementos principales: aire, agua, fuego y tierra, respectivamente. Cada una de estas naves tendrá una serie de características distintas al resto, además de ciertas bonificaciones en ciertos aspectos relacionados con sus elementos. Estos aspectos serán explicados en apartados posteriores. 
 
-Una vez escogida la nave pasaremos a elegir los signos del zodiaco, que aumentarán o disminuirán ciertas características de las naves, dándole un aspecto de estrategia y diferenciación con el resto de vehículos contrarios. Cada jugador podrá equipar a su nave hasta dos signos distintos. Cada signo aumentará una característica del coche y disminuirá otra. Además también pueden afectar a la probabilidad de choque en caso de existir módulos especiales en el circuito escogido. Esta decisión surgió para evitar signos del zodiaco muy poderosos, haciendo que el resto fueran ignorados. 
+Una vez escogida la nave pasaremos a elegir los signos del zodiaco, que aumentarán o disminuirán ciertas características de las naves, dándole un aspecto de estrategia y diferenciación con el resto de vehículos contrarios. Cada jugador podrá equipar a su nave hasta dos signos distintos. Cada signo aumentará una característica del coche y disminuirá otra. Además también pueden afectar a la probabilidad de ralentización en caso de existir módulos especiales en el circuito escogido. Esta decisión surgió para evitar signos del zodiaco muy poderosos, haciendo que el resto fueran ignorados. 
 
-Los signos tienen su propio elemento, al igual que las naves, pero eso no implica que solamente los jugadores podrán equipar en sus naves los elementos compatibles. Cada jugador podrá elegir libremente sus dos signos a equipar. Al igual que las naves, la IA elegirá de forma aleatoria los dos signos.
+Los signos tienen su propio elemento, al igual que las naves, pero eso no implica que solamente los jugadores podrán equipar en sus naves los elementos compatibles. Cada jugador podrá elegir libremente sus dos signos a equipar.
 
-Por último, se elegirá un circuito. Dependiendo del número de jugadores se podrá elegir o se escogerá de manera aleatoria. Si la partida es de un solo jugador, este podrá escoger entre los circuitos predeterminados del juego, los creados por él o los circuitos recibidos de otros jugadores. En caso de multijugador se escogerá un circuito al azar de entre todos los disponibles en la base de datos general, independientemente del autor.
-
-Una vez seleccionado un circuito se empezará la carrera.
+A continuación, los jugadores personalizarán el reglaje de su vehículo, pudiendo elegir entre velocidad, aceleración o equilibrado o si la espaciodinámica afecta menos en curvas o en rectas.
 
 **CARRERA**
 
-Al iniciar una partida, los vehículos serán colocados en la línea de salida del circuito escogido. Estos vehículos pueden ser controlados tanto por jugadores como por inteligencia artificial, dependiendo del modo escogido. A continuación se mostrará una cuenta atrás, dando inicio a la carrera.
+Al iniciar una partida, los vehículos serán colocados en la línea de salida del circuito escogido. A continuación se mostrará una cuenta atrás, dando inicio a la carrera.
 
 El vehículo se desplazará sobre el circuito de forma automática y el jugador podrá alterar su velocidad mediante una barra de desplazamiento vertical ubicada en la parte derecha de la pantalla. Para evitar una jugabilidad monótona haciendo que los jugadores se limiten a escoger la mayor velocidad posible se han incluido ciertas reglas típicas de la Fórmula 1. Por ejemplo, si un jugador lleva una velocidad muy elevada y se dirige a una curva sin bajar la velocidad, se saldrá del circuito, teniendo que reaparecer en un punto anterior y perdiendo un tiempo valioso.
 
-Para ganar una carrera es necesario dar cuatro vueltas en total al circuito y llegar en primer lugar a la meta en la última vuelta. Al dar una vuelta al circuito los jugadores serán desplazados al carril contiguo a su derecha, haciendo que los jugadores tengan que enfrentarse a las situaciones que presenten el resto de carriles.
+Para ganar una carrera es necesario dar una serie de vueltas en total al circuito y llegar en primer lugar a la meta en la última vuelta. El número de vueltas es establecido por el creador del circuito y pueden ser cuatro, ocho, doce o dieciseis. Al dar una vuelta al circuito los jugadores serán desplazados al carril contiguo a su derecha, haciendo que los jugadores tengan que enfrentarse a las situaciones que presenten el resto de carriles. Además, si una nave consigue superar a otra en su propio carril será eliminada automáticamente.
 
-En la interfaz de una partida se podrán observar el número de vueltas dadas al circuito en la esquina inferior izquierda y la posición del jugador en la esquina superior derecha.
+En la interfaz de una partida se podrán observar el número de vueltas dadas al circuito en la zona superior de la pantalla, la posición de todos los jugadores en la esquina superior derecha junto a la velocidad actual de la nave. En la zona derecha de la pantalla se mostrará una barra desplazadora. Al mover el icono de esta podremos alterar la velocidad por fases.
 
-Una vez finalizada la carrera se mostrará una pantalla con las posiciones de los jugadores y sus tiempos. Desde esta pantalla se podrá salir al menú principal o volver a empezar la partida con los mismos ajustes.
+En la esquina inferior izquierda se mostrará el botón de pausa. Esta pantalla nos mostrará los signos del zodiaco escogidos por cada nave y sus correspondientes reglajes. Desde esta pantalla podremos volver al circuito o salir de la partida.
 
-**MODO TORNEO**
+Una vez finalizada la carrera se mostrará una pantalla con las posiciones de los jugadores, su mejor tiempo y los puntos obtenidos. Desde esta pantalla se podrá salir al menú principal.
+
+**MODO LIGA**
 
 En el modo Torneo se aplican las mismas reglas explicadas anteriormente pero, en lugar de correr una sola carrera, se competirá en cuatro circuitos distintos elegidos al azar. Una vez finalizada una carrera se mostrarán los resultados al igual que en una carrera normal, pero con diferencias. En este modo se incluye una puntuación, determinada por la posición obtenida en la carrera, la cual irá aumentando en las siguientes carreras y determinará al ganador del torneo. Esta puntuación se obtiene de esta forma:
 
-* Primer puesto - 10 puntos.
-* Segundo puesto - 8 puntos.
-* Tercer puesto - 5 puntos.
-* Cuarto puesto - 3 puntos.
+* Primer puesto - 5 puntos.
+* Segundo puesto - 3 puntos.
+* Tercer puesto - 1 puntos.
+* Cuarto puesto - 0 puntos.
 
 Al finalizar las cuatro carreras se mostrará un ranking de los competidores.
+
+**MI EQUIPO**
+
+Al iniciar el modo "Mi equipo", se mostrará una lista con los circuitos que se correrán, siendo cuatro en total. A continuación, el jugador elegirá una nave al igual que en el modo normal. Una vez elegida se mostrará la interfaz del modo mánager.
+
+En esta interfaz el jugador tendrá diferentes opciones disponibles:
+
+- **Mi nave**: En esta sección los jugadores pueden gestionar los distintos aspectos de su nave, desde el zodiaco hasta los reglajes. En esta sección se añade una nueva sección llamada "Mejoras", la cual permite aplicar aumentos de características de forma limitada.
+- **Simular**: Una vez el jugador haya alterado de forma eficaz su nave para el circuito, podrá simular una partida en el circuito elegido. Esta simulación no puede ser alterada por el jugador de ninguna forma. Una vez termine la simulación, se repartirán puntos de la misma forma que en el modo Torneo.
+
+Al finalizar las cuatro carreras seleccionadas se declarará un ganador. Como puede apreciarse este es el modo más técnico y estratégico de Constela-Trix.
 
 #### 5.1.2.- VEHÍCULOS  <a name="mecanicas2"/>
 
@@ -175,12 +186,12 @@ Las naves son los elementos fundamentales de Constela-Trix. A continuación se e
 
 Las naves, su elemento y sus estadísticas son:
 
-| **NOMBRE**      | **ELEMENTO**           | **VEL** | **ACEL** | **P** | **F** | **MARCHAS** | **ED** |
-| :-------------: | :--------------------: | :-----: | :------: | :---: | :---: | :---------: | :----: |
-| Júpiter         | Aire                   |    4    |   9      |   15  |    1  |    1        |        |
-| Neptuno         | Agua                   |   2.5   |   15     |    5  |  0.65 |    1        |        |
-| Marte           | Fuego                  |   3.5   |   7      |   10  |   1.5 |    5        |        |
-| Saturno         | Tierra                 |    8    |   3      |   15  |    1  |    1        |        | 
+| **NOMBRE**      | **ELEMENTO**           | **VEL** | **ACEL** | **P**   | **F** |
+| :-------------: | :--------------------: | :-----: | :------: | :-----: | :---: | 
+| Júpiter         | Aire                   |   115   |   30     |   76.8  |   25  |   
+| Neptuno         | Agua                   |   106   |   31.25  |   72    |   40  |  
+| Marte           | Fuego                  |   97    |   40.5   |   48    |   22  | 
+| Saturno         | Tierra                 |   160   |   27.5   |   55.2  |   70  |
 
 #### 5.1.3.- SIGNOS DEL ZODIACO     <a name="mecanicas3"/>
 
@@ -205,9 +216,18 @@ En la siguiente tabla se pueden ver todos los signos del zodiaco disponibleS y l
 | Acuario      | Aire          |         |     -    |       |       |             |    +   |
 | Piscis       | Agua          |    +    |          |       |   -   |             |        |
 
+Además, al combinar los elementos de los signos con la nave se pueden obtener ciertas bonificaciones extras. Estas bonificaciones se activan al juntar dos o tres signos y/o naves del mismo elemento. Las bonificaciones son las siguientes:
+
+- Fuego: Aumenta la aceleración.
+- Tierra: Aumenta la velocidad.
+- Aire: Se reduce la espaciodinámica.
+- Agua: Se reduce el rozamiento de los módulos.
+
 #### 5.1.4.- REGLAJES <a name="mecanicas4"/>
 
-
+Hay dos tipos de reglajes: relación de marchas y espaciodinámica.
+- **Relación de marchas**: Puede ser de velocidad (aumenta la velocidad), aceleración (aumenta la aceleración) o equilibrado. Esa modifica si marchas en cortas o en largas.
+- **Espaciodinámica**: Funciona como la aerodinámica terrestre. Las naves tienen que ser capaces de superar unas ondas eléctricas. Puedes elegir si estas ondas te afecten menos en curvas o en rectas.
 
 #### 5.1.5.- CIRCUITOS    <a name="mecanicas5"/>
 
@@ -217,7 +237,7 @@ Una de las principales características de Constela-Trix son sus circuitos y có
 - Curva.
 - *Loop*.
 - Cambio de carril.
-- Zizag.
+- Zigzag.
 
 Además de estos módulos básicos existen cuatro módulos especiales que afectarán a la conducción de las naves. Cada módulo especial representa a uno de los cuatro elementos y pueden afectar al curso normal de una carrera, frenando las naves que no sean del mismo elemento durante un pequeño espacio de tiempo. Como se explicó anteriormente, estos efectos pueden ser contrarrestados por los signos del Zodiaco. A continuación se expone una comparación y cómo afectan las naves y signos.
 
@@ -238,54 +258,139 @@ Al ser una mecánica un tanto confusa se expondrá un ejemplo:
 
 El juego ofrece a los usuarios un constructor de circuitos usando los módulos explicados anteriormente. Los jugadores podrán colocar, girar y unir cualquier módulo que deseen con total libertad, aunque existen un par de restricciones:
 
-- Todos los circuitos deben estar unidos. Ya que la salida de la carrera y la meta son un único módulo, tienen que estar conectadas.
+- Todos los circuitos deben estar unidos.
 - Todos los circuitos deben tener un módulo de cambio de carril.
 
-En cualquier momento el creador podrá acceder a una vista previa del circuito pulsando un botón. 
+Al finalizar el diseño del circuito, el jugador deberá poner nombre al circuito creado, establecer el número de vueltas (cuatro, ocho, doce o dieciseis) y elegir el punto de salida. Una vez el autor considere que acabado su circuito, podrá subirlo a una base de datos general, dónde se almacenarán todos los circuitos creados por otros jugadores. Además, por cada circuito se creará un código para compartir el circuito creado con cualquier persona.
 
-Una vez el autor considere que acabado su circuito, podrá subirlo a una base de datos general, dónde se almacenarán todos los circuitos creados por otros jugadores. Además, por cada circuito se creará un código QR y una ID para compartir el circuito creado con cualquier persona.
-
-Los jugadores podrán descargar los circuitos de sus conocidos y amigos introduciendo el código QR o la ID correspondientes.
+Los jugadores podrán descargar los circuitos de sus conocidos y amigos introduciendo el código correspondiente.
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
-**INICIO**: Menú que se muestra al iniciar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*<br>
+Al iniciar una partida, el jugador tendrá que introducir su nombre.
+
+**INICIO**: Menú que se muestra al iniciar el juego.<br>
 
 - *JUGAR*: Empieza la partida.
-- *RANKING*: Muestra las mejores puntuaciones por Nombre. Tiene un botón ATRÁS, que vuelve a **INICIO**.
-- *CRÉDITOS*: Nombre del equipo y los desarrolladores. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *TIENDA*: Tienda del Juego. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *TUTORIAL*: Pantalla que muestra los controles. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *EDITOR*: Accede al editor de circuitos.
+- *TIENDA*: Se accede a la tienda, donde se muestran las skins disponibles, los módulos y la compra de moneda, además de nuestro saldo.
+- *OPCIONES*: Permite cambiar el idioma entre español, inglés y gallego además de poder quitar el volumen.
+- *CRÉDITOS*: Pantalla con información sobre los desarrolladores.
 
-**JUEGO**: Pantallas del juego<br>
+**MODOS DE JUEGO**: Este menú se muestra al pulsar el botón *JUGAR*. <br>
 
-- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego (Normal o Halloween). Si se elige el modo Dos Jugadores, hay dos fases de preparación. Si se elige el modo 1 jugador, aparecen sus niveles y solo hay una fase de preparación. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. Hay una (Un Jugador) o una por jugador (Dos Jugadores). Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
-- *COMBATE*: Gameplay en tiempo real de la batalla. Tiene botones para controlar el juego. Tiene un botón de *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
-- *RECUENTO RONDA*: Se cuentan los puntos para ver quien gana la ronda, se muestra mediante una tabla resumen. Cuando se pasa 5 veces por esta pantalla, la siguiente será **GAME OVER**. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
-- *GAME OVER*: Pantalla final del juego, donde se muestra el ganador y los puntos conseguidos.
+- *PARTIDA RÁPIDA*: En esta pantalla el jugador podrá correr una única carrera.
+- *MODO LIGA*: Permite acceder al modo liga, en el que se correrán cuatro carreras elegidas de manera aleatoria.
+- *TUTORIAL*: En este modo el jugador será guiado mediante mensajes por una partida rápida, para que el jugador aprenda los fundamentos del juego.
 
-**TUTORIAL**
+Las siguientes pantallas son comunes a los tres modos explicados anteriormente:
 
-- *PERSONAJES*: Muestra estadísticas avanzadas, para jugadores más experimentados. Al ser para niños, se evita mostrar este tipo de contenido. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-- *HABILIDADES*: Muestra la descripción de las habilidades. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-- *DESCRIPCION*: Describe a grandes rasgos como funciona el juego y los modos que hay. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-- *FASES*: Explica las distitas fases del juego (Preparación y Combate). Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-- *CONTROLES*: Explica los controles: en ordenador, se gestionan con el ratón; y en el móvil, pulsando de manera táctil. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+- *CIRCUITOS*: Se elegirá un circuito de forma aleatoria entre todos los disponibles en la base de datos o se podrá importar uno.
+- *NAVES*: El jugador puede elegir una nave entre las cuatro disponibles.
+- *ZODIACO*: Pantalla en la que se mostrarán los distintos signos del zodiaco. En esta pantalla se muestran los cambios que se aplican a cada vehículo.
+- *REGLAJES*: El jugador puede adaptar el reglaje de su vehículo.
+- *CARRERA*: Gameplay en tiempo real de la carrera. Hay un botón de *PAUSA*, el cual nos permite ver los signos del zodiaco del resto de competidores, además de su reglaje. Desde esta pantalla podremos salir al menú *INICIO*.
+- *RESULTADOS*: En esta pantalla se muestran las posiciones de los jugadores, la mejor vuelta y los puntos obtenidos. Desde esta pantalla se puede volver al menú de *INICIO*. Si el jugador se encuentra en el *MODO LIGA*, avanzará a la siguiente carrera.
 
-**TIENDA**: Pantallas de la tienda. Se pasan a través de Pestañas Botón. <br>
+- *MI EQUIPO*: El jugador accederá a una lista de los circuitos que correrá en el modo mánager. Al avanzar de pantalla, el jugador podrá elegir una nave. A continuación, accederá a la pantala del *MODO MÁNAGER*. 
 
-- *SKINS*: Lista de las Skins que se pueden comprar, el precio y la moneda necesaria (en cada caso).
-- *PREMIOS*: Lista de los Premios canjeables y su precio, siempre en CeReal Currency (CC).
-- *COMPRAR*: Pantalla que conecta con los métodos de pago para comprar Ataraxia Coins. Ventana de confirmación y contactos extra con los métodos de pago. 
+**MODO MÁNAGER**: <br>
+
+- *SIMULAR*: Permite simular una partida con nuestra nave modificada. EL jugador no puede controlar la velocidad de la nave.
+- *RESULTADOS*: Muestra los resultados de la partida.
+- *MI NAVE*: En esta pantalla el jugador podrá cambiar ciertas características de su nave.
+
+**MI NAVE**: <br>
+
+- *MEJORAS*: Permite aplicar ciertos aumentos de características dependiendo de nuestras mejoras disponibles.
+- *ZODIACO*: Pantalla en la que se mostrarán los distintos signos del zodiaco. En esta pantalla se muestran los cambios que se aplican a cada vehículo.
+- *REGLAJES*: El jugador puede adaptar el reglaje de su vehículo.
+
+**EDITOR DE CIRCUITOS**: En esta pantalla podemos empezar a formar nuestro circuito al pulsar *CREAR CIRCUITO*. <br>
+
+- *CREAR CIRCUITO*: En esta pantalla podremos formar crear nuestros circuitos mediante los módulos, disponibles al pulsar el botón *MÓDULOS*. Además, en esta pantalla también podremos rotar los módulos seleccionados o borrarlos. Al considerar finalizado el circuito podremos crearlo pulsando el botón verde. A continuación el jugador le pondrá nombre al circuito, indicará el número de vueltas y elegirá el módulo de salida. Una vez terminado, el jugador podrá subir su circuito a la base de datos y obtendrá un código, el cual servirá para compartir el circuito con cualquier persona.
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 
-`EJEMPLO:`
+Todas las interfaces que se muestran están en español, pero también se puede jugar al juego tanto en inglés como en gallego.
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+`INICIO:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/inicio.PNG)
+
+`NOMBRE DE USUARIO:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/nombreDeUsuario.PNG)
+
+`MENÚ PRINCIPAL:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/menuPrincipal.PNG)
+
+`CRÉDITOS:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/creditos.PNG)
+
+`TIENDA:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/tienda.PNG)
+
+`CONFIGURACIÓN:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/configuracion.PNG)
+
+`MODOS DE JUEGO:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/modosDeJuego.PNG)
+
+`ELEGIR CIRCUITO:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/elegirCircuito.PNG)
+
+`ELEGIR NAVE:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/elegirNave.PNG)
+
+`ELEGIR SIGNOS:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/elegirSignos.PNG)
+
+`REGLAJES:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/equilibrado.PNG)
+
+`PARITDA RÁPIDA:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/partidaRapida.PNG)
+
+`MENÚ DE PAUSA:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/menuDePausa.PNG)
+
+`CLASIFICACIÓN:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/clasificacion.PNG)
+
+`EDITOR DE CIRCUITOS:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/editorSeleccion.PNG)
+
+`EDITOR:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/editor.PNG)
+
+`MODO MÁNAGER:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/manager.PNG)
+
+`PRESENTACIÓN MODO MÁNAGER:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/presentacionManager.PNG)
+
+`PARTIDA MODO MÁNAGER:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/partidaManager.PNG)
 
 ### 5.4.- CONTROLES	<a name="controles"/>
 
@@ -322,15 +427,11 @@ Al acabar cada carrera se mostrará una clasificación de esa carrera, indicando
 
 En el juego se ofrecen tres modos de juego principales, dos de ellos siendo posible un modo multijugador entre dos y cuatro jugadores.
 
-- **PARTIDA RÁPIDA UN JUGADOR**: El jugador elegirá su nave y sus signos del Zodiaco y competirá contra tres naves controladas por IA en un circuito escogido por el jugador. Al terminar la carrera escogida el jugador podrá salir al menú principal o volver a jugar.
+- **PARTIDA RÁPIDA**: El jugador elegirá su nave y sus signos del Zodiaco y competirá contra tres naves controladas por IA en un circuito escogido por el jugador. Al terminar la carrera escogida el jugador podrá salir al menú principal o volver a jugar.
 
-- **PARTIDA RÁPIDA MULTIJUGADOR**: En este modo cada jugador podrá elegir su nave y sus signos. Se elegirá un circuito de forma aleatoria entre todos los disponibles en la BBDD.
+- **MODO LIGA**: El jugador competirá en cuatro carreras consecutivas elegidas al azar contra tres naves controladas por inteligencia artificial. El ganador se determinará mediante un sistema de puntuación.
 
-- **MODO TEMPORADA UN JUGADOR**: El jugador competirá en cuatro carreras consecutivas elegidas al azar contra tres naves controladas por inteligencia artificial. El ganador se determinará mediante un sistema de puntuación.
-
-- **MODO TEMPORADA MULTIJUGADOR**: Los jugadores competirán en cuatro carreras consecutivas elegidas al azar. El ganador se determinará mediante un sistema de puntuación.
-
-- **MODO SIMULACIÓN**: Este modo de juego es exclusivo para un solo jugador. En este modo el jugador tendrá que ajustar los reglajes de su coche de forma que pueda recorrer un circuito sin percances.
+- **MI LIGA**: En este modo el jugador tendrá que ajustar los reglajes de su coche de forma que pueda recorrer un circuito sin percances.
 
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
@@ -559,7 +660,7 @@ Pero no nos quedamos aquí. También podemos atraer a jóvenes gracias a nuestro
 
 *MODELO DE LIENZO*
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/canvasModelbusiness.png)
 
 ### 10.3.- MARKETING <a name="modeloDeNegocio"/>
 
