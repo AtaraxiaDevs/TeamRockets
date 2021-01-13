@@ -344,6 +344,10 @@ Todas las interfaces que se muestran están en español, pero también se puede 
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/modosDeJuego.PNG)
 
+`TUTORIAL:`
+
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/tutorial.png)
+
 `ELEGIR CIRCUITO:`
 
 ![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/elegirCircuito.PNG)
