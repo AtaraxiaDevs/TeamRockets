@@ -122,22 +122,26 @@ public class UIManagerMenus : MonoBehaviour
         }
   
     }
+    public void CopaOn(bool value)
+    {
+        InformacionPersistente.singleton.esCopa = value;
+    }
     public void GenerarCircuitosCopa()
     {
-        if (!InformacionPersistente.singleton.esCopa)
-        {
-            InformacionPersistente.singleton.esCopa = true;
+        //if (!InformacionPersistente.singleton.esCopa)
+        //{
+        //    InformacionPersistente.singleton.esCopa = true;
             circuitosListos = false;
             DatabaseAccess db = FindObjectOfType<DatabaseAccess>();
             db.GetCircuitoFromDataBaseModoCopa(this);
             StartCoroutine(esperarCircuitos("CocheReglaje"));
-        }
-        else
-        {
-            InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoCopa[InformacionPersistente.singleton.contCircuitoManager];
+        //}
+        //else
+        //{
+        //    InformacionPersistente.singleton.currentCircuito = InformacionPersistente.singleton.modoCopa[InformacionPersistente.singleton.contCircuitoManager];
 
-            IrA("CocheReglaje");
-        }
+        //    IrA("CocheReglaje");
+        //}
     }
 
 
