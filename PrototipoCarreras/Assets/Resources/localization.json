@@ -45,32 +45,6 @@
 		]
 	},
 	
-	"NJugadores":{
-		"SinglePlayer":[
-			"Un\nJugador",
-			"Single\nPlayer",
-			"Un\nxogador"
-		],
-		"MultiPlayer":[
-			"Multi\nJugador",
-			"Multi\nPlayer",
-			"Multi\nXogador"
-		]
-	},
-
-	"NJugadoresCopa":{
-		"SinglePlayer":[
-			"Un\nJugador",
-			"Single\nPlayer",
-			"Un\nxogador"
-		],
-		"MultiPlayer":[
-			"Multi\nJugador",
-			"Multi\nPlayer",
-			"Multi\nXogador"
-		]
-	},
-	
 	"CocheReglaje":{
 		"ElegirNave":[
 			"Elige nave",
@@ -260,32 +234,6 @@
 		]
 	},
 	
-	"Resultado":{
-		"Nombre":[],
-		"Tiempo":[]
-	},
-	
-	"SalasMulti":{
-		"Tiempo":[],
-		"JugadoresConectados":[],
-		"Listo":[]
-	},
-	
-	"ConfigurarCopa":{
-		"CircuitoN":[],
-		"Comenzar":[],
-		"Atras":[]
-	},
-	
-	"ListaCircuitos":{
-		
-	},
-	
-	"SalaCopa":{
-		"Clasificacion":[]
-		
-	},
-	
 	"ModoTemporada":{
 		"Presentacion":[
 			"¡Hola, TERRICOLA! Bienvenido a la competicion deportiva mas famosa de la galaxia, ¡CONSTELATRIX!\n\nPara ingresar en la competicion, elige el chasis de la nave para empezar a construirla. Tambien veras la lista de circuitos del campeonato.\n\n¡Mucha Suerte!",
@@ -398,6 +346,8 @@
 			"Modify your SpaceShip",
 			"Configura a tua nave"
 		],
+
+
 		"VelocidadMaxima":[
 			"VelocidadMax",
 			"MaxSpeed",
@@ -651,6 +601,90 @@
 		]
 	},
 
+	"CarreraRapida":{
+		"Comenzar":[
+			"Comenzar",
+			"Begin",
+			"Comezar"
+		],
+		"Piloto":[
+			"Piloto",
+			"Driver",
+			"Piloto"
+		],
+		"Pausar":[
+			"Pausar",
+			"Pause",
+			"Pausar"
+		],
+
+		"ACE":[
+			"ACE",
+			"ACC",
+			"ACE"
+		],
+		"VEL":[
+			"VEL",
+			"SPE",
+			"VEL"
+		],
+		"RECT":[
+			"RECT",
+			"STRA",
+			"RECT"
+		],
+		"CURV":[
+			"CUR",
+			"TUR",
+			"CUR"
+		],
+
+
+		"VueltaRapida":[
+			"Vuelta Rapida",
+			"Fastest Lap",
+			"Volta Rapida"
+		],
+		"MejorTiempo":[
+			"Mejor Tiempo",
+			"Best Lap",
+			"Mellor Tempo"
+		],
+		"UltimaVuelta":[
+			"Ultima Vuelta",
+			"Last Lap",
+			"Derradeira"
+		],
+
+
+		"Saturno":[
+			"Saturno",
+			"Saturn",
+			"Saturno"
+		],
+		"Jupiter":[
+			"Jupiter",
+			"Jupiter",
+			"Xupiter"
+		],
+		"Marte":[
+			"Marte",
+			"Mars",
+			"Marte"
+		],
+		"Neptuno":[
+			"Neptuno",
+			"Neptune",
+			"Neptuno"
+		],
+		"Tierra":[
+			"Tierra",
+			"Earth",
+			"Terra"
+		]
+
+	},
+
 	"NombreUsuario":{
 		"PlaceHolder":[
 			"Nombre de Usuario",
@@ -662,11 +696,28 @@
 	"Editor":{
 		"PlaceHolderNombreCircuito":[
 			"Introduce el nombre del circuito",
+			"Introduce track name",
+			"POR TRADUCIR GALLEGO"
+		],
+		"Modulos":[
+			"Modulos",
+			"Sections",
+			"Modulos"
+		],
+		"PopUp1":[
+			"CIRCUITO NO VALIDO.\n\nTIENES QUE ELEGIR EL MODULO SALIDA",
+			"INVALID TRACK.\n\nYOU HAVE TO PICK THE FINISH SECTION",
+			"CIRCUITO NO VALIDO.\n\nTIENES QUE ELEGIR EL MODULO SALIDA"
+		],
+		"PopUp2":[
+			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO",
+			"INVALID TRACK.\n\n REMEMBER TO PLACE A CHANGE-LINES SECTION.\n\nIT HAS TO BE CLOSED",
+			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO"
+		],
+		"Ayuda":[
+			"Introduce el nombre del circuito",
 			"Introduce circuit's name",
 			"POR TRADUCIR GALLEGO"
 		]
-		
 	}
-
-
 }
