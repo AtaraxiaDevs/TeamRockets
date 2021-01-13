@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipoCircuito: 9
   elemento: 0
-  rozamiento: -0.6
+  rozamiento: -1.2
   umbral: 900
