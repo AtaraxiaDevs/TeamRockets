@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Proyecto26;
+using UnityEngine.UI;
 
 public class DatabaseAccess : MonoBehaviour
 {
 
-
     private string pathSave = "https://constellatrix-27332-default-rtdb.europe-west1.firebasedatabase.app/Circuitos/.json";
     private string pathLoad = "https://constellatrix-27332-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'";
+   // private string pathSave = "https://constelatrix-default-rtdb.europe-west1.firebasedatabase.app/Circuitos/.json";
+    //private string pathLoad = "https://constelatrix-default-rtdb.europe-west1.firebasedatabase.app/Circuitos.json?print=pretty'";
+
+
+    public GameObject popUp;
+    public Text codigo;
+    public Text nombreCircuito;
+    
     void Start()
     {
         //SaveCircuitToDataBase("aquello");
@@ -16,11 +24,31 @@ public class DatabaseAccess : MonoBehaviour
         //GetCircuitoFromDataBaseRandom();
     }
 
-   public async void SaveCircuitToDataBase(string order){
+   public async void SaveCircuitToDataBase(string order,string name){
        DatosCircuitos nuevoCircuito = new DatosCircuitos();
        nuevoCircuito.order = order;
+       nuevoCircuito.name = name;
        RestClient.Post(pathSave, nuevoCircuito);
         Debug.Log("Datos Subidos");
+        popUp.SetActive(true);
+        RestClient.Get(pathLoad).Then(response =>{
+            SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(response.Text);
+            string keyActual = "";
+            foreach (var kvp in data)
+            {
+                if(InformacionPersistente.singleton.nombreUsuario.Equals(data[kvp.Key]["creator"])){
+                    keyActual = kvp.Key;
+                }
+                
+           }
+
+           InformacionPersistente.singleton.codigoGuardado = keyActual;
+
+           codigo.text = InformacionPersistente.singleton.codigoGuardado;
+           nombreCircuito.text = data[keyActual]["name"];
+           
+        });
+
    }
 
    public async void GetCircuitoFromDataBaseByName(string name, Constructor mine, UIManagerCarrera manager){
@@ -75,6 +103,7 @@ public class DatabaseAccess : MonoBehaviour
         
             Debug.Log(data[randomNumber]["order"]);
             InformacionPersistente.singleton.DATA_BD = data[randomNumber]["order"];
+            InformacionPersistente.singleton.nombreCircuitoActual = data[randomNumber]["name"];
            // mine.ConstruirCircuitoDesdeBD(data[randomNumber]["order"], dc);
         });
     }
@@ -170,6 +199,15 @@ public class DatabaseAccess : MonoBehaviour
     //            "");
     //    });
     //}
+
+
+    public void coppyToClipBoard(){
+
+        GUIUtility.systemCopyBuffer =   InformacionPersistente.singleton.codigoGuardado;
+
+        Debug.Log(GUIUtility.systemCopyBuffer);
+        Debug.Log("HOLA");
+    }
 
 }
 

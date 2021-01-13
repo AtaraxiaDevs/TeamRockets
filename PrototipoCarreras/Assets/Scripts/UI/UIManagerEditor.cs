@@ -31,6 +31,7 @@ public class UIManagerEditor : MonoBehaviour
     public GameObject prefabRecta, prefabVuelta,prefabAbierta,prefabCerrada,prefabZigZag,prefabChicanne,prefabEspecial;
     public Circuito circuito;
     public Dropdown vueltas;
+    public InputField nombreCircuito;
  
 
     //Referencias UI
@@ -110,6 +111,7 @@ public class UIManagerEditor : MonoBehaviour
 
     private void ComenzarCarrera()
     {
+
         if (current != null)
         {
             current.soyPrimero();
@@ -137,6 +139,7 @@ public class UIManagerEditor : MonoBehaviour
             
             current = null;
             vueltas.gameObject.SetActive(true);
+            nombreCircuito.gameObject.SetActive(true);
             circuito.numVueltas = 4;
             circuito.SetInteractuable(false);
             rotar.gameObject.SetActive(false);

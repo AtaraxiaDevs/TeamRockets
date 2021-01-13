@@ -2157,6 +2157,7 @@ MonoBehaviour:
   display:
   - {fileID: 2100675502}
   UISelector: 1
+  managerUI: {fileID: 1518763396}
 --- !u!1 &1231773438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCAR: {fileID: 0}
   esCircuito: 0
   tengoCoche: 0
   m_speed: 0
@@ -2660,6 +2662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518763398}
   - component: {fileID: 1518763397}
+  - component: {fileID: 1518763399}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2693,6 +2696,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  esCarrera: 0
   circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
@@ -2708,6 +2712,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518763399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518763396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec846627b438ee47b157991b70f86d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreCircuito: {fileID: 1418822802}
 --- !u!114 &1582403779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3326524314397688725, guid: f2c2a6395819ba04faac70924ae48dcf,
@@ -2859,6 +2876,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5647811009800185314, guid: 07fde46fb4858704388ce77b9b3d28a5,
+        type: 3}
+      propertyPath: managerUI
+      value: 
+      objectReference: {fileID: 1518763396}
     - target: {fileID: 7083792541405992584, guid: 07fde46fb4858704388ce77b9b3d28a5,
         type: 3}
       propertyPath: m_Name

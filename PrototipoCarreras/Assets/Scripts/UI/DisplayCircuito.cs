@@ -12,6 +12,9 @@ public class DisplayCircuito : MonoBehaviour
     public Image[] display;
     private bool esperandoCircuitoFlag= false;
     public bool UISelector;
+
+    public GameObject managerUI;
+
     private void Start()
     {
         camara = FindObjectOfType<CameraController>();
@@ -36,12 +39,15 @@ public class DisplayCircuito : MonoBehaviour
         {
             if (!InformacionPersistente.singleton.DATA_BD.Equals(""))
             {
-               
+
                 constructor.ConstruirCircuitoDesdeBD(InformacionPersistente.singleton.DATA_BD, this);
+                managerUI.GetComponent<UIManagerElegirCircuito>().cambiarNombre();
+
                 InformacionPersistente.singleton.DATA_BD = "";
                 esperandoCircuitoFlag = false;
                 if (InformacionPersistente.singleton.esMovil)
                 {
+
                     render.gameObject.SetActive(true);
                     var current = RenderTexture.active;
                     RenderTexture.active = render.targetTexture;

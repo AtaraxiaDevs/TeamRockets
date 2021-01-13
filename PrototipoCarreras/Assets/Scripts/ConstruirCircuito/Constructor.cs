@@ -13,7 +13,7 @@ public class Constructor : MonoBehaviour
     //UI
     public Text posiciones;
     //Referencias a prefabs modulos
-    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio,prefabMontaña,prefabBurbujas,prefabMeteoritos,prefabElectrico;
+    public GameObject prefabModuloRecta, prefabModuloCerrada, prefabModuloAbierta, prefabModuloZigZag, prefabModuloVuelta, prefabModuloChicane, prefabModuloEspecialCambio, prefabMontaña, prefabBurbujas, prefabMeteoritos, prefabElectrico;
     //Referencias a prefab Circuito
     public GameObject prefabCircuito;
 
@@ -23,10 +23,11 @@ public class Constructor : MonoBehaviour
     private Vector3 centro = Vector3.zero;
 
     public DatabaseAccess db;
+    public Text nombreCircuito;
 
     private void Start()
     {
-       
+
     }
     #region Metodos Construccion
     public void ConstruirCircuito()
@@ -46,9 +47,10 @@ public class Constructor : MonoBehaviour
         db = FindObjectOfType<DatabaseAccess>();
 
         db.GetCircuitoFromDataBaseRandom();
+
         //
     }
-    //public void ConstruirCircuitoRandom(DisplayCircuito dc)
+    //public void ConstruirCircuitoRandom(DisplayCircuito dc)a
     //{
     //    //////DataCircuito datos = CargarCircuito("prueba");
     //    //string datos = CargarCircuitoMongo("prueba");
@@ -58,10 +60,10 @@ public class Constructor : MonoBehaviour
 
     //    //DataCircuito data = ParseMongo(datos);
     //    //DataToCircuito(data);
-    
+
     //    db.GetCircuitoFromDataBaseRandom(this, dc);
     //}
-    public void ConstruirCircuitoDesdeBD(string datos,UIManagerCarrera manager)
+    public void ConstruirCircuitoDesdeBD(string datos, UIManagerCarrera manager)
     {
         DataCircuito data = ParserFireBase(datos);
         DataToCircuito(data);
@@ -71,12 +73,12 @@ public class Constructor : MonoBehaviour
     public void ConstruirCircuitoDesdeBD(string datos, DisplayCircuito dc)
     {
         DataCircuito data = ParserFireBase(datos);
-        InformacionPersistente.singleton.currentCircuito =data;
+        InformacionPersistente.singleton.currentCircuito = data;
         DataToCircuito(data);
         dc.CircuitoCargado(this);
     }
 
-    public void DataToCircuito( DataCircuito datos)
+    public void DataToCircuito(DataCircuito datos)
     {
         centro = Vector3.zero;
         Circuito nuevo = Instantiate(prefabCircuito, Vector3.zero, Quaternion.identity).GetComponent<Circuito>();
@@ -88,7 +90,7 @@ public class Constructor : MonoBehaviour
             TipoModulo tm = dm.modulo;
             Modulo nuevoModulo;
 
-            switch(tm)
+            switch (tm)
             {
                 case TipoModulo.CHICANE:
                     nuevoModulo = Instantiate(prefabModuloChicane, posSiguiente, Quaternion.identity).GetComponent<Modulo>();
@@ -138,11 +140,11 @@ public class Constructor : MonoBehaviour
                     nuevoModulo.Rotar();
                     break;
                 case Rotacion.CIENTOCHENTAGRADOS:
-                    for(int i=0; i < 2; i++)
+                    for (int i = 0; i < 2; i++)
                     {
                         nuevoModulo.Rotar();
                     }
-                    
+
                     break;
                 case Rotacion.DOSCIENTOSSETENTAGRADOS:
                     for (int i = 0; i < 3; i++)
@@ -152,7 +154,7 @@ public class Constructor : MonoBehaviour
 
                     break;
             }
-            
+
             TipoSocket ts = dm.socketVecino;
             Vector3 offset = nuevoModulo.transform.position;
 
@@ -168,7 +170,7 @@ public class Constructor : MonoBehaviour
                     offset += new Vector3(0, 0, -dm.sizeModulo);
                     break;
                 case TipoSocket.NEGX:
-                    offset +=new Vector3(-dm.sizeModulo, 0, 0);
+                    offset += new Vector3(-dm.sizeModulo, 0, 0);
                     break;
             }
 
@@ -181,10 +183,10 @@ public class Constructor : MonoBehaviour
             nuevo.AddModulo(nuevoModulo);
         }
 
-        for (int i = 0; i < nuevo.modulos.Count-1; i++)
+        for (int i = 0; i < nuevo.modulos.Count - 1; i++)
         {
             //Poner el siguiente
-            if(nuevo.modulos[i].reverse)
+            if (nuevo.modulos[i].reverse)
             {
                 nuevo.modulos[i].AddVecino(nuevo.modulos[i].socket1, nuevo.modulos[i + 1]);
             }
@@ -194,27 +196,38 @@ public class Constructor : MonoBehaviour
             }
 
         }
-       
+
 
         nuevo.modulos[0].soyPrimero();
         nuevo.moduloPrimero = nuevo.modulos[0];
-       
-       
+
+
         creado = nuevo;
     }
     #endregion
     #region Metodos Guardado
     public void GuardarCircuito(Circuito circuito)
     {
-        DataCircuito datos = CircuitoToData(circuito);
-        string data = ParseCircuito(datos);
+        string str = nombreCircuito.text.Trim();
+        if (!str.Equals("") && str != null)
+        {
+            DataCircuito datos = CircuitoToData(circuito);
 
-        //HACER POST CON DATA
+            string data = ParseCircuito(datos);
 
-        db.SaveCircuitToDataBase(data);
+            //HACER POST CON DATA
 
-        
-        
+            db.SaveCircuitToDataBase(data, str);
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
+
+
+
+
+
     }
     private DataCircuito CircuitoToData(Circuito circuito)
     {
@@ -276,7 +289,7 @@ public class Constructor : MonoBehaviour
     }
     private string CargarCircuitoMongo(string nombre)
     {
-        string resultado="";
+        string resultado = "";
         string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
 
         if (File.Exists(path))
@@ -302,7 +315,7 @@ public class Constructor : MonoBehaviour
         file.Close();
 
     }
-    private void SaveCircuito(string nombre,string circuito)
+    private void SaveCircuito(string nombre, string circuito)
     {
         BinaryFormatter bf = new BinaryFormatter();
         string path = Application.persistentDataPath + "/savedCircuito" + nombre + ".gd";
@@ -313,12 +326,12 @@ public class Constructor : MonoBehaviour
     }
     #endregion
     #region UI
-    public void EmpezarCarreraListener( Button btn)
+    public void EmpezarCarreraListener(Button btn)
     {
         //btn.gameObject.SetActive(true);
         //btn.onClick.AddListener(() =>
         //{
-          
+
         //    UIManagerCarrera ui = FindObjectOfType<UIManagerCarrera>();
         //    ui.circuito = creado;
         //    ui.posiciones = posiciones;
@@ -326,11 +339,11 @@ public class Constructor : MonoBehaviour
         //    CC.circuito = creado;
         //    ui.coches.AddRange(creado.pilotos);
         //    CC.EmpezarCarrera();
-    
+
         //    // creado.IniciarCarrera();
         //});
         //CameraFuncionando(FindObjectOfType<CameraController>());
-        
+
     }
     public void CameraFuncionando(CameraController camara)
     {
@@ -344,9 +357,9 @@ public class Constructor : MonoBehaviour
         int size = datos.modulos.Count;
         string res = size + "\n";
         res += datos.numVueltas + "\n";
-        foreach(DataModulo data in datos.modulos)
+        foreach (DataModulo data in datos.modulos)
         {
-            res += (int)data.rotacion+":";
+            res += (int)data.rotacion + ":";
             res += (int)data.socketVecino + ":";
             res += (int)data.modulo + ":";
             res += data.sizeModulo + ":";
@@ -364,18 +377,18 @@ public class Constructor : MonoBehaviour
     }
     public static DataCircuito ParserFireBase(string datos)
     {
-        string[] datosSplit = datos.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries); 
+        string[] datosSplit = datos.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
         int size = int.Parse(datosSplit[0]);
         DataCircuito res = new DataCircuito(int.Parse(datosSplit[1]));
-        for(int i=0; i < size; i++)
+        for (int i = 0; i < size; i++)
         {
-            string[] datosModulo = datosSplit[i+2].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] datosModulo = datosSplit[i + 2].Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
             DataModulo nuevo = new DataModulo();
             nuevo.rotacion = (Rotacion)int.Parse(datosModulo[0]);
             nuevo.socketVecino = (TipoSocket)int.Parse(datosModulo[1]);
             nuevo.modulo = (TipoModulo)int.Parse(datosModulo[2]);
             nuevo.sizeModulo = int.Parse(datosModulo[3]);
-            if (int.Parse(datosModulo[4])==1)
+            if (int.Parse(datosModulo[4]) == 1)
             {
                 nuevo.reverse = true;
             }
@@ -407,7 +420,7 @@ public class DataCircuito
 [System.Serializable]
 public class DataModulo
 {
-   // public DataModulo siguiente;
+    // public DataModulo siguiente;
     public Rotacion rotacion;
     public TipoSocket socketVecino;
     public TipoModulo modulo;

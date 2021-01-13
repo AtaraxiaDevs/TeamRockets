@@ -50,9 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/CocheReglaje.unity
     guid: 9f08d4023395cb24b890c9ce58cbc6e3
-  - enabled: 1
-    path: Assets/Scenes/UI/Tutorial.unity
-    guid: 0ee6428cd48c2894d83b95d2a8e54031
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/UI/Creditos.unity
     guid: df32db54fdb94dd4abd31782bb1b4a0e
@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/EditorMenu.unity
     guid: 7ee8573a5c501ae48b0fa5190896d162
+  - enabled: 1
+    path: Assets/Scenes/UI/NombreUsuario.unity
+    guid: 55285b45b4697044a8250e3f185de1bb
   m_configObjects: {}

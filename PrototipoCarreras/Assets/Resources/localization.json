@@ -644,5 +644,24 @@
 			"Volume",
 			"Volume"
 		]
+	},
+
+	"NombreUsuario":{
+		"PlaceHolder":[
+			"Nombre de Usuario",
+			"User Name",
+			"Nome de Usuario"
+		]
+	},
+
+	"Editor":{
+		"PlaceHolderNombreCircuito":[
+			"Introduce el nombre del circuito",
+			"Introduce circuit's name",
+			"POR TRADUCIR GALLEGO"
+		]
+		
 	}
+
+
 }

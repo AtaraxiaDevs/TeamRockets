@@ -24,7 +24,7 @@ public class DatosCoche
     {
         return (DatosCoche)this.MemberwiseClone();
     }
-    
+
 }
 public class InformacionPersistente : MonoBehaviour
 {
@@ -44,21 +44,24 @@ public class InformacionPersistente : MonoBehaviour
     public DatosCoche[] cochesCarrera;
     public DatosCoche naveTerricola;
     // quizas hacer un datoscoche con los del modo manager?¿
-    public  List<Participante> navesModoMan;
+    public List<Participante> navesModoMan;
     public List<Participante> navesModoCopa;
     public ModeloCoche[] modelosCoches;
-  
+
     public Signo[] signosZodiaco;
 
     public int numCoches, nivelRitmoPropio = -1;
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
 
-    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, entradoTemporada = false, esCopa = false,copaTerminada=false,temporadaTerminada=false;
+    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, entradoTemporada = false, esCopa = false, copaTerminada = false, temporadaTerminada = false;
     public string nombreUsuario = "Celtia";
+
+    public string codigoGuardado = "";
     public string DATA_BD = "";
     [HideInInspector]
     public DataCircuito currentCircuito = null;
+    public string nombreCircuitoActual = "HOLA";
     [HideInInspector]
     public DataCircuito[] modoCopa = new DataCircuito[4];
     [HideInInspector]
@@ -66,24 +69,26 @@ public class InformacionPersistente : MonoBehaviour
     [HideInInspector]
     public int contCircuitoManager = 0, contCircuitoCopa = 0;
 
+    public string codigoModoEditor;
+
     public bool isMobile()
     {
-        #if !UNITY_EDITOR && UNITY_WEBGL
+#if !UNITY_EDITOR && UNITY_WEBGL
              return IsMobile();
-        #endif
-            return false;
+#endif
+        return false;
     }
     public bool isEditor()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             return true;
-        #endif
-            return false;
+#endif
+        return false;
     }
     #region Unity
     private void Awake()
     {
-        
+
 
         if (singleton == null)
         {
@@ -98,14 +103,14 @@ public class InformacionPersistente : MonoBehaviour
             Destroy(gameObject);
         }
     }
-  
+
     void Start()
     {
-        numCoches = modelosCoches.Length-1;
+        numCoches = modelosCoches.Length - 1;
         cochesCarrera = new DatosCoche[numCoches];
         LimpiarInfoCoches();
 
-     
+
     }
     #endregion
     #region Gestion de la informacion
@@ -130,7 +135,7 @@ public class InformacionPersistente : MonoBehaviour
                 randomSigno2 = 0;
             }
         }
-        
+
         res.signos[0] = signosZodiaco[randomSigno1];
         res.signos[1] = signosZodiaco[randomSigno2];
 
@@ -138,7 +143,7 @@ public class InformacionPersistente : MonoBehaviour
         return res;
     }
 
-   public static string GetPlaneta(Elemento e, int id)
+    public static string GetPlaneta(Elemento e, int id)
     {
         if ((id == 0) && (InformacionPersistente.singleton.esTemporada))
         {
@@ -182,30 +187,30 @@ public class InformacionPersistente : MonoBehaviour
             }
             else
             {
-              
+
                 for (int i = 0; i < numCoches; i++)
                 {
                     cochesCarrera[i] = null;
-                    
+
                 }
             }
         }
         else
         {
-           
-            
-                if (contCircuitoCopa < 3)
-                {
-                    contCircuitoCopa++;
-                    currentCircuito = modoCopa[contCircuitoCopa];
-                }
-                else
-                {
-                    copaTerminada = true;
-                }
-            
+
+
+            if (contCircuitoCopa < 3)
+            {
+                contCircuitoCopa++;
+                currentCircuito = modoCopa[contCircuitoCopa];
+            }
+            else
+            {
+                copaTerminada = true;
+            }
+
         }
-      
+
     }
     #endregion
 
