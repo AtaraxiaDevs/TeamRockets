@@ -346,7 +346,7 @@ Todas las interfaces que se muestran están en español, pero también se puede 
 
 `TUTORIAL:`
 
-![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/tutorial.PNG)
+![alt text](https://github.com/AtaraxiaDevs/TeamRockets/blob/main/GDD/capturasInterfaces/tutorial.png)
 
 `ELEGIR CIRCUITO:`
 
