@@ -218,7 +218,7 @@ public class UIManagerCarrera : MonoBehaviour
 
         foreach(Coche c in coches)
         {
-            res += cont + "º: " + c.ID + " " + InformacionPersistente.GetPlaneta(c.statsBase.elemento,c.ID) + "\n";
+            res += cont + "º: " + InformacionPersistente.GetPlaneta(c.statsBase.elemento, c.ID) + " " + c.ID + "\n";
             cont++;
         }
         return res;
