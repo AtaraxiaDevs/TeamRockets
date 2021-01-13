@@ -4397,6 +4397,8 @@ MonoBehaviour:
   sceneFader: {fileID: 1582403779}
   tutorial: {fileID: 2111780938}
   PPrincipal: {fileID: 0}
+  tutoMovil: {fileID: 0}
+  tutoPC: {fileID: 0}
   pestanaActual: {fileID: 795369372}
   esTitulo: 0
   titulo: {fileID: 0}
@@ -4505,6 +4507,7 @@ GameObject:
   - component: {fileID: 1709094808}
   - component: {fileID: 1709094810}
   - component: {fileID: 1709094809}
+  - component: {fileID: 1709094811}
   m_Layer: 5
   m_Name: Titulo
   m_TagString: Untagged
@@ -4562,7 +4565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'CIRCUITO: '
+  m_Text: 
 --- !u!222 &1709094810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4571,6 +4574,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709094807}
   m_CullTransparentMesh: 0
+--- !u!114 &1709094811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709094807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95635ee7c027e334a88928cce84d9167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttKey: Circuito
+  hola: {fileID: 1709094809}
 --- !u!1 &1762500409
 GameObject:
   m_ObjectHideFlags: 0

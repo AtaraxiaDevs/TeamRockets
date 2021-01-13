@@ -61,6 +61,11 @@
 			"Choose your settings",
 			"Escoller a minha afinacion"
 		],
+		"Circuito":[
+			"Circuito",
+			"Track",
+			"Circuito"
+		],
 
 	
 		"VelocidadMaxima":[
@@ -858,7 +863,7 @@
 		"PlaceHolderNombreCircuito":[
 			"Introduce el nombre del circuito",
 			"Introduce track name",
-			"POR TRADUCIR GALLEGO"
+			"Introduce o nome do circuito"
 		],
 		"Modulos":[
 			"Modulos",
@@ -868,12 +873,12 @@
 		"PopUp1":[
 			"CIRCUITO NO VALIDO.\n\nTIENES QUE ELEGIR EL MODULO SALIDA",
 			"INVALID TRACK.\n\nYOU HAVE TO PICK THE FINISH SECTION",
-			"CIRCUITO NO VALIDO.\n\nTIENES QUE ELEGIR EL MODULO SALIDA"
+			"CIRCUITO NON VALIDO.\n\nTES QUE ESCOLLER O MODULO SALIDA"
 		],
 		"PopUp2":[
 			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO",
 			"INVALID TRACK.\n\n REMEMBER TO PLACE A CHANGE-LINES SECTION.\n\nIT HAS TO BE CLOSED",
-			"CIRCUITO NO VALIDO.\n\n RECUERDA QUE EL CIRCUITO TIENE QUE TENER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMBIEN TIENE QUE ESTAR CERRADO"
+			"CIRCUITO NON VALIDO.\n\n MEMBRA QUE O CIRCUITO TEN QUE TER UN ÚNICO CAMBIO DE CARRIL.\n\nTAMEN TEN QUE ESTAR PECHADO"
 		]
 	}
 }
