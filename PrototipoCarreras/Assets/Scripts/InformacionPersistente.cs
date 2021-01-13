@@ -54,7 +54,7 @@ public class InformacionPersistente : MonoBehaviour
     public int idiomaActual = 2;
     public string escenaActual = "MainMenu";
 
-    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, entradoTemporada = false, esCopa = false, copaTerminada = false, temporadaTerminada = false;
+    public bool esMovil, esEditor, esTutorial = false, esTemporada = false, entradoTemporada = false, esCopa = false, copaTerminada = false,copaComenzada=false, temporadaTerminada = false;
     public string nombreUsuario = "Celtia";
 
     public string codigoGuardado = "";

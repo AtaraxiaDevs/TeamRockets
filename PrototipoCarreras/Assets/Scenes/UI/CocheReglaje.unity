@@ -1865,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d66e3c4a0af6149b0c548aacdaefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCAR: {fileID: 0}
   esCircuito: 0
   tengoCoche: 0
   m_speed: 0
@@ -4407,6 +4408,7 @@ MonoBehaviour:
   "spriteEspa\xF1ol2": {fileID: 0}
   spriteIngles2: {fileID: 0}
   spriteGallego2: {fileID: 0}
+  esCarrera: 0
   circuitosListos: 0
 --- !u!4 &1518763398
 Transform:
@@ -4473,6 +4475,10 @@ MonoBehaviour:
   infosigno1: {fileID: 1947871611}
   infosigno2: {fileID: 160497978}
   txtElemento: {fileID: 943924936}
+  displayManager: {fileID: 0}
+  escogerChasis: {fileID: 795369372}
+  escogerReglajes: {fileID: 2110849049}
+  atrasZodiaco: {fileID: 800859520}
   signosEscogidos: 
   RM: 0
   ED: 0
@@ -4891,7 +4897,9 @@ MonoBehaviour:
   render: {fileID: 629343290}
   display:
   - {fileID: 2001624491}
+  codigo: {fileID: 0}
   UISelector: 0
+  managerUI: {fileID: 0}
 --- !u!4 &1823130911
 Transform:
   m_ObjectHideFlags: 0

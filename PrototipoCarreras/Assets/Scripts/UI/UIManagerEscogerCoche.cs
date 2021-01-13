@@ -23,7 +23,8 @@ public class UIManagerEscogerCoche : MonoBehaviour
     public Image cocheDisplay,xdosDisplay,xtresDisplay;
     public Text infoCoche,infoCocheSignos,infosigno1,infosigno2, txtElemento;
     public Image displayManager;
-
+    public GameObject escogerChasis, escogerReglajes;
+    public Button atrasZodiaco;
     public int[] signosEscogidos;
     public int RM, ED;
 
@@ -34,6 +35,16 @@ public class UIManagerEscogerCoche : MonoBehaviour
     #region Unity
     void Awake()
     {
+        if (InformacionPersistente.singleton.copaComenzada)
+        {
+            InformacionPersistente.singleton.copaComenzada = false;
+            escogerChasis.SetActive(false);
+            escogerReglajes.SetActive(true);
+            UIManagerMenus UI = FindObjectOfType<UIManagerMenus>();
+            UI.pestanaActual = escogerReglajes;
+            atrasZodiaco.onClick.RemoveAllListeners();
+            atrasZodiaco.onClick.AddListener(()=>UI.IrA("ModosJuego"));
+        }
         currentCoche = new DatosCoche();
         currentCoche.ID = 0; // Va a ser el Jugador 1 por ahora
                              //y offline

@@ -196,7 +196,11 @@ public class Ranking : MonoBehaviour
                 ui.IrA("ModosJuegos");
             }
             else
+            {
+                InformacionPersistente.singleton.copaComenzada = true;
                 ui.IrA("CocheReglaje");
+
+            }
         }
         else
         {
