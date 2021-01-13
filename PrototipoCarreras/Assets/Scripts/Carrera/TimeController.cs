@@ -77,7 +77,9 @@ public class TimeController : MonoBehaviour
             }
         }
 
-        string vueltaTexto = "Fastest Lap: " + Mathf.Round(_vueltaRapida * 1000) / 1000 + "\nBest Lap: " + Mathf.Round(vueltaRapidaPropia * 1000) / 1000 + "\nLast Lap: " + Mathf.Round(ultimaVuelta * 1000) / 1000;
+        int idioma = InformacionPersistente.singleton.idiomaActual;
+        
+        string vueltaTexto = MiniTraductor("VueltaRapida", idioma) + ": " + Mathf.Round(_vueltaRapida * 1000) / 1000 + "\n" + MiniTraductor("MejorTiempo", idioma) + ": " + Mathf.Round(vueltaRapidaPropia * 1000) / 1000 + "\n" + MiniTraductor("UltimaVuelta", idioma) + ": " + Mathf.Round(ultimaVuelta * 1000) / 1000;
         return vueltaTexto;
     }
 
@@ -93,6 +95,20 @@ public class TimeController : MonoBehaviour
         {
             ids.Add(_jugadores[i].ID);
         }
+    }
+
+    public string MiniTraductor(string key, int lang)
+    {
+        string palabro = "";
+
+        string jsonData;
+        TextAsset auxtxt = Resources.Load<TextAsset>("localization");
+        jsonData = auxtxt.ToString();
+        SimpleJSON.JSONNode data = SimpleJSON.JSON.Parse(jsonData);
+
+        palabro = data[InformacionPersistente.singleton.escenaActual][key][lang].Value;
+
+        return palabro;
     }
 }
 
@@ -113,3 +129,5 @@ public class PlayerTime
         siguienteVuelta = 1;
     }
 }
+
+

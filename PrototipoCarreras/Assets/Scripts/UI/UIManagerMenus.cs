@@ -197,6 +197,7 @@ public class UIManagerMenus : MonoBehaviour
     public void CambiarSceneEditor(string scene)
     {
         SceneManager.LoadScene(scene);
+        InformacionPersistente.singleton.escenaActual = scene;
     }
 
     public void CambiarIdioma(int i)
